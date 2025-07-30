@@ -36,6 +36,16 @@ public class TopDownPlayerMovement : MonoBehaviour
             rb.AddForce(movement * moveForce);
         }
         CastMagic();
+
+        // Flip the player to face the movement direction
+        if (movement.x > 0)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (movement.x < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
     }
 
     void CastMagic()
