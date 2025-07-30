@@ -8,6 +8,7 @@ public class SimpleEnemy : MonoBehaviour
 
     private Rigidbody2D rb;
     private Transform player;
+    private float health = 100f; // Example health value
 
     void Awake()
     {
@@ -39,5 +40,26 @@ public class SimpleEnemy : MonoBehaviour
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collision detected with: " + collision.gameObject.name + " (" + collision.gameObject.tag + ")");
+        if (collision.gameObject.CompareTag("Spell"))
+        {
+            Debug.Log("Enemy hit by spell!");
+            health -= 100f; // TODO: Grab damage value from spell
+            if (health <= 0f)
+            {
+                Die();
+            }
+        }
+    }
+
+    void Die() 
+    {
+        // Handle enemy death (e.g., play animation, destroy object)
+        Debug.Log("Enemy died!");
+        Destroy(gameObject);
     }
 }
