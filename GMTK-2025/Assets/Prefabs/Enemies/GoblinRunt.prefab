@@ -8,14 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6800311007714447452, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 2520108084128459728, guid: 93510807f59dd534ab8835aeb7ff818c, type: 3}
-    - target: {fileID: 6800311007714447452, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7854621941134830433, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -58,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9053000782808126288, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
       propertyPath: m_Name
-      value: GoblinRunt Variant
+      value: GoblinRunt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -6,16 +6,20 @@ public class TopDownPlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveForce = 50f;
     [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private float magicBallCooldown = 2f;
+    [SerializeField] private float maxMagicBallCooldown;
     [SerializeField] private bool canCastMagic = true;
     [SerializeField] private GameObject magicBallPrefab; // Temporary placeholder until magic system is properly implemented
     [SerializeField] private Transform reticle; // Reference to the reticle script for aiming
 
+    private float magicBallCooldown;
+    private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
     private Rigidbody2D rb;
     private Vector2 movement;
 
     void Awake()
     {
+        magicBallCooldown = maxMagicBallCooldown; // Initialize cooldown
+        playerSprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         reticle = FindFirstObjectByType<Reticle>().GetComponent<Transform>();
     }
@@ -40,11 +44,11 @@ public class TopDownPlayerMovement : MonoBehaviour
         // Flip the player to face the movement direction
         if (movement.x > 0)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            playerSprite.flipX = true;
         }
         else if (movement.x < 0)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            playerSprite.flipX = false;
         }
     }
 
@@ -58,7 +62,7 @@ public class TopDownPlayerMovement : MonoBehaviour
         }
         else if (magicBallCooldown <= 0f)
         {
-            magicBallCooldown = 2f; // Reset cooldown
+            magicBallCooldown = maxMagicBallCooldown; // Reset cooldown
             canCastMagic = true;
         }
 

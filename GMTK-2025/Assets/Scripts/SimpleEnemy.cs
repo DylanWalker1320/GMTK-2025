@@ -9,6 +9,7 @@ public class SimpleEnemy : MonoBehaviour
     private Rigidbody2D rb;
     private Transform player;
     private float health = 100f; // Example health value
+    [SerializeField] private ParticleSystem deathEffect; // EXP death effect
 
     void Awake()
     {
@@ -51,6 +52,7 @@ public class SimpleEnemy : MonoBehaviour
             health -= 100f; // TODO: Grab damage value from spell
             if (health <= 0f)
             {
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
                 Die();
             }
         }

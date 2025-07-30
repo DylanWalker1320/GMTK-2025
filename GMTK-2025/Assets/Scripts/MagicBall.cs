@@ -6,7 +6,7 @@ public class MagicBall : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private MagicBallType magicBallType;
     [SerializeField] private int speed;
-    [SerializeField] private int destroyTime = 5;
+    [SerializeField] private float destroyTime = 5;
     private Rigidbody2D magicRB;
     private TopDownPlayerMovement player;
     private Vector3 mousePos;
@@ -37,7 +37,7 @@ public class MagicBall : MonoBehaviour
         }
     }
 
-    private IEnumerator DestructionTime(int waitTime)
+    private IEnumerator DestructionTime(float waitTime)
     {
         yield return new WaitForSecondsRealtime(waitTime);
         Destroy(gameObject);
