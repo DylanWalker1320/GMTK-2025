@@ -3,7 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class TopDownPlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveForce = 50f;
+    [SerializeField] private float maxSpeed = 5f;
 
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -15,14 +16,17 @@ public class TopDownPlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Get input from player
-        movement.x = Input.GetAxisRaw("Horizontal"); // A/D or Left/Right
-        movement.y = Input.GetAxisRaw("Vertical");   // W/S or Up/Down
-        movement = movement.normalized; // Prevent diagonal speed boost
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        movement = movement.normalized;
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = movement * moveSpeed;
+        // Only add force if under max speed
+        if (rb.linearVelocity.magnitude < maxSpeed)
+        {
+            rb.AddForce(movement * moveForce);
+        }
     }
 }
