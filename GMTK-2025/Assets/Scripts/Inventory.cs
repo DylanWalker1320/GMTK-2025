@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    private TopDownPlayerMovement player;
+    private PlayerMovement player;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public GameObject[] spellArray = new GameObject[8]; // Holds spell prefabs, consider changing prefabs to be of spell type
     [SerializeField] private float maxTimeBetweenSpells;
@@ -17,10 +17,10 @@ public class Inventory : MonoBehaviour
     public int currentSpellIndex = 0; // Index of the current spell being cast
     private void Awake()
     {
-        player = FindFirstObjectByType<TopDownPlayerMovement>();
+        player = FindFirstObjectByType<PlayerMovement>();
         if (player == null)
         {
-            Debug.LogError("TopDownPlayerMovement not found in the scene.");
+            Debug.LogError("PlayerMovement not found in the scene.");
         }
         timeBetweenSpells = maxTimeBetweenSpells; // Initialize time between spells
     }

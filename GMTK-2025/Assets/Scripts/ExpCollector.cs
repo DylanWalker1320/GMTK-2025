@@ -8,12 +8,12 @@ public class ExpCollector : MonoBehaviour
     private ParticleSystem potency;
     private List<ParticleSystem.Particle> particles = new List<ParticleSystem.Particle>();
     private Transform collector;
-    private TopDownPlayerMovement player;
+    private PlayerMovement player;
 
 
     private void Start()
     {
-        player = FindFirstObjectByType<TopDownPlayerMovement>();
+        player = FindFirstObjectByType<PlayerMovement>();
         potency = GetComponent<ParticleSystem>();
         collector = GameObject.FindGameObjectWithTag("Collector").transform;
         potency.trigger.AddCollider(collector);

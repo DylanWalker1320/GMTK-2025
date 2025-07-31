@@ -8,7 +8,7 @@ public class MagicBall : MonoBehaviour
     [SerializeField] private int speed;
     [SerializeField] private float destroyTime = 5;
     private Rigidbody2D magicRB;
-    private TopDownPlayerMovement player;
+    private PlayerMovement player;
     private Vector3 mousePos;
     private Camera mainCam;
 
@@ -16,7 +16,7 @@ public class MagicBall : MonoBehaviour
     void Start()
     {
         magicRB = GetComponent<Rigidbody2D>();
-        player = FindFirstObjectByType<TopDownPlayerMovement>();
+        player = FindFirstObjectByType<PlayerMovement>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = mousePos - transform.position;

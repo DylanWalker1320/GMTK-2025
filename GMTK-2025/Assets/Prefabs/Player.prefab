@@ -519,7 +519,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6382199126839844870}
   - component: {fileID: 3992889852123394306}
-  - component: {fileID: 489301204471681237}
   - component: {fileID: 2010852978544530942}
   - component: {fileID: -7890949493622148952}
   m_Layer: 3
@@ -603,26 +602,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &489301204471681237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8016173160932670840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 551507c6662b7b74fb68dcfc0c0de09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveForce: 50
-  maxSpeed: 5
-  maxMagicBallCooldown: 0.25
-  canCastMagic: 1
-  magicBallPrefab: {fileID: 1044129730302953342, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
-  reticle: {fileID: 7450107430420979136}
-  health: 100
-  Healthbar: {fileID: 5543022282655952352}
 --- !u!50 &2010852978544530942
 Rigidbody2D:
   serializedVersion: 5

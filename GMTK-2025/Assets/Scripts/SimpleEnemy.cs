@@ -45,7 +45,7 @@ public class SimpleEnemy : MonoBehaviour
 
         if(touchingPlayer)
         {
-            player.GetComponent<TopDownPlayerMovement>().TakeDamage();
+            player.GetComponent<PlayerMovement>().TakeDamage();
         }
     }
 
