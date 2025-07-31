@@ -5,6 +5,7 @@ public class SimpleEnemy : MonoBehaviour
 {
     [SerializeField] private float moveForce = 30f;
     [SerializeField] private float maxSpeed = 3f;
+    [SerializeField] private bool touchingPlayer = false;
 
     private Rigidbody2D rb;
     private Transform player;
@@ -41,6 +42,11 @@ public class SimpleEnemy : MonoBehaviour
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
+
+        if(touchingPlayer)
+        {
+            player.GetComponent<TopDownPlayerMovement>().TakeDamage();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -56,6 +62,23 @@ public class SimpleEnemy : MonoBehaviour
                 Die();
             }
         }
+
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("In contact with Player");
+            touchingPlayer = true;
+            if (health <= 0f)
+            {
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
+                Die();
+            }
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+            touchingPlayer = false;
     }
 
     void Die() 

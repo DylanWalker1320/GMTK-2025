@@ -1,5 +1,6 @@
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class TopDownPlayerMovement : MonoBehaviour
@@ -10,7 +11,9 @@ public class TopDownPlayerMovement : MonoBehaviour
     [SerializeField] private bool canCastMagic = true;
     [SerializeField] private GameObject magicBallPrefab; // Temporary placeholder until magic system is properly implemented
     [SerializeField] private Transform reticle; // Reference to the reticle script for aiming
+    [SerializeField] private float health = 100f;
 
+    public Slider Healthbar;
     private float magicBallCooldown;
     private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
     private Rigidbody2D rb;
@@ -65,7 +68,27 @@ public class TopDownPlayerMovement : MonoBehaviour
             magicBallCooldown = maxMagicBallCooldown; // Reset cooldown
             canCastMagic = true;
         }
-
     }
 
+    public void TakeDamage()
+    {
+        health -= 1;
+
+        Healthbar.value = health;
+
+        if(health <= 50)
+            Debug.Log("Half HP");
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        // Handle enemy death (e.g., play animation, destroy object)
+        Debug.Log("Game Over!");
+        Destroy(gameObject);
+    }
 }

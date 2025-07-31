@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collector
   - Spell
+  - Enemy
   layers:
   - Default
   - TransparentFX
