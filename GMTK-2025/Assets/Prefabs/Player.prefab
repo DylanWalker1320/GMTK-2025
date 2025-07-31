@@ -622,7 +622,7 @@ MonoBehaviour:
   magicBallPrefab: {fileID: 1044129730302953342, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
   reticle: {fileID: 7450107430420979136}
   health: 100
-  Healthbar: {fileID: 0}
+  Healthbar: {fileID: 5543022282655952352}
 --- !u!50 &2010852978544530942
 Rigidbody2D:
   serializedVersion: 5
