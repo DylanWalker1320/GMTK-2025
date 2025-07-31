@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f882b582665b18a49b6a1674d054bbd3
+guid: 31a08183101f12d41912fda1f1bfd17b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6900932305330110033
-    second: MagicSpawnDirector-Sheet_0
+      213: 8837552527657388899
+    second: Loop Button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MagicSpawnDirector-Sheet_0
+      name: Loop Button_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 13
-        width: 12
-        height: 8
+        x: 1
+        y: 1
+        width: 62
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa108c981a6fa30a0800000000000000
-      internalID: -6900932305330110033
+      spriteID: 36bcfd6533b45aa70800000000000000
+      internalID: 8837552527657388899
       vertices: []
       indices: 
       edges: []
@@ -125,8 +125,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MagicSpawnDirector-Sheet_0: -6900932305330110033
+      Loop Button_0: 8837552527657388899
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
