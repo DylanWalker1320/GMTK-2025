@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 3992889852123394306}
   - component: {fileID: 2010852978544530942}
   - component: {fileID: -7890949493622148952}
+  - component: {fileID: 7818191223313872262}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -625,7 +626,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -665,6 +666,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &7818191223313872262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8016173160932670840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551507c6662b7b74fb68dcfc0c0de09f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveForce: 50
+  maxSpeed: 5
+  canCastMagic: 1
+  health: 100
+  reticle: {fileID: 7450107430420979136}
+  experience: 0
+  Healthbar: {fileID: 5543022282655952352}
 --- !u!1 &9163202598815332957
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1611344159137110130
 Transform:
   m_ObjectHideFlags: 0
@@ -894,6 +914,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6382199126839844870}
     m_Modifications:
+    - target: {fileID: 63757465403393619, guid: 43c510c8e29e0f049808fa8f8e79ca18, type: 3}
+      propertyPath: m_Parameters.m_EndRange
+      value: 3.8813982
+      objectReference: {fileID: 0}
     - target: {fileID: 63757466144700235, guid: 43c510c8e29e0f049808fa8f8e79ca18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
