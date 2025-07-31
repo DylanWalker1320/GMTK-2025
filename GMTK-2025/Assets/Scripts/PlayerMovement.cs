@@ -8,8 +8,9 @@ public class TopDownPlayerMovement : MonoBehaviour
     [SerializeField] private float moveForce = 50f;
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private bool canCastMagic = true;
-    [SerializeField] private Transform reticle; // Reference to the reticle script for aiming
     [SerializeField] private float health = 100f;
+    public Transform reticle; // Reference to the reticle script for aiming
+    public float experience;
 
     public Slider Healthbar;
 
@@ -49,12 +50,6 @@ public class TopDownPlayerMovement : MonoBehaviour
         {
             playerSprite.flipX = false;
         }
-    }
-
-    public void CastMagic(GameObject magicBallPrefab)
-    {
-        Instantiate(magicBallPrefab, reticle.GetChild(0).position, Quaternion.Euler(0f, 180f, 0f));
-
     }
 
     public void TakeDamage()

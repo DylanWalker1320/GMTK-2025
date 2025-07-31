@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private float maxTimeBetweenSpells;
     private float timeBetweenSpells; // Time between casting spells
     public bool isPlayerAlive = true; // Flag to check if the player is active
-    public bool isCasting = false;
+    public bool isCasting = false; // casting current spell
     public int currentSpellIndex = 0; // Index of the current spell being cast
     private void Awake()
     {
@@ -29,25 +29,30 @@ public class Inventory : MonoBehaviour
         timeBetweenSpells -= Time.deltaTime; // Decrease the time between spells
         if (!isCasting)
         {
-            Loop();
+            Cast();
         }
         if (timeBetweenSpells < 0f)
         {
-            inventorySlots[currentSpellIndex].color = Color.white;
-            currentSpellIndex++; // Increment the spell index
-            timeBetweenSpells = maxTimeBetweenSpells; // Reset the time between spells
-            isCasting = false; // Reset casting flag after casting
+            Loop();
         }
     }
 
-    public void Loop()
+    public void Cast() // Casting current spell ability
     {
         isCasting = true; // Set casting to true to prevent multiple casts
         if (currentSpellIndex == spellArray.Length)
         {
             currentSpellIndex = 0; // Reset to the first spell if we exceed the array length
         }
-        player.CastMagic(spellArray[currentSpellIndex]);
+        Instantiate(spellArray[currentSpellIndex], player.reticle.GetChild(0).position, Quaternion.Euler(0f, 180f, 0f));
         inventorySlots[currentSpellIndex].color = Color.gray; // Change the color of the slot to indicate casting
+    }
+
+    public void Loop() // loop through inventory slots
+{
+        inventorySlots[currentSpellIndex].color = Color.white;
+        currentSpellIndex++; // Increment the spell index
+        timeBetweenSpells = maxTimeBetweenSpells; // Reset the time between spells
+        isCasting = false; // Reset casting flag after casting
     }
 }

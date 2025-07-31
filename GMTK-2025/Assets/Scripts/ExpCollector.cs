@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ExpCollector : MonoBehaviour
 {
+    [SerializeField] private float destroyTime;
     private ParticleSystem potency;
     private List<ParticleSystem.Particle> particles = new List<ParticleSystem.Particle>();
     private Transform collector;
     private TopDownPlayerMovement player;
-    
+
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class ExpCollector : MonoBehaviour
         potency = GetComponent<ParticleSystem>();
         collector = GameObject.FindGameObjectWithTag("Collector").transform;
         potency.trigger.AddCollider(collector);
+        StartCoroutine(DestroyParticleObject(destroyTime));
     }
 
     private void OnParticleTrigger()
@@ -25,14 +27,12 @@ public class ExpCollector : MonoBehaviour
         // Deletes individual particles once entering collector's collider
         for (int i = 0; i < triggeredParticles; i++)
         {
-            // player.potencyAmount++; REPLACE WITH EXP OR UPGRADE SYSTEM
+            player.experience += 1; // Increment player's experience by 1 for each collected particle
             ParticleSystem.Particle oneParticle = particles[i];
             oneParticle.remainingLifetime = 0f;
             particles[i] = oneParticle;
         }
         potency.SetTriggerParticles(ParticleSystemTriggerEventType.Enter, particles);
-        // Destroys particle system after collecting at least 1 particle (possible issue in the future but works for now)
-        StartCoroutine(DestroyParticleObject(1.5f));
     }
 
     private IEnumerator DestroyParticleObject(float waitTime)
