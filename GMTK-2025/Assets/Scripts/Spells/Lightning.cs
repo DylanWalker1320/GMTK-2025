@@ -25,7 +25,7 @@ public class Lightning : Spell
             {
 
                 enemyFound = true;
-                DestroyAfter(destroyTime);
+                Destroy(gameObject, destroyTime);
                 SimpleEnemy enemy = hitColliders[i].GetComponent<SimpleEnemy>();
                 if (enemy != null)
                 {

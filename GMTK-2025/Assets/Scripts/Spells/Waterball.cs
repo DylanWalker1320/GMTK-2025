@@ -6,15 +6,17 @@ public class Waterball : Spell
     {
         Init(); // Initialize the spell properties
         OrientSpell(); // Orient the spell towards the mouse position and set its velocity
-        DestroyAfter(destroyTime);
+        Destroy(gameObject, destroyTime);;
     }
     
     void OnCollisionEnter2D(Collision2D other)
     {
         GameObject collisionObject = other.gameObject;
-        if (collisionObject.tag != "Player")
+        if (collisionObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            // If the waterball collides with an enemy, deal damage
+            collisionObject.GetComponent<SimpleEnemy>().TakeDamage(damage);
+            Destroy(gameObject); // Destroy the waterball after dealing damage
         }
     }
 }

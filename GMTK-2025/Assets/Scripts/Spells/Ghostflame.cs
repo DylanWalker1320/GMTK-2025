@@ -7,7 +7,7 @@ public class Ghostflame : Spell
     {
         Init(); // Initialize the spell properties
         OrientSpell(); // Orient the spell towards the mouse position and set its velocity
-        DestroyAfter(destroyTime);
+        Destroy(gameObject, destroyTime);;
     }
 
     void OnTriggerEnter2D(Collider2D collision)

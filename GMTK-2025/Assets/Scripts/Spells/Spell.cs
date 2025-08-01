@@ -48,10 +48,4 @@ public abstract class Spell : MonoBehaviour
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg; //make a degree float
         transform.rotation = Quaternion.Euler(0, 0, rot - 180);
     }
-    
-    protected IEnumerator DestroyAfter(float waitTime)
-    {
-        yield return new WaitForSecondsRealtime(waitTime);
-        Destroy(gameObject);
-    }
 }
