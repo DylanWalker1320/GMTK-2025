@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000051f6579e
+  m_ApplyToSortingLayers: 0000000051f6579e5dd5ad64
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -772,6 +772,63 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &892239519
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 456101632621684174, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      propertyPath: m_Name
+      value: Ghostflame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933303662329419844, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933303662329419844, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933303662329419844, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933303662329419844, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933303662329419844, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933303662329419844, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933303662329419844, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933303662329419844, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933303662329419844, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933303662329419844, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
 --- !u!1 &927244025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,8 +1941,8 @@ MonoBehaviour:
   - {fileID: 1314828369}
   - {fileID: 2059696215}
   spellArray:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4587004831938667483, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
+  - {fileID: 4587004831938667483, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
   - {fileID: 8039000571881017357, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
   - {fileID: 7732002758274677308, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
   - {fileID: 0}
@@ -1924,7 +1981,7 @@ MonoBehaviour:
   - {fileID: 5220609102773159089, guid: 87f3501ffa98bff418f5b93312659c8d, type: 3}
   - {fileID: 5220609102773159089, guid: 87f3501ffa98bff418f5b93312659c8d, type: 3}
   - {fileID: 5220609102773159089, guid: 87f3501ffa98bff418f5b93312659c8d, type: 3}
-  - {fileID: 5220609102773159089, guid: 87f3501ffa98bff418f5b93312659c8d, type: 3}
+  - {fileID: -6862345958128778274, guid: 48b799befc000a14182a86c1984e5373, type: 3}
 --- !u!1 &2059696211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,3 +2140,4 @@ SceneRoots:
   - {fileID: 1489412044}
   - {fileID: 1351687959}
   - {fileID: 1713829482}
+  - {fileID: 892239519}
