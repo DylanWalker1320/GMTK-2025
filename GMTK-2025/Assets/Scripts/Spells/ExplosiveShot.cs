@@ -7,7 +7,7 @@ public class ExplosiveShot : Spell
     [SerializeField] private float explosionRadius = 5f; // Radius of the explosion
     [SerializeField] private float explosionDamage = 10f; // Damage dealt by the explosion
     [SerializeField] private float fadeDuration = 1f; // Duration for the explosion visual to fade out
-    [SerializeField] private SpriteRenderer explosionVisual;
+    [SerializeField] private GameObject explosionVisual;
     void Start()
     {
         Init(); // Initialize the spell properties
@@ -27,7 +27,7 @@ public class ExplosiveShot : Spell
                 gameObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
 
                 // Raycast to check for enemies in the explosion radius
-                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius / 2f);
                 foreach (var hitEnemy in hitEnemies)
                 {
                     if (hitEnemy.CompareTag("Enemy"))
@@ -40,7 +40,8 @@ public class ExplosiveShot : Spell
                     }
                 }
 
-                explosionVisual.enabled = true;
+                explosionVisual.GetComponent<SpriteRenderer>().enabled = true; // Show the explosion visual
+                explosionVisual.transform.localScale = new Vector3(2 * explosionRadius, 2 * explosionRadius, 1f); // Scale the explosion visual if needed
 
                 StartCoroutine(Explode());
             }
@@ -50,11 +51,12 @@ public class ExplosiveShot : Spell
     private IEnumerator Explode()
     {
         // Lerp the alpha of the explosion visual to create a fade-out effect
+        SpriteRenderer explosionRenderer = explosionVisual.GetComponent<SpriteRenderer>();
         float elapsedTime = 0f;
         while (elapsedTime < fadeDuration)
         {
             float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
-            explosionVisual.color = new Color(explosionVisual.color.r, explosionVisual.color.g, explosionVisual.color.b, alpha);
+            explosionRenderer.color = new Color(explosionRenderer.color.r, explosionRenderer.color.g, explosionRenderer.color.b, alpha);
             elapsedTime += Time.deltaTime;
             yield return null;
         }

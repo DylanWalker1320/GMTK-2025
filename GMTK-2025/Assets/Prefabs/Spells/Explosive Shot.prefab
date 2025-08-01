@@ -112,7 +112,7 @@ MonoBehaviour:
   explosionRadius: 5
   explosionDamage: 30
   fadeDuration: 1
-  explosionVisual: {fileID: 2472347610635760410}
+  explosionVisual: {fileID: 7353286511986814704}
 --- !u!50 &1165334991673011861
 Rigidbody2D:
   serializedVersion: 5
