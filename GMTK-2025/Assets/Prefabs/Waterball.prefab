@@ -103,7 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385579b50ff359841a8cac0910a5fa50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 5
   speed: 25
+  spellSprite: {fileID: 7560537379249951595, guid: aa4fc2f0e8bd8104a861c5839f6e2938, type: 3}
 --- !u!95 &1933840524036934965
 Animator:
   serializedVersion: 7

@@ -17,6 +17,7 @@ public abstract class Spell : MonoBehaviour
 
     protected Type spellType;
     [SerializeField] protected float speed;
+    public Sprite spellSprite;
     protected Vector2 direction;
 
     protected void Init()
