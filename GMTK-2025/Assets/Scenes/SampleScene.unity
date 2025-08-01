@@ -1375,13 +1375,13 @@ MonoBehaviour:
   - {fileID: 1520082528}
   spellArray:
   - {fileID: 7136817257210570753, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
+  - {fileID: 7136817257210570753, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
   - {fileID: 7136817257210570753, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
+  - {fileID: 7136817257210570753, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
   - {fileID: 7136817257210570753, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
+  - {fileID: 7136817257210570753, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
   - {fileID: 7136817257210570753, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
-  - {fileID: 7136817257210570753, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
-  - {fileID: 7136817257210570753, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
-  - {fileID: 7136817257210570753, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
-  - {fileID: 7136817257210570753, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
+  - {fileID: 7136817257210570753, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
   maxTimeBetweenSpells: 0.5
   isPlayerAlive: 1
   isCasting: 0

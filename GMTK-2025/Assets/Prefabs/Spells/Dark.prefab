@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6127114074526336401}
   - component: {fileID: 957888954715034277}
   - component: {fileID: 787266561512865477}
-  - component: {fileID: 7732002758274677308}
   - component: {fileID: -7064469638007357661}
+  - component: {fileID: 4587004831938667483}
   m_Layer: 6
-  m_Name: Lightning
+  m_Name: Dark
   m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 99e5d180080c96940a65c6d906ff9131, type: 3}
-  m_Color: {r: 0.9716981, g: 0.966587, b: 0.46293163, a: 1}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 0.21698111, g: 0.12384299, b: 0.20705119, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -117,24 +117,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7732002758274677308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136817257210570753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea29bdddc336e24bbf70f1693f67be9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyTime: 5
-  damage: 20
-  speed: 20
-  spellType1: 2
-  spellType2: 4
-  searchRadius: 5
 --- !u!58 &-7064469638007357661
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -171,3 +153,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.08
+--- !u!114 &4587004831938667483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136817257210570753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23619d87323964a4d9d75066c2a4b829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 10
+  damage: 20
+  speed: 3
+  spellType1: 3
+  spellType2: 4

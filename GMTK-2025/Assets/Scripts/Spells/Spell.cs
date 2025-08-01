@@ -3,25 +3,33 @@ using System.Collections;
 
 public abstract class Spell : MonoBehaviour
 {
+    protected enum Type
+    {
+        Fire,
+        Water,
+        Lightning,
+        Dark,
+        None
+    }
+
+    [Header("Spell Properties")]
     [SerializeField] protected float destroyTime = 5f;
+    [SerializeField] protected float damage = 2f; // Damage dealt by the spell
+    [SerializeField] protected float speed;
+    [SerializeField] protected Type spellType1;
+    [SerializeField] protected Type spellType2;
     protected Rigidbody2D rb;
     protected Vector3 mousePos;
     protected Camera mainCam;
-    protected struct Type
-    {
-        public bool fire;
-        public bool water;
-        public bool lightning;
-        public bool dark;
-    }
-
-    protected Type spellType;
-    [SerializeField] protected float speed;
-
+    
     protected void Init()
     {
         rb = GetComponent<Rigidbody2D>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
+
+    protected void OrientSpell()
+    {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = mousePos - transform.position;
         Vector3 rotation = transform.position - mousePos;

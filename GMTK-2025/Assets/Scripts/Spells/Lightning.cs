@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class Lightning : Spell
 {
-
-    public float damage = 20f; // Damage dealt by the lightning spell
+    [Header("Specific Spell Properties")]
     public float searchRadius = 5f; // Radius to find the closest enemy
 
     void Start()
