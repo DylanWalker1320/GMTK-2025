@@ -29,6 +29,16 @@ public abstract class Spell : MonoBehaviour
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
+    public void SetDamage(float newDamage)
+    {
+        damage = newDamage;
+    }
+
+    public float GetDamage()
+    {
+        return damage;
+    }
+
     protected void OrientSpell()
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
