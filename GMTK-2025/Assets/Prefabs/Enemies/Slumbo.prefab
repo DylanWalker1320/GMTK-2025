@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3298207689124650751, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298207689124650751, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
+      propertyPath: maxHitSlowPercent
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6800311007714447452, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -58,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9053000782808126288, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
       propertyPath: m_Name
-      value: Slumbo Variant
+      value: Slumbo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -3,75 +3,118 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class SimpleEnemy : MonoBehaviour
 {
-    [SerializeField] private float moveForce = 30f;
-    [SerializeField] private float maxSpeed = 3f;
-    [SerializeField] private bool touchingPlayer = false;
-
+    public float moveForce = 30f;
+    public float maxSpeed = 3f;
+    public float damage = 10f;
+    public string targetTag = "Player";
     private Rigidbody2D rb;
-    private Transform player;
-    private float health = 100f; // Example health value
-    private SpriteRenderer spriteRenderer; // Reference to the sprite renderer for flipping
-    [SerializeField] private ParticleSystem deathEffect; // EXP death effect
+    private Transform target;
+    private bool touchingTarget = false;
+    private float health = 100f;
+    private SpriteRenderer spriteRenderer;
+    [SerializeField] private ParticleSystem deathEffect;
+    [SerializeField] private float maxHitSlowPercent = 0.2f; // 20% slow at max
 
-    void Awake()
+
+    // Hit flash
+    private float hitFlashTimer = 0f;
+    private float hitFlashDuration = 0.2f;
+    private static readonly int ColorProperty = Shader.PropertyToID("_Color");
+    private MaterialPropertyBlock propertyBlock;
+
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        propertyBlock = new MaterialPropertyBlock();
 
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-            player = playerObj.transform;
+        FindClosestTarget();    
+    }
+
+    void FindClosestTarget()
+    {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(targetTag);
+        float closestDistance = Mathf.Infinity;
+        Transform closestTarget = null;
+
+        foreach (GameObject obj in targets)
+        {
+            float distance = Vector2.Distance(transform.position, obj.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestTarget = obj.transform;
+            }
+        }
+
+        target = closestTarget;
     }
 
     void FixedUpdate()
     {
-        if (player == null) return;
+        if (target == null) return;
 
-        Vector2 direction = (player.position - transform.position).normalized;
+        Vector2 direction = (target.position - transform.position).normalized;
 
-        // Only accelerate if below max speed
+        // Slow effect based on hit flash timer
+        float slowMultiplier = 1f;
+        if (hitFlashTimer > 0f)
+        {
+            float lerpT = Mathf.Clamp01(hitFlashTimer / hitFlashDuration);
+            slowMultiplier = 1f - (maxHitSlowPercent * lerpT);
+        }
+
         if (rb.linearVelocity.magnitude < maxSpeed)
         {
-            rb.AddForce(direction * moveForce);
+            rb.AddForce(direction * moveForce * slowMultiplier);
         }
 
-        // Flip the enemy to face the player
-        if (direction.x > 0)
+        spriteRenderer.flipX = direction.x > 0;
+
+        if (touchingTarget)
         {
-            spriteRenderer.flipX = true;
-        }
-        else if (direction.x < 0)
-        {
-            spriteRenderer.flipX = false;
+            target.GetComponent<PlayerMovement>().TakeDamage(damage);
         }
 
-        if(touchingPlayer)
+        // Flash effect
+        if (hitFlashTimer > 0f)
         {
-            player.GetComponent<PlayerMovement>().TakeDamage();
+            hitFlashTimer -= Time.fixedDeltaTime;
+
+            float lerpT = Mathf.Clamp01(hitFlashTimer / hitFlashDuration);
+            Color flashColor = Color.white;
+            flashColor.a = lerpT;
+
+            spriteRenderer.GetPropertyBlock(propertyBlock);
+            propertyBlock.SetColor(ColorProperty, flashColor);
+            spriteRenderer.SetPropertyBlock(propertyBlock);
+        }
+        else
+        {
+            spriteRenderer.GetPropertyBlock(propertyBlock);
+            propertyBlock.SetColor(ColorProperty, new Color(1, 1, 1, 0));
+            spriteRenderer.SetPropertyBlock(propertyBlock);
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag(targetTag))
         {
-            touchingPlayer = true;
-            if (health <= 0f)
-            {
-                Instantiate(deathEffect, transform.position, Quaternion.identity);
-                Die();
-            }
+            touchingTarget = true;
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-            touchingPlayer = false;
+        if (collision.gameObject.CompareTag(targetTag))
+            touchingTarget = false;
     }
 
     public void TakeDamage(float damage)
     {
+        hitFlashTimer = hitFlashDuration;
+
         health -= damage;
         if (health <= 0f)
         {
@@ -82,7 +125,6 @@ public class SimpleEnemy : MonoBehaviour
 
     void Die() 
     {
-        // Handle enemy death (e.g., play animation, destroy object)
         Destroy(gameObject);
     }
 }

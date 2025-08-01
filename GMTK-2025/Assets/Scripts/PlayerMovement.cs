@@ -1,28 +1,32 @@
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveForce = 50f;
     [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private bool canCastMagic = true;
-    [SerializeField] private float health = 100f;
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float health;
+    [SerializeField] private float invincibilityFrames = 1f; // Invincibility frames after taking damage
     public Transform reticle; // Reference to the reticle script for aiming
     public float experience;
-
     public Slider Healthbar;
-
     private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
     private Rigidbody2D rb;
     private Vector2 movement;
+    private bool canCastMagic = true;
+    private float invincibilityTimer = 0f; // Timer for invincibility frames
+    
 
     void Awake()
     {
         playerSprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         reticle = FindFirstObjectByType<Reticle>().GetComponent<Transform>();
+        health = maxHealth;
     }
 
     void Update()
@@ -35,11 +39,21 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Only add force if under max speed
-        if (rb.linearVelocity.magnitude < maxSpeed)
+
+        if (invincibilityTimer > 0f)
         {
-            rb.AddForce(movement * moveForce);
+            invincibilityTimer -= Time.fixedDeltaTime;
+            if (invincibilityTimer <= 0f)
+            {
+                invincibilityTimer = 0f; // Reset timer
+            }
         }
+
+        // Only add force if under max speed
+            if (rb.linearVelocity.magnitude < maxSpeed)
+            {
+                rb.AddForce(movement * moveForce);
+            }
 
         // Flip the player to face the movement direction
         if (movement.x > 0)
@@ -52,19 +66,44 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(float damageAmount)
     {
-        health -= 1;
+        if (invincibilityTimer > 0f) return; // Ignore damage if invincibility frames are active
+
+        StartCoroutine(HitEffect(Color.red, 0.5f));
+
+        invincibilityTimer = invincibilityFrames;
+
+        health -= damageAmount;
 
         Healthbar.value = health;
 
-        if(health <= 50)
+        if(health <= maxHealth / 2)
             Debug.Log("Half HP");
 
         if (health <= 0)
         {
             Die();
         }
+    }
+
+    private IEnumerator HitEffect(Color hitColor, float duration)
+    {
+        float elapsed = 0f;
+        Color originalColor = playerSprite.color;
+
+        // Fast fade to hit color
+        playerSprite.color = hitColor;
+
+        // Lerp back to original color over the duration
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            playerSprite.color = Color.Lerp(hitColor, originalColor, elapsed / duration);
+            yield return null; // Wait for the next frame
+        }
+
+        playerSprite.color = originalColor;
     }
 
     void Die()

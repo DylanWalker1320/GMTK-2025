@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7854621941134830433}
   - component: {fileID: 6800311007714447452}
-  - component: {fileID: 2076774195060965496}
   - component: {fileID: 3298207689124650751}
+  - component: {fileID: 2076774195060965496}
   - component: {fileID: 2637455472934520428}
   m_Layer: 0
   m_Name: BaseEnemy
@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 4ed0060236c631740bdf43d6acd910a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,6 +90,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3298207689124650751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053000782808126288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02abd67b34acc6748a669e9cbd868e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveForce: 30
+  maxSpeed: 3
+  damage: 10
+  targetTag: Player
+  deathEffect: {fileID: 8720471837675972744, guid: ed081c54d46bc0e49a232f77143ce028, type: 3}
+  maxHitSlowPercent: 1
 --- !u!50 &2076774195060965496
 Rigidbody2D:
   serializedVersion: 5
@@ -117,21 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3298207689124650751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9053000782808126288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02abd67b34acc6748a669e9cbd868e9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveForce: 30
-  maxSpeed: 3
-  deathEffect: {fileID: 8720471837675972744, guid: ed081c54d46bc0e49a232f77143ce028, type: 3}
 --- !u!58 &2637455472934520428
 CircleCollider2D:
   m_ObjectHideFlags: 0
