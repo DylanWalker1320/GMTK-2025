@@ -6,7 +6,7 @@ public class Fireball : Spell
     {
         Init(); // Initialize the spell properties
         OrientSpell(); // Orient the spell towards the mouse position and set its velocity
-        DestroyAfter(destroyTime);
+        Destroy(gameObject, destroyTime);
     }
 
     void OnCollisionEnter2D(Collision2D other)

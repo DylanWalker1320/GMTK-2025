@@ -1907,14 +1907,14 @@ MonoBehaviour:
   - {fileID: 2021268413}
   - {fileID: 1656004331}
   spellArray:
-  - {fileID: -6862345958128778274, guid: 48b799befc000a14182a86c1984e5373, type: 3}
-  - {fileID: -6862345958128778274, guid: 48b799befc000a14182a86c1984e5373, type: 3}
-  - {fileID: -6862345958128778274, guid: 48b799befc000a14182a86c1984e5373, type: 3}
-  - {fileID: -6862345958128778274, guid: 48b799befc000a14182a86c1984e5373, type: 3}
-  - {fileID: -6862345958128778274, guid: 48b799befc000a14182a86c1984e5373, type: 3}
-  - {fileID: -6862345958128778274, guid: 48b799befc000a14182a86c1984e5373, type: 3}
-  - {fileID: -6862345958128778274, guid: 48b799befc000a14182a86c1984e5373, type: 3}
-  - {fileID: -6862345958128778274, guid: 48b799befc000a14182a86c1984e5373, type: 3}
+  - {fileID: 9006808484228454809, guid: 0a2bb8ac59c320f4389ffca358c80bc4, type: 3}
+  - {fileID: 9006808484228454809, guid: 0a2bb8ac59c320f4389ffca358c80bc4, type: 3}
+  - {fileID: 9006808484228454809, guid: 0a2bb8ac59c320f4389ffca358c80bc4, type: 3}
+  - {fileID: 9006808484228454809, guid: 0a2bb8ac59c320f4389ffca358c80bc4, type: 3}
+  - {fileID: 9006808484228454809, guid: 0a2bb8ac59c320f4389ffca358c80bc4, type: 3}
+  - {fileID: 9006808484228454809, guid: 0a2bb8ac59c320f4389ffca358c80bc4, type: 3}
+  - {fileID: 9006808484228454809, guid: 0a2bb8ac59c320f4389ffca358c80bc4, type: 3}
+  - {fileID: 9006808484228454809, guid: 0a2bb8ac59c320f4389ffca358c80bc4, type: 3}
   maxTimeBetweenSpells: 0.5
   isPlayerAlive: 1
   isCasting: 0

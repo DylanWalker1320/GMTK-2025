@@ -12,7 +12,7 @@ public class ExplosiveShot : Spell
     {
         Init(); // Initialize the spell properties
         OrientSpell(); // Spawn the spell at the reticle position
-        StartCoroutine(DestroyAfter(destroyTime)); // Destroy the spell after a certain time
+        Destroy(gameObject, destroyTime); // Destroy the spell after a certain time
     }
 
     void OnTriggerEnter2D(Collider2D collision)

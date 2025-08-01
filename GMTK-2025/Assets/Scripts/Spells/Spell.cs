@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class Spell : MonoBehaviour
 {
     protected enum Type
@@ -22,7 +23,7 @@ public abstract class Spell : MonoBehaviour
     protected Rigidbody2D rb;
     protected Vector3 mousePos;
     protected Camera mainCam;
-    
+
     protected void Init()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,11 +48,5 @@ public abstract class Spell : MonoBehaviour
         rb.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(direction.x, direction.y).normalized * speed; //normalized so that ball stays at a constant speed no matter how far mouse is from player
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg; //make a degree float
         transform.rotation = Quaternion.Euler(0, 0, rot - 180);
-    }
-    
-    protected IEnumerator DestroyAfter(float waitTime)
-    {
-        yield return new WaitForSecondsRealtime(waitTime);
-        Destroy(gameObject);
     }
 }

@@ -67,7 +67,7 @@ public class BlackHole : Spell
     private IEnumerator PullDelay()
     {
         yield return new WaitForSeconds(pullDelay);
-        StartCoroutine(DestroyAfter(destroyTime)); // Start the destroy coroutine after the pull delay
+        Destroy(gameObject, destroyTime); // Destroy the black hole after a certain time
         isPulling = true; // Start pulling after the delay
 
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
