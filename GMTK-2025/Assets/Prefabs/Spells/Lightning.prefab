@@ -130,10 +130,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 5
-  damage: 20
+  damage: 15
   speed: 20
   spellType1: 2
   spellType2: 4
+  spellSprite: {fileID: 4970577761656264851, guid: ec1fab4976c509a4cad71b765a8e6c1b, type: 3}
   searchRadius: 5
 --- !u!58 &-7064469638007357661
 CircleCollider2D:

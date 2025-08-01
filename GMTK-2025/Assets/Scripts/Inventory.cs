@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     private PlayerMovement player;
-    public RawImage[] inventorySlots = new RawImage[8]; // UI slots for spells
+    public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public Spell[] spellArray = new Spell[8]; // Holds spell prefabs, consider changing prefabs to be of spell type
     [SerializeField] private float maxTimeBetweenSpells;
     private float timeBetweenSpells; // Time between casting spells
@@ -28,7 +28,8 @@ public class Inventory : MonoBehaviour
     {
         for(int i = 0; i < inventorySlots.Length; i++)
         {
-            inventorySlots[i].transform.GetChild(0).GetComponent<Image>().sprite = spellArray[i].spellSprite; // Set the inventory slot sprite to the spell's sprite
+            Debug.Log("SpellSprite: " + spellArray[i].spellSprite);
+            inventorySlots[i].sprite = spellArray[i].spellSprite; // Set the sprite for each inventory slot
         }
     }
     private void Update()

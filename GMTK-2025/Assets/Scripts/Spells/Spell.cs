@@ -18,6 +18,7 @@ public abstract class Spell : MonoBehaviour
     [SerializeField] protected float speed;
     [SerializeField] protected Type spellType1;
     [SerializeField] protected Type spellType2;
+    [SerializeField] public Sprite spellSprite; // Sprite for the spell
     protected Rigidbody2D rb;
     protected Vector3 mousePos;
     protected Camera mainCam;

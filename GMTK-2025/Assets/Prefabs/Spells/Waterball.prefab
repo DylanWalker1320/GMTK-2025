@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1036273332044902203}
   - component: {fileID: 275963464892696188}
-  - component: {fileID: 663498511124070086}
-  - component: {fileID: 6813655516327199667}
+  - component: {fileID: 1933840524036934965}
+  - component: {fileID: 8039000571881017357}
   - component: {fileID: 1165334991673011861}
   - component: {fileID: 3139347402079881133}
   m_Layer: 6
-  m_Name: Fireball
+  m_Name: Waterball
   m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4571983193334937691, guid: 8304c08f4cb918a4b804294150425912, type: 3}
+  m_Sprite: {fileID: -1741393692052903867, guid: 20c1938335c42b0499c6aee1109f40b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &663498511124070086
+--- !u!95 &1933840524036934965
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ Animator:
   m_GameObject: {fileID: 1044129730302953342}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d34f105e66aa5ed43a9f7b6261f5c604, type: 2}
+  m_Controller: {fileID: 9100000, guid: 443baf18f8fe04749891e6c2959f88a3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -113,7 +113,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6813655516327199667
+--- !u!114 &8039000571881017357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,12 +122,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1044129730302953342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ee681c4fe7d7424d8eb2aaba17fbbfb, type: 3}
+  m_Script: {fileID: 11500000, guid: 385579b50ff359841a8cac0910a5fa50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 5
+  damage: 10
   speed: 25
-  spellSprite: {fileID: 690677518848311421, guid: d0401ae72f711e24db339022618b70f8, type: 3}
+  spellType1: 0
+  spellType2: 0
+  spellSprite: {fileID: 7560537379249951595, guid: aa4fc2f0e8bd8104a861c5839f6e2938, type: 3}
 --- !u!50 &1165334991673011861
 Rigidbody2D:
   serializedVersion: 5
