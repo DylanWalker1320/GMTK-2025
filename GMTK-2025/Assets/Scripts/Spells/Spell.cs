@@ -3,7 +3,7 @@ using System.Collections;
 
 public abstract class Spell : MonoBehaviour
 {
-    protected enum Type
+    public enum SpellType
     {
         Fire,
         Water,
@@ -16,8 +16,8 @@ public abstract class Spell : MonoBehaviour
     [SerializeField] protected float destroyTime = 5f;
     [SerializeField] protected float damage = 2f; // Damage dealt by the spell
     [SerializeField] protected float speed;
-    [SerializeField] protected Type spellType1;
-    [SerializeField] protected Type spellType2;
+    public SpellType spellType1;
+    public SpellType spellType2;
     [SerializeField] public Sprite spellSprite; // Sprite for the spell
     protected Rigidbody2D rb;
     protected Vector3 mousePos;
