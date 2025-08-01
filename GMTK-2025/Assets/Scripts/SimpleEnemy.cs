@@ -10,11 +10,13 @@ public class SimpleEnemy : MonoBehaviour
     private Rigidbody2D rb;
     private Transform player;
     private float health = 100f; // Example health value
+    private SpriteRenderer spriteRenderer; // Reference to the sprite renderer for flipping
     [SerializeField] private ParticleSystem deathEffect; // EXP death effect
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
@@ -36,11 +38,11 @@ public class SimpleEnemy : MonoBehaviour
         // Flip the enemy to face the player
         if (direction.x > 0)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            spriteRenderer.flipX = true;
         }
         else if (direction.x < 0)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            spriteRenderer.flipX = false;
         }
 
         if(touchingPlayer)
@@ -51,21 +53,8 @@ public class SimpleEnemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision detected with: " + collision.gameObject.name + " (" + collision.gameObject.tag + ")");
-        if (collision.gameObject.CompareTag("Spell"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Enemy hit by spell!");
-            health -= 100f; // TODO: Grab damage value from spell
-            if (health <= 0f)
-            {
-                Instantiate(deathEffect, transform.position, Quaternion.identity);
-                Die();
-            }
-        }
-
-        else if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("In contact with Player");
             touchingPlayer = true;
             if (health <= 0f)
             {
@@ -81,10 +70,19 @@ public class SimpleEnemy : MonoBehaviour
             touchingPlayer = false;
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0f)
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Die();
+        }
+    }
+
     void Die() 
     {
         // Handle enemy death (e.g., play animation, destroy object)
-        Debug.Log("Enemy died!");
         Destroy(gameObject);
     }
 }

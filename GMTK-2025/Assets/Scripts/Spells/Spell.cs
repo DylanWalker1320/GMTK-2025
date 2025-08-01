@@ -3,7 +3,7 @@ using System.Collections;
 
 public abstract class Spell : MonoBehaviour
 {
-    protected float destroyTime = 5f;
+    [SerializeField] protected float destroyTime = 5f;
     protected Rigidbody2D rb;
     protected Vector3 mousePos;
     protected Camera mainCam;
@@ -16,8 +16,7 @@ public abstract class Spell : MonoBehaviour
     }
 
     protected Type spellType;
-    protected float speed;
-    protected Vector2 direction;
+    [SerializeField] protected float speed;
 
     protected void Init()
     {
