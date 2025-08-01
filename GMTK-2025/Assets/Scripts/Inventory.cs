@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     private PlayerMovement player;
-    public Image[] inventorySlots = new Image[8]; // UI slots for spells
-    public GameObject[] spellArray = new GameObject[8]; // Holds spell prefabs, consider changing prefabs to be of spell type
+    public RawImage[] inventorySlots = new RawImage[8]; // UI slots for spells
+    public Spell[] spellArray = new Spell[8]; // Holds spell prefabs, consider changing prefabs to be of spell type
     [SerializeField] private float maxTimeBetweenSpells;
     private float timeBetweenSpells; // Time between casting spells
     public bool isPlayerAlive = true; // Flag to check if the player is active
@@ -23,6 +23,13 @@ public class Inventory : MonoBehaviour
             Debug.LogError("PlayerMovement not found in the scene.");
         }
         timeBetweenSpells = maxTimeBetweenSpells; // Initialize time between spells
+    }
+    private void Start()
+    {
+        for(int i = 0; i < inventorySlots.Length; i++)
+        {
+            inventorySlots[i].transform.GetChild(0).GetComponent<Image>().sprite = spellArray[i].spellSprite; // Set the inventory slot sprite to the spell's sprite
+        }
     }
     private void Update()
     {
