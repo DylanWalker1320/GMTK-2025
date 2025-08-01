@@ -1,22 +1,21 @@
 using UnityEngine;
 
-public class Waterball : Spell
+public class Wave : Spell
 {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Init(); // Initialize the spell properties
         OrientSpell(); // Orient the spell towards the mouse position and set its velocity
-        Destroy(gameObject, destroyTime); // Destroy the waterball after a certain time
+        Destroy(gameObject, destroyTime);;
     }
-    
     void OnCollisionEnter2D(Collision2D other)
     {
         GameObject collisionObject = other.gameObject;
         if (collisionObject.CompareTag("Enemy"))
         {
-            // If the waterball collides with an enemy, deal damage
-            collisionObject.GetComponent<SimpleEnemy>().TakeDamage(damage);
-            Destroy(gameObject); // Destroy the waterball after dealing damage
+            // If the fireball collides with an enemy, deal damage
+            collisionObject.GetComponent<SimpleEnemy>().TakeDamage(GetDamage());
         }
     }
 }
