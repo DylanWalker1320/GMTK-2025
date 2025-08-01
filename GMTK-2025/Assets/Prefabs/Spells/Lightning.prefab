@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6127114074526336401}
   - component: {fileID: 957888954715034277}
-  - component: {fileID: 787266561512865477}
   - component: {fileID: 7732002758274677308}
+  - component: {fileID: 787266561512865477}
   - component: {fileID: -7064469638007357661}
   m_Layer: 6
   m_Name: Lightning
@@ -90,6 +90,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7732002758274677308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136817257210570753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea29bdddc336e24bbf70f1693f67be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 5
+  damage: 15
+  speed: 20
+  spellType1: 2
+  spellType2: 4
+  spellSprite: {fileID: 4970577761656264851, guid: ec1fab4976c509a4cad71b765a8e6c1b, type: 3}
+  searchRadius: 5
 --- !u!50 &787266561512865477
 Rigidbody2D:
   serializedVersion: 5
@@ -117,25 +136,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7732002758274677308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136817257210570753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea29bdddc336e24bbf70f1693f67be9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyTime: 5
-  damage: 15
-  speed: 20
-  spellType1: 2
-  spellType2: 4
-  spellSprite: {fileID: 4970577761656264851, guid: ec1fab4976c509a4cad71b765a8e6c1b, type: 3}
-  searchRadius: 5
 --- !u!58 &-7064469638007357661
 CircleCollider2D:
   m_ObjectHideFlags: 0

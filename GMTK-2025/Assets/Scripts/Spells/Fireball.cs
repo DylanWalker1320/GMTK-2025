@@ -8,13 +8,15 @@ public class Fireball : Spell
         OrientSpell(); // Orient the spell towards the mouse position and set its velocity
         DestroyAfter(destroyTime);
     }
-    
+
     void OnCollisionEnter2D(Collision2D other)
     {
         GameObject collisionObject = other.gameObject;
-        if (collisionObject.tag != "Player")
+        if (collisionObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            // If the fireball collides with an enemy, deal damage
+            collisionObject.GetComponent<SimpleEnemy>().TakeDamage(damage);
+            Destroy(gameObject); // Destroy the fireball after dealing damage
         }
     }
 }

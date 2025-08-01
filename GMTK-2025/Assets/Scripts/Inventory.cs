@@ -28,7 +28,6 @@ public class Inventory : MonoBehaviour
     {
         for(int i = 0; i < inventorySlots.Length; i++)
         {
-            Debug.Log("SpellSprite: " + spellArray[i].spellSprite);
             inventorySlots[i].sprite = spellArray[i].spellSprite; // Set the sprite for each inventory slot
         }
     }
