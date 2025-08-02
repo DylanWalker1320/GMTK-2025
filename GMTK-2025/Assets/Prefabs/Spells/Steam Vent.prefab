@@ -110,7 +110,7 @@ MonoBehaviour:
   spellSprite: {fileID: 1851400165, guid: ef7df2016889a8f49a9fed541a20340d, type: 3}
   knockbackForce: 1
   damageCooldown: 0.5
-  range: 6
+  range: 8
 --- !u!50 &2089441347470638709
 Rigidbody2D:
   serializedVersion: 5
