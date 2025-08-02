@@ -8,6 +8,8 @@ TagManager:
   - Spell
   - Enemy
   - Stairs
+  - Campfire
+  - Shop
   layers:
   - Default
   - TransparentFX

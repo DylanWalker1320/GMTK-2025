@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform levelCompletePosition; // Position to move the player when the level is complete
     public bool isInSafeArea = false; // Flag to check if the player is in a safe area
     public bool isSaved = true; // Flag to reset the save state
-
     public bool levelComplete = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
