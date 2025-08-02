@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ghostfire sheet_0: -6470376011187345487
+      ghostfire sheet_1: -7838893257257163516
+      ghostfire sheet_2: -2664096679806222561
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

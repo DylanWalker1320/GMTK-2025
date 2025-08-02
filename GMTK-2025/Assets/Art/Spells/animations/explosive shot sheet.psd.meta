@@ -372,7 +372,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      explosive shot sheet_0: -7407240109846874426
+      explosive shot sheet_1: 2532947068339562085
+      explosive shot sheet_2: 8674090549373705193
+      explosive shot sheet_3: -2498405528240756375
+      explosive shot sheet_4: -69659240620583599
+      explosive shot sheet_5: 4919832973639404447
+      explosive shot sheet_6: 6879513983475430051
+      explosive shot sheet_7: -1387111514999333954
+      explosive shot sheet_8: 2572217744696922145
+      explosive shot sheet_9: 8859797100422734148
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

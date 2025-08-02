@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      black flash sheet_0: -3376400908108732793
+      black flash sheet_1: 1875631905663805349
+      black flash sheet_2: 3600964643959344707
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

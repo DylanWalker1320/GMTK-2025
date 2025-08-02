@@ -49,10 +49,10 @@ Canvas:
   m_GameObject: {fileID: 346486368274777616}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -60,7 +60,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1638402479
   m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!114 &7721069858863883961
@@ -75,10 +75,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -590,10 +590,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 6619978690932260363, guid: 6e21579da13ee244bb8b746682e2936b, type: 3}
+  m_SortingLayerID: 657184637
+  m_SortingLayer: 3
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 3422849895820167655, guid: 5184a215e1176c443a8eb0827442d6a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -682,10 +682,14 @@ MonoBehaviour:
   moveForce: 50
   maxSpeed: 5
   maxHealth: 100
+  castSpeed: 0
+  CastStrength: 0
   health: 100
   invincibilityFrames: 1
+  damageNumberPrefab: {fileID: 0}
+  damageNumberSpawnRadius: 1
   reticle: {fileID: 7450107430420979136}
-  experience: 0
+  experience: 1000
   Healthbar: {fileID: 5543022282655952352}
 --- !u!1 &8564377983484234412
 GameObject:
@@ -781,7 +785,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1611344159137110130
 Transform:
   m_ObjectHideFlags: 0
