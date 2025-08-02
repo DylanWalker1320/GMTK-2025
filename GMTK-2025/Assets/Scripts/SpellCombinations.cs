@@ -60,7 +60,7 @@ public class SpellCombinations : MonoBehaviour
                 Debug.Log("Combination: Poison Puddles");
                 return combinationSpellPrefabs[13];
             case (Spell.SpellType.Dark, Spell.SpellType.Lightning):
-                Debug.Log("Combination: Reanimate");
+                Debug.Log("Combination: Black Flash");
                 return combinationSpellPrefabs[14];
             case (Spell.SpellType.Dark, Spell.SpellType.Dark):
                 Debug.Log("Combination: Black Hole");
