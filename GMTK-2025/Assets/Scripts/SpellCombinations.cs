@@ -18,7 +18,7 @@ public class SpellCombinations : MonoBehaviour
                 Debug.Log("Combination: Steam Vent");
                 return combinationSpellPrefabs[1];
             case (Spell.SpellType.Fire, Spell.SpellType.Lightning):
-                Debug.Log("Combination: Stormflare");
+                Debug.Log("Combination: Fissure Flare");
                 return combinationSpellPrefabs[2];
             case (Spell.SpellType.Fire, Spell.SpellType.Dark):
                 Debug.Log("Combination: Ghostflame");
@@ -40,7 +40,7 @@ public class SpellCombinations : MonoBehaviour
 
             // Lightning combinations
             case (Spell.SpellType.Lightning, Spell.SpellType.Fire):
-                Debug.Log("Combination: Stormflare");
+                Debug.Log("Combination: Fissure Flare");
                 return combinationSpellPrefabs[8];
             case (Spell.SpellType.Lightning, Spell.SpellType.Water):
                 Debug.Log("Combination: Chain Lightning");
@@ -49,7 +49,7 @@ public class SpellCombinations : MonoBehaviour
                 Debug.Log("Combination: Storm");
                 return combinationSpellPrefabs[10];
             case (Spell.SpellType.Lightning, Spell.SpellType.Dark):
-                Debug.Log("Combination: Reanimate");
+                Debug.Log("Combination: Black Flash");
                 return combinationSpellPrefabs[11];
 
             // Dark combinations
