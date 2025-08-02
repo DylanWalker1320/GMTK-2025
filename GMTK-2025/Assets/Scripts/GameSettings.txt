@@ -1,7 +1,6 @@
 {
     "initialPlayerAttributes":
     {
-        "moveForce": "50",
         "maxSpeed": "50",
         "maxHealth": "1000",
         "invincibilityFrames": "1",
@@ -11,7 +10,6 @@
     },
     "currentPlayerAttributes":
     {
-        "moveForce": "50",
         "maxSpeed": "100",
         "maxHealth": "1000",
         "invincibilityFrames": "1",
