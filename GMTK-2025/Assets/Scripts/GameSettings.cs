@@ -14,6 +14,7 @@ public class GameSettings : MonoBehaviour
     [System.Serializable]
     public class PlayerAttributes
     {
+        public float moveForce;
         public float maxSpeed;
         public float maxHealth;
         public int invincibilityFrames;
@@ -24,6 +25,7 @@ public class GameSettings : MonoBehaviour
     [System.Serializable]
     public class CurrentPlayerAttributes
     {
+        public float moveForce;
         public float maxSpeed;
         public float maxHealth;
         public int invincibilityFrames;
@@ -77,6 +79,7 @@ public class GameSettings : MonoBehaviour
     {
         if (player != null)
         {
+            player.moveForce = attributes.moveForce;
             player.maxSpeed = attributes.maxSpeed;
             player.maxHealth = attributes.maxHealth;
             player.invincibilityFrames = attributes.invincibilityFrames;
@@ -87,7 +90,7 @@ public class GameSettings : MonoBehaviour
     }
     void SetInitialPlayerAttributes(PlayerAttributes attributes)
     {
-
+        attributes.moveForce = gameSettingsInfo.initialPlayerAttributes.moveForce;
         attributes.maxSpeed = gameSettingsInfo.initialPlayerAttributes.maxSpeed;
         attributes.maxHealth = gameSettingsInfo.initialPlayerAttributes.maxHealth;
         attributes.invincibilityFrames = gameSettingsInfo.initialPlayerAttributes.invincibilityFrames;

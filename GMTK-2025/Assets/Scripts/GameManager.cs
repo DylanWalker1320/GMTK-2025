@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameSettings != null)
         {
+            gameSettings.gameSettingsInfo.currentPlayerAttributes.moveForce = player.moveForce;
             gameSettings.gameSettingsInfo.currentPlayerAttributes.maxSpeed = player.maxSpeed;
             gameSettings.gameSettingsInfo.currentPlayerAttributes.maxHealth = player.maxHealth;
             gameSettings.gameSettingsInfo.currentPlayerAttributes.invincibilityFrames = player.invincibilityFrames;
@@ -83,4 +84,5 @@ public class GameManager : MonoBehaviour
             gameSettings.Save();
         }
     }
+    
 }

@@ -1,16 +1,18 @@
 {
     "initialPlayerAttributes":
     {
-        "maxSpeed": "50",
-        "maxHealth": "1000",
+        "moveForce": "50",
+        "maxSpeed": "5",
+        "maxHealth": "100",
         "invincibilityFrames": "1",
         "experience": "0",
-        "castStrength": "0",
-        "castSpeed": "0"
+        "castStrength": "1",
+        "castSpeed": "1"
     },
     "currentPlayerAttributes":
     {
-        "maxSpeed": "100",
+        "moveForce": "50",
+        "maxSpeed": "5",
         "maxHealth": "1000",
         "invincibilityFrames": "1",
         "experience": "0",

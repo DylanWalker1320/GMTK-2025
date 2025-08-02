@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
     public bool isPlayerAlive = true; // Flag to check if the player is active
     public bool isCasting = false; // casting current spell
     public int currentSpellIndex = 0; // Index of the current spell being cast
+    [SerializeField] private GameObject upgradeUI;
     private void Awake()
     {
         player = FindFirstObjectByType<PlayerMovement>();
@@ -34,7 +35,7 @@ public class Inventory : MonoBehaviour
     }
     private void Update()
     {
-        timeBetweenSpells -= Time.deltaTime; // Decrease the time between spells
+        timeBetweenSpells -= Time.deltaTime * player.castSpeed; // Decrease the time between spells
         if (!isCasting && !gameManager.isInSafeArea)
         {
             Cast();
@@ -42,6 +43,10 @@ public class Inventory : MonoBehaviour
         if (timeBetweenSpells < 0f && !gameManager.isInSafeArea)
         {
             Loop();
+        }
+        if(Input.GetKey(KeyCode.E))
+        {
+            upgradeUI.SetActive(!upgradeUI.activeSelf); // Toggle the visibility of the upgrade UI
         }
     }
 
