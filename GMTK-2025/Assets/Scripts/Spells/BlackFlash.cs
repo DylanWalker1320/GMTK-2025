@@ -10,12 +10,11 @@ public class BlackFlash : Spell
         Init();
         OrientSpell();
 
-        // Scale the spell visually
-        transform.localScale = new Vector3(range / 5f, range / 10f, 1f); // 5 is the base size, adjust as needed
-
         // Move it forward by half its length in world units
         float halfLength = GetComponent<SpriteRenderer>().bounds.extents.x;
         transform.position += transform.right * halfLength;
+
+        Destroy(gameObject, destroyTime);
     }
 
 
@@ -23,7 +22,7 @@ public class BlackFlash : Spell
     {
         if (other.CompareTag("Enemy"))
         {
-            SimpleEnemy enemy = other.GetComponent<SimpleEnemy>();
+            Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);

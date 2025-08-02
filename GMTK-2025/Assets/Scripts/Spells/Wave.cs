@@ -15,7 +15,7 @@ public class Wave : Spell
         if (collisionObject.CompareTag("Enemy"))
         {
             // If the fireball collides with an enemy, deal damage
-            collisionObject.GetComponent<SimpleEnemy>().TakeDamage(GetDamage());
+            collisionObject.GetComponent<Enemy>().TakeDamage(GetDamage());
         }
     }
 }

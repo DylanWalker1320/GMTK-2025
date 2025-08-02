@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class SimpleEnemy : MonoBehaviour
+public class SimpleEnemy : Enemy
 {
     public float moveForce = 30f;
     public float maxSpeed = 3f;
@@ -111,7 +111,7 @@ public class SimpleEnemy : MonoBehaviour
             touchingTarget = false;
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
         hitFlashTimer = hitFlashDuration;
 
