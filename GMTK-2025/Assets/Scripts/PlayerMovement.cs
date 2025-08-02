@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxSpeed = 5f;
     public float maxHealth = 100f;
     public float castSpeed;
-    public float CastStrength;
+    public float castStrength;
     public float health;
     public int invincibilityFrames = 1; // Invincibility frames after taking damage
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private bool canCastMagic = true;
     private float invincibilityTimer = 0f; // Timer for invincibility frames
-    
+
 
     void Awake()
     {
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement = movement.normalized;
@@ -55,10 +55,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Only add force if under max speed
-            if (rb.linearVelocity.magnitude < maxSpeed)
-            {
-                rb.AddForce(movement * moveForce);
-            }
+        if (rb.linearVelocity.magnitude < maxSpeed)
+        {
+            rb.AddForce(movement * moveForce);
+        }
 
         // Flip the player to face the movement direction
         if (movement.x > 0)
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
         Healthbar.value = health;
 
-        if(health <= maxHealth / 2)
+        if (health <= maxHealth / 2)
             Debug.Log("Half HP");
 
         if (health <= 0)
@@ -123,19 +123,19 @@ public class PlayerMovement : MonoBehaviour
         // Generate random position around the player in a circle
         float randomAngle = Random.Range(0f, 360f);
         float randomRadius = Random.Range(0.5f, damageNumberSpawnRadius);
-        
+
         Vector3 spawnOffset = new Vector3(
             Mathf.Cos(randomAngle * Mathf.Deg2Rad) * randomRadius,
             Mathf.Sin(randomAngle * Mathf.Deg2Rad) * randomRadius,
             0f
         );
-        
+
         Vector3 spawnPosition = transform.position + spawnOffset;
-        
+
         // Instantiate the damage number
         GameObject damageNumberObj = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.identity);
         DamageNumber damageNumber = damageNumberObj.GetComponent<DamageNumber>();
-        
+
         if (damageNumber != null)
         {
             damageNumber.SetDamageAmount(damageAmount);

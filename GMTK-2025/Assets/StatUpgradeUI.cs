@@ -12,14 +12,23 @@ public class StatUpgradeUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI iFramesText; // Text component for displaying invincibility frames
     [SerializeField] private TextMeshProUGUI castSpeedText; // Text component for displaying cast speed
     [SerializeField] private TextMeshProUGUI castStrengthText; // Text component for displaying cast strength
+    [SerializeField] private TextMeshProUGUI experienceText; // Text component for displaying experience
     [SerializeField] private Button upgradeHealthButton; // Button for upgrading health
     [SerializeField] private Button upgradeSpeedButton; // Button for upgrading speed
     [SerializeField] private Button upgradeIFramesButton; // Button for upgrading invincibility frames
     [SerializeField] private Button upgradeCastSpeedButton; // Button for upgrading cast speed
     [SerializeField] private Button upgradeCastStrengthButton; // Button for upgrading cast strength
     [Header("Upgrade Costs")]
-    [SerializeField] private int generalUpgradeCost;
-    [SerializeField] private int generalUpgradeIncrease;
+    [SerializeField] private int healthUpgradeCost;
+    [SerializeField] private int speedUpgradeCost;
+    [SerializeField] private int iFramesUpgradeCost;
+    [SerializeField] private int castSpeedUpgradeCost;
+    [SerializeField] private int castStrengthUpgradeCost;
+    [SerializeField] private int healthUpgradeIncrease;
+    [SerializeField] private int speedUpgradeIncrease;
+    [SerializeField] private int iFramesUpgradeIncrease;
+    [SerializeField] private int castSpeedUpgradeIncrease;
+    [SerializeField] private int castStrengthUpgradeIncrease;
 
     void Awake()
     {
@@ -37,7 +46,8 @@ public class StatUpgradeUI : MonoBehaviour
         speedText.text = player.maxSpeed.ToString();
         iFramesText.text = player.invincibilityFrames.ToString();
         castSpeedText.text = player.castSpeed.ToString();
-        castStrengthText.text = player.CastStrength.ToString();
+        castStrengthText.text = player.castStrength.ToString();
+        experienceText.text = player.experience.ToString();
     }
 
     // Update is called once per frame
@@ -47,30 +57,48 @@ public class StatUpgradeUI : MonoBehaviour
 
     public void UpgradeHealth()
     {
-        player.maxHealth += generalUpgradeIncrease;
-        SubtractExperience(generalUpgradeCost); // Subtract experience for the upgrade
+        if (CheckExperience(healthUpgradeCost))
+        {
+            player.maxHealth += healthUpgradeIncrease;
+            SubtractExperience(healthUpgradeCost); // Subtract experience for the upgrade           
+        }
     }
 
     public void UpgradeSpeed()
     {
-        player.moveForce += generalUpgradeIncrease; // Assuming moveForce is the speed attribute
-        player.maxSpeed += generalUpgradeIncrease;
-        SubtractExperience(generalUpgradeCost); // Subtract experience for the upgrade
+        if (CheckExperience(speedUpgradeCost))
+        {
+            player.moveForce += speedUpgradeIncrease; // Assuming moveForce is the speed attribute
+            player.maxSpeed += speedUpgradeIncrease;
+            SubtractExperience(speedUpgradeCost); // Subtract experience for the upgrade
+        }
     }
+
     public void UpgradeCastSpeed()
     {
-        player.castSpeed += generalUpgradeIncrease;
-        SubtractExperience(generalUpgradeCost); // Subtract experience for the upgrade
+        if (CheckExperience(castSpeedUpgradeCost))
+        {
+            player.castSpeed += castSpeedUpgradeIncrease;
+            SubtractExperience(castSpeedUpgradeCost); // Subtract experience for the upgrade
+        }
     }
+
     public void UpgradeCastStrength()
     {
-        player.CastStrength += generalUpgradeIncrease;
-        SubtractExperience(generalUpgradeCost); // Subtract experience for the upgrade
+        if (CheckExperience(castStrengthUpgradeCost))
+        {
+            player.castStrength += castStrengthUpgradeIncrease;
+            SubtractExperience(castStrengthUpgradeCost); // Subtract experience for the upgrade
+        }
     }
+
     public void UpgradeIFrames()
     {
-        player.invincibilityFrames += generalUpgradeIncrease;
-        SubtractExperience(generalUpgradeCost); // Subtract experience for the upgrade
+        if (CheckExperience(iFramesUpgradeCost))
+        {
+            player.invincibilityFrames += iFramesUpgradeIncrease;
+            SubtractExperience(iFramesUpgradeCost); // Subtract experience for the upgrade
+        }
     }
 
     void SubtractExperience(int experience)
@@ -85,7 +113,16 @@ public class StatUpgradeUI : MonoBehaviour
         speedText.text = player.maxSpeed.ToString();
         iFramesText.text = player.invincibilityFrames.ToString();
         castSpeedText.text = player.castSpeed.ToString();
-        castStrengthText.text = player.CastStrength.ToString();
+        castStrengthText.text = player.castStrength.ToString();
+    }
+
+    private bool CheckExperience(int cost)
+    {
+        if (player.experience - cost < 0 )
+        {
+            return false;
+        }
+        return true; // Player has enough experience for the upgrade
     }
     
 }

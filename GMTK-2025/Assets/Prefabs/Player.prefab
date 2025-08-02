@@ -61,7 +61,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -1638402479
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &7721069858863883961
 MonoBehaviour:
@@ -630,7 +630,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &-7890949493622148952
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -682,11 +682,11 @@ MonoBehaviour:
   moveForce: 50
   maxSpeed: 5
   maxHealth: 100
-  castSpeed: 0
-  CastStrength: 0
+  castSpeed: 1
+  castStrength: 0
   health: 100
   invincibilityFrames: 1
-  damageNumberPrefab: {fileID: 0}
+  damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
   damageNumberSpawnRadius: 1
   reticle: {fileID: 7450107430420979136}
   experience: 1000

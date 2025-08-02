@@ -3,8 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    private GameSettings gameSettings; // Reference to the game settings
     [SerializeField] bool isSafeArea; // Indicates next level is a safe area
     [SerializeField] bool isWaveArea; // Indicates next level is a wave area
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

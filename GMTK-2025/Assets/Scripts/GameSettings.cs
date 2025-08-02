@@ -10,6 +10,7 @@ public class GameSettings : MonoBehaviour
     {
         public PlayerAttributes initialPlayerAttributes; // Initial spells for the player
         public CurrentPlayerAttributes currentPlayerAttributes; // Current spells for the player
+        public bool isSaved; // Flag to check if the game is saved
     }
     [System.Serializable]
     public class PlayerAttributes
@@ -42,8 +43,15 @@ public class GameSettings : MonoBehaviour
     }
     void Start()
     {
-        gameSettingsInfo = JsonUtility.FromJson<GameSettingsInfo>(gameSettingsFile.text);
-        SetInitialPlayerAttributes(gameSettingsInfo.initialPlayerAttributes); // Set initial player attributes from the loaded settings
+        if (System.IO.File.Exists(Application.persistentDataPath + "/GameSettings.json"))
+        {
+            Load(); // Load the game settings if already saved
+        }
+        else
+        {
+            gameSettingsInfo = JsonUtility.FromJson<GameSettingsInfo>(gameSettingsFile.text);
+            SetInitialPlayerAttributes(gameSettingsInfo.initialPlayerAttributes); // Set initial player attributes from the loaded settings   
+        }
     }
 
     // Update is called once per frame
@@ -58,6 +66,7 @@ public class GameSettings : MonoBehaviour
         // Save the current player attributes to the game settings file
         string json = JsonUtility.ToJson(gameSettingsInfo, true);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/GameSettings.json", json);
+
     }
 
     public void Load()
@@ -83,19 +92,20 @@ public class GameSettings : MonoBehaviour
             player.maxSpeed = attributes.maxSpeed;
             player.maxHealth = attributes.maxHealth;
             player.invincibilityFrames = attributes.invincibilityFrames;
+            Debug.Log(attributes.experience);
             player.experience = attributes.experience;
-            player.CastStrength = attributes.castStrength;
+            player.castStrength = attributes.castStrength;
             player.castSpeed = attributes.castSpeed;
         }
     }
     void SetInitialPlayerAttributes(PlayerAttributes attributes)
     {
-        attributes.moveForce = gameSettingsInfo.initialPlayerAttributes.moveForce;
-        attributes.maxSpeed = gameSettingsInfo.initialPlayerAttributes.maxSpeed;
-        attributes.maxHealth = gameSettingsInfo.initialPlayerAttributes.maxHealth;
-        attributes.invincibilityFrames = gameSettingsInfo.initialPlayerAttributes.invincibilityFrames;
-        attributes.experience = gameSettingsInfo.initialPlayerAttributes.experience;
-        attributes.castStrength = gameSettingsInfo.initialPlayerAttributes.castStrength;
-        attributes.castSpeed = gameSettingsInfo.initialPlayerAttributes.castSpeed;
+        player.moveForce = gameSettingsInfo.initialPlayerAttributes.moveForce;
+        player.maxSpeed = gameSettingsInfo.initialPlayerAttributes.maxSpeed;
+        player.maxHealth = gameSettingsInfo.initialPlayerAttributes.maxHealth;
+        player.invincibilityFrames = gameSettingsInfo.initialPlayerAttributes.invincibilityFrames;
+        player.experience = gameSettingsInfo.initialPlayerAttributes.experience;
+        player.castStrength = gameSettingsInfo.initialPlayerAttributes.castStrength;
+        player.castSpeed = gameSettingsInfo.initialPlayerAttributes.castSpeed;
     }
 }
