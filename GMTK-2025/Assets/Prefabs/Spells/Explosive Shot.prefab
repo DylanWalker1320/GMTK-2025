@@ -126,15 +126,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 1
-  damage: 5
+  damage: 10
   speed: 10
   spellType1: 0
   spellType2: 0
   spellSprite: {fileID: 806898372, guid: d0401ae72f711e24db339022618b70f8, type: 3}
-  explosionRadius: 5
-  explosionDamage: 30
-  fadeDuration: 1
-  explosionVisual: {fileID: 0}
+  explosionSize: 1
+  explosionDuration: 1
+  explosionDamageUpgrade: 2
+  explosionSizeUpgrade: 0.5
+  explosionDurationUpgrade: 0.2
 --- !u!50 &1165334991673011861
 Rigidbody2D:
   serializedVersion: 5

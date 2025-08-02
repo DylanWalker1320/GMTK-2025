@@ -5,18 +5,24 @@ public class ExplosiveShot : Spell
 {
     [Header("Explosive Shot Properties")]
     [SerializeField] private float explosionSize = 1f; // Size multiplier of the explosion
-    [SerializeField] private float explosionDamage = 10f; // Damage dealt by the explosion
     [SerializeField] private float explosionDuration = 1f; // Duration for the explosion visual to fade out
+    [Header("Upgrade Scaling")]
+    [SerializeField] private float explosionDamageUpgrade = 2f; // Damage increase per upgrade
+    [SerializeField] private float explosionSizeUpgrade = 0.5f;
+    [SerializeField] private float explosionDurationUpgrade = 0.2f; // Duration increase per upgrade
     private Animator animator;
     private bool isExploding = false;
     void Start()
     {
-        Init(); // Initialize the spell properties
-        OrientSpell(); // Spawn the spell at the reticle position
+        // Initialize the spell properties
+        Init(); 
+        OrientSpell();
         animator = GetComponent<Animator>();
+        transform.localScale = new Vector3(explosionSize, explosionSize, 1f); // Set the scale of the spell based on explosion size
+
         StartCoroutine(ExplodeDelay()); // Start the coroutine to handle the explosion delay
 
-        transform.localScale = new Vector3(explosionSize, explosionSize, 1f); // Set the scale of the spell based on explosion size
+        AddUpgrade(); // Apply upgrades to the spell
     }
 
     void Explode()
@@ -45,7 +51,7 @@ public class ExplosiveShot : Spell
                     Explode();
                 }
 
-                enemy.TakeDamage(explosionDamage); // Apply damage to the enemy
+                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2));
             }
         }
     }
@@ -54,5 +60,13 @@ public class ExplosiveShot : Spell
     {
         yield return new WaitForSeconds(destroyTime); // Wait for the explosion duration
         Explode(); // Call the explode method to destroy the spell
+    }
+
+    void AddUpgrade()
+    {
+        int spellLevel = GetSpellLevel(Spells.ExplosiveShot);
+        damage += explosionDamageUpgrade * spellLevel;
+        explosionSize += explosionSizeUpgrade * spellLevel;
+        explosionDuration += explosionDurationUpgrade * spellLevel; 
     }
 }
