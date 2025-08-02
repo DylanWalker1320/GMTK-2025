@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: a1e0fc0c06d6b49459112028a3b066ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3970375805694713065
+    second: storm sheet_0
+  - first:
+      213: 1370496905639433638
+    second: storm sheet_1
+  - first:
+      213: 5406654968150651205
+    second: storm sheet_2
+  - first:
+      213: -6443903490964556123
+    second: storm sheet_3
+  - first:
+      213: -5114725570402522807
+    second: storm sheet_4
+  - first:
+      213: 7971765133889571373
+    second: storm sheet_5
+  - first:
+      213: 3406445712956845340
+    second: storm sheet_6
+  - first:
+      213: -4328160514077555193
+    second: storm sheet_7
+  - first:
+      213: -3872429848377473282
+    second: storm sheet_8
+  - first:
+      213: 8222723369216719293
+    second: storm sheet_9
+  - first:
+      213: -9064967252716356055
+    second: storm sheet_10
+  - first:
+      213: -5325999106956722956
+    second: storm sheet_11
+  - first:
+      213: -6188888015847261792
+    second: storm sheet_12
+  - first:
+      213: 3266344034291442216
+    second: storm sheet_13
+  - first:
+      213: -5576162340709462361
+    second: storm sheet_14
+  - first:
+      213: 3369740127573686781
+    second: storm sheet_15
+  - first:
+      213: -3511414705405108709
+    second: storm sheet_16
+  - first:
+      213: 1949633286689227193
+    second: storm sheet_17
+  - first:
+      213: -3121502959397367724
+    second: storm sheet_18
+  - first:
+      213: -8293248960482723651
+    second: storm sheet_19
+  - first:
+      213: -464206847870912894
+    second: storm sheet_20
+  - first:
+      213: 803749588786859624
+    second: storm sheet_21
+  - first:
+      213: -8333815136657128732
+    second: storm sheet_22
+  - first:
+      213: 8416265428438128358
+    second: storm sheet_23
+  - first:
+      213: 1455534406591259957
+    second: storm sheet_24
+  - first:
+      213: 3500772023763447424
+    second: storm sheet_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: storm sheet_0
+      rect:
+        serializedVersion: 2
+        x: 9379
+        y: 2828
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 713e2cc9d3466e8c0800000000000000
+      internalID: -3970375805694713065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1721
+        y: 2759
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a5196aacabf40310800000000000000
+      internalID: 1370496905639433638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_2
+      rect:
+        serializedVersion: 2
+        x: 9024
+        y: 1811
+        width: 674
+        height: 991
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54178bf3c0c480b40800000000000000
+      internalID: 5406654968150651205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_3
+      rect:
+        serializedVersion: 2
+        x: 11512
+        y: 1628
+        width: 579
+        height: 1161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a6782e8ae7a296a0800000000000000
+      internalID: -6443903490964556123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 1764
+        width: 648
+        height: 980
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 949ec845138d409b0800000000000000
+      internalID: -5114725570402522807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_5
+      rect:
+        serializedVersion: 2
+        x: 3097
+        y: 1568
+        width: 572
+        height: 1150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a055e272661ae60800000000000000
+      internalID: 7971765133889571373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_6
+      rect:
+        serializedVersion: 2
+        x: 5861
+        y: 1137
+        width: 599
+        height: 1199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1de17be350264f20800000000000000
+      internalID: 3406445712956845340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_7
+      rect:
+        serializedVersion: 2
+        x: 7726
+        y: 1608
+        width: 674
+        height: 1118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 706098ba1f84fe3c0800000000000000
+      internalID: -4328160514077555193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_8
+      rect:
+        serializedVersion: 2
+        x: 8403
+        y: 2183
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef647d5e19d524ac0800000000000000
+      internalID: -3872429848377473282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_9
+      rect:
+        serializedVersion: 2
+        x: 13362
+        y: 1538
+        width: 681
+        height: 1112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db93774a65bfc1270800000000000000
+      internalID: 8222723369216719293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_10
+      rect:
+        serializedVersion: 2
+        x: 7720
+        y: 2134
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92efa49df44c23280800000000000000
+      internalID: -9064967252716356055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_11
+      rect:
+        serializedVersion: 2
+        x: 14045
+        y: 2144
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fcfbc3d7004616b0800000000000000
+      internalID: -5325999106956722956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_12
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 851
+        width: 599
+        height: 1199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a970c4c327ac1aa0800000000000000
+      internalID: -6188888015847261792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_13
+      rect:
+        serializedVersion: 2
+        x: 9956
+        y: 1737
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8226826e792645d20800000000000000
+      internalID: 3266344034291442216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_14
+      rect:
+        serializedVersion: 2
+        x: 10666
+        y: 718
+        width: 713
+        height: 1174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ae0a1815ed7d92b0800000000000000
+      internalID: -5576162340709462361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_15
+      rect:
+        serializedVersion: 2
+        x: 7983
+        y: 1540
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df9b869dac8b3ce20800000000000000
+      internalID: 3369740127573686781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_16
+      rect:
+        serializedVersion: 2
+        x: 11384
+        y: 1245
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1ede310ee2f44fc0800000000000000
+      internalID: -3511414705405108709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 28
+        width: 687
+        height: 993
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b18367052d7e0b10800000000000000
+      internalID: 1949633286689227193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_18
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 117
+        width: 905
+        height: 1104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4501acbc8913ea4d0800000000000000
+      internalID: -3121502959397367724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_19
+      rect:
+        serializedVersion: 2
+        x: 7554
+        y: 509
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db8bc8c820678ec80800000000000000
+      internalID: -8293248960482723651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_20
+      rect:
+        serializedVersion: 2
+        x: 7566
+        y: 65
+        width: 687
+        height: 993
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 286b952d45ece89f0800000000000000
+      internalID: -464206847870912894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_21
+      rect:
+        serializedVersion: 2
+        x: 8772
+        y: 117
+        width: 915
+        height: 1125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86ec1081efd772b00800000000000000
+      internalID: 803749588786859624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_22
+      rect:
+        serializedVersion: 2
+        x: 12408
+        y: 35
+        width: 781
+        height: 1040
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e247c3a947585c80800000000000000
+      internalID: -8333815136657128732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 472
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e6947dd0d49cc470800000000000000
+      internalID: 8416265428438128358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_24
+      rect:
+        serializedVersion: 2
+        x: 13355
+        y: 341
+        width: 80
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5352b3fb4d8133410800000000000000
+      internalID: 1455534406591259957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm sheet_25
+      rect:
+        serializedVersion: 2
+        x: 13431
+        y: 0
+        width: 122
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08eab049b9d359030800000000000000
+      internalID: 3500772023763447424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
