@@ -119,10 +119,10 @@ TextureImporter:
       name: electricity sheet_0
       rect:
         serializedVersion: 2
-        x: 346
-        y: 1043
-        width: 2185
-        height: 670
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: electricity sheet_1
       rect:
         serializedVersion: 2
-        x: 3182
-        y: 1034
-        width: 2191
-        height: 637
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3ecc917df08219843a8640886842d8ee
     internalID: 0
     vertices: []
     indices: 

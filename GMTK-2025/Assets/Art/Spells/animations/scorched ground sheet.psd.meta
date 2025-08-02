@@ -119,10 +119,10 @@ TextureImporter:
       name: scorched ground sheet_0
       rect:
         serializedVersion: 2
-        x: 223
-        y: 789
-        width: 2424
-        height: 1257
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: scorched ground sheet_1
       rect:
         serializedVersion: 2
-        x: 3023
-        y: 789
-        width: 2416
-        height: 1259
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9c97f554b15a7034f827c96b2ff77679
     internalID: 0
     vertices: []
     indices: 

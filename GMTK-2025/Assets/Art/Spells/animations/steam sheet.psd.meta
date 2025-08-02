@@ -140,10 +140,10 @@ TextureImporter:
       name: steam sheet_0
       rect:
         serializedVersion: 2
-        x: 5782
-        y: 722
-        width: 2696
-        height: 2051
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: steam sheet_1
       rect:
         serializedVersion: 2
-        x: 7807
-        y: 2771
-        width: 44
-        height: 36
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: steam sheet_2
       rect:
         serializedVersion: 2
-        x: 7812
-        y: 2761
-        width: 15
-        height: 19
+        x: 5670
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,143 +202,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: steam sheet_3
-      rect:
-        serializedVersion: 2
-        x: 2571
-        y: 2357
-        width: 12
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4ccfba910e3611d90800000000000000
-      internalID: -7128806920996258620
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: steam sheet_4
-      rect:
-        serializedVersion: 2
-        x: 5064
-        y: 2340
-        width: 43
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 655301b15cd92d6b0800000000000000
-      internalID: -5272978743809264298
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: steam sheet_5
-      rect:
-        serializedVersion: 2
-        x: 5069
-        y: 2328
-        width: 10
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 58bfe7479c8d745b0800000000000000
-      internalID: -5384096469743633531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: steam sheet_6
-      rect:
-        serializedVersion: 2
-        x: 5076
-        y: 2338
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 24600837172b4d680800000000000000
-      internalID: -8731157577225730494
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: steam sheet_7
-      rect:
-        serializedVersion: 2
-        x: 133
-        y: 565
-        width: 2632
-        height: 1646
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 71bc627f8a93e99e0800000000000000
-      internalID: -1612788218688255209
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: steam sheet_8
-      rect:
-        serializedVersion: 2
-        x: 2921
-        y: 410
-        width: 2591
-        height: 1868
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a5c17b4778e4605c0800000000000000
-      internalID: -4249622854691775398
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6fbfbf43aa0211941a127420a3bdef38
     internalID: 0
     vertices: []
     indices: 
@@ -351,12 +219,6 @@ TextureImporter:
       steam sheet_0: 2678532488670500709
       steam sheet_1: 1190696515650328989
       steam sheet_2: 7865614084586022414
-      steam sheet_3: -7128806920996258620
-      steam sheet_4: -5272978743809264298
-      steam sheet_5: -5384096469743633531
-      steam sheet_6: -8731157577225730494
-      steam sheet_7: -1612788218688255209
-      steam sheet_8: -4249622854691775398
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -126,7 +126,139 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: black hole sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 2362
+        height: 2362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9c06862fb9726c90800000000000000
+      internalID: -7178040994183115619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black hole sheet_1
+      rect:
+        serializedVersion: 2
+        x: 2362
+        y: 1
+        width: 2362
+        height: 2362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d849784e58d428c0800000000000000
+      internalID: -4024854267507947304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black hole sheet_2
+      rect:
+        serializedVersion: 2
+        x: 4724
+        y: 1
+        width: 2362
+        height: 2362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a5686c6a0a2fa440800000000000000
+      internalID: 4949220739760285095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black hole sheet_3
+      rect:
+        serializedVersion: 2
+        x: 7086
+        y: 1
+        width: 2362
+        height: 2362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbcfa8278626c2a50800000000000000
+      internalID: 6497676563126615228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black hole sheet_4
+      rect:
+        serializedVersion: 2
+        x: 9448
+        y: 1
+        width: 2362
+        height: 2362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2270878cefeecc90800000000000000
+      internalID: -7147511759425736148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black hole sheet_5
+      rect:
+        serializedVersion: 2
+        x: 11810
+        y: 1
+        width: 2362
+        height: 2362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c5b817150f7bb880800000000000000
+      internalID: -8594135804067400247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []

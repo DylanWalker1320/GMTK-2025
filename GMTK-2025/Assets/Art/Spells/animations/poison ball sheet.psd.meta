@@ -125,10 +125,10 @@ TextureImporter:
       name: poison ball sheet_0
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 2596
-        width: 37
-        height: 33
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: poison ball sheet_1
       rect:
         serializedVersion: 2
-        x: 4838
-        y: 2526
-        width: 38
-        height: 33
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,55 +165,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: poison ball sheet_2
-      rect:
-        serializedVersion: 2
-        x: 774
-        y: 601
-        width: 1002
-        height: 1437
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4aa0dd61ad7829cd0800000000000000
-      internalID: -2552828668009444700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: poison ball sheet_3
-      rect:
-        serializedVersion: 2
-        x: 3873
-        y: 513
-        width: 985
-        height: 1484
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 605c28967bdf680c0800000000000000
-      internalID: -4573689407357139706
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e0aed1b0989c1747ada48c6a0e1b158
     internalID: 0
     vertices: []
     indices: 
@@ -225,8 +181,6 @@ TextureImporter:
     nameFileIdTable:
       poison ball sheet_0: -983401670396581274
       poison ball sheet_1: 6902949277276876609
-      poison ball sheet_2: -2552828668009444700
-      poison ball sheet_3: -4573689407357139706
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

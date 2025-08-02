@@ -125,10 +125,10 @@ TextureImporter:
       name: poison pool sheet_0
       rect:
         serializedVersion: 2
-        x: 83
-        y: 542
-        width: 2658
-        height: 1507
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: poison pool sheet_1
       rect:
         serializedVersion: 2
-        x: 2963
-        y: 540
-        width: 2658
-        height: 1507
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,55 +165,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: poison pool sheet_2
-      rect:
-        serializedVersion: 2
-        x: 1562
-        y: 516
-        width: 23
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b9e3ad937fbc7dd80800000000000000
-      internalID: -8225881931680956773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: poison pool sheet_3
-      rect:
-        serializedVersion: 2
-        x: 4442
-        y: 514
-        width: 23
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b03fb2ba6213e0ca0800000000000000
-      internalID: -6048843207361694965
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dd6e72f01c085a148a35eebe6bfbb319
     internalID: 0
     vertices: []
     indices: 
@@ -225,8 +181,6 @@ TextureImporter:
     nameFileIdTable:
       poison pool sheet_0: 6379156356478884945
       poison pool sheet_1: -7041005171507373705
-      poison pool sheet_2: -8225881931680956773
-      poison pool sheet_3: -6048843207361694965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
