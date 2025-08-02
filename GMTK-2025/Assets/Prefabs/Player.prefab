@@ -538,8 +538,8 @@ Transform:
   m_GameObject: {fileID: 8016173160932670840}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6920736, y: -0.27782124, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.704, y: -0.424, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9220977432349424470}
@@ -589,9 +589,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 657184637
-  m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 8086551292566691165, guid: fb4a4412197e88a4eabae32e410c7771, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -664,8 +664,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: -0.07604778, y: -0.03802389}
+  m_Radius: 0.4204954
 --- !u!114 &7818191223313872262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,9 +680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 50
   maxSpeed: 5
-  maxHealth: 100
-  castSpeed: 0
-  CastStrength: 0
+  canCastMagic: 1
   health: 100
   invincibilityFrames: 1
   reticle: {fileID: 7450107430420979136}
@@ -733,7 +731,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1

@@ -57,7 +57,7 @@ public class BlackHole : Spell
                 if (collider.CompareTag("Enemy"))
                 {
                     // Apply damage to the enemy
-                    collider.GetComponent<SimpleEnemy>().TakeDamage(damage);
+                    collider.GetComponent<Enemy>().TakeDamage(damage);
                 }
             }
             lastDamageTime = Time.time;

@@ -31,7 +31,7 @@ public class ChainLightning : Spell
             if (hitColliders[i].CompareTag("Enemy") && hitColliders[i].gameObject != lastTarget)
             {
                 enemyFound = true;
-                SimpleEnemy enemy = hitColliders[i].GetComponent<SimpleEnemy>();
+                Enemy enemy = hitColliders[i].GetComponent<Enemy>();
                 if (enemy != null)
                 {
                     Vector2 direction = (hitColliders[i].transform.position - transform.position).normalized;
@@ -51,7 +51,7 @@ public class ChainLightning : Spell
     {
         if (collision.CompareTag("Enemy"))
         {
-            SimpleEnemy enemy = collision.GetComponent<SimpleEnemy>();
+            Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage * (1 - falloffPerChain * (maxChains - chains)));

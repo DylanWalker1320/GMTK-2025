@@ -13,7 +13,7 @@ public class StormStrike : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            SimpleEnemy enemy = collision.gameObject.GetComponent<SimpleEnemy>();
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage); // Deal damage to the enemy

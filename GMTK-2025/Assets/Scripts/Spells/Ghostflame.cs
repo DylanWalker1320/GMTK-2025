@@ -14,7 +14,7 @@ public class Ghostflame : Spell
     {
         if (collision.CompareTag("Enemy"))
         {
-            SimpleEnemy enemy = collision.GetComponent<SimpleEnemy>();
+            Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(GetDamage());
