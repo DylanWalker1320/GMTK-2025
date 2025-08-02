@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    private GameManager gameManager;
     private PlayerMovement player;
     private SpellCombinations spellCombinations;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
@@ -19,6 +20,7 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         player = FindFirstObjectByType<PlayerMovement>();
+        gameManager = FindFirstObjectByType<GameManager>();
         if (player == null)
         {
             Debug.LogError("PlayerMovement not found in the scene.");
@@ -33,11 +35,11 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
         timeBetweenSpells -= Time.deltaTime; // Decrease the time between spells
-        if (!isCasting)
+        if (!isCasting && !gameManager.isInSafeArea)
         {
             Cast();
         }
-        if (timeBetweenSpells < 0f)
+        if (timeBetweenSpells < 0f && !gameManager.isInSafeArea)
         {
             Loop();
         }

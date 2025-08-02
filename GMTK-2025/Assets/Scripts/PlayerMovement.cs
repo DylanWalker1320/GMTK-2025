@@ -6,11 +6,13 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveForce = 50f;
-    [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float health;
-    [SerializeField] private float invincibilityFrames = 1f; // Invincibility frames after taking damage
+    public float moveForce = 50f;
+    public float maxSpeed = 5f;
+    public float maxHealth = 100f;
+    public float castSpeed;
+    public float CastStrength;
+    public float health;
+    public int invincibilityFrames = 1; // Invincibility frames after taking damage
     public Transform reticle; // Reference to the reticle script for aiming
     public float experience;
     public Slider Healthbar;
