@@ -151521,6 +151521,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3992889852123394306, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3422849895820167655, guid: 5184a215e1176c443a8eb0827442d6a9, type: 3}
+    - target: {fileID: 3992889852123394306, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992889852123394306, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 657184637
+      objectReference: {fileID: 0}
     - target: {fileID: 6382199126839844870, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6920736
