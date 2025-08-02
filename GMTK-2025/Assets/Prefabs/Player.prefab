@@ -589,9 +589,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 657184637
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 8086551292566691165, guid: fb4a4412197e88a4eabae32e410c7771, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -629,7 +629,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &-7890949493622148952
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -680,8 +680,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 50
   maxSpeed: 5
-  canCastMagic: 1
+  maxHealth: 100
+  castSpeed: 0
+  CastStrength: 0
   health: 100
+  invincibilityFrames: 1
   reticle: {fileID: 7450107430420979136}
   experience: 0
   Healthbar: {fileID: 5543022282655952352}
@@ -704,7 +707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1611344159137110130
 Transform:
   m_ObjectHideFlags: 0

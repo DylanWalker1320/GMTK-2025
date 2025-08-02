@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Prefabs")]
-    [SerializeField] private GameObject[] enemyPrefabs;
+    public GameObject[] enemyPrefabs;
 
     [Header("Player Target")]
     [SerializeField] private Transform player;
@@ -11,10 +11,15 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private float spawnMargin = 2f; // How far outside the camera-circle to spawn
-
+    public int maxWavePopulation;
     private float timer;
     private Camera mainCam;
+    [Header("Debug Info ")]
+    public int currentEnemies = 0; // Current number of enemies spawned
 
+    void Awake()
+    {
+    }
     void Start()
     {
         if (player == null)
@@ -32,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0f)
+        if (timer <= 0f && maxWavePopulation > 0 && player != null)
         {
             SpawnEnemy();
             timer = spawnInterval;
@@ -41,9 +46,10 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        if (enemyPrefabs.Length == 0 || player == null || mainCam == null)
+        if (enemyPrefabs.Length == 0 || maxWavePopulation == 0 || player == null || mainCam == null)
             return;
-
+        maxWavePopulation--;
+        currentEnemies++;
         GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
         Vector3 spawnPos = GetCircularSpawnPosition();
         Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);

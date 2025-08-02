@@ -12,6 +12,7 @@ public class SimpleEnemy : MonoBehaviour
     private bool touchingTarget = false;
     private float health = 100f;
     private SpriteRenderer spriteRenderer;
+    private EnemySpawner enemySpawner; // Reference to the enemy spawner
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private float maxHitSlowPercent = 0.2f; // 20% slow at max
 
@@ -24,6 +25,7 @@ public class SimpleEnemy : MonoBehaviour
 
     void Start()
     {
+        enemySpawner = FindFirstObjectByType<EnemySpawner>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         propertyBlock = new MaterialPropertyBlock();
@@ -118,6 +120,7 @@ public class SimpleEnemy : MonoBehaviour
         health -= damage;
         if (health <= 0f)
         {
+            enemySpawner.currentEnemies--; // Debugging: Decrease enemy count in spawner
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Die();
         }
