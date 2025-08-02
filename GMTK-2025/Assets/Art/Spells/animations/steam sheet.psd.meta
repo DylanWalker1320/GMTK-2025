@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      steam sheet_0: 2678532488670500709
+      steam sheet_1: 1190696515650328989
+      steam sheet_2: 7865614084586022414
+      steam sheet_3: -7128806920996258620
+      steam sheet_4: -5272978743809264298
+      steam sheet_5: -5384096469743633531
+      steam sheet_6: -8731157577225730494
+      steam sheet_7: -1612788218688255209
+      steam sheet_8: -4249622854691775398
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

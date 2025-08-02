@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      black hole sheet_0: -7178040994183115619
+      black hole sheet_1: -4024854267507947304
+      black hole sheet_2: 4949220739760285095
+      black hole sheet_3: 6497676563126615228
+      black hole sheet_4: -7147511759425736148
+      black hole sheet_5: -8594135804067400247
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

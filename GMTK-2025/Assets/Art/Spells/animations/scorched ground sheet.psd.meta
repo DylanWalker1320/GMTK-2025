@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      scorched ground sheet_0: -4381820338035415461
+      scorched ground sheet_1: 5883337492995032981
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

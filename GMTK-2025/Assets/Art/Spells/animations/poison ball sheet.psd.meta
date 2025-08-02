@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      poison ball sheet_0: -983401670396581274
+      poison ball sheet_1: 6902949277276876609
+      poison ball sheet_2: -2552828668009444700
+      poison ball sheet_3: -4573689407357139706
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      poison pool sheet_0: 6379156356478884945
+      poison pool sheet_1: -7041005171507373705
+      poison pool sheet_2: -8225881931680956773
+      poison pool sheet_3: -6048843207361694965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
