@@ -5,6 +5,8 @@ public class GameSettings : MonoBehaviour
 {
     [SerializeField] private TextAsset gameSettingsFile; // Reference to the game settings file
     private PlayerMovement player; // Reference to the player movement script
+    [Header("Debug Game Settings")]
+    [SerializeField] private bool firstLevelInit;
     [System.Serializable]
     public class GameSettingsInfo
     {
@@ -43,12 +45,13 @@ public class GameSettings : MonoBehaviour
     }
     void Start()
     {
-        if (System.IO.File.Exists(Application.persistentDataPath + "/GameSettings.json"))
+        if (System.IO.File.Exists(Application.persistentDataPath + "/GameSettings.json") && !firstLevelInit)
         {
             Load(); // Load the game settings if already saved
         }
         else
         {
+            Debug.Log("No saved game settings found, using default settings.");
             gameSettingsInfo = JsonUtility.FromJson<GameSettingsInfo>(gameSettingsFile.text);
             SetInitialPlayerAttributes(gameSettingsInfo.initialPlayerAttributes); // Set initial player attributes from the loaded settings   
         }
