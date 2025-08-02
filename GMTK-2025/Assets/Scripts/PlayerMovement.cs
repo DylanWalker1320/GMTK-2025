@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float health;
     [SerializeField] private float invincibilityFrames = 1f; // Invincibility frames after taking damage
+    [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
+    [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
     public Transform reticle; // Reference to the reticle script for aiming
     public float experience;
     public Slider Healthbar;
@@ -72,6 +74,11 @@ public class PlayerMovement : MonoBehaviour
 
         StartCoroutine(HitEffect(Color.red, 0.5f));
 
+        Debug.Log("Player took " + damageAmount + " damage");
+
+        // Spawn damage number
+        SpawnDamageNumber(damageAmount);
+
         invincibilityTimer = invincibilityFrames;
 
         health -= damageAmount;
@@ -104,6 +111,33 @@ public class PlayerMovement : MonoBehaviour
         }
 
         playerSprite.color = originalColor;
+    }
+
+    private void SpawnDamageNumber(float damageAmount)
+    {
+        if (damageNumberPrefab == null) return;
+
+        // Generate random position around the player in a circle
+        float randomAngle = Random.Range(0f, 360f);
+        float randomRadius = Random.Range(0.5f, damageNumberSpawnRadius);
+        
+        Vector3 spawnOffset = new Vector3(
+            Mathf.Cos(randomAngle * Mathf.Deg2Rad) * randomRadius,
+            Mathf.Sin(randomAngle * Mathf.Deg2Rad) * randomRadius,
+            0f
+        );
+        
+        Vector3 spawnPosition = transform.position + spawnOffset;
+        
+        // Instantiate the damage number
+        GameObject damageNumberObj = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.identity);
+        DamageNumber damageNumber = damageNumberObj.GetComponent<DamageNumber>();
+        
+        if (damageNumber != null)
+        {
+            damageNumber.SetDamageAmount(damageAmount);
+            damageNumber.SetColor(Color.red);
+        }
     }
 
     void Die()
