@@ -38,7 +38,6 @@ public class DarkKnight : Boss
 
     Attack ChooseAttack()
     {
-        Debug.Log("Choosing attack for phase: " + currentPhase);
         Attack atk = Attack.Walk;
         switch (currentPhase)
         {
