@@ -15,7 +15,7 @@ public class Fireball : Spell
         if (collisionObject.CompareTag("Enemy"))
         {
             // If the fireball collides with an enemy, deal damage
-            collisionObject.GetComponent<SimpleEnemy>().TakeDamage(damage);
+            collisionObject.GetComponent<Enemy>().TakeDamage(damage);
             Destroy(gameObject); // Destroy the fireball after dealing damage
         }
     }

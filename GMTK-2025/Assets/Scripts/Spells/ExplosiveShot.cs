@@ -19,7 +19,7 @@ public class ExplosiveShot : Spell
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            SimpleEnemy enemy = collision.gameObject.GetComponent<SimpleEnemy>();
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
                 // Hide self and stop
@@ -32,10 +32,10 @@ public class ExplosiveShot : Spell
                 {
                     if (hitEnemy.CompareTag("Enemy"))
                     {
-                        SimpleEnemy simpleEnemy = hitEnemy.GetComponent<SimpleEnemy>();
-                        if (simpleEnemy != null)
+                        Enemy Enemy = hitEnemy.GetComponent<Enemy>();
+                        if (Enemy != null)
                         {
-                            simpleEnemy.TakeDamage(explosionDamage); // Deal damage to each enemy hit by the explosion
+                            Enemy.TakeDamage(explosionDamage); // Deal damage to each enemy hit by the explosion
                         }
                     }
                 }

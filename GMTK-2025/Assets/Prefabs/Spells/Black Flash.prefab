@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18d93b55a6f5a14eafb9148d1486481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 0
+  destroyTime: 0.5
   damage: 100
   speed: 0
   spellType1: 2
