@@ -114,6 +114,7 @@ public class StatUpgradeUI : MonoBehaviour
         iFramesText.text = player.invincibilityFrames.ToString();
         castSpeedText.text = player.castSpeed.ToString();
         castStrengthText.text = player.castStrength.ToString();
+        experienceText.text = player.experience.ToString();
     }
 
     private bool CheckExperience(int cost)
