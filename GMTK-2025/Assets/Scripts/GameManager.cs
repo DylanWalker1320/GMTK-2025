@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         {
             levelComplete = false; // Reset level complete flag
             SwitchToSafeArea();
-            SetCurrentPlayerStats();
+            SetExperience(player.experience); // Save player's experience when level is complete
         }
         else if (enemySpawner != null)
         {
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         player.transform.position = levelCompletePosition.position; // Move player to safe area
     }
 
-    void SetCurrentPlayerStats()
+    void SaveCurrentPlayerStats() // Sets current 
     {
         if (gameSettings != null)
         {
@@ -73,10 +73,11 @@ public class GameManager : MonoBehaviour
             gameSettings.gameSettingsInfo.currentPlayerAttributes.experience = player.experience;
             gameSettings.gameSettingsInfo.currentPlayerAttributes.castStrength = player.CastStrength;
             gameSettings.gameSettingsInfo.currentPlayerAttributes.castSpeed = player.castSpeed;
+            gameSettings.Save(); // Save the current player stats
         }
     }
 
-    void SetExperience(float experience)
+    void SetExperience(float experience) // Only sets experience and saves it
     {
         if (gameSettings != null)
         {

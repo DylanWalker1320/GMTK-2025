@@ -151215,6 +151215,7 @@ GameObject:
   - component: {fileID: 1655625917}
   - component: {fileID: 1655625916}
   - component: {fileID: 1655625915}
+  - component: {fileID: 1655625918}
   m_Layer: 0
   m_Name: LevelCompleteStairs
   m_TagString: Stairs
@@ -151419,6 +151420,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1655625918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655625913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57a62653ea273942afd7d7ee360c998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSafeArea: 1
+  isWaveArea: 0
 --- !u!1 &1713829479
 GameObject:
   m_ObjectHideFlags: 0
