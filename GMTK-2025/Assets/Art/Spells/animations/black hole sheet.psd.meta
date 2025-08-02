@@ -131,10 +131,10 @@ TextureImporter:
       name: black hole sheet_0
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 1144
-        width: 358
-        height: 369
+        x: 944
+        y: 953
+        width: 299
+        height: 309
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: black hole sheet_1
       rect:
         serializedVersion: 2
-        x: 4116
-        y: 1197
-        width: 356
-        height: 362
+        x: 3429
+        y: 997
+        width: 298
+        height: 303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +175,10 @@ TextureImporter:
       name: black hole sheet_2
       rect:
         serializedVersion: 2
-        x: 6932
-        y: 1065
-        width: 361
-        height: 376
+        x: 5776
+        y: 887
+        width: 302
+        height: 315
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: black hole sheet_3
       rect:
         serializedVersion: 2
-        x: 9819
-        y: 1237
-        width: 358
-        height: 369
+        x: 8182
+        y: 1030
+        width: 299
+        height: 309
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: black hole sheet_4
       rect:
         serializedVersion: 2
-        x: 11459
-        y: 493
-        width: 2627
-        height: 1810
+        x: 9549
+        y: 410
+        width: 2190
+        height: 1510
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: black hole sheet_5
       rect:
         serializedVersion: 2
-        x: 14282
-        y: 503
-        width: 2675
-        height: 1832
+        x: 11902
+        y: 420
+        width: 2228
+        height: 1527
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

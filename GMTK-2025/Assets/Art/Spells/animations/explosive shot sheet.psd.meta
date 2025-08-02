@@ -143,10 +143,10 @@ TextureImporter:
       name: explosive shot sheet_0
       rect:
         serializedVersion: 2
-        x: 11716
-        y: 140
-        width: 2195
-        height: 2450
+        x: 9764
+        y: 117
+        width: 1828
+        height: 2042
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: explosive shot sheet_1
       rect:
         serializedVersion: 2
-        x: 14198
-        y: 1960
-        width: 552
-        height: 650
+        x: 11832
+        y: 1633
+        width: 459
+        height: 542
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +187,10 @@ TextureImporter:
       name: explosive shot sheet_2
       rect:
         serializedVersion: 2
-        x: 16287
-        y: 2227
-        width: 571
-        height: 492
+        x: 13573
+        y: 1856
+        width: 476
+        height: 411
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +209,10 @@ TextureImporter:
       name: explosive shot sheet_3
       rect:
         serializedVersion: 2
-        x: 1132
-        y: 1075
-        width: 362
-        height: 429
+        x: 943
+        y: 895
+        width: 303
+        height: 358
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: explosive shot sheet_4
       rect:
         serializedVersion: 2
-        x: 3968
-        y: 1227
-        width: 349
-        height: 381
+        x: 3307
+        y: 1023
+        width: 291
+        height: 317
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +253,10 @@ TextureImporter:
       name: explosive shot sheet_5
       rect:
         serializedVersion: 2
-        x: 6893
-        y: 1243
-        width: 362
-        height: 429
+        x: 5744
+        y: 1035
+        width: 302
+        height: 358
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,10 +275,10 @@ TextureImporter:
       name: explosive shot sheet_6
       rect:
         serializedVersion: 2
-        x: 9945
-        y: 1260
-        width: 349
-        height: 381
+        x: 8288
+        y: 1051
+        width: 291
+        height: 317
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,9 +297,9 @@ TextureImporter:
       name: explosive shot sheet_7
       rect:
         serializedVersion: 2
-        x: 13941
-        y: 1262
-        width: 53
+        x: 11617
+        y: 1051
+        width: 45
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -319,10 +319,10 @@ TextureImporter:
       name: explosive shot sheet_8
       rect:
         serializedVersion: 2
-        x: 14281
-        y: 115
-        width: 683
-        height: 659
+        x: 11901
+        y: 95
+        width: 569
+        height: 550
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,10 +341,10 @@ TextureImporter:
       name: explosive shot sheet_9
       rect:
         serializedVersion: 2
-        x: 16156
-        y: 520
-        width: 605
-        height: 611
+        x: 13463
+        y: 433
+        width: 504
+        height: 510
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,17 +372,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      explosive shot sheet_0: -7407240109846874426
-      explosive shot sheet_1: 2532947068339562085
-      explosive shot sheet_2: 8674090549373705193
-      explosive shot sheet_3: -2498405528240756375
-      explosive shot sheet_4: -69659240620583599
-      explosive shot sheet_5: 4919832973639404447
-      explosive shot sheet_6: 6879513983475430051
-      explosive shot sheet_7: -1387111514999333954
-      explosive shot sheet_8: 2572217744696922145
-      explosive shot sheet_9: 8859797100422734148
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
