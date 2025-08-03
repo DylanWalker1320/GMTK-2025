@@ -71,6 +71,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
     void Awake()
     {
         player = FindFirstObjectByType<PlayerMovement>();
+        gameManager = FindFirstObjectByType<GameManager>();
         uiManager = FindFirstObjectByType<UIManager>();
     }
 
@@ -127,17 +128,27 @@ public class ThreeUpgradeScreen : MonoBehaviour
         {
             case 0:
                 upgradeTextThree.text = "Fireball";
+                gameManager.allocateSpell = Spell.SpellType.Fire;
+                gameManager.spellImage = fireSprite;
                 displaySprite.sprite = fireSprite;
                 break;
             case 1:
                 upgradeTextThree.text = "Waterball";
+                gameManager.allocateSpell = Spell.SpellType.Water;
+                gameManager.spellImage = waterSprite;
                 displaySprite.sprite = waterSprite;
                 break;
             case 2:
                 upgradeTextThree.text = "Lightning";
+                gameManager.allocateSpell = Spell.SpellType.Lightning;
+                gameManager.spellImage = lightSprite;
+                displaySprite.sprite = lightSprite;
                 break;
             case 3:
                 upgradeTextThree.text = "Dark";
+                gameManager.allocateSpell = Spell.SpellType.Dark;
+                gameManager.spellImage = darkSprite;
+                displaySprite.sprite = darkSprite;
                 break;
             default:
                 Debug.LogError("Invalid upgrade index for spells.");
