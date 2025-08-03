@@ -5,11 +5,17 @@ public class Lightning : Spell
     [Header("Specific Spell Properties")]
     public float searchRadius = 5f; // Radius to find the closest enemy
 
+    [Header("Upgrade Scaling")]
+    [SerializeField] private float speedUpgrade = 1f; // Speed increase per upgrade
+    [SerializeField] private float damageUpgrade = 1f; // Damage increase per upgrade
+    [SerializeField] private float searchRadiusUpgrade = 0.5f; // Search radius increase per upgrade
+
     void Start()
     {
         Init(); // Initialize the spell properties
-
+        AddUpgrade(); // Apply upgrades to the spell
         FindClosestEnemy(transform.position, searchRadius); // Use the radius variable
+        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position; // Spawn the spell at the reticle position
     }
 
     private void FindClosestEnemy(Vector2 position, float radius, int maxColliders = 50)
@@ -52,5 +58,13 @@ public class Lightning : Spell
                 Destroy(gameObject);
             }
         }
+    }
+
+    void AddUpgrade()
+    {
+        int spellLevel = GetSpellLevel(Spells.Lightning);
+        speed += speedUpgrade * spellLevel; // Increase the speed
+        damage += damageUpgrade * spellLevel; // Increase the damage
+        searchRadius += searchRadiusUpgrade * spellLevel; // Increase the search radius
     }
 }

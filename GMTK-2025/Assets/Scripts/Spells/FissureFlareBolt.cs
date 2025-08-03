@@ -9,6 +9,9 @@ public class FissureFlareBolt : Spell
     [SerializeField] private float groundEffectCooldown = 0.5f; // Cooldown for ground effect
     [SerializeField] private GameObject groundEffectPrefab; // Prefab for the ground effect
 
+    [Header("Upgrade Scaling")]
+    [SerializeField] private float flareFrequencyUpgrade = 0.05f; // Frequency increase per upgrade
+
     private Vector2 direction;
     private Vector2 perpendicular;
     private float timeAlive = 0f;
@@ -20,6 +23,7 @@ public class FissureFlareBolt : Spell
     void Start()
     {
         Init();
+        AddUpgrade(); // Apply upgrades to the spell
         initialPosition = transform.position;
         lastPosition = transform.position;
         Destroy(gameObject, destroyTime); // Destroy the bolt after a certain time
@@ -81,8 +85,19 @@ public class FissureFlareBolt : Spell
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2));
             }
+        }
+    }
+
+    void AddUpgrade()
+    {
+        // Increase the flare frequency based on spell level
+        int spellLevel = GetSpellLevel(Spells.FissureFlare);
+        groundEffectCooldown -= flareFrequencyUpgrade * spellLevel; // Decrease cooldown for ground effect
+        if (groundEffectCooldown < 0.1f) // Ensure cooldown doesn't go below a minimum threshold
+        {
+            groundEffectCooldown = 0.1f;
         }
     }
 }
