@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: damageNumberPrefab
+      value: 
+      objectReference: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
     - target: {fileID: 7907789145732432508, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_Radius
       value: 0.8

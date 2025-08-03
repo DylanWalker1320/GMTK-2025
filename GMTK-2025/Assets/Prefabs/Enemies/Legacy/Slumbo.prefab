@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: maxHitSlowPercent
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3298207689124650751, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
+      propertyPath: damageNumberPrefab
+      value: 
+      objectReference: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
     - target: {fileID: 6800311007714447452, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
       propertyPath: m_Sprite
       value: 

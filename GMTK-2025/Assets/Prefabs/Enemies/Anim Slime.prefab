@@ -133,6 +133,8 @@ MonoBehaviour:
   health: 100
   deathEffect: {fileID: 8720471837675972744, guid: ed081c54d46bc0e49a232f77143ce028, type: 3}
   maxHitSlowPercent: 1
+  damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
+  damageNumberSpawnRadius: 1
 --- !u!50 &6194187486926783592
 Rigidbody2D:
   serializedVersion: 5

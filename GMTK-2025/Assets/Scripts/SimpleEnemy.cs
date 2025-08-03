@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class SimpleEnemy : Enemy
@@ -15,7 +16,8 @@ public class SimpleEnemy : Enemy
     private EnemySpawner enemySpawner; // Reference to the enemy spawner
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private float maxHitSlowPercent = 0.2f; // 20% slow at max
-
+    [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
+    [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around enemy to spawn damage numbers
 
     // Hit flash
     private float hitFlashTimer = 0f;
@@ -118,6 +120,9 @@ public class SimpleEnemy : Enemy
     {
         hitFlashTimer = hitFlashDuration;
 
+        // Spawn damage number
+        SpawnDamageNumber(damage);
+
         health -= damage;
         if (health <= 0f && isDead == false)
         {
@@ -125,6 +130,40 @@ public class SimpleEnemy : Enemy
             isDead = true;
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Die();
+        }
+    }
+
+    private void SpawnDamageNumber(float damageAmount)
+    {
+        if (damageNumberPrefab == null) return;
+
+        // Generate random position around the enemy in a circle
+        float randomAngle = Random.Range(0f, 360f);
+        float randomRadius = Random.Range(0.5f, damageNumberSpawnRadius);
+
+        Vector3 spawnOffset = new Vector3(
+            Mathf.Cos(randomAngle * Mathf.Deg2Rad) * randomRadius,
+            Mathf.Sin(randomAngle * Mathf.Deg2Rad) * randomRadius,
+            0f
+        );
+
+        Vector3 spawnPosition = transform.position + spawnOffset;
+
+        // Instantiate the damage number
+        GameObject damageNumberObj = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.identity);
+        
+        // Set the sorting layer to UI to ensure it renders on top
+        Canvas canvas = damageNumberObj.GetComponent<Canvas>();
+        if (canvas != null)
+        {
+            canvas.sortingLayerName = "UI";
+        }
+        
+        DamageNumber damageNumber = damageNumberObj.GetComponent<DamageNumber>();
+        if (damageNumber != null)
+        {
+            damageNumber.SetDamageAmount(damageAmount);
+            damageNumber.SetColor(Color.red);
         }
     }
 
