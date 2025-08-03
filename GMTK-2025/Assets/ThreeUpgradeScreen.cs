@@ -21,7 +21,8 @@ public class ThreeUpgradeScreen : MonoBehaviour
     {
         Fireball,
         Waterball,
-        Lightning
+        Lightning,
+        Dark
     }
     public enum Heal
     {
@@ -30,6 +31,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     private GameManager gameManager; // Reference to the GameManager script
     private PlayerMovement player; // Reference to the PlayerMovement script
+    private UIManager uiManager;
 
     [Header("Upgrade List")]
     [SerializeField] private TextMeshProUGUI upgradeListHeader; // Header for the upgrade list
@@ -55,28 +57,35 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     [Header("Upgrade Index")]
 
-    [SerializeField] private List<int> upgradePoolIndexList;
+    [SerializeField] private int upgradeIndexTwo; // Statas
+    [SerializeField] private int upgradeIndexThree; // Spells
 
-    private int upgradeIndexOne;
-    private int upgradeIndexTwo;
-    private int upgradeIndexThree;
+    void Awake()
+    {
+        player = FindFirstObjectByType<PlayerMovement>();
+        uiManager = FindFirstObjectByType<UIManager>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        upgradeTextOne.text = "Heal " + healAmount + " HP";
-
-        upgradeIndexTwo = Random.Range(0, 5); // Change this according to the number of stats in the enum class
-        UpdateStatDisplay();
-
-        upgradeIndexTwo = Random.Range(0, 3); // Change this according to the number of spells in the enum class
-        UpdateSpellDisplay();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void UpdateDisplays()
+    {
+        upgradeTextOne.text = "Heal " + healAmount + " HP";
+
+        upgradeIndexTwo = Random.Range(0, 5); // Change this according to the number of stats in the enum class
+        UpdateStatDisplay();
+
+        upgradeIndexThree = Random.Range(0, 4); // Change this according to the number of spells in the enum class
+        UpdateSpellDisplay();
     }
 
     void UpdateStatDisplay()
@@ -117,21 +126,31 @@ public class ThreeUpgradeScreen : MonoBehaviour
             case 2:
                 upgradeTextThree.text = "Lightning";
                 break;
+            case 3:
+                upgradeTextThree.text = "Dark";
+                break;
             default:
                 Debug.LogError("Invalid upgrade index for spells.");
                 break;
         }
     }
 
-    void Slot1()
+    public void Slot1()
     {
-        player.health += healAmount; // Heal the player by the specified amount
+        if (player.health + healAmount <= player.maxHealth)
+        {
+            player.health += healAmount; // Heal the player by the specified amount
+        }
+        else
+        {
+            player.health = player.maxHealth;
+        }
         healAmount += player.health / 3.0f;
-        // Turn Canvas Off
+        uiManager.SetActiveUpgradeUI();
 
     }
 
-    void Slot2()
+    public void Slot2()
     {
         switch (upgradeIndexTwo)
         {
@@ -140,7 +159,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
                 break;
             case 1:
                 player.moveForce += speedUpgradeIncrease; // Upgrade speed
-                player.maxSpeed += speedUpgradeIncrease; 
+                player.maxSpeed += speedUpgradeIncrease;
                 break;
             case 2:
                 player.invincibilityFrames += iFramesUpgradeIncrease; // Upgrade invincibility frames
@@ -155,9 +174,15 @@ public class ThreeUpgradeScreen : MonoBehaviour
                 Debug.LogError("Invalid upgrade index for stats.");
                 break;
         }
+        uiManager.SetActiveUpgradeUI();
+        
     }
-    void Slot3()
+    public void Slot3()
     {
-
+        switch (upgradeIndexThree)
+        {
+            // Switch to new canvas UI withn the selected spell
+            
+        }
     }
 }

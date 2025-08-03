@@ -2,17 +2,43 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    private GameManager gameManager; // Reference to the GameManager script
     public GameObject inventoryUI; // Reference to the inventory UI panel
     public GameObject upgradeUI; // Reference to the upgrade UI panel
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+                                 // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void Awake()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
+        if (gameManager == null)
+        {
+            Debug.LogError("GameManager not found in the scene.");
+        }
+    }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-            // upgradeUI.SetActive(!upgradeUI.activeSelf); // Toggle the visibility of the upgrade UI
+        if (gameManager.levelComplete)
+        {
+            SetActiveUpgradeUI();
+            upgradeUI.GetComponent<ThreeUpgradeScreen>().UpdateDisplays();
+            
+        }
+
+    }
+
+    public void SetActiveInventoryUI()
+    {
+        inventoryUI.SetActive(!upgradeUI.activeSelf);
+    }
+
+    public void SetActiveUpgradeUI()
+    {
+        upgradeUI.SetActive(!upgradeUI.activeSelf);
     }
 }
