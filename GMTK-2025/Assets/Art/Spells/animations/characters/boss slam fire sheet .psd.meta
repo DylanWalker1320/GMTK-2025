@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boss slam fire sheet _0: -1045013982830354868
+      boss slam fire sheet _1: -1790274533594980976
+      boss slam fire sheet _2: -6286538318763895996
+      boss slam fire sheet _3: -8772226516010068370
+      boss slam fire sheet _4: -295613384030721581
+      boss slam fire sheet _5: -8175160879293907843
+      boss slam fire sheet _6: 1087931352803582742
+      boss slam fire sheet _7: -8306434872219165086
+      boss slam fire sheet _8: 6228729103616684914
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

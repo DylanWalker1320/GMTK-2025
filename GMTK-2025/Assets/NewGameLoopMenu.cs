@@ -50,7 +50,7 @@ public class NewGameLoopMenu : MonoBehaviour
     {
         upgradeIndex = Random.Range(0, 5);
         spellTypeIndex = Random.Range(0, 4);
-        upgradeTextOne.text = "GAIN " + experienceGain + "SOULS!";
+        upgradeTextOne.text = "GAIN " + experienceGain + " SOULS!";
 
         UpdateStatDisplay();
         UpdateSpellDisplay();

@@ -297,7 +297,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boss slam sheet_0: 8673871421921620229
+      boss slam sheet_1: 8902053820084913662
+      boss slam sheet_2: -1668327888839835851
+      boss slam sheet_3: -497481590322798803
+      boss slam sheet_4: 7471942838118225824
+      boss slam sheet_5: 963908551128994806
+      boss slam sheet_6: 1099329816464875908
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
