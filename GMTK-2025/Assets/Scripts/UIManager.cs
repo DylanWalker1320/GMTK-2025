@@ -70,7 +70,6 @@ public class UIManager : MonoBehaviour
 
     public void GameplayMode()
     {
-        inventoryUI.SetActive(false);
         upgradeUI.SetActive(false);
         spellUpgradeUI.SetActive(false);
         barAllocationUI.SetActive(false);

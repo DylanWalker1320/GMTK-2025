@@ -52,7 +52,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
     [SerializeField] private int healthUpgradeIncrease;
     [SerializeField] private int speedUpgradeIncrease;
     [SerializeField] private int iFramesUpgradeIncrease;
-    [SerializeField] private int castSpeedUpgradeIncrease;
+    [SerializeField] private float castSpeedUpgradeIncrease;
     [SerializeField] private int castStrengthUpgradeIncrease;
 
     [Header("Upgrade Index")]
