@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UIManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class UIManager : MonoBehaviour
                                  // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject spellUpgradeUI;
     public GameObject barAllocationUI;
+    public UnityEvent onShopFinish;
     void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
@@ -18,7 +20,6 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -48,6 +49,8 @@ public class UIManager : MonoBehaviour
     {
         spellUpgradeUI.SetActive(!spellUpgradeUI.activeSelf);
         spellUpgradeUI.GetComponent<SpellUpgradeUI>().UpdateExperience();
+
+        onShopFinish.Invoke();
     }
 
     public void SetActiveBarAllocUI()
