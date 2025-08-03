@@ -551,17 +551,18 @@ MonoBehaviour:
   - {fileID: 8226592338137823242}
   spellArray:
   - {fileID: 8039000571881017357, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
-  - {fileID: 8039000571881017357, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
-  - {fileID: 4587004831938667483, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
-  - {fileID: 8039000571881017357, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
+  - {fileID: 0}
   - {fileID: 6813655516327199667, guid: 4bb26d09d3a2bc842bb79b63d0cb72a9, type: 3}
-  - {fileID: 4587004831938667483, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
+  - {fileID: 0}
   - {fileID: 8039000571881017357, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
-  - {fileID: 4587004831938667483, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
+  - {fileID: 0}
+  - {fileID: 7732002758274677308, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
+  - {fileID: 0}
   maxTimeBetweenSpells: 0.5
   isPlayerAlive: 1
   isCasting: 0
   currentSpellIndex: 0
+  experienceText: {fileID: 9112847705028560976}
 --- !u!114 &6633504052758639909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,6 +861,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeChainLightning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -872,6 +885,81 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &483040553775373523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8498649999485455200}
+  - component: {fileID: 3994896309736881726}
+  - component: {fileID: 6864910227626111161}
+  m_Layer: 5
+  m_Name: Soul Skull
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8498649999485455200
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483040553775373523}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.11818182, z: 0.1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 8230185839156589022}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -60.3, y: 39.3}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3994896309736881726
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483040553775373523}
+  m_CullTransparentMesh: 1
+--- !u!114 &6864910227626111161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483040553775373523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -2739807658926110822, guid: 0373e935e89a1e945882a1a0f66e01b6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &596171968531852643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1310,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeExplosiveShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -1355,6 +1455,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeWaterball
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -2220,6 +2332,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeFissureFlare
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -2445,6 +2569,142 @@ RectTransform:
   m_AnchoredPosition: {x: 9.168156, y: -2.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1620510603244582215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8802759772824715322}
+  - component: {fileID: 2989348347205340062}
+  - component: {fileID: 9112847705028560976}
+  m_Layer: 5
+  m_Name: Experience
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8802759772824715322
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620510603244582215}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 6.719856, y: 6.719856, z: 6.719856}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4293268928618112463}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -123, y: -544}
+  m_SizeDelta: {x: 200, y: 11.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2989348347205340062
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620510603244582215}
+  m_CullTransparentMesh: 1
+--- !u!114 &9112847705028560976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620510603244582215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 0
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 920710e54b7225e47a6f5fd405a00f74, type: 2}
+  m_sharedMaterial: {fileID: -2781287008343985393, guid: 920710e54b7225e47a6f5fd405a00f74, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4291559275
+  m_fontColor: {r: 0.4198113, g: 1, b: 0.79781306, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 5
+  m_fontSizeBase: 5
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 73.20826, y: 0, z: 0, w: 18.302063}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1661820933360330576
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,6 +2826,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeLightning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -3332,6 +3604,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeFireball
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -4124,7 +4408,7 @@ GameObject:
   - component: {fileID: 3364490468721203942}
   - component: {fileID: 5897165750292233957}
   - component: {fileID: 8773447783981297202}
-  - component: {fileID: 8628931571242595510}
+  - component: {fileID: 466098607749762058}
   m_Layer: 5
   m_Name: Slot 7
   m_TagString: Untagged
@@ -4187,7 +4471,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &8628931571242595510
+--- !u!114 &466098607749762058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4772,6 +5056,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1631781690246782640}
+  - {fileID: 8802759772824715322}
+  - {fileID: 8230429978413690602}
   - {fileID: 7099670567376308663}
   - {fileID: 7505670254856218463}
   - {fileID: 8230185839156589022}
@@ -5542,7 +5828,7 @@ GameObject:
   - component: {fileID: 8822005646023668637}
   - component: {fileID: 2647529413282284280}
   - component: {fileID: 7568849828618569142}
-  - component: {fileID: 1259843706544782925}
+  - component: {fileID: 1462900490251235674}
   m_Layer: 5
   m_Name: Slot 8
   m_TagString: Untagged
@@ -5605,7 +5891,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &1259843706544782925
+--- !u!114 &1462900490251235674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6066,6 +6352,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeStorm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -6274,6 +6572,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeBlackHole
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -6616,6 +6926,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeDark
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -6639,7 +6961,7 @@ GameObject:
   - component: {fileID: 3835749122947273806}
   - component: {fileID: 7959015301150792695}
   - component: {fileID: 370764600082233150}
-  - component: {fileID: 6360229400178479915}
+  - component: {fileID: 1806926814258803240}
   m_Layer: 5
   m_Name: Slot 1
   m_TagString: Untagged
@@ -6702,7 +7024,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &6360229400178479915
+--- !u!114 &1806926814258803240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6991,6 +7313,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -7396,6 +7730,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeSteamVent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -8200,6 +8546,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeBlackFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -8697,7 +9055,7 @@ GameObject:
   - component: {fileID: 6693267234898091013}
   - component: {fileID: 6246260574859475804}
   - component: {fileID: 6141698063549408207}
-  - component: {fileID: 4130818647570975937}
+  - component: {fileID: 8667165763145221126}
   m_Layer: 5
   m_Name: Slot 5
   m_TagString: Untagged
@@ -8760,7 +9118,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &4130818647570975937
+--- !u!114 &8667165763145221126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8937,6 +9295,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradeGhostFlame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -9183,6 +9553,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2505581197925879684}
+        m_TargetAssemblyTypeName: SpellUpgradeUI, Assembly-CSharp
+        m_MethodName: UpgradePoisonPuddles
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameplayMode
@@ -9206,7 +9588,7 @@ GameObject:
   - component: {fileID: 7224871325454630145}
   - component: {fileID: 8893167943287511142}
   - component: {fileID: 2306422763801847484}
-  - component: {fileID: 5715962879440279185}
+  - component: {fileID: 4643696625537860119}
   m_Layer: 5
   m_Name: Slot 6
   m_TagString: Untagged
@@ -9269,7 +9651,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &5715962879440279185
+--- !u!114 &4643696625537860119
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10429,7 +10811,7 @@ GameObject:
   - component: {fileID: 7882605419495106850}
   - component: {fileID: 3657595479698537842}
   - component: {fileID: 807081756871997161}
-  - component: {fileID: 6167452142760994282}
+  - component: {fileID: 8085633504675061886}
   m_Layer: 5
   m_Name: Slot 2
   m_TagString: Untagged
@@ -10492,7 +10874,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &6167452142760994282
+--- !u!114 &8085633504675061886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10760,6 +11142,81 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &7323581357051768544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8230429978413690602}
+  - component: {fileID: 2122017892886005799}
+  - component: {fileID: 7500037822222150399}
+  m_Layer: 5
+  m_Name: Soul Skull
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8230429978413690602
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323581357051768544}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6720752, y: 0.79394484, z: 0.6720752}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 4293268928618112463}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -356.826, y: -474.11206}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2122017892886005799
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323581357051768544}
+  m_CullTransparentMesh: 1
+--- !u!114 &7500037822222150399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323581357051768544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -2739807658926110822, guid: 0373e935e89a1e945882a1a0f66e01b6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7543628734871799505
 GameObject:
   m_ObjectHideFlags: 0
@@ -11132,6 +11589,7 @@ RectTransform:
   - {fileID: 3068132344312015258}
   - {fileID: 7395003015713549301}
   - {fileID: 7886604317881445794}
+  - {fileID: 8498649999485455200}
   m_Father: {fileID: 4293268928618112463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -11551,7 +12009,7 @@ GameObject:
   - component: {fileID: 3875252164823916217}
   - component: {fileID: 3120778636384383734}
   - component: {fileID: 1501103724733016215}
-  - component: {fileID: 7086114735908242340}
+  - component: {fileID: 4342614021410775715}
   m_Layer: 5
   m_Name: Slot 3
   m_TagString: Untagged
@@ -11614,7 +12072,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &7086114735908242340
+--- !u!114 &4342614021410775715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12237,7 +12695,7 @@ GameObject:
   - component: {fileID: 8760326977886211229}
   - component: {fileID: 2961882801020056858}
   - component: {fileID: 1416489182589492900}
-  - component: {fileID: 1984841787447850872}
+  - component: {fileID: 7006790632406300221}
   m_Layer: 5
   m_Name: Slot 4
   m_TagString: Untagged
@@ -12300,7 +12758,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &1984841787447850872
+--- !u!114 &7006790632406300221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
