@@ -147,6 +147,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
         }
         healAmount += player.health / 3.0f;
         uiManager.SetActiveUpgradeUI();
+        uiManager.SetActiveSpellUpgradeUI();
 
     }
 
@@ -175,6 +176,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
                 break;
         }
         uiManager.SetActiveUpgradeUI();
+        uiManager.SetActiveSpellUpgradeUI();
         
     }
     public void Slot3()

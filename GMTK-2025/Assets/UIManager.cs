@@ -6,7 +6,8 @@ public class UIManager : MonoBehaviour
     public GameObject inventoryUI; // Reference to the inventory UI panel
     public GameObject upgradeUI; // Reference to the upgrade UI panel
                                  // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    public GameObject spellUpgradeUI;
+    public GameObject barAllocationUI;
     void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
@@ -27,7 +28,7 @@ public class UIManager : MonoBehaviour
         {
             SetActiveUpgradeUI();
             upgradeUI.GetComponent<ThreeUpgradeScreen>().UpdateDisplays();
-            
+
         }
 
     }
@@ -40,5 +41,11 @@ public class UIManager : MonoBehaviour
     public void SetActiveUpgradeUI()
     {
         upgradeUI.SetActive(!upgradeUI.activeSelf);
+    }
+
+    public void SetActiveSpellUpgradeUI()
+    {
+        spellUpgradeUI.SetActive(!spellUpgradeUI.activeSelf);
+        spellUpgradeUI.GetComponent<SpellUpgradeUI>().UpdateExperience();
     }
 }

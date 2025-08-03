@@ -29,27 +29,29 @@ public abstract class Spell : MonoBehaviour
         PoisonPuddle,
         SteamVent,
         Storm,
-        Waterball
+        Waterball,
+        Wave
     }
 
-    public Dictionary<Spells, int> spellLevels = new Dictionary<Spells, int>
+    public static Dictionary<Spells, int> spellLevels = new Dictionary<Spells, int>
     {
-        { Spells.BlackFlash, 1 },
-        { Spells.BlackHole, 1 },
-        { Spells.ChainLightning, 1 },
+        { Spells.Fireball, 1 },
+        { Spells.Waterball, 1 },
+        { Spells.Lightning, 1 },
         { Spells.Dark, 1 },
         { Spells.ExplosiveShot, 1 },
-        { Spells.Fireball, 1 },
+        { Spells.SteamVent, 1 },
         { Spells.FissureFlare, 1 },
         { Spells.Ghostflame, 1 },
-        { Spells.Lightning, 1 },
+        { Spells.Wave, 1},
+        { Spells.ChainLightning, 1 },
         { Spells.PoisonPuddle, 1 },
-        { Spells.SteamVent, 1 },
         { Spells.Storm, 1 },
-        { Spells.Waterball, 1 }
+        { Spells.BlackFlash, 1 },
+        { Spells.BlackHole, 1 }
     };
 
-    private Dictionary<SpellType, float> spellModifiers = new Dictionary<SpellType, float>
+    private static Dictionary<SpellType, float> spellModifiers = new Dictionary<SpellType, float>
     {
         { SpellType.Fire, 1f },
         { SpellType.Water, 1f },
@@ -95,7 +97,7 @@ public abstract class Spell : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rot - 180);
     }
 
-    public void UpgradeSpell(Spells spell)
+    public static void UpgradeSpell(Spells spell)
     {
         if (spellLevels.ContainsKey(spell))
         {
@@ -103,7 +105,7 @@ public abstract class Spell : MonoBehaviour
         }
     }
 
-    public void UpgradeModifier(SpellType type, float modifier)
+    public static void UpgradeModifier(SpellType type, float modifier)
     {
         if (spellModifiers.ContainsKey(type))
         {
@@ -111,7 +113,7 @@ public abstract class Spell : MonoBehaviour
         }
     }
 
-    public int GetSpellLevel(Spells spell)
+    public static int GetSpellLevel(Spells spell)
     {
         if (spellLevels.ContainsKey(spell))
         {
@@ -120,7 +122,7 @@ public abstract class Spell : MonoBehaviour
         return 0; // Return 0 if the spell is not found
     }
 
-    public float GetModifier(SpellType type)
+    public static float GetModifier(SpellType type)
     {
         if (spellModifiers.ContainsKey(type))
         {
