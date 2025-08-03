@@ -81,7 +81,7 @@ public class Inventory : MonoBehaviour
         isCasting = false; // Reset casting flag after casting
     }
 
-    private void GetSpellSprites()
+    public void GetSpellSprites()
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {

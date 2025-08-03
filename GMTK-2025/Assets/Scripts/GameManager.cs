@@ -1,4 +1,5 @@
 using System;
+using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,11 @@ public class GameManager : MonoBehaviour
     private bool isGamePaused = false; // Flag to check if the game is paused
     public bool isInSafeArea = false; // Flag to check if the player is in a safe area
     public bool levelComplete = false;
+
+    // Reference for Upgrade Screen & Slot Allocation
+    public Spell.SpellType allocateSpell;
+    public Sprite spellImage;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {

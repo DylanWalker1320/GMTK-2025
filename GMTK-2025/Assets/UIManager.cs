@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
                                  // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject spellUpgradeUI;
     public GameObject barAllocationUI;
+
+    [SerializeField] private bool isInShop;
     void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
@@ -24,8 +26,9 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.levelComplete)
+        if (gameManager.levelComplete && !isInShop)
         {
+            isInShop = true;
             SetActiveUpgradeUI();
             upgradeUI.GetComponent<ThreeUpgradeScreen>().UpdateDisplays();
 
@@ -53,6 +56,9 @@ public class UIManager : MonoBehaviour
     public void SetActiveBarAllocUI()
     {
         barAllocationUI.SetActive(!barAllocationUI.activeSelf);
-        FindFirstObjectByType<InteractableLoopBar>().OnCall();
+        if (barAllocationUI.activeSelf != false)
+        {
+            FindFirstObjectByType<InteractableLoopBar>().OnCall();   
+        }
     }
 }

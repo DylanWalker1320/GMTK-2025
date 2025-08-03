@@ -1,19 +1,26 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class InteractableLoopBar : MonoBehaviour
 {
     private Inventory loopbarInventory;
+    private GameManager gameManager;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public Spell[] spellArray = new Spell[8]; // Holds spell prefabs, consider changing prefabs to be of spell type
     private SpellCombinations spellCombinations;
+    [SerializeField] private Image spellImage;
+    [SerializeField] private Spell[] spellReplacements = new Spell[4];
 
+    [SerializeField] private UnityEvent unityEvent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public void OnCall()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
         spellCombinations = FindFirstObjectByType<SpellCombinations>();
         loopbarInventory = FindFirstObjectByType<Inventory>();
+        spellImage.sprite = gameManager.spellImage;
         spellArray = loopbarInventory.spellArray;
         GetSpellSprites();
     }
@@ -55,5 +62,67 @@ public class InteractableLoopBar : MonoBehaviour
                 inventorySlots[i].sprite = spellArray[i].spellSprite;
             }
         }
+    }
+    // Button Functions
+    public void SlotOne()
+    {
+        SelectSpellReplacement(0);
+    }
+    public void SlotTwo()
+    {
+        SelectSpellReplacement(1);
+    }
+    public void SlotThree()
+    {
+        SelectSpellReplacement(2);
+    }
+    public void SlotFour()
+    {
+        SelectSpellReplacement(3);
+    }
+    public void SlotFive()
+    {
+        SelectSpellReplacement(4);
+    }
+    public void SlotSix()
+    {
+        SelectSpellReplacement(5);
+    }
+    public void SlotSeven()
+    {
+        SelectSpellReplacement(6);
+    }
+    public void SlotEight()
+    {
+        SelectSpellReplacement(7);
+
+    }
+
+    void SelectSpellReplacement(int index)
+    {
+        switch (gameManager.allocateSpell)
+        {
+            case Spell.SpellType.Fire:
+                spellArray[index] = spellReplacements[0];
+                break;
+            case Spell.SpellType.Water:
+                spellArray[index] = spellReplacements[1];
+                break;
+            case Spell.SpellType.Lightning:
+                spellArray[index] = spellReplacements[2];
+                break;
+            case Spell.SpellType.Dark:
+                spellArray[index] = spellReplacements[3];
+                break;
+        }
+        TransitionToMagicUpgradeScreen();
+    }
+
+    public void TransitionToMagicUpgradeScreen()
+    {
+
+        loopbarInventory.spellArray = spellArray;
+        loopbarInventory.GetSpellSprites();
+        unityEvent.Invoke();
     }
 }
