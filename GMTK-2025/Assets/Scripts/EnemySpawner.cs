@@ -60,6 +60,10 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        if (currentEnemies < 0)
+        {
+            currentEnemies = 0;
+        }
 
         if (timer <= 0f && maxWavePopulation > 0 && player != null)
         {

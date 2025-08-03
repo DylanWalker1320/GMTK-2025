@@ -14,6 +14,7 @@ public class SimpleEnemy : Enemy
     public float health = 100f;
     private SpriteRenderer spriteRenderer;
     private EnemySpawner enemySpawner; // Reference to the enemy spawner
+    private GameManager gameManager;
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private float maxHitSlowPercent = 0.2f; // 20% slow at max
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
@@ -32,7 +33,7 @@ public class SimpleEnemy : Enemy
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         propertyBlock = new MaterialPropertyBlock();
-
+        MultiplyStats(); // Scaling
         FindClosestTarget();    
     }
 
@@ -53,6 +54,13 @@ public class SimpleEnemy : Enemy
         }
 
         target = closestTarget;
+    }
+
+    void MultiplyStats()
+    {
+        health *= gameManager.loopsCompleted;
+        damage = damage * gameManager.loopsCompleted / 1.5f;
+        maxSpeed += gameManager.loopsCompleted;
     }
 
     void FixedUpdate()
