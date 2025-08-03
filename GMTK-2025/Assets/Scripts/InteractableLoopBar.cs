@@ -63,42 +63,6 @@ public class InteractableLoopBar : MonoBehaviour
             }
         }
     }
-<<<<<<< Updated upstream
-=======
-    private void GetTypes()
-    {
-        for (int i = 0; i < typeText.Length; i++)
-        {
-            if (spellArray[i] != null)
-            {
-                switch (spellArray[i].spellType1)
-                {
-                    case Spell.SpellType.Fire:
-                        typeText[i].text = "Fire";
-                        typeText[i].color = Color.red;
-                        break;
-                    case Spell.SpellType.Water:
-                        typeText[i].text = "Water";
-                        typeText[i].color = Color.blue;
-                        break;
-                    case Spell.SpellType.Lightning:
-                        typeText[i].text = "Lightning";
-                        typeText[i].color = Color.yellow;
-                        break;
-                    case Spell.SpellType.Dark:
-                        typeText[i].text = "Dark";
-                        typeText[i].color = Color.gray;
-                        break;
-                    default:
-                        typeText[i].text = "";
-                        break;
-
-                }
-            }
-
-        }
-    }
->>>>>>> Stashed changes
     // Button Functions
     public void SlotOne()
     {
