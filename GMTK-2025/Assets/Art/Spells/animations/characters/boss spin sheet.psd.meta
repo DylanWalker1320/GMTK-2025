@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boss spin sheet_0: -3091511681818022196
+      boss spin sheet_1: 3653175663575502522
+      boss spin sheet_2: -5681682362038954960
+      boss spin sheet_3: -8198059656365705332
+      boss spin sheet_4: -2279637461756688166
+      boss spin sheet_5: -7100445004343250916
+      boss spin sheet_6: 4259385164159783230
+      boss spin sheet_7: -210683800363243295
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

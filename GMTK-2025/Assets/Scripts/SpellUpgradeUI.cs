@@ -192,6 +192,7 @@ public class SpellUpgradeUI : MonoBehaviour
         if (player.experience - cost >= 0)
         {
             player.experience -= cost;
+            UpdateExperience();
         }
     }
         

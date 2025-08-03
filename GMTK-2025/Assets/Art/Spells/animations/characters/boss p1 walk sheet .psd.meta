@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boss p1 walk sheet _0: -2793842201916679373
+      boss p1 walk sheet _1: -6342852030087744874
+      boss p1 walk sheet _2: -5992068167877535909
+      boss p1 walk sheet _3: 8987335394844463169
+      boss p1 walk sheet _4: -2335737859529227973
+      boss p1 walk sheet _5: -2088783558189764426
+      boss p1 walk sheet _6: 4962480320464830899
+      boss p1 walk sheet _7: -6090308126399305071
+      boss p1 walk sheet _8: 6114936127746296955
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
