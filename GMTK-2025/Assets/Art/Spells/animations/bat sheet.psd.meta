@@ -128,10 +128,10 @@ TextureImporter:
       name: bat sheet_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 1375
-        width: 2715
-        height: 1010
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: bat sheet_1
       rect:
         serializedVersion: 2
-        x: 2847
-        y: 1671
-        width: 2804
-        height: 868
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,77 +168,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: bat sheet_2
-      rect:
-        serializedVersion: 2
-        x: 5651
-        y: 2107
-        width: 12
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2a8fed61f36bce330800000000000000
-      internalID: 3741565772520945826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bat sheet_3
-      rect:
-        serializedVersion: 2
-        x: 4577
-        y: 484
-        width: 348
-        height: 340
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 37e2c49fbdbd33870800000000000000
-      internalID: 8661508246190435955
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bat sheet_4
-      rect:
-        serializedVersion: 2
-        x: 1571
-        y: 83
-        width: 348
-        height: 340
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 05df195f1bd0393c0800000000000000
-      internalID: -4354121356756779696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dfd91a0fed4dcc0489c561ed1304cd53
     internalID: 0
     vertices: []
     indices: 
@@ -247,7 +181,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bat sheet_0: 8875016745308560637
+      bat sheet_1: 5766350954860717912
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

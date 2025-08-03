@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 750
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,10 +99,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -143,10 +143,10 @@ TextureImporter:
       name: explosive shot sheet_0
       rect:
         serializedVersion: 2
-        x: 9764
-        y: 117
-        width: 1828
-        height: 2042
+        x: 0
+        y: 1
+        width: 2362
+        height: 2362
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: explosive shot sheet_1
       rect:
         serializedVersion: 2
-        x: 11832
-        y: 1633
-        width: 459
-        height: 542
+        x: 2362
+        y: 1
+        width: 2362
+        height: 2362
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +187,10 @@ TextureImporter:
       name: explosive shot sheet_2
       rect:
         serializedVersion: 2
-        x: 13573
-        y: 1856
-        width: 476
-        height: 411
+        x: 4724
+        y: 1
+        width: 2362
+        height: 2362
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +209,10 @@ TextureImporter:
       name: explosive shot sheet_3
       rect:
         serializedVersion: 2
-        x: 943
-        y: 895
-        width: 303
-        height: 358
+        x: 7086
+        y: 1
+        width: 2362
+        height: 2362
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: explosive shot sheet_4
       rect:
         serializedVersion: 2
-        x: 3307
-        y: 1023
-        width: 291
-        height: 317
+        x: 9448
+        y: 1
+        width: 2362
+        height: 2362
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +253,10 @@ TextureImporter:
       name: explosive shot sheet_5
       rect:
         serializedVersion: 2
-        x: 5744
-        y: 1035
-        width: 302
-        height: 358
+        x: 11810
+        y: 1
+        width: 2362
+        height: 2362
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,99 +271,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: explosive shot sheet_6
-      rect:
-        serializedVersion: 2
-        x: 8288
-        y: 1051
-        width: 291
-        height: 317
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3a2b26cc481f87f50800000000000000
-      internalID: 6879513983475430051
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosive shot sheet_7
-      rect:
-        serializedVersion: 2
-        x: 11617
-        y: 1051
-        width: 45
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ebb5c942d6dffbce0800000000000000
-      internalID: -1387111514999333954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosive shot sheet_8
-      rect:
-        serializedVersion: 2
-        x: 11901
-        y: 95
-        width: 569
-        height: 550
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 120dd9d196a52b320800000000000000
-      internalID: 2572217744696922145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosive shot sheet_9
-      rect:
-        serializedVersion: 2
-        x: 13463
-        y: 433
-        width: 504
-        height: 510
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 441abb8858254fa70800000000000000
-      internalID: 8859797100422734148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 943a69493b2e174419c33a0582358e25
     internalID: 0
     vertices: []
     indices: 
@@ -379,10 +291,6 @@ TextureImporter:
       explosive shot sheet_3: -2498405528240756375
       explosive shot sheet_4: -69659240620583599
       explosive shot sheet_5: 4919832973639404447
-      explosive shot sheet_6: 6879513983475430051
-      explosive shot sheet_7: -1387111514999333954
-      explosive shot sheet_8: 2572217744696922145
-      explosive shot sheet_9: 8859797100422734148
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

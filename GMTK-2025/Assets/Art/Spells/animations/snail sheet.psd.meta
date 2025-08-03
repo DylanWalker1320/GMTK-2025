@@ -125,10 +125,10 @@ TextureImporter:
       name: snail sheet_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 478
-        width: 2649
-        height: 1474
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: snail sheet_1
       rect:
         serializedVersion: 2
-        x: 2913
-        y: 369
-        width: 2686
-        height: 1374
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: snail sheet_2
       rect:
         serializedVersion: 2
-        x: 5724
-        y: 367
-        width: 2611
-        height: 1450
+        x: 5670
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: snail sheet_3
       rect:
         serializedVersion: 2
-        x: 8541
-        y: 385
-        width: 2581
-        height: 1674
+        x: 8505
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b092f98a837032e438cc468060bed545
     internalID: 0
     vertices: []
     indices: 
@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      snail sheet_0: 2606107193389419044
+      snail sheet_1: -3195913702934775880
+      snail sheet_2: -5558878981422732865
+      snail sheet_3: 7952466858395253087
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

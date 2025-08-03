@@ -49,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1599
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,10 +84,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,10 +128,10 @@ TextureImporter:
       name: wizard sheet_0
       rect:
         serializedVersion: 2
-        x: 650
-        y: 28
-        width: 1792
-        height: 2498
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: wizard sheet_1
       rect:
         serializedVersion: 2
-        x: 3485
-        y: 162
-        width: 1749
-        height: 2612
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,35 +169,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wizard sheet_2
-      rect:
-        serializedVersion: 2
-        x: 5204
-        y: 611
-        width: 81
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4488994dfb3a047d0800000000000000
-      internalID: -2936166912744650684
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: wizard sheet_3
       rect:
         serializedVersion: 2
-        x: 6270
-        y: 335
-        width: 1793
-        height: 2458
+        x: 8505
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,23 +191,23 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wizard sheet_4
+      name: wizard sheet_2
       rect:
         serializedVersion: 2
-        x: 9147
-        y: 103
-        width: 1866
-        height: 2505
+        x: 5670
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: afe6f3f3f2a28dc40800000000000000
-      internalID: 5537222124264976122
+      spriteID: 540811f2a9ff5374c9d672f89d16f9ed
+      internalID: -2936166912744650684
       vertices: []
       indices: 
       edges: []
@@ -238,7 +216,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fd4c22583be334f42ae300d3443a213d
     internalID: 0
     vertices: []
     indices: 
@@ -252,7 +230,6 @@ TextureImporter:
       wizard sheet_1: -7537338865816928063
       wizard sheet_2: -2936166912744650684
       wizard sheet_3: 7481276271585718356
-      wizard sheet_4: 5537222124264976122
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
