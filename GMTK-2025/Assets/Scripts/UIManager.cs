@@ -74,10 +74,6 @@ public class UIManager : MonoBehaviour
         upgradeUI.SetActive(false);
         spellUpgradeUI.SetActive(false);
         barAllocationUI.SetActive(false);
-    }
-
-    public void FinishShop()
-    {
         onShopFinish.Invoke();
     }
 }

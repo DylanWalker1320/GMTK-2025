@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      wizard no shadow sheet_0: 8320866078330227273
+      wizard no shadow sheet_1: 4184247514561299238
+      wizard no shadow sheet_2: -2177416597325778147
+      wizard no shadow sheet_3: -2954928721244130424
+      wizard no shadow sheet_4: 3265822588254417114
+      wizard no shadow sheet_5: -6634953164214820289
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

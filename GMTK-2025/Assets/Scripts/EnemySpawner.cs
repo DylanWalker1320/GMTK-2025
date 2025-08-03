@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
 public class EnemySpawner : MonoBehaviour
@@ -24,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
     
     [Header("Debug Info ")]
     public int currentEnemies = 0; // Current number of enemies spawned
-    [SerializeField] private UIManager uIManager;
+    private UIManager uIManager;
 
     void Awake()
     {
