@@ -45,13 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 7869487572828899111, guid: 6c285d99b81afbb44992d999ac9cbdaf, type: 3}
-  - {fileID: 1414683226500096064, guid: e9b512d9fea9fe1498d5177d179344b9, type: 3}
-  - {fileID: 2953985397068587292, guid: 27b2ed386db512a4a88b574e4fabd932, type: 3}
-  - {fileID: 3784918887274043200, guid: 6f2164cd22ed5a944aa9676b33925d6b, type: 3}
-  - {fileID: 8989011579374538384, guid: 49a1231eddfa51040b5de82dd5069345, type: 3}
+  - {fileID: 8571327851501329694, guid: b9c5d53c0065b964b8ca06aaac5e8cb4, type: 3}
+  - {fileID: 3784918887274043200, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+  - {fileID: 6771658518857135651, guid: 1d47a23d44dc3ca4596053f3b5909fa2, type: 3}
+  - {fileID: 854598241677113248, guid: 5875426015e25f34fbedbb57538f49e2, type: 3}
   player: {fileID: 0}
   spawnInterval: 0.5
   spawnMargin: 2
-  maxEnemies: 0
+  maxWavePopulation: 10
+  groundTilemap: {fileID: 0}
+  maxSpawnAttempts: 10
+  disableTilemapValidation: 0
   currentEnemies: 0
