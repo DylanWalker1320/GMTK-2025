@@ -130,7 +130,7 @@ MonoBehaviour:
   speed: 5
   spellType1: 1
   spellType2: 4
-  spellSprite: {fileID: 7560537379249951595, guid: aa4fc2f0e8bd8104a861c5839f6e2938, type: 3}
+  spellSprite: {fileID: 219372710210474017, guid: c59abc8d46c9afe418e52d4f8e4a2dcc, type: 3}
   damageUpgrade: 1
   speedUpgrade: 0.5
 --- !u!50 &1165334991673011861

@@ -5,6 +5,8 @@ public class StormStrike : Spell
     [Header("Upgrade Scaling")]
     [SerializeField] private float damageUpgrade = 1f; // Damage increase per upgrade
     [SerializeField] private float speedUpgrade = 0.5f; // Speed increase per upgrade
+    [SerializeField] private float sizeUpgrade = 0.2f; // Size increase per upgrade
+    private float size = 1f; // Size of the strike
 
     void Start()
     {
@@ -15,6 +17,7 @@ public class StormStrike : Spell
         }
 
         AddUpgrade(); // Apply upgrades to the spell
+        transform.localScale = new Vector3(size, size, 1f); // Set the scale of the spell
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +27,7 @@ public class StormStrike : Spell
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage); // Deal damage to the enemy
+                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2)); // Deal damage to the enemy
             }
         }
     }
@@ -34,5 +37,6 @@ public class StormStrike : Spell
         int spellLevel = GetSpellLevel(Spells.Storm);
         damage += damageUpgrade * spellLevel; // Increase the damage
         speed += speedUpgrade * spellLevel; // Increase the speed
+        size += sizeUpgrade * spellLevel; // Increase the size
     }
 }

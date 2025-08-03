@@ -107,12 +107,14 @@ MonoBehaviour:
   speed: 0
   spellType1: 2
   spellType2: 2
-  spellSprite: {fileID: 656702045158751335, guid: d21a51bc96922dd42a550f765933ec24, type: 3}
+  spellSprite: {fileID: 3406445712956845340, guid: a1e0fc0c06d6b49459112028a3b066ce, type: 3}
   outerRadius: 2
   innerRadius: 1
   minNumStrikes: 5
   maxNumStrikes: 7
   strikePrefab: {fileID: 1768451218565828388, guid: 4f0b221d62d5a894688263d35bcb4b87, type: 3}
+  numStrikesUpgrade: 0.5
+  radiusUpgrade: 0.5
 --- !u!50 &787266561512865477
 Rigidbody2D:
   serializedVersion: 5

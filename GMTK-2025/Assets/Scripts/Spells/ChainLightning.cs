@@ -5,8 +5,14 @@ public class ChainLightning : Spell
     [Header("Specific Spell Properties")]
     [SerializeField] private float searchRadius = 5f; // Radius to find the closest enemy
     [SerializeField] private int chains = 3; // Number of chains for the lightning spell
-    [Tooltip("Damage falloff per chain, e.g., 0.2 means 20% less damage per chain")]
-    [SerializeField] private float falloffPerChain = 0.2f; // % Damage falloff per chain
+    [Tooltip("Minimum damage the chain will get to on the last chain hit")]
+    [SerializeField] private float minChainDamage = 0.5f; // % Damage falloff per chain
+
+    [Header("Upgrade Scaling")]
+    [SerializeField] private float damageUpgrade = 0.5f; // Damage increase per upgrade
+    [SerializeField] private float chainsUpgrade = 1f; // Number of chains increase per upgrade
+    [SerializeField] private float searchRadiusUpgrade = 0.5f; // Radius increase per upgrade
+
     private GameObject lastTarget = null; // Store the last target hit by the lightning
     private int maxChains;
 
@@ -15,7 +21,9 @@ public class ChainLightning : Spell
         Init(); // Initialize the spell properties
         lastTarget = GameObject.FindWithTag("Player"); // Start with the player as the initial target
         maxChains = chains; // Store the initial number of chains
+        AddUpgrade(); // Apply upgrades to the spell
 
+        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position; // Spawn the spell at the player's position
         FindClosestEnemy(transform.position, searchRadius); // Use the radius variable
     }
 
@@ -54,7 +62,7 @@ public class ChainLightning : Spell
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage * (1 - falloffPerChain * (maxChains - chains)));
+                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2) * Mathf.Lerp(1f, minChainDamage, (float)(maxChains - chains) / maxChains));
 
                 if (chains - 1 > 0)
                 {
@@ -70,5 +78,12 @@ public class ChainLightning : Spell
                 FindClosestEnemy(collision.transform.position, searchRadius);
             }
         }
+    }
+
+    void AddUpgrade()
+    {
+        int spellLevel = GetSpellLevel(Spells.ChainLightning);
+        damage += damageUpgrade * spellLevel; // Increase the damage
+        chains += (int)(chainsUpgrade * spellLevel); // Increase the number of chains
     }
 }

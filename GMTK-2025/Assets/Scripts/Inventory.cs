@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
     private GameManager gameManager;
     private PlayerMovement player;
     private SpellCombinations spellCombinations;
+    private AudioManager audioManager;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public Spell[] spellArray = new Spell[8]; // Holds spell prefabs, consider changing prefabs to be of spell type
     [SerializeField] private float maxTimeBetweenSpells;
@@ -21,9 +22,14 @@ public class Inventory : MonoBehaviour
     {
         player = FindFirstObjectByType<PlayerMovement>();
         gameManager = FindFirstObjectByType<GameManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         if (player == null)
         {
             Debug.LogError("PlayerMovement not found in the scene.");
+        }
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene.");
         }
         spellCombinations = FindFirstObjectByType<SpellCombinations>();
         timeBetweenSpells = maxTimeBetweenSpells; // Initialize time between spells
@@ -55,6 +61,14 @@ public class Inventory : MonoBehaviour
         if (spellArray[currentSpellIndex] != null)
         {
             Instantiate(spellArray[currentSpellIndex], player.reticle.GetChild(0).position, Quaternion.Euler(0f, 180f, 0f));
+            
+            // Play sound effect based on spell name
+            if (audioManager != null)
+            {
+                string spellName = spellArray[currentSpellIndex].name;
+                Debug.Log("Casting spell: " + spellName);
+                audioManager.Play(spellName);
+            }
         }
         inventorySlots[currentSpellIndex].color = Color.gray; // Change the color of the slot to indicate casting
     }

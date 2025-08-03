@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1689113949
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2857225077214164437, guid: c06cd410af118864ea816c1de0e2fe6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -129,12 +129,13 @@ MonoBehaviour:
   damage: 7
   speed: 10
   spellType1: 0
-  spellType2: 0
+  spellType2: 2
   spellSprite: {fileID: 0}
   waveAmplitude: 2
   waveFrequency: 5
   groundEffectCooldown: 0.5
   groundEffectPrefab: {fileID: 7136817257210570753, guid: 5b89aad288e2a7446bfbd5cb190366de, type: 3}
+  flareFrequencyUpgrade: 0.05
 --- !u!50 &787266561512865477
 Rigidbody2D:
   serializedVersion: 5
@@ -197,4 +198,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.08
+  m_Radius: 0.51

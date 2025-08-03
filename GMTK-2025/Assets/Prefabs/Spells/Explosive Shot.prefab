@@ -130,7 +130,7 @@ MonoBehaviour:
   speed: 10
   spellType1: 0
   spellType2: 0
-  spellSprite: {fileID: 806898372, guid: d0401ae72f711e24db339022618b70f8, type: 3}
+  spellSprite: {fileID: -69659240620583599, guid: 8da2211e6cae1ea44bf4e65101a1ad96, type: 3}
   explosionSize: 1
   explosionDuration: 1
   explosionDamageUpgrade: 2

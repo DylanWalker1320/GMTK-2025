@@ -1,0 +1,702 @@
+fileFormatVersion: 2
+guid: 544c3cef7279c60469e8afb5cae9d8ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5441247295536995170
+    second: lv 5 transition _0
+  - first:
+      213: 2796327923381193609
+    second: lv 5 transition _1
+  - first:
+      213: 661999020021690792
+    second: lv 5 transition _2
+  - first:
+      213: 1277249942899692805
+    second: lv 5 transition _3
+  - first:
+      213: -6178776837537039607
+    second: lv 5 transition _4
+  - first:
+      213: -2561168402481984920
+    second: lv 5 transition _5
+  - first:
+      213: 8255148036299864091
+    second: lv 5 transition _6
+  - first:
+      213: -5527061832229958308
+    second: lv 5 transition _7
+  - first:
+      213: -2243395149252699964
+    second: lv 5 transition _8
+  - first:
+      213: -8636016699926352825
+    second: lv 5 transition _9
+  - first:
+      213: 7207058767243154481
+    second: lv 5 transition _10
+  - first:
+      213: -5340630529082490859
+    second: lv 5 transition _11
+  - first:
+      213: -871842110686389310
+    second: lv 5 transition _12
+  - first:
+      213: -1580153943195846564
+    second: lv 5 transition _13
+  - first:
+      213: -1028580852181311189
+    second: lv 5 transition _14
+  - first:
+      213: 27041285159479344
+    second: lv 5 transition _15
+  - first:
+      213: -7891055231061663639
+    second: lv 5 transition _16
+  - first:
+      213: 4050868479790315368
+    second: lv 5 transition _17
+  - first:
+      213: -702242007284575040
+    second: lv 5 transition _18
+  - first:
+      213: -5176962667880766616
+    second: lv 5 transition _19
+  - first:
+      213: -1970400660687968453
+    second: lv 5 transition _20
+  - first:
+      213: 1469249782951118052
+    second: lv 5 transition _21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lv 5 transition _0
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1126
+        width: 120
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e946676e96ecc74b0800000000000000
+      internalID: -5441247295536995170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _1
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 238
+        width: 1525
+        height: 1801
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b44a44e6d8ec620800000000000000
+      internalID: 2796327923381193609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _2
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 1102
+        width: 119
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a1bc0ee994ef2900800000000000000
+      internalID: 661999020021690792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _3
+      rect:
+        serializedVersion: 2
+        x: 2737
+        y: 181
+        width: 1528
+        height: 1799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5059cef4e04b9b110800000000000000
+      internalID: 1277249942899692805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _4
+      rect:
+        serializedVersion: 2
+        x: 5125
+        y: 1064
+        width: 117
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90b713ce333904aa0800000000000000
+      internalID: -6178776837537039607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _5
+      rect:
+        serializedVersion: 2
+        x: 5142
+        y: 187
+        width: 1537
+        height: 1812
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a4b1858e6e47cd0800000000000000
+      internalID: -2561168402481984920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _6
+      rect:
+        serializedVersion: 2
+        x: 7444
+        y: 1106
+        width: 118
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b18baefb66d209270800000000000000
+      internalID: 8255148036299864091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _7
+      rect:
+        serializedVersion: 2
+        x: 7476
+        y: 205
+        width: 1527
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5d40561c8eeb43b0800000000000000
+      internalID: -5527061832229958308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _8
+      rect:
+        serializedVersion: 2
+        x: 9867
+        y: 1071
+        width: 119
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c855fd6ffbddd0e0800000000000000
+      internalID: -2243395149252699964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _9
+      rect:
+        serializedVersion: 2
+        x: 9907
+        y: 142
+        width: 1529
+        height: 1798
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74c6c862194b62880800000000000000
+      internalID: -8636016699926352825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _10
+      rect:
+        serializedVersion: 2
+        x: 12131
+        y: 1150
+        width: 120
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13494e0a3cd940460800000000000000
+      internalID: 7207058767243154481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _11
+      rect:
+        serializedVersion: 2
+        x: 12160
+        y: 248
+        width: 1526
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5108e6564d442e5b0800000000000000
+      internalID: -5340630529082490859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _12
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 564
+        width: 323
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cb9f44383896e3f0800000000000000
+      internalID: -871842110686389310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _13
+      rect:
+        serializedVersion: 2
+        x: 2675
+        y: 560
+        width: 327
+        height: 504
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58f0655c5a221ae0800000000000000
+      internalID: -1580153943195846564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _14
+      rect:
+        serializedVersion: 2
+        x: 7457
+        y: 555
+        width: 331
+        height: 501
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21e6f22a2fb9b1f0800000000000000
+      internalID: -1028580852181311189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _15
+      rect:
+        serializedVersion: 2
+        x: 9891
+        y: 760
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0386334d7e1106000800000000000000
+      internalID: 27041285159479344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _16
+      rect:
+        serializedVersion: 2
+        x: 9892
+        y: 547
+        width: 321
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 960e49173175d7290800000000000000
+      internalID: -7891055231061663639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _17
+      rect:
+        serializedVersion: 2
+        x: 13188
+        y: 238
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8677ab18b63973830800000000000000
+      internalID: 4050868479790315368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _18
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 227
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c412717d922146f0800000000000000
+      internalID: -702242007284575040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _19
+      rect:
+        serializedVersion: 2
+        x: 8505
+        y: 194
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863228dd1ebb728b0800000000000000
+      internalID: -5176962667880766616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _20
+      rect:
+        serializedVersion: 2
+        x: 3737
+        y: 170
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b37af7ae90bb7a4e0800000000000000
+      internalID: -1970400660687968453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv 5 transition _21
+      rect:
+        serializedVersion: 2
+        x: 10896
+        y: 131
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e40f17a4e2d36410800000000000000
+      internalID: 1469249782951118052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      lv 5 transition _0: -5441247295536995170
+      lv 5 transition _1: 2796327923381193609
+      lv 5 transition _10: 7207058767243154481
+      lv 5 transition _11: -5340630529082490859
+      lv 5 transition _12: -871842110686389310
+      lv 5 transition _13: -1580153943195846564
+      lv 5 transition _14: -1028580852181311189
+      lv 5 transition _15: 27041285159479344
+      lv 5 transition _16: -7891055231061663639
+      lv 5 transition _17: 4050868479790315368
+      lv 5 transition _18: -702242007284575040
+      lv 5 transition _19: -5176962667880766616
+      lv 5 transition _2: 661999020021690792
+      lv 5 transition _20: -1970400660687968453
+      lv 5 transition _21: 1469249782951118052
+      lv 5 transition _3: 1277249942899692805
+      lv 5 transition _4: -6178776837537039607
+      lv 5 transition _5: -2561168402481984920
+      lv 5 transition _6: 8255148036299864091
+      lv 5 transition _7: -5527061832229958308
+      lv 5 transition _8: -2243395149252699964
+      lv 5 transition _9: -8636016699926352825
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
