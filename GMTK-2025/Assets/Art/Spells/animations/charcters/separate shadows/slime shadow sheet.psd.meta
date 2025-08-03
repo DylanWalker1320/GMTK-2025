@@ -125,10 +125,10 @@ TextureImporter:
       name: slime shadow sheet_0
       rect:
         serializedVersion: 2
-        x: 1778
-        y: 433
-        width: 852
-        height: 1067
+        x: 1652
+        y: 403
+        width: 981
+        height: 1100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: slime shadow sheet_1
       rect:
         serializedVersion: 2
-        x: 4708
-        y: 225
-        width: 963
-        height: 1312
+        x: 4589
+        y: 213
+        width: 1059
+        height: 1313
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: slime shadow sheet_2
       rect:
         serializedVersion: 2
-        x: 7484
-        y: 322
-        width: 914
-        height: 1119
+        x: 7466
+        y: 356
+        width: 966
+        height: 1110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,9 +192,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 9624
-        y: 409
-        width: 1521
-        height: 860
+        y: 407
+        width: 1514
+        height: 876
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
