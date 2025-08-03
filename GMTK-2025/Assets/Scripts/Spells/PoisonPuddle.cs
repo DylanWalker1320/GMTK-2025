@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PoisonPuddle : Spell
 {
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Upgrade Scaling")]
+    [SerializeField] private float damageUpgrade = 1f; // Damage increase per upgrade
+    [SerializeField] private float durationUpgrade = 0.5f; // Duration increase per upgrade
+
     void Start()
     {
         Init(); // Initialize the spell properties
@@ -20,5 +22,12 @@ public class PoisonPuddle : Spell
                 enemy.TakeDamage(GetDamage());
             }
         }
+    }
+
+    void AddUpgrade()
+    {
+        int spellLevel = GetSpellLevel(Spells.PoisonPuddle);
+        SetDamage(GetDamage() + damageUpgrade * spellLevel); // Increase the damage based on upgrades
+        destroyTime += durationUpgrade * spellLevel; // Increase the duration of the poison puddle
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2612758571024678048}
   - component: {fileID: 4815295603626478662}
+  - component: {fileID: 8770780101163491746}
   - component: {fileID: 8200417730821551007}
   - component: {fileID: 2849419881852948162}
   - component: {fileID: 4428596358828484310}
@@ -90,6 +91,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8770780101163491746
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618559166715315820}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2589dbd60e647747a994e0c34b3d088, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &8200417730821551007
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -171,6 +194,10 @@ MonoBehaviour:
   spellType1: 1
   spellType2: 3
   spellSprite: {fileID: 1836705953, guid: be7bfbd9fdacdb947a9801e23b47c6f0, type: 3}
-  poisonPuddlePrefab: {fileID: 3060019077080936214, guid: 3257dfa9887c28d4c807e7379c32155a, type: 3}
-  poisonSpawnTotalDuration: 0
+  poisonPuddlePrefab: {fileID: 4125224248986543520, guid: 3257dfa9887c28d4c807e7379c32155a, type: 3}
+  poisonSpawnTimer: 0
   poisonSpawnInterval: 0.1
+  finalPuddleScale: 3
+  damageUpgrade: 1
+  poisonSpawnIntervalUpgrade: 0.1
+  finalPuddleScaleUpgrade: 0.5

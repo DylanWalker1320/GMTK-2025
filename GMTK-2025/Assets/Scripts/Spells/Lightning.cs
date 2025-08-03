@@ -15,6 +15,7 @@ public class Lightning : Spell
         Init(); // Initialize the spell properties
         AddUpgrade(); // Apply upgrades to the spell
         FindClosestEnemy(transform.position, searchRadius); // Use the radius variable
+        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position; // Spawn the spell at the reticle position
     }
 
     private void FindClosestEnemy(Vector2 position, float radius, int maxColliders = 50)
