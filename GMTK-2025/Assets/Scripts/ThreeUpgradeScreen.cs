@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 using System.Collections.Generic;
 
 public class ThreeUpgradeScreen : MonoBehaviour
