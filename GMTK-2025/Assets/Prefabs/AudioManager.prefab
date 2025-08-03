@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Main Theme
+  - name: Main Themes
     clip: {fileID: 8300000, guid: bcb334c0c97676f40a1c1e743a2cd1c3, type: 3}
     volume: 0.05
     pitch: 1
@@ -66,4 +66,147 @@ MonoBehaviour:
     fadeInTime: 2
     useFadeOut: 1
     fadeOutTime: 2
+    source: {fileID: 0}
+  - name: Poison Puddle
+    clip: {fileID: 8300000, guid: b8beee5d07aef5547b1ce4cd6ccdcdc8, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Poison Ball
+    clip: {fileID: 8300000, guid: b8beee5d07aef5547b1ce4cd6ccdcdc8, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Explosive Shot
+    clip: {fileID: 8300000, guid: 99a7846b9652a1f4e84a58db4a9b8f97, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Steam Vent
+    clip: {fileID: 8300000, guid: d1e552e07568c31498306c2e6607de83, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Ghost Flame
+    clip: {fileID: 8300000, guid: 569f36a6773977c4ca07fff498892170, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Black Flash
+    clip: {fileID: 8300000, guid: 306b11b18cda572488e63123c2a20227, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Wave
+    clip: {fileID: 8300000, guid: 95573b52f81ed5c43a3037b9d81df091, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Fissure Flare
+    clip: {fileID: 8300000, guid: c99de9729e16c79419ac386def052435, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Storm
+    clip: {fileID: 8300000, guid: e8725d5835f2f4a4ab8018a78716c1f9, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Black Hole
+    clip: {fileID: 8300000, guid: ddc4a0172dd92c74995a832f66619b7f, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Fissure Flare
+    clip: {fileID: 8300000, guid: 4dc529f0a19864a40bbdcf6ea4a3c47c, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: fc4d00da174dd89469db4a728502e8ec, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Lightning
+    clip: {fileID: 8300000, guid: 4dc529f0a19864a40bbdcf6ea4a3c47c, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
     source: {fileID: 0}

@@ -447,7 +447,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lv 3 transition_0: 1576630781252508750
+      lv 3 transition_1: 8726755693089799899
+      lv 3 transition_10: -5950162428687163724
+      lv 3 transition_11: -3127309616786916702
+      lv 3 transition_12: -5549866098833075292
+      lv 3 transition_2: 3658995085165950990
+      lv 3 transition_3: 4147179463535659703
+      lv 3 transition_4: 4756860879686489414
+      lv 3 transition_5: 8706102613156643544
+      lv 3 transition_6: -6342076740774919606
+      lv 3 transition_7: 1371240369637026719
+      lv 3 transition_8: 4789326388550633899
+      lv 3 transition_9: 4707000449285974873
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
