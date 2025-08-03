@@ -8,10 +8,15 @@ public class FissureFlare : Spell
     [SerializeField] private float boltSpreadRange = 5f;         // Random +/- spread angle (in degrees)
     [SerializeField] private FissureFlareBolt spellPrefab;       // Prefab for the bolt spell
 
+    [Header("Upgrade Scaling")]
+    [SerializeField] private float numberOfBoltsUpgrade = 1f; // Increase in number of bolts per upgrade
+    [SerializeField] private float boltSpreadAngleUpgrade = 2f; // Angle increase per upgrade
+
     void Start()
     {
         Init();
         OrientSpell(); // Ensure the spell is pointing toward the reticle
+        AddUpgrade(); // Apply upgrades to the spell
 
         Vector2 baseDirection = transform.right; // Spell's forward direction
 
@@ -33,5 +38,13 @@ public class FissureFlare : Spell
         }
 
         Destroy(gameObject);
+    }
+
+    void AddUpgrade()
+    {
+        // Increase the number of bolts and spread angle based on spell level
+        int spellLevel = GetSpellLevel(Spells.FissureFlare);
+        numberOfBolts += Mathf.RoundToInt(numberOfBoltsUpgrade * spellLevel);
+        boltSpreadAngle += boltSpreadAngleUpgrade * spellLevel;
     }
 }

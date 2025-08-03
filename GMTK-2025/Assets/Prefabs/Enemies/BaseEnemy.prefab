@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02abd67b34acc6748a669e9cbd868e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 30
+  moveForce: 50
   maxSpeed: 3
   damage: 10
   targetTag: Player

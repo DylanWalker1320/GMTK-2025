@@ -73,7 +73,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -87,7 +87,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,10 +108,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -152,10 +152,10 @@ TextureImporter:
       name: ghostfire sheet 1_0
       rect:
         serializedVersion: 2
-        x: 230
-        y: 335
-        width: 2085
-        height: 2019
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: ghostfire sheet 1_1
       rect:
         serializedVersion: 2
-        x: 3023
-        y: 521
-        width: 2089
-        height: 1950
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +196,10 @@ TextureImporter:
       name: ghostfire sheet 1_2
       rect:
         serializedVersion: 2
-        x: 5102
-        y: 1301
-        width: 6
-        height: 6
+        x: 5670
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,231 +214,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: ghostfire sheet 1_3
-      rect:
-        serializedVersion: 2
-        x: 5107
-        y: 1298
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f0b5cb41654f14cc0800000000000000
-      internalID: -3728430365933806833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghostfire sheet 1_4
-      rect:
-        serializedVersion: 2
-        x: 6157
-        y: 327
-        width: 2021
-        height: 1997
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a608584c97b5ced20800000000000000
-      internalID: 3309120404756725866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghostfire sheet 1_5
-      rect:
-        serializedVersion: 2
-        x: 5104
-        y: 1262
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4fd139cdb2b9142f0800000000000000
-      internalID: -990339830358270476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghostfire sheet 1_6
-      rect:
-        serializedVersion: 2
-        x: 2303
-        y: 1220
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ea85b112f01b4b6b0800000000000000
-      internalID: -5281401784460683090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghostfire sheet 1_7
-      rect:
-        serializedVersion: 2
-        x: 2301
-        y: 1209
-        width: 11
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5aef622e1adbf70f0800000000000000
-      internalID: -1116965679583002971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghostfire sheet 1_8
-      rect:
-        serializedVersion: 2
-        x: 8166
-        y: 1169
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 34eb48ede3b688400800000000000000
-      internalID: 326628890749746755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghostfire sheet 1_9
-      rect:
-        serializedVersion: 2
-        x: 2304
-        y: 1144
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0b240cb2034ec2910800000000000000
-      internalID: 1814075645467050672
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghostfire sheet 1_10
-      rect:
-        serializedVersion: 2
-        x: 8169
-        y: 1144
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 21f2b77c7a97d1270800000000000000
-      internalID: 8222862256161632018
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghostfire sheet 1_11
-      rect:
-        serializedVersion: 2
-        x: 8163
-        y: 1118
-        width: 12
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8e7597c975602be70800000000000000
-      internalID: 9129366367990536168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghostfire sheet 1_12
-      rect:
-        serializedVersion: 2
-        x: 8168
-        y: 1105
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 468516a53a6804f50800000000000000
-      internalID: 6863633868266756196
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 605c1da03f53eef438eea589e800573e
     internalID: 0
     vertices: []
     indices: 
@@ -450,17 +230,7 @@ TextureImporter:
     nameFileIdTable:
       ghostfire sheet 1_0: 1463400881537363154
       ghostfire sheet 1_1: -3510617350795334216
-      ghostfire sheet 1_10: 8222862256161632018
-      ghostfire sheet 1_11: 9129366367990536168
-      ghostfire sheet 1_12: 6863633868266756196
       ghostfire sheet 1_2: 4296530272468156264
-      ghostfire sheet 1_3: -3728430365933806833
-      ghostfire sheet 1_4: 3309120404756725866
-      ghostfire sheet 1_5: -990339830358270476
-      ghostfire sheet 1_6: -5281401784460683090
-      ghostfire sheet 1_7: -1116965679583002971
-      ghostfire sheet 1_8: 326628890749746755
-      ghostfire sheet 1_9: 1814075645467050672
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public class StormStrike : MonoBehaviour
+public class StormStrike : Spell
 {
-    private float damage;
-    public void Init(float damage, float destroyTime)
-    {
-        this.damage = damage;
-        Destroy(gameObject, destroyTime); // Destroy the strike after a certain time
-    }
+    [Header("Upgrade Scaling")]
+    [SerializeField] private float damageUpgrade = 1f; // Damage increase per upgrade
+    [SerializeField] private float speedUpgrade = 0.5f; // Speed increase per upgrade
+    [SerializeField] private float sizeUpgrade = 0.2f; // Size increase per upgrade
+    private float size = 1f; // Size of the strike
 
     void Start()
     {
@@ -16,6 +15,9 @@ public class StormStrike : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }
+
+        AddUpgrade(); // Apply upgrades to the spell
+        transform.localScale = new Vector3(size, size, 1f); // Set the scale of the spell
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -25,8 +27,16 @@ public class StormStrike : MonoBehaviour
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage); // Deal damage to the enemy
+                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2)); // Deal damage to the enemy
             }
         }
+    }
+
+    void AddUpgrade()
+    {
+        int spellLevel = GetSpellLevel(Spells.Storm);
+        damage += damageUpgrade * spellLevel; // Increase the damage
+        speed += speedUpgrade * spellLevel; // Increase the speed
+        size += sizeUpgrade * spellLevel; // Increase the size
     }
 }

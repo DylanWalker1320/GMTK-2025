@@ -119,10 +119,10 @@ TextureImporter:
       name: wave sheet_0
       rect:
         serializedVersion: 2
-        x: 42
-        y: 172
-        width: 2725
-        height: 2228
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: wave sheet_1
       rect:
         serializedVersion: 2
-        x: 3014
-        y: 258
-        width: 2596
-        height: 1916
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 03163c3251e2305438099d6f4f68311c
     internalID: 0
     vertices: []
     indices: 

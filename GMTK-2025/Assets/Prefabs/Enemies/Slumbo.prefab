@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2076774195060965496, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2076774195060965496, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3298207689124650751, guid: 51ba4d832333f3d448a4dc1da7b2e111, type: 3}
       propertyPath: damage
       value: 10

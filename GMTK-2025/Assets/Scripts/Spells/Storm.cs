@@ -9,13 +9,17 @@ public class Storm : Spell
     [SerializeField] private int minNumStrikes = 5; // Number of strikes to spawn
     [SerializeField] private int maxNumStrikes = 7; // Maximum number of strikes to spawn
     [SerializeField] private GameObject strikePrefab; // Prefab for the lightning strike effect
+    [Header("Upgrade Scaling")]
+    [SerializeField] private float numStrikesUpgrade = 0.5f; // Number of strikes increase per upgrade
+    [SerializeField] private float radiusUpgrade = 0.5f; // Radius increase per upgrade
+
     void Start()
     {
         Init(); // Initialize the spell properties
 
         // Set spell location to player position
         transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
-
+        AddUpgrade(); // Apply upgrades to the spell
         SpawnStrikes(); // Spawn the lightning strikes
         Destroy(gameObject);
     }
@@ -33,7 +37,14 @@ public class Storm : Spell
 
             // Instantiate the strike prefab at the calculated position
             GameObject strike = Instantiate(strikePrefab, strikePosition, Quaternion.identity);
-            strike.GetComponent<StormStrike>().Init(damage, destroyTime); // Initialize the strike with damage and destroy time
         }
+    }
+
+    void AddUpgrade()
+    {
+        int spellLevel = GetSpellLevel(Spells.Storm);
+        minNumStrikes += Mathf.RoundToInt(numStrikesUpgrade * spellLevel); // Increase the minimum number of strikes
+        maxNumStrikes += Mathf.RoundToInt(numStrikesUpgrade * spellLevel); // Increase the maximum number of strikes
+        outerRadius += radiusUpgrade * spellLevel; // Increase the outer radius
     }
 }
