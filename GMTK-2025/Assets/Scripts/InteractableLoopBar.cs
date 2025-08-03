@@ -139,7 +139,6 @@ public class InteractableLoopBar : MonoBehaviour
         {
             case Spell.SpellType.Fire:
                 spellArray[index] = spellReplacements[0];
-                spellArray[index] = 
                 break;
             case Spell.SpellType.Water:
                 spellArray[index] = spellReplacements[1];
@@ -159,11 +158,13 @@ public class InteractableLoopBar : MonoBehaviour
         bool isSingle;
         loopbarInventory.spellArray = spellArray;
         isSingle = loopbarInventory.CheckNewElementSelection(index);
-        // if (isSingle)
-        // {
-        //     loopbarInventory.spellArray[index] = spellArray[index];
-        //     loopbarInventory.inventorySlots[index].sprite = inventorySlots[index].sprite;
-        // }
+        if (!isSingle)
+        {
+            loopbarInventory.spellArray[index] = spellArray[index];
+            loopbarInventory.inventorySlots[index].sprite = inventorySlots[index].sprite;
+            loopbarInventory.GetSpellSprites();
+        }
+
         unityEvent.Invoke();
     }
 }
