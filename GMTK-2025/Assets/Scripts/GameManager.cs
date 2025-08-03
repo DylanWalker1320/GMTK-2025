@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     private bool isGamePaused = false; // Flag to check if the game is paused
     public bool isInSafeArea = false; // Flag to check if the player is in a safe area
     public bool levelComplete = false;
+    public bool loopComplete = false;
+    public int loopsCompleted;
+    public int wavesCompleted;
 
     // Reference for Upgrade Screen & Slot Allocation
     public Spell.SpellType allocateSpell;
@@ -47,6 +50,12 @@ public class GameManager : MonoBehaviour
             {
                 levelComplete = true; // Set level complete when all enemies are defeated
                 isInSafeArea = true; // Switch to safe area when all enemies are defeated
+                wavesCompleted++;
+                if (wavesCompleted % 4 == 0)
+                {
+                    loopComplete = true;
+                    loopsCompleted++;
+                }
             }
         }
     }
