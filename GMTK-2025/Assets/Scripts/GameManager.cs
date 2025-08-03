@@ -84,4 +84,9 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    public void ToggleSafeArea(bool isInSafeArea)
+    {
+        this.isInSafeArea = isInSafeArea; // Set the safe area flag
+    }
+
 }

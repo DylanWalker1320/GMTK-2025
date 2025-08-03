@@ -142,8 +142,15 @@ public class PlayerMovement : MonoBehaviour
 
         // Instantiate the damage number
         GameObject damageNumberObj = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.identity);
+        
+        // Set the sorting layer to UI to ensure it renders on top
+        Canvas canvas = damageNumberObj.GetComponent<Canvas>();
+        if (canvas != null)
+        {
+            canvas.sortingLayerName = "UI";
+        }
+        
         DamageNumber damageNumber = damageNumberObj.GetComponent<DamageNumber>();
-
         if (damageNumber != null)
         {
             damageNumber.SetDamageAmount(damageAmount);

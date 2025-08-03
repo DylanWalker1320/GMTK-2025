@@ -12,7 +12,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private float spawnMargin = 2f; // How far outside the camera-circle to spawn
-    public int maxWavePopulation;
+    public int maxWavePopulation = 10;
+    private int lastMaxWavePopulation = 10; // To track changes in max population
     private float timer;
     private Camera mainCam;
     
@@ -44,6 +45,12 @@ public class EnemySpawner : MonoBehaviour
         {
             groundTilemap = GameObject.Find("Floor").GetComponent<Tilemap>();
         }
+    }
+
+    public void Restart()
+    {
+        maxWavePopulation = Mathf.RoundToInt(lastMaxWavePopulation * 1.5f); // Increase max population by 50% on restart
+        lastMaxWavePopulation = maxWavePopulation; // Update last max population
     }
 
     void Update()
