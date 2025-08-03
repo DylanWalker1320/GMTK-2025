@@ -74,13 +74,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 2
-  damage: 3
+  damage: 5
   speed: 0
   spellType1: 1
   spellType2: 3
   spellSprite: {fileID: 6379156356478884945, guid: 79658aaa7bc85084faaa64a4f21c572c, type: 3}
   damageCooldown: 0.5
-  damageUpgrade: 1
+  damageUpgrade: 5
   durationUpgrade: 0.5
 --- !u!1 &7983765036861227471
 GameObject:

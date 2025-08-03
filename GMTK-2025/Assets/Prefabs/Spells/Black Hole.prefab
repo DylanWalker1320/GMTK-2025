@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 5
-  damage: 5
+  damage: 10
   speed: 10
   spellType1: 3
   spellType2: 3
@@ -57,8 +57,10 @@ MonoBehaviour:
   pullRadius: 5
   pullInterval: 0.5
   damageInterval: 0.5
+  size: 1
+  damageUpgrade: 5
   pullStrengthUpgrade: 1
-  pullRadiusUpgrade: 0.5
+  sizeUpgrade: 0.2
 --- !u!50 &787266561512865477
 Rigidbody2D:
   serializedVersion: 5

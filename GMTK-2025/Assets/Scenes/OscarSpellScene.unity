@@ -151493,36 +151493,32 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 105899415642415246, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
+    - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: spellArray.Array.size
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 105899415642415246, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 105899415642415246, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 105899415642415246, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 105899415642415246, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 105899415642415246, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 566514747588263830, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
-      propertyPath: m_text
+    - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: 'spellArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4587004831938667483, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
+    - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: 'spellArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4587004831938667483, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
+    - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: 'spellArray.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1061325880311930353, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
-      propertyPath: m_text
+    - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: 'spellArray.Array.data[4]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: 'spellArray.Array.data[6]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: 'spellArray.Array.data[7]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1198620248225866394, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}

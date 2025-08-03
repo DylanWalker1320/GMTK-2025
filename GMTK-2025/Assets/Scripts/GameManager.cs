@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         }
         else if (enemySpawner != null)
         {
-            if (enemySpawner.maxWavePopulation == 0 && enemySpawner.currentEnemies == 0 && !isInSafeArea)
+            if (enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0 && !isInSafeArea)
             {
                 levelComplete = true; // Set level complete when all enemies are defeated
                 isInSafeArea = true; // Switch to safe area when all enemies are defeated

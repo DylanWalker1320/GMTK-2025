@@ -267,11 +267,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 5
-  damage: 10
+  damage: 75
   speed: 0
   spellType1: 3
   spellType2: 2
   spellSprite: {fileID: 1875631905663805349, guid: 0ab5bf3359fa07e49a4882bc05415df3, type: 3}
   range: 1
   rangeUpgrade: 0.2
-  damageUpgrade: 2
+  damageUpgrade: 15

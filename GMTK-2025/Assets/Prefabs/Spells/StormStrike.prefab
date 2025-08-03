@@ -47,13 +47,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 5
-  damage: 2
+  damage: 40
   speed: 0
   spellType1: 2
   spellType2: 2
   spellSprite: {fileID: 0}
-  damageUpgrade: 1
+  damageUpgrade: 15
   speedUpgrade: 0.5
+  sizeUpgrade: 0.2
 --- !u!50 &8032753475744321029
 Rigidbody2D:
   serializedVersion: 5
