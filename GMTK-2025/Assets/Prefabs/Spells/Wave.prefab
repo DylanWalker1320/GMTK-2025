@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6517953839348750490}
   - component: {fileID: 8854423077894456774}
+  - component: {fileID: -2829002602559184752}
   - component: {fileID: 7984456135920779559}
   - component: {fileID: 959439198531040717}
-  - component: {fileID: 8519935772764455334}
+  - component: {fileID: 3272037658721908372}
   m_Layer: 6
   m_Name: Wave
   m_TagString: Spell
@@ -90,6 +91,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &-2829002602559184752
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638778750578337858}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4476b0077108e79419cd434aa7d335f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &7984456135920779559
 Rigidbody2D:
   serializedVersion: 5
@@ -135,7 +158,10 @@ MonoBehaviour:
   spellType1: 1
   spellType2: 1
   spellSprite: {fileID: -3297980657677449142, guid: aa4fc2f0e8bd8104a861c5839f6e2938, type: 3}
---- !u!61 &8519935772764455334
+  damageUpgrade: 1
+  speedUpgrade: 0.5
+  sizeUpgrade: 0.2
+--- !u!61 &3272037658721908372
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +195,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.18}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -179,5 +205,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.11, y: 2.51}
   m_EdgeRadius: 0

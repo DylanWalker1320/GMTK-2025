@@ -29,10 +29,11 @@ public abstract class Spell : MonoBehaviour
         PoisonPuddle,
         SteamVent,
         Storm,
-        Waterball
+        Waterball,
+        Wave
     }
 
-    public Dictionary<Spells, int> spellLevels = new Dictionary<Spells, int>
+    protected static Dictionary<Spells, int> spellLevels = new Dictionary<Spells, int>
     {
         { Spells.BlackFlash, 1 },
         { Spells.BlackHole, 1 },
@@ -46,10 +47,10 @@ public abstract class Spell : MonoBehaviour
         { Spells.PoisonPuddle, 1 },
         { Spells.SteamVent, 1 },
         { Spells.Storm, 1 },
-        { Spells.Waterball, 1 }
+        { Spells.Waterball, 1 },
+        { Spells.Wave, 1 }
     };
-
-    private Dictionary<SpellType, float> spellModifiers = new Dictionary<SpellType, float>
+    protected static Dictionary<SpellType, float> spellModifiers = new Dictionary<SpellType, float>
     {
         { SpellType.Fire, 1f },
         { SpellType.Water, 1f },
