@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     public bool loopComplete = false;
     public int loopsCompleted;
     public int wavesCompleted;
+    public TextMeshProUGUI loopsAmountCompleted;
+    public TextMeshProUGUI enemiesRemaining;
 
     // Reference for Upgrade Screen & Slot Allocation
     public Spell.SpellType allocateSpell;
@@ -39,6 +42,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemiesRemaining.text = enemySpawner.currentEnemies.ToString();
+        loopsAmountCompleted.text = loopsCompleted.ToString() + " Loops";
         if (levelComplete)
         {
             levelComplete = false; // Reset level complete flag
@@ -51,10 +56,12 @@ public class GameManager : MonoBehaviour
                 levelComplete = true; // Set level complete when all enemies are defeated
                 isInSafeArea = true; // Switch to safe area when all enemies are defeated
                 wavesCompleted++;
+
                 if (wavesCompleted % 4 == 0)
                 {
                     loopComplete = true;
                     loopsCompleted++;
+
                 }
             }
         }
