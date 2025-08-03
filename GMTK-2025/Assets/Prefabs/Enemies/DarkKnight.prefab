@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d5a09dbda4eb449ae7095c7d42279e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
+  damageNumberSpawnRadius: 1
   maxHealth: 5000
   moveSpeed: 3
   maxMoveSpeed: 5

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public bool loopComplete = false;
     public int loopsCompleted;
     public int wavesCompleted;
+    public GameObject bossPrefab; // Reference to the boss prefab
 
     // Reference for Upgrade Screen & Slot Allocation
     public Spell.SpellType allocateSpell;
@@ -59,6 +60,15 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    
+    public void TrySpawnBoss()
+    {
+        if (wavesCompleted % 3 == 0)
+        {
+            // Spawn a boss enemy
+            Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
+        }
+    }
 
 
     // void SetExperience(float experience) // Only sets experience and saves it
@@ -68,7 +78,7 @@ public class GameManager : MonoBehaviour
     //         gameSettings.gameSettingsInfo.currentPlayerAttributes.experience = experience;
     //     }
     // }
-    
+
     public void ToggleSafeArea(bool isInSafeArea)
     {
         this.isInSafeArea = isInSafeArea; // Set the safe area flag
