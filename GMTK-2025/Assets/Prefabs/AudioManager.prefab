@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9085563860658515385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181165280225506580}
+  - component: {fileID: 63924965181390442}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &181165280225506580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085563860658515385}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9906432, y: 0.22696291, z: 13.338738}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &63924965181390442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085563860658515385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc186ad59dd59f498f1c12b35ca2f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Main Theme
+    clip: {fileID: 8300000, guid: bcb334c0c97676f40a1c1e743a2cd1c3, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 1
+    mixer: {fileID: 0}
+    useFadeIn: 1
+    fadeInTime: 4
+    useFadeOut: 1
+    fadeOutTime: 4
+    source: {fileID: 0}
+  - name: Boss Theme
+    clip: {fileID: 8300000, guid: 2c5ebc0f218f9b74d881f053b3b90255, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 1
+    fadeInTime: 2
+    useFadeOut: 1
+    fadeOutTime: 2
+    source: {fileID: 0}
