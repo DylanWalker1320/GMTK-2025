@@ -8,18 +8,20 @@ public class BlackHole : Spell
     [SerializeField] private float pullDelay = 5f; // Duration of the pull effect
     [SerializeField] private float pullStrength = 10f; // Strength of the pull effect
     [SerializeField] private float pullRadius = 5f; // Radius of the pull effect
-    [SerializeField] private float damageRadius = 3f; // Radius of the damage effect
     [SerializeField] private float damageInterval = 0.5f; // Interval between passive damage ticks
-    [SerializeField] private SpriteRenderer damageVisual;
 
-    private float lastDamageTime;
-    private bool isPulling = false;
-    
+    [Header("Upgrade Scaling")]
+    [SerializeField] private float pullStrengthUpgrade = 1f; // Pull strength increase per upgrade
+    [SerializeField] private float pullRadiusUpgrade = 0.5f; // Pull radius increase per upgrade
+
+    private float damageCooldown = 0.5f; // Cooldown for passive damage
+    private float cooldownTimer = 0f; // Timer for cooldown
+
     void Start()
     {
-        damageVisual.enabled = false; // Ensure the damage visual is initially hidden
         Init(); // Initialize the black hole properties
         OrientSpell(); // Orient the spell towards the target
+        AddUpgrade(); // Apply upgrades to the black hole
         Throw(); // Throw the black hole
 
         StartCoroutine(PullDelay());
@@ -28,15 +30,13 @@ public class BlackHole : Spell
     void Throw()
     {
         Vector2 direction = rb.linearVelocity.normalized;
-
-        Debug.Log("Throwing Black Hole with speed: " + speed + " and direction: " + direction);
         rb.AddForce(direction * speed, ForceMode2D.Impulse);
     }
 
     void Pull()
     {
         // Logic to pull objects towards the black hole
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, pullRadius / 6f); // Not sure why 6 works, load bearing coconut ig
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, pullRadius);
 
         foreach (Collider2D collider in colliders)
         {
@@ -47,20 +47,21 @@ public class BlackHole : Spell
                 collider.GetComponent<Rigidbody2D>().AddForce(direction * pullStrength);
             }
         }
+    }
 
-        // Apply damage to enemies within the damage radius
-        if (Time.time - lastDamageTime >= damageInterval)
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            Collider2D[] damageColliders = Physics2D.OverlapCircleAll(transform.position, damageRadius / 6f);
-            foreach (Collider2D collider in damageColliders)
+            if (cooldownTimer <= 0f)
             {
-                if (collider.CompareTag("Enemy"))
-                {
-                    // Apply damage to the enemy
-                    collider.GetComponent<Enemy>().TakeDamage(damage);
-                }
+                collision.GetComponent<Enemy>().TakeDamage(CalculateDamage(damage, spellType1, spellType2));
+                cooldownTimer = damageCooldown;
             }
-            lastDamageTime = Time.time;
+            else
+            {
+                cooldownTimer -= Time.deltaTime; // Decrease the cooldown timer
+            }
         }
     }
 
@@ -68,24 +69,18 @@ public class BlackHole : Spell
     {
         yield return new WaitForSeconds(pullDelay);
         Destroy(gameObject, destroyTime); // Destroy the black hole after a certain time
-        isPulling = true; // Start pulling after the delay
-
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        Pull(); // Start pulling enemies towards the black hole
+        Animator animator = GetComponent<Animator>();
+        if (animator != null)
         {
-            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f); // Make the black hole semi-transparent
+            animator.SetBool("IsPulling", true); // Trigger the pulling animation
         }
-
-        Transform localTransform = transform;
-        localTransform.localScale = new Vector3(pullRadius * 2, pullRadius * 2, 1f); // Scale the black hole to its pull radius
-        damageVisual.enabled = true; // Show the damage visual
-        damageVisual.transform.localScale = new Vector3(damageRadius / pullRadius, damageRadius / pullRadius, 1f); // Divide by pullRadius to convert to a relative scale
     }
-
-    void Update()
+    
+    void AddUpgrade()
     {
-        if (rb == null) { return; }
-
-        if (isPulling) { Pull(); }
+        int spellLevel = GetSpellLevel(Spells.BlackHole);
+        pullStrength += pullStrengthUpgrade * spellLevel; // Increase the pull strength
+        pullRadius += pullRadiusUpgrade * spellLevel; // Increase the pull radius
     }
 }

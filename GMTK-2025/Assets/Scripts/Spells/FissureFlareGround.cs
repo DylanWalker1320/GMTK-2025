@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class FissureFlareGround : Spell
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Upgrade Scaling")]
+    [SerializeField] private float damageUpgrade = 0.5f; // Damage increase per upgrade
+    [SerializeField] private float durationUpgrade = 0.5f; // Duration increase per upgrade
+
     void Start()
     {
+        AddUpgrade(); // Apply upgrades to the spell
         Destroy(gameObject, destroyTime); // Destroy the ground effect after 5 seconds
     }
 
@@ -18,5 +22,13 @@ public class FissureFlareGround : Spell
                 enemy.TakeDamage(damage); // Apply damage to the enemy
             }
         }
+    }
+
+    void AddUpgrade()
+    {
+        // Increase damage and duration based on spell level
+        int spellLevel = GetSpellLevel(Spells.FissureFlare);
+        damage += damageUpgrade * spellLevel;
+        destroyTime += durationUpgrade * spellLevel;
     }
 }
