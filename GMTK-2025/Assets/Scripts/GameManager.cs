@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        gameSettings.LoadPlayerStats(gameSettings.gameSettingsInfo.currentPlayerAttributes, player); // Load player stats from GameSettings
     }
 
     // Update is called once per frame
@@ -60,27 +59,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void SaveCurrentPlayerStats() // Sets current 
-    {
-        if (gameSettings != null)
-        {
-            gameSettings.gameSettingsInfo.currentPlayerAttributes.moveForce = player.moveForce;
-            gameSettings.gameSettingsInfo.currentPlayerAttributes.maxSpeed = player.maxSpeed;
-            gameSettings.gameSettingsInfo.currentPlayerAttributes.maxHealth = player.maxHealth;
-            gameSettings.gameSettingsInfo.currentPlayerAttributes.invincibilityFrames = player.invincibilityFrames;
-            gameSettings.gameSettingsInfo.currentPlayerAttributes.experience = player.experience;
-            gameSettings.gameSettingsInfo.currentPlayerAttributes.castStrength = player.castStrength;
-            gameSettings.gameSettingsInfo.currentPlayerAttributes.castSpeed = player.castSpeed;
-            gameSettings.Save(); // Save the current player stats
-        }
-    }
 
     void SetExperience(float experience) // Only sets experience and saves it
     {
         if (gameSettings != null)
         {
             gameSettings.gameSettingsInfo.currentPlayerAttributes.experience = experience;
-            gameSettings.Save();
         }
     }
     
