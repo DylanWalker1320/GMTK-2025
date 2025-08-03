@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private bool canCastMagic = true;
     private float invincibilityTimer = 0f; // Timer for invincibility frames
+    [SerializeField] private float dashStrength = 10f; // Strength of the dash
     [SerializeField] private Animator animator;
     [SerializeField] private Animator shadowAnimator;
 
@@ -41,6 +42,12 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement = movement.normalized;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Dash
+            rb.AddForce(movement * dashStrength, ForceMode2D.Impulse);
+        }
 
     }
 
