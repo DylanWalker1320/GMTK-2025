@@ -23,7 +23,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private bool canCastMagic = true;
     private float invincibilityTimer = 0f; // Timer for invincibility frames
-    private Animator animator;
+    [SerializeField] private float dashStrength = 10f; // Strength of the dash
+    [SerializeField] private Animator animator;
+    [SerializeField] private Animator shadowAnimator;
 
 
     void Awake()
@@ -32,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         reticle = FindFirstObjectByType<Reticle>().GetComponent<Transform>();
         health = maxHealth;
-        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -41,6 +42,12 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement = movement.normalized;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Dash
+            rb.AddForce(movement * dashStrength, ForceMode2D.Impulse);
+        }
 
     }
 
@@ -60,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool("IsMoving", movement.magnitude > 0.1f);
+            shadowAnimator.SetBool("IsMoving", movement.magnitude > 0.1f);
         }
 
         // Only add force if under max speed
