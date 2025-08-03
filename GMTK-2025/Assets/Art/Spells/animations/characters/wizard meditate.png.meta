@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      wizard meditate_0: 4338688562727234704
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
