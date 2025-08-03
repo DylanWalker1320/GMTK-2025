@@ -89,7 +89,7 @@ MonoBehaviour:
     useFadeOut: 0
     fadeOutTime: 0.1
     source: {fileID: 0}
-  - name: Explosive Shot
+  - name: Fireball
     clip: {fileID: 8300000, guid: 99a7846b9652a1f4e84a58db4a9b8f97, type: 3}
     volume: 0.019
     pitch: 1
@@ -201,6 +201,39 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Lightning
     clip: {fileID: 8300000, guid: 4dc529f0a19864a40bbdcf6ea4a3c47c, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Waterball
+    clip: {fileID: 8300000, guid: 4dc529f0a19864a40bbdcf6ea4a3c47c, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Fireball
+    clip: {fileID: 8300000, guid: fc4d00da174dd89469db4a728502e8ec, type: 3}
+    volume: 0.019
+    pitch: 1
+    loop: 0
+    mixer: {fileID: 0}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Dark
+    clip: {fileID: 8300000, guid: fc4d00da174dd89469db4a728502e8ec, type: 3}
     volume: 0.019
     pitch: 1
     loop: 0
