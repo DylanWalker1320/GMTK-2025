@@ -115,14 +115,14 @@ public class InteractableLoopBar : MonoBehaviour
                 spellArray[index] = spellReplacements[3];
                 break;
         }
-        TransitionToMagicUpgradeScreen();
+        TransitionToMagicUpgradeScreen(index);
     }
 
-    public void TransitionToMagicUpgradeScreen()
+    public void TransitionToMagicUpgradeScreen(int index)
     {
 
         loopbarInventory.spellArray = spellArray;
-        loopbarInventory.GetSpellSprites();
+        loopbarInventory.CheckNewElementSelection(index);
         unityEvent.Invoke();
     }
 }

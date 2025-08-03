@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      snail shadow sheet_0: -8818892613918813113
+      snail shadow sheet_1: -7558385228147765819
+      snail shadow sheet_2: -7655565559690451597
+      snail shadow sheet_3: -1334280021951105317
+      snail shadow sheet_4: -803729410970584523
+      snail shadow sheet_5: -948006001055654915
+      snail shadow sheet_6: -7257667417372246287
+      snail shadow sheet_7: -2420412057917026262
+      snail shadow sheet_8: 4267897807863890085
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

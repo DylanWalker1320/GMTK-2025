@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      snail noshadow sheet_0: 1756502198449642623
+      snail noshadow sheet_1: 2806873132093819834
+      snail noshadow sheet_2: -3052572879506814429
+      snail noshadow sheet_3: -7997813027758481746
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

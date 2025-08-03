@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gnome shadow sheet_0: -5729746400631881766
+      gnome shadow sheet_1: 8055385280431641583
+      gnome shadow sheet_2: -5161421191633809821
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bat shadow sheet_0: -1506078944138272658
+      bat shadow sheet_1: 288855236939203205
+      bat shadow sheet_2: 3690263370700366619
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

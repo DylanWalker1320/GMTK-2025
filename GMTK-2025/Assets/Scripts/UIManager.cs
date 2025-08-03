@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject spellUpgradeUI;
     public GameObject barAllocationUI;
 
-    [SerializeField] private bool isInShop;
+    public bool isInShop;
     public UnityEvent onShopFinish;
     void Awake()
     {
@@ -45,6 +45,8 @@ public class UIManager : MonoBehaviour
     public void SetActiveUpgradeUI()
     {
         upgradeUI.SetActive(!upgradeUI.activeSelf);
+        spellUpgradeUI.SetActive(false);
+        barAllocationUI.SetActive(false);
     }
 
     // Last Shop Panel
@@ -52,16 +54,30 @@ public class UIManager : MonoBehaviour
     {
         spellUpgradeUI.SetActive(!spellUpgradeUI.activeSelf);
         spellUpgradeUI.GetComponent<SpellUpgradeUI>().UpdateExperience();
-
-        onShopFinish.Invoke();
+        upgradeUI.SetActive(false);
+        barAllocationUI.SetActive(false);
     }
 
     public void SetActiveBarAllocUI()
     {
         barAllocationUI.SetActive(!barAllocationUI.activeSelf);
+        upgradeUI.SetActive(false);
         if (barAllocationUI.activeSelf != false)
         {
-            FindFirstObjectByType<InteractableLoopBar>().OnCall();   
+            FindFirstObjectByType<InteractableLoopBar>().OnCall();
         }
+    }
+
+    public void GameplayMode()
+    {
+        inventoryUI.SetActive(false);
+        upgradeUI.SetActive(false);
+        spellUpgradeUI.SetActive(false);
+        barAllocationUI.SetActive(false);
+    }
+
+    public void FinishShop()
+    {
+        onShopFinish.Invoke();
     }
 }
