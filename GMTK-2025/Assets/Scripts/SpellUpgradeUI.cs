@@ -93,103 +93,98 @@ public class SpellUpgradeUI : MonoBehaviour
         Spell.UpgradeSpell(Spell.Spells.Fireball);
         fireLevelText.text = Spell.GetSpellLevel(Spell.Spells.Fireball).ToString();
         SubtractExperience(basicSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeWaterball()
     {
         Spell.UpgradeSpell(Spell.Spells.Waterball);
         waterLevelText.text = Spell.GetSpellLevel(Spell.Spells.Waterball).ToString();
         SubtractExperience(basicSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeLightning()
     {
         Spell.UpgradeSpell(Spell.Spells.Lightning);
         lightLevelText.text = Spell.GetSpellLevel(Spell.Spells.Lightning).ToString();
         SubtractExperience(basicSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeDark()
     {
         Spell.UpgradeSpell(Spell.Spells.Dark);
         darkLevelText.text = Spell.GetSpellLevel(Spell.Spells.Dark).ToString();
         SubtractExperience(basicSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeExplosiveShot()
     {
         Spell.UpgradeSpell(Spell.Spells.ExplosiveShot);
         esLevelText.text = Spell.GetSpellLevel(Spell.Spells.ExplosiveShot).ToString();
         SubtractExperience(bigSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeSteamVent()
     {
         Spell.UpgradeSpell(Spell.Spells.SteamVent);
         svLevelText.text = Spell.GetSpellLevel(Spell.Spells.SteamVent).ToString();
         SubtractExperience(bigSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeFissureFlare()
     {
         Spell.UpgradeSpell(Spell.Spells.FissureFlare);
         ffLevelText.text = Spell.GetSpellLevel(Spell.Spells.FissureFlare).ToString();
         SubtractExperience(bigSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeGhostFlame()
     {
         Spell.UpgradeSpell(Spell.Spells.Ghostflame);
         ghLevelText.text = Spell.GetSpellLevel(Spell.Spells.Ghostflame).ToString();
         SubtractExperience(bigSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeWave()
     {
         Spell.UpgradeSpell(Spell.Spells.Wave);
         waveLevelText.text = Spell.GetSpellLevel(Spell.Spells.Wave).ToString();
         SubtractExperience(bigSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeChainLightning()
     {
         Spell.UpgradeSpell(Spell.Spells.ChainLightning);
         clLevelText.text = Spell.GetSpellLevel(Spell.Spells.ChainLightning).ToString();
         SubtractExperience(bigSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradePoisonPuddles()
     {
         Spell.UpgradeSpell(Spell.Spells.PoisonPuddle);
         ppLevelText.text = Spell.GetSpellLevel(Spell.Spells.PoisonPuddle).ToString();
         SubtractExperience(bigSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeStorm()
     {
         Spell.UpgradeSpell(Spell.Spells.Storm);
         stLevelText.text = Spell.GetSpellLevel(Spell.Spells.Storm).ToString();
         SubtractExperience(bigSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeBlackFlash()
     {
         Spell.UpgradeSpell(Spell.Spells.BlackFlash);
         bfLevelText.text = Spell.GetSpellLevel(Spell.Spells.BlackFlash).ToString();
         SubtractExperience(bigSpellCost);
-        FinalUpgradeTransition();
+        
     }
     public void UpgradeBlackHole()
     {
         Spell.UpgradeSpell(Spell.Spells.BlackHole);
         bhLevelText.text = Spell.GetSpellLevel(Spell.Spells.BlackHole).ToString();
         SubtractExperience(bigSpellCost);
-        FinalUpgradeTransition();
-    }
 
-    void FinalUpgradeTransition()
-    {
-        uiManager.SetActiveSpellUpgradeUI();
     }
 
     void SubtractExperience(int cost)
