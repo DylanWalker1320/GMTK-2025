@@ -66,8 +66,12 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+        if (player == null)
+        {
+            ResetGame();
+        }
     }
-    
+
     public void TrySpawnBoss()
     {
         if (wavesCompleted % 3 == 0)
@@ -90,5 +94,11 @@ public class GameManager : MonoBehaviour
     {
         this.isInSafeArea = isInSafeArea; // Set the safe area flag
     }
+
+    void ResetGame()
+    {
+        SceneManager.LoadScene("OscarSpellScene");
+    }
+
 
 }
