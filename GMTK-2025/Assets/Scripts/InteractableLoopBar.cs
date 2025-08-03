@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using TMPro;
 
 public class InteractableLoopBar : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class InteractableLoopBar : MonoBehaviour
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public Spell[] spellArray = new Spell[8]; // Holds spell prefabs, consider changing prefabs to be of spell type
     private SpellCombinations spellCombinations;
-    [SerializeField] private TextMeshProUGUI[] typeText = new TextMeshProUGUI[8];
     [SerializeField] private Image spellImage;
     [SerializeField] private Spell[] spellReplacements = new Spell[4];
 
@@ -25,7 +23,6 @@ public class InteractableLoopBar : MonoBehaviour
         spellImage.sprite = gameManager.spellImage;
         spellArray = loopbarInventory.spellArray;
         GetSpellSprites();
-        GetTypes();
     }
     private void GetSpellSprites()
     {
@@ -63,35 +60,6 @@ public class InteractableLoopBar : MonoBehaviour
             else // Should patch this later for cleaner but it works for now. Covers the odd index slots if no combo
             {
                 inventorySlots[i].sprite = spellArray[i].spellSprite;
-            }
-        }
-    }
-    private void GetTypes()
-    {
-        for (int i = 0; i < typeText.Length; i++)
-        {
-            switch (spellArray[i].spellType1)
-            {
-                case Spell.SpellType.Fire:
-                    typeText[i].text = "Fire";
-                    typeText[i].color = Color.red;
-                    break;
-                case Spell.SpellType.Water:
-                    typeText[i].text = "Water";
-                    typeText[i].color = new Color(135, 206, 250);
-                    break;
-                case Spell.SpellType.Lightning:
-                    typeText[i].text = "Lightning";
-                    typeText[i].color = Color.yellow;
-                    break;
-                case Spell.SpellType.Dark:
-                    typeText[i].text = "Dark";
-                    typeText[i].color = new Color(52, 21, 57);
-                    break;
-                default:
-                    typeText[i].text = "";
-                    break;
-                    
             }
         }
     }

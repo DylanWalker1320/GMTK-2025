@@ -1,4 +1,6 @@
 using System;
+using Microsoft.Unity.VisualStudio.Editor;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     private PlayerMovement player; // Reference to the player movement script
     private EnemySpawner enemySpawner; // Reference to the enemy spawner script
+    private GameSettings gameSettings; // Reference to the game settings
     private bool isGamePaused = false; // Flag to check if the game is paused
     public bool isInSafeArea = false; // Flag to check if the player is in a safe area
     public bool levelComplete = false;
@@ -23,6 +26,11 @@ public class GameManager : MonoBehaviour
             Debug.LogError("PlayerMovement not found in the scene.");
         }
 
+        gameSettings = FindFirstObjectByType<GameSettings>();
+        if (gameSettings == null)
+        {
+            Debug.LogError("GameSettings not found in the scene.");
+        }
         if (!isInSafeArea)
         {
             enemySpawner = FindFirstObjectByType<EnemySpawner>();
