@@ -1,185 +1,102 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class DarkKnight : Boss
 {
-    [SerializeField] private Phase currentPhase = Phase.Phase1;
-    [SerializeField] private Attack currentAttack = Attack.Walk;
 
     private Vector2 movement;
     private GameObject target;
     private Rigidbody2D rb;
-    private float delayTime = 0;
-
-    private enum Phase
-    {
-        Phase1,
-        Phase2
-    }
-
-    private enum Attack
-    {
-        BigSwipers,
-        BigSlammer,
-        Walk,
-        FastSwipers,
-        GigaSlammer,
-        Run
-    }
+    private SpriteRenderer sprite;
+    private Animator slamEffect;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
-
-        //Play intro animation
-        //todo
-    }
-
-    Attack ChooseAttack()
-    {
-        Attack atk = Attack.Walk;
-        switch (currentPhase)
-        {
-            case Phase.Phase1:
-                switch (Random.Range(0, 3)) // Randomly choose between 0, 1, or 2
-                {
-                    case 0:
-                        atk = Attack.BigSwipers;
-                        break;
-                    case 1:
-                        atk = Attack.BigSlammer;
-                        break;
-                    case 2:
-                        atk = Attack.Walk;
-                        break;
-                }
-                break;
-
-            case Phase.Phase2:
-                switch (Random.Range(0, 3))
-                {
-                    case 0:
-                        atk = Attack.FastSwipers;
-                        break;
-                    case 1:
-                        atk = Attack.GigaSlammer;
-                        break;
-                    case 2:
-                        atk = Attack.Run;
-                        break;
-                }
-                break;
-
-            default:
-                return Attack.Walk; // Fallback
-        }
-
-        if (atk == currentAttack)
-        {
-            return ChooseAttack(); // Ensure the attack is not the same as the last one. Awful recursion but it works for now
-        }
-
-        return atk;
+        sprite = GetComponent<SpriteRenderer>();
+        slamEffect = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()
     {
-        if (target == null) return;
-
-        UpdatePhase();
-        DoAttacks();
-
-        // Temporary movement logic for testing
-        Vector2 direction = (target.transform.position - transform.position).normalized;
-
-        if (rb.linearVelocity.magnitude < maxMoveSpeed)
+        if (target != null)
         {
-            rb.AddForce(direction * moveSpeed);
+            Vector2 direction = (target.transform.position - transform.position).normalized;
+            movement = direction * moveSpeed;
+            rb.linearVelocity = new Vector2(movement.x, movement.y);
         }
 
-    }
-
-    void DoAttacks()
-    {
-
-        // For now, just wait for a time
-        if (delayTime < 2f)
+        if (attackCooldownTimer > 0f)
         {
-            delayTime += Time.fixedDeltaTime;
-            return; // Wait for the next attack
+            attackCooldownTimer -= Time.fixedDeltaTime;
         }
         else
         {
-            delayTime = 0; // Reset delay time
-            currentAttack = ChooseAttack();
+            // Implement attack logic here
+            Attack();
+            attackCooldownTimer = attackCooldown;
         }
+    }
 
-        switch (currentAttack)
+    void Attack()
+    {
+        if (target != null)
         {
-            case Attack.BigSwipers:
-                BigSwipers();
-                break;
-
-            case Attack.BigSlammer:
-                BigSlammer();
-                break;
-
-            case Attack.Walk:
-                Walk();
-                break;
-
-            case Attack.FastSwipers:
-                FastSwipers();
-                break;
-
-            case Attack.GigaSlammer:
-                GigaSlammer();
-                break;
-
-            case Attack.Run:
-                Run();
-                break;
+            int randomAttack = Random.Range(0, 2);
+            animator.SetInteger("Attack", randomAttack);
         }
+
+        StartCoroutine(AttackCooldown());
+        animator.SetBool("CanAttack", false);
     }
 
-    void BigSwipers()
+    public void SlamAttack()
     {
-        // Implement BigSwipers attack behavior
-    }
-
-    void BigSlammer()
-    {
-        // Implement BigSlammer attack behavior
-    }
-
-    void Walk()
-    {
-        // Implement Walk attack behavior
-    }
-
-    void FastSwipers()
-    {
-        // Implement FastSwipers attack behavior
-    }
-
-    void GigaSlammer()
-    {
-        // Implement GigaSlammer attack behavior
-    }
-
-    void Run()
-    {
-        // Implement Run attack behavior
-    }
-
-    void UpdatePhase()
-    {
-        if (health <= phaseChangeHealth && currentPhase == Phase.Phase1)
+        if (slamEffect != null)
         {
-            currentPhase = Phase.Phase2;
-            Debug.Log("Phase changed to Phase 2");
-            // Play phase change animation or effects
+            slamEffect.Play("DarkKnight-SlamEffect");
         }
     }
+
+    private IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        animator.SetBool("CanAttack", true);
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        StartCoroutine(HitEffect(Color.red, 0.2f));
+    }
+
+    private IEnumerator HitEffect(Color hitColor, float duration)
+    {
+        float elapsed = 0f;
+        Color originalColor = sprite.color;
+
+        // Fast fade to hit color
+        sprite.color = hitColor;
+
+        // Lerp back to original color over the duration
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            sprite.color = Color.Lerp(hitColor, originalColor, elapsed / duration);
+            yield return null; // Wait for the next frame
+        }
+
+        sprite.color = originalColor;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Handle player collision (e.g., deal damage)
+            other.GetComponent<PlayerMovement>().TakeDamage(10f);
+        }
+    }   
 }

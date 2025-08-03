@@ -13,6 +13,15 @@ public class Boss : Enemy
     [Header("Fight Monitor")]
     [SerializeField] protected float health = 5000f;
 
+    protected float attackCooldownTimer = 0f;
+    protected Animator animator;
+
+    void Awake()
+    {
+        health = maxHealth;
+        animator = GetComponent<Animator>();
+    }
+
     public override void TakeDamage(float damage)
     {
         // Handle boss taking damage

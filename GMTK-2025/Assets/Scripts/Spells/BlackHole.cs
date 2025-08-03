@@ -42,7 +42,6 @@ public class BlackHole : Spell
 
     void Pull()
     {
-        Debug.Log("Pulling enemies towards the black hole");
         isPulling = true; // Set pulling state to true
 
         if (pullTimer <= 0f)
