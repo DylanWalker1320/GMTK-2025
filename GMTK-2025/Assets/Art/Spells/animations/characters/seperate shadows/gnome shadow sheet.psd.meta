@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -125,10 +125,10 @@ TextureImporter:
       name: gnome shadow sheet_0
       rect:
         serializedVersion: 2
-        x: 1456
-        y: 195
-        width: 708
-        height: 1344
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: gnome shadow sheet_1
       rect:
         serializedVersion: 2
-        x: 4265
-        y: 384
-        width: 731
-        height: 1202
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: gnome shadow sheet_2
       rect:
         serializedVersion: 2
-        x: 7165
-        y: 245
-        width: 701
-        height: 1246
+        x: 5670
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +191,20 @@ TextureImporter:
       name: gnome shadow sheet_3
       rect:
         serializedVersion: 2
-        x: 10236
-        y: 392
-        width: 649
-        height: 1321
+        x: 8505
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7629e02f6889ef160800000000000000
-      internalID: 7061248971117597287
+      spriteID: 4edee52ce6ff5a14c8004f68edec008d
+      internalID: 94939896
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f37943c7c7cd46940a8fe57edb04373a
     internalID: 0
     vertices: []
     indices: 
@@ -226,6 +226,7 @@ TextureImporter:
       gnome shadow sheet_0: -5729746400631881766
       gnome shadow sheet_1: 8055385280431641583
       gnome shadow sheet_2: -5161421191633809821
+      gnome shadow sheet_3: 94939896
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

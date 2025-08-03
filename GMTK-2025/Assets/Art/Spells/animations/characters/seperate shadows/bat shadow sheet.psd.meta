@@ -40,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,10 +75,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,10 +119,10 @@ TextureImporter:
       name: bat shadow sheet_0
       rect:
         serializedVersion: 2
-        x: 1585
-        y: 87
-        width: 356
-        height: 327
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: bat shadow sheet_1
       rect:
         serializedVersion: 2
-        x: 4493
-        y: 146
-        width: 356
-        height: 377
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d05744f9c8da77e4a8433a491be20b83
     internalID: 0
     vertices: []
     indices: 
@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bat shadow sheet_0: -1506078944138272658
+      bat shadow sheet_1: 288855236939203205
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
