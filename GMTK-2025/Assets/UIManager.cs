@@ -43,9 +43,16 @@ public class UIManager : MonoBehaviour
         upgradeUI.SetActive(!upgradeUI.activeSelf);
     }
 
+    // Last Shop Panel
     public void SetActiveSpellUpgradeUI()
     {
         spellUpgradeUI.SetActive(!spellUpgradeUI.activeSelf);
         spellUpgradeUI.GetComponent<SpellUpgradeUI>().UpdateExperience();
+    }
+
+    public void SetActiveBarAllocUI()
+    {
+        barAllocationUI.SetActive(!barAllocationUI.activeSelf);
+        FindFirstObjectByType<InteractableLoopBar>().OnCall();
     }
 }

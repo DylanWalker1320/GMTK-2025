@@ -60,6 +60,14 @@ public class ThreeUpgradeScreen : MonoBehaviour
     [SerializeField] private int upgradeIndexTwo; // Statas
     [SerializeField] private int upgradeIndexThree; // Spells
 
+    [Header("Elemental Sprites")]
+    [SerializeField] private Image displaySprite;
+    [SerializeField] private Sprite fireSprite;
+    [SerializeField] private Sprite waterSprite;
+    [SerializeField] private Sprite lightSprite;
+    [SerializeField] private Sprite darkSprite;
+
+
     void Awake()
     {
         player = FindFirstObjectByType<PlayerMovement>();
@@ -119,9 +127,11 @@ public class ThreeUpgradeScreen : MonoBehaviour
         {
             case 0:
                 upgradeTextThree.text = "Fireball";
+                displaySprite.sprite = fireSprite;
                 break;
             case 1:
                 upgradeTextThree.text = "Waterball";
+                displaySprite.sprite = waterSprite;
                 break;
             case 2:
                 upgradeTextThree.text = "Lightning";
@@ -181,10 +191,6 @@ public class ThreeUpgradeScreen : MonoBehaviour
     }
     public void Slot3()
     {
-        switch (upgradeIndexThree)
-        {
-            // Switch to new canvas UI withn the selected spell
-            
-        }
+        uiManager.SetActiveBarAllocUI();
     }
 }

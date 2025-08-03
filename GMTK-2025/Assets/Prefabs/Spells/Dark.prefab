@@ -131,6 +131,8 @@ MonoBehaviour:
   spellType1: 3
   spellType2: 4
   spellSprite: {fileID: -267228244, guid: a14849734bdc1744bb76085c53fe9783, type: 3}
+  damageUpgrade: 1
+  speedUpgrade: 0.5
 --- !u!50 &787266561512865477
 Rigidbody2D:
   serializedVersion: 5
