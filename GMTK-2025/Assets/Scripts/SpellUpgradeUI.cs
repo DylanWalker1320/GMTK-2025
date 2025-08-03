@@ -90,94 +90,107 @@ public class SpellUpgradeUI : MonoBehaviour
 
     public void UpgradeFireball()
     {
-        SubtractExperience(basicSpellCost, Spell.Spells.Fireball);
+        Spell.UpgradeSpell(Spell.Spells.Fireball);
         fireLevelText.text = Spell.GetSpellLevel(Spell.Spells.Fireball).ToString();
+        SubtractExperience(basicSpellCost);
         
     }
     public void UpgradeWaterball()
     {
-        SubtractExperience(basicSpellCost, Spell.Spells.Waterball);
+        Spell.UpgradeSpell(Spell.Spells.Waterball);
         waterLevelText.text = Spell.GetSpellLevel(Spell.Spells.Waterball).ToString();
+        SubtractExperience(basicSpellCost);
         
     }
     public void UpgradeLightning()
     {
-        SubtractExperience(basicSpellCost, Spell.Spells.Lightning);
+        Spell.UpgradeSpell(Spell.Spells.Lightning);
         lightLevelText.text = Spell.GetSpellLevel(Spell.Spells.Lightning).ToString();
+        SubtractExperience(basicSpellCost);
         
     }
     public void UpgradeDark()
     {
-        SubtractExperience(basicSpellCost, Spell.Spells.Dark);
+        Spell.UpgradeSpell(Spell.Spells.Dark);
         darkLevelText.text = Spell.GetSpellLevel(Spell.Spells.Dark).ToString();
+        SubtractExperience(basicSpellCost);
+        
     }
     public void UpgradeExplosiveShot()
     {
-        SubtractExperience(bigSpellCost, Spell.Spells.ExplosiveShot);
+        Spell.UpgradeSpell(Spell.Spells.ExplosiveShot);
         esLevelText.text = Spell.GetSpellLevel(Spell.Spells.ExplosiveShot).ToString();
+        SubtractExperience(bigSpellCost);
         
     }
     public void UpgradeSteamVent()
     {
-        SubtractExperience(bigSpellCost, Spell.Spells.SteamVent);
+        Spell.UpgradeSpell(Spell.Spells.SteamVent);
         svLevelText.text = Spell.GetSpellLevel(Spell.Spells.SteamVent).ToString();
+        SubtractExperience(bigSpellCost);
         
     }
     public void UpgradeFissureFlare()
     {
-        SubtractExperience(bigSpellCost, Spell.Spells.FissureFlare);
+        Spell.UpgradeSpell(Spell.Spells.FissureFlare);
         ffLevelText.text = Spell.GetSpellLevel(Spell.Spells.FissureFlare).ToString();
+        SubtractExperience(bigSpellCost);
         
     }
     public void UpgradeGhostFlame()
     {
-        SubtractExperience(bigSpellCost, Spell.Spells.Ghostflame);
+        Spell.UpgradeSpell(Spell.Spells.Ghostflame);
         ghLevelText.text = Spell.GetSpellLevel(Spell.Spells.Ghostflame).ToString();
+        SubtractExperience(bigSpellCost);
         
     }
     public void UpgradeWave()
     {
-        SubtractExperience(bigSpellCost, Spell.Spells.Wave);
+        Spell.UpgradeSpell(Spell.Spells.Wave);
         waveLevelText.text = Spell.GetSpellLevel(Spell.Spells.Wave).ToString();
+        SubtractExperience(bigSpellCost);
         
     }
     public void UpgradeChainLightning()
     {
-        SubtractExperience(bigSpellCost, Spell.Spells.ChainLightning);
+        Spell.UpgradeSpell(Spell.Spells.ChainLightning);
         clLevelText.text = Spell.GetSpellLevel(Spell.Spells.ChainLightning).ToString();
+        SubtractExperience(bigSpellCost);
         
     }
     public void UpgradePoisonPuddles()
     {
-        SubtractExperience(bigSpellCost, Spell.Spells.PoisonPuddle);
+        Spell.UpgradeSpell(Spell.Spells.PoisonPuddle);
         ppLevelText.text = Spell.GetSpellLevel(Spell.Spells.PoisonPuddle).ToString();
+        SubtractExperience(bigSpellCost);
         
     }
     public void UpgradeStorm()
     {
-        SubtractExperience(bigSpellCost, Spell.Spells.Storm);
+        Spell.UpgradeSpell(Spell.Spells.Storm);
         stLevelText.text = Spell.GetSpellLevel(Spell.Spells.Storm).ToString();
+        SubtractExperience(bigSpellCost);
         
     }
     public void UpgradeBlackFlash()
     {
-        SubtractExperience(bigSpellCost, Spell.Spells.BlackFlash);
+        Spell.UpgradeSpell(Spell.Spells.BlackFlash);
         bfLevelText.text = Spell.GetSpellLevel(Spell.Spells.BlackFlash).ToString();
+        SubtractExperience(bigSpellCost);
         
     }
     public void UpgradeBlackHole()
     {
-        SubtractExperience(bigSpellCost, Spell.Spells.BlackHole);
+        Spell.UpgradeSpell(Spell.Spells.BlackHole);
         bhLevelText.text = Spell.GetSpellLevel(Spell.Spells.BlackHole).ToString();
-
+        SubtractExperience(bigSpellCost);
 
     }
 
-    void SubtractExperience(int cost, Spell.Spells spell)
+    void SubtractExperience(int cost)
     {
         if (player.experience - cost >= 0)
         {
-            Spell.UpgradeSpell(spell);
             player.experience -= cost;
             UpdateExperience();
         }
