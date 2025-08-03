@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Threading.Tasks;
 using TMPro;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UI;
 
