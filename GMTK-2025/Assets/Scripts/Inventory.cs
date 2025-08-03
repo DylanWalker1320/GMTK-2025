@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,7 @@ public class Inventory : MonoBehaviour
     public bool isPlayerAlive = true; // Flag to check if the player is active
     public bool isCasting = false; // casting current spell
     public int currentSpellIndex = 0; // Index of the current spell being cast
+    public TextMeshProUGUI experienceText;
     private void Awake()
     {
         player = FindFirstObjectByType<PlayerMovement>();
@@ -40,6 +42,7 @@ public class Inventory : MonoBehaviour
     }
     private void Update()
     {
+        experienceText.text = player.experience.ToString();
         timeBetweenSpells -= Time.deltaTime * player.castSpeed; // Decrease the time between spells
         if (!isCasting && !gameManager.isInSafeArea)
         {
