@@ -77,15 +77,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1689113949
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8334651344603559088, guid: e2351574d6920c04fb08297b2eee344b, type: 3}
+  m_Sprite: {fileID: 8085263413554396990, guid: ed16f4f0a68e6fb4c93024c543a684f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.78, y: 3.78}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,9 +99,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044129730302953342}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d34f105e66aa5ed43a9f7b6261f5c604, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6e638f64923eac042a7c81f6df0bdf18, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -127,9 +127,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyTime: 5
   damage: 10
-  speed: 25
+  speed: 5
   spellType1: 0
-  spellType2: 0
+  spellType2: 4
   spellSprite: {fileID: 690677518848311421, guid: d0401ae72f711e24db339022618b70f8, type: 3}
 --- !u!50 &1165334991673011861
 Rigidbody2D:
@@ -192,5 +192,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.27, y: 0}
   m_Radius: 0.40625

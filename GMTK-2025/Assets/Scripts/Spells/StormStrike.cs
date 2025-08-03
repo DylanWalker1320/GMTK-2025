@@ -9,6 +9,15 @@ public class StormStrike : MonoBehaviour
         Destroy(gameObject, destroyTime); // Destroy the strike after a certain time
     }
 
+    void Start()
+    {
+        // Flip randomly to add variety
+        if (Random.value > 0.5f)
+        {
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))

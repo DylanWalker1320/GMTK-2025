@@ -61,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,10 +96,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -140,10 +140,10 @@ TextureImporter:
       name: water sheet_0
       rect:
         serializedVersion: 2
-        x: 5024
-        y: 2195
-        width: 43
-        height: 28
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: water sheet_1
       rect:
         serializedVersion: 2
-        x: 7704
-        y: 2125
-        width: 41
-        height: 24
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: water sheet_2
       rect:
         serializedVersion: 2
-        x: 4041
-        y: 2080
-        width: 36
-        height: 33
+        x: 5670
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,143 +202,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: water sheet_3
-      rect:
-        serializedVersion: 2
-        x: 2162
-        y: 2003
-        width: 42
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: df9c8beb2849084a0800000000000000
-      internalID: -6593106565203965443
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water sheet_4
-      rect:
-        serializedVersion: 2
-        x: 6804
-        y: 2025
-        width: 25
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9b691a5fdb7dc5830800000000000000
-      internalID: 4061358174851143353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water sheet_5
-      rect:
-        serializedVersion: 2
-        x: 1228
-        y: 1977
-        width: 29
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4dc9a0d674b53fec0800000000000000
-      internalID: -3534380920225489708
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water sheet_6
-      rect:
-        serializedVersion: 2
-        x: 3586
-        y: 600
-        width: 1598
-        height: 1415
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d53777126bc50c260800000000000000
-      internalID: 7115789348560663389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water sheet_7
-      rect:
-        serializedVersion: 2
-        x: 693
-        y: 441
-        width: 1570
-        height: 1470
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4c8b2257d18af3390800000000000000
-      internalID: -7836359982128645948
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water sheet_8
-      rect:
-        serializedVersion: 2
-        x: 6338
-        y: 533
-        width: 1489
-        height: 1439
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ebfe2fe1dff60450800000000000000
-      internalID: 6054808026172292073
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2e21dd8bdc4c40645af73aabffac00dd
     internalID: 0
     vertices: []
     indices: 
@@ -351,12 +219,6 @@ TextureImporter:
       water sheet_0: 219372710210474017
       water sheet_1: -3813937242844364471
       water sheet_2: 8995809560029556453
-      water sheet_3: -6593106565203965443
-      water sheet_4: 4061358174851143353
-      water sheet_5: -3534380920225489708
-      water sheet_6: 7115789348560663389
-      water sheet_7: -7836359982128645948
-      water sheet_8: 6054808026172292073
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     private EnemySpawner enemySpawner; // Reference to the enemy spawner script
     private GameSettings gameSettings; // Reference to the game settings
     private bool isGamePaused = false; // Flag to check if the game is paused
-    [SerializeField] private Transform levelCompletePosition; // Position to move the player when the level is complete
     public bool isInSafeArea = false; // Flag to check if the player is in a safe area
     public bool levelComplete = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,7 +42,6 @@ public class GameManager : MonoBehaviour
         if (levelComplete)
         {
             levelComplete = false; // Reset level complete flag
-            SwitchToSafeArea();
             SetExperience(player.experience); // Save player's experience when level is complete
         }
         else if (enemySpawner != null)
@@ -54,11 +52,6 @@ public class GameManager : MonoBehaviour
                 isInSafeArea = true; // Switch to safe area when all enemies are defeated
             }
         }
-    }
-
-    void SwitchToSafeArea()
-    {
-        player.transform.position = levelCompletePosition.position; // Move player to safe area
     }
 
     void SaveCurrentPlayerStats() // Sets current 

@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private bool canCastMagic = true;
     private float invincibilityTimer = 0f; // Timer for invincibility frames
+    private Animator animator;
 
 
     void Awake()
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         reticle = FindFirstObjectByType<Reticle>().GetComponent<Transform>();
         health = maxHealth;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -52,6 +54,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 invincibilityTimer = 0f; // Reset timer
             }
+        }
+
+        // Animator update
+        if (animator != null)
+        {
+            animator.SetBool("IsMoving", movement.magnitude > 0.1f);
         }
 
         // Only add force if under max speed
