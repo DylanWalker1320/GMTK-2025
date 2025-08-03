@@ -179,6 +179,7 @@ public class SpellUpgradeUI : MonoBehaviour
         {
             Spell.UpgradeSpell(spell);
             player.experience -= cost;
+            UpdateExperience();
         }
     }
         
