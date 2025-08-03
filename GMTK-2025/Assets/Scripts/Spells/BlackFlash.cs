@@ -1,20 +1,18 @@
 using UnityEngine;
+using System.Collections;
 
 public class BlackFlash : Spell
 {
     [Header("Black Flash Settings")]
     [SerializeField] private float range;
+    [Header("Black Flash Upgrades")]
+    [SerializeField] private float rangeUpgrade;
 
     void Start()
     {
         Init();
         OrientSpell();
-
-        // Move it forward by half its length in world units
-        float halfLength = GetComponent<SpriteRenderer>().bounds.extents.x;
-        transform.position += transform.right * halfLength;
-
-        Destroy(gameObject, destroyTime);
+        AddUpgrade();
     }
 
 
@@ -25,8 +23,20 @@ public class BlackFlash : Spell
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2));
             }
         }
+    }
+
+    public void AddUpgrade()
+    {
+        damage += 1f; // Increase damage by 1 per upgrade
+        range += rangeUpgrade; // Increase range by the upgrade value
+        transform.localScale = new Vector3(range, range, 1f); // Scale the spell based on the new range
+    }
+
+    public void DestroySpell()
+    {
+        Destroy(gameObject);
     }
 }
