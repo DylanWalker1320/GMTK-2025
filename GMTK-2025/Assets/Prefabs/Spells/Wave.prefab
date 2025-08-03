@@ -230,13 +230,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb71ad23c2029b441be8a1f180354709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 4
+  destroyTime: 0.75
   damage: 25
   speed: 10
   spellType1: 1
   spellType2: 1
   spellSprite: {fileID: -6179780737336541088, guid: 4d07166559c3fbf4492077a1fa28ba92, type: 3}
+  visuals: {fileID: 4197480274875293710}
   damageUpgrade: 1
   speedUpgrade: 0.5
   sizeUpgrade: 0.2
-  visuals: {fileID: 4197480274875293710}
