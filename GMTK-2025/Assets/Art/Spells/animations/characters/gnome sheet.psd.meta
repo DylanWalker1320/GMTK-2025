@@ -1,34 +1,49 @@
 fileFormatVersion: 2
-guid: 9b46fe58cdc515a49bd0bd054acbf03b
+guid: ca21bca00242d3441a0f603256a17a16
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8818892613918813113
-    second: snail shadow sheet_0
+      213: 161887992260264597
+    second: gnome sheet_0
   - first:
-      213: -7558385228147765819
-    second: snail shadow sheet_1
+      213: 1068938263508955055
+    second: gnome sheet_1
   - first:
-      213: -7655565559690451597
-    second: snail shadow sheet_2
+      213: -4905198535237986359
+    second: gnome sheet_2
   - first:
-      213: -1334280021951105317
-    second: snail shadow sheet_3
+      213: 8492134637839596900
+    second: gnome sheet_3
   - first:
-      213: -803729410970584523
-    second: snail shadow sheet_4
+      213: 623847026223525026
+    second: gnome sheet_4
   - first:
-      213: -948006001055654915
-    second: snail shadow sheet_5
+      213: 4636138964737915329
+    second: gnome sheet_5
   - first:
-      213: -7257667417372246287
-    second: snail shadow sheet_6
+      213: -2171323372626479562
+    second: gnome sheet_6
   - first:
-      213: -2420412057917026262
-    second: snail shadow sheet_7
+      213: -5887977152075648437
+    second: gnome sheet_7
   - first:
-      213: 4267897807863890085
-    second: snail shadow sheet_8
+      213: -6688661133556607087
+    second: gnome sheet_8
+  - first:
+      213: 851463816013859078
+    second: gnome sheet_9
+  - first:
+      213: -1887173627705723499
+    second: gnome sheet_10
+  - first:
+      213: 2112311256923521678
+    second: gnome sheet_11
+  - first:
+      213: -4414930628655100670
+    second: gnome sheet_12
+  - first:
+      213: -560330243111820090
+    second: gnome sheet_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -137,13 +152,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: snail shadow sheet_0
+      name: gnome sheet_0
       rect:
         serializedVersion: 2
-        x: 1059
-        y: 656
-        width: 1402
-        height: 1030
+        x: 0
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7449d0364effc9580800000000000000
-      internalID: -8818892613918813113
+      spriteID: 592031075442f3200800000000000000
+      internalID: 161887992260264597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: snail shadow sheet_1
+      name: gnome sheet_1
       rect:
         serializedVersion: 2
-        x: 3694
-        y: 566
-        width: 1930
-        height: 944
+        x: 2835
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5cd41b85ea83b1790800000000000000
-      internalID: -7558385228147765819
+      spriteID: faf264befa1a5de00800000000000000
+      internalID: 1068938263508955055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: snail shadow sheet_2
+      name: gnome sheet_2
       rect:
         serializedVersion: 2
-        x: 6489
-        y: 619
-        width: 1729
-        height: 813
+        x: 5670
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +211,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 375afe33fa7f1c590800000000000000
-      internalID: -7655565559690451597
+      spriteID: 9c79f5acbeb3debb0800000000000000
+      internalID: -4905198535237986359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: snail shadow sheet_3
+      name: gnome sheet_3
       rect:
         serializedVersion: 2
-        x: 9423
-        y: 836
-        width: 23
-        height: 12
+        x: 8505
+        y: 0
+        width: 2835
+        height: 2835
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,118 +233,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd634bca36fab7de0800000000000000
-      internalID: -1334280021951105317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: snail shadow sheet_4
-      rect:
-        serializedVersion: 2
-        x: 9522
-        y: 662
-        width: 1318
-        height: 717
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 53a709beb5498d4f0800000000000000
-      internalID: -803729410970584523
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: snail shadow sheet_5
-      rect:
-        serializedVersion: 2
-        x: 849
-        y: 799
-        width: 35
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dfb9326909108d2f0800000000000000
-      internalID: -948006001055654915
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: snail shadow sheet_6
-      rect:
-        serializedVersion: 2
-        x: 882
-        y: 802
-        width: 9
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1feb999cfe5974b90800000000000000
-      internalID: -7257667417372246287
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: snail shadow sheet_7
-      rect:
-        serializedVersion: 2
-        x: 6439
-        y: 702
-        width: 35
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a2098c5ae08f86ed0800000000000000
-      internalID: -2420412057917026262
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: snail shadow sheet_8
-      rect:
-        serializedVersion: 2
-        x: 3641
-        y: 605
-        width: 36
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5a04567a17e9a3b30800000000000000
-      internalID: 4267897807863890085
+      spriteID: 46d3839b57f1ad570800000000000000
+      internalID: 8492134637839596900
       vertices: []
       indices: 
       edges: []
@@ -338,7 +243,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 231c9a86954d36e41be4dcf9de1dc1dc
     internalID: 0
     vertices: []
     indices: 
@@ -347,7 +252,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gnome sheet_0: 161887992260264597
+      gnome sheet_1: 1068938263508955055
+      gnome sheet_2: -4905198535237986359
+      gnome sheet_3: 8492134637839596900
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
