@@ -692,7 +692,7 @@ MonoBehaviour:
   damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
   damageNumberSpawnRadius: 1
   reticle: {fileID: 7450107430420979136}
-  experience: 1000
+  experience: 0
   Healthbar: {fileID: 5543022282655952352}
   dashStrength: 10
   animator: {fileID: 3534183547916771480}
