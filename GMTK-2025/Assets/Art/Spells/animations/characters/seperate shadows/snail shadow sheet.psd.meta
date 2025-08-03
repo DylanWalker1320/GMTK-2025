@@ -26,9 +26,6 @@ TextureImporter:
   - first:
       213: -2420412057917026262
     second: snail shadow sheet_7
-  - first:
-      213: 4267897807863890085
-    second: snail shadow sheet_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,10 +93,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -140,10 +137,10 @@ TextureImporter:
       name: snail shadow sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2835
-        height: 2835
+        x: 849
+        y: 799
+        width: 35
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +159,10 @@ TextureImporter:
       name: snail shadow sheet_1
       rect:
         serializedVersion: 2
-        x: 2835
-        y: 0
-        width: 2835
-        height: 2835
+        x: 882
+        y: 802
+        width: 9
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +181,10 @@ TextureImporter:
       name: snail shadow sheet_2
       rect:
         serializedVersion: 2
-        x: 5670
-        y: 0
-        width: 2835
-        height: 2835
+        x: 1014
+        y: 588
+        width: 1447
+        height: 1148
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +203,10 @@ TextureImporter:
       name: snail shadow sheet_3
       rect:
         serializedVersion: 2
-        x: 8505
-        y: 0
-        width: 2835
-        height: 2835
+        x: 3553
+        y: 765
+        width: 40
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,11 +221,99 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: snail shadow sheet_4
+      rect:
+        serializedVersion: 2
+        x: 3657
+        y: 581
+        width: 1842
+        height: 921
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a709beb5498d4f0800000000000000
+      internalID: -803729410970584523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snail shadow sheet_5
+      rect:
+        serializedVersion: 2
+        x: 6445
+        y: 588
+        width: 1708
+        height: 849
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfb9326909108d2f0800000000000000
+      internalID: -948006001055654915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snail shadow sheet_6
+      rect:
+        serializedVersion: 2
+        x: 9384
+        y: 706
+        width: 1394
+        height: 707
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1feb999cfe5974b90800000000000000
+      internalID: -7257667417372246287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snail shadow sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3606
+        y: 758
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2098c5ae08f86ed0800000000000000
+      internalID: -2420412057917026262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f43e0b4bcbcaf1f4a900717793d238e2
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -237,11 +322,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      snail shadow sheet_0: -8818892613918813113
-      snail shadow sheet_1: -7558385228147765819
-      snail shadow sheet_2: -7655565559690451597
-      snail shadow sheet_3: -1334280021951105317
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
