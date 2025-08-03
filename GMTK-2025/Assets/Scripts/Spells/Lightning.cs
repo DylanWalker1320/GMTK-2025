@@ -14,8 +14,8 @@ public class Lightning : Spell
     {
         Init(); // Initialize the spell properties
         AddUpgrade(); // Apply upgrades to the spell
+        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
         FindClosestEnemy(transform.position, searchRadius); // Use the radius variable
-        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position; // Spawn the spell at the reticle position
     }
 
     private void FindClosestEnemy(Vector2 position, float radius, int maxColliders = 50)
@@ -39,6 +39,7 @@ public class Lightning : Spell
                     transform.rotation = Quaternion.Euler(0, 0, angle);
 
                     rb.linearVelocity = direction * speed; // Set the spell's velocity towards the enemy
+                    //Debug.DrawLine(transform.position, hitColliders[i].transform.position, Color.red, 2f); // Debug line to visualize the spell's path
                     break; // Exit after finding the first enemy
                 }
             }

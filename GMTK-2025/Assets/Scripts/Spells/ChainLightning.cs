@@ -23,6 +23,7 @@ public class ChainLightning : Spell
         maxChains = chains; // Store the initial number of chains
         AddUpgrade(); // Apply upgrades to the spell
 
+        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position; // Spawn the spell at the player's position
         FindClosestEnemy(transform.position, searchRadius); // Use the radius variable
     }
 

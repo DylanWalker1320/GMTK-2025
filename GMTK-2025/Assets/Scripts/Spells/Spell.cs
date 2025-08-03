@@ -35,20 +35,20 @@ public abstract class Spell : MonoBehaviour
 
     protected static Dictionary<Spells, int> spellLevels = new Dictionary<Spells, int>
     {
-        { Spells.BlackFlash, 1 },
-        { Spells.BlackHole, 1 },
-        { Spells.ChainLightning, 1 },
-        { Spells.Dark, 1 },
-        { Spells.ExplosiveShot, 1 },
-        { Spells.Fireball, 1 },
-        { Spells.FissureFlare, 1 },
-        { Spells.Ghostflame, 1 },
-        { Spells.Lightning, 1 },
-        { Spells.PoisonPuddle, 1 },
-        { Spells.SteamVent, 1 },
-        { Spells.Storm, 1 },
-        { Spells.Waterball, 1 },
-        { Spells.Wave, 1 }
+        { Spells.BlackFlash, 0 },
+        { Spells.BlackHole, 0 },
+        { Spells.ChainLightning, 0 },
+        { Spells.Dark, 0 },
+        { Spells.ExplosiveShot, 0 },
+        { Spells.Fireball, 0 },
+        { Spells.FissureFlare, 0 },
+        { Spells.Ghostflame, 0 },
+        { Spells.Lightning, 0 },
+        { Spells.PoisonPuddle, 0 },
+        { Spells.SteamVent, 0 },
+        { Spells.Storm, 0 },
+        { Spells.Waterball, 0 },
+        { Spells.Wave, 0 }
     };
     protected static Dictionary<SpellType, float> spellModifiers = new Dictionary<SpellType, float>
     {

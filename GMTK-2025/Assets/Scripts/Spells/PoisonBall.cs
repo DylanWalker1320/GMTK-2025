@@ -8,6 +8,7 @@ public class PoisonBall : Spell
     [SerializeField] private float poisonSpawnInterval = 1f; // Interval to spawn poison puddles
     [SerializeField] private float finalPuddleScale = 3f; // Scale of the final poison puddle
 
+
     [Header("Upgrade Scaling")]
     [SerializeField] private float damageUpgrade = 1f; // Damage increase per upgrade
     [SerializeField] private float poisonSpawnIntervalUpgrade = 0.1f; // Interval decrease per upgrade

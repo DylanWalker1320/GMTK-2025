@@ -6,7 +6,8 @@ public class BlackFlash : Spell
     [Header("Black Flash Settings")]
     [SerializeField] private float range;
     [Header("Black Flash Upgrades")]
-    [SerializeField] private float rangeUpgrade;
+    [SerializeField] private float rangeUpgrade = 0.5f; // Range increase per upgrade
+    [SerializeField] private float damageUpgrade = 2;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class BlackFlash : Spell
 
     public void AddUpgrade()
     {
-        damage += 1f; // Increase damage by 1 per upgrade
+        damage += damageUpgrade; // Increase damage by the upgrade value
         range += rangeUpgrade; // Increase range by the upgrade value
         transform.localScale = new Vector3(range, range, 1f); // Scale the spell based on the new range
     }

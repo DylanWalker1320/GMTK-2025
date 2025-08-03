@@ -10,7 +10,7 @@ public class SimpleEnemy : Enemy
     private Rigidbody2D rb;
     private Transform target;
     private bool touchingTarget = false;
-    private float health = 100f;
+    public float health = 100f;
     private SpriteRenderer spriteRenderer;
     private EnemySpawner enemySpawner; // Reference to the enemy spawner
     [SerializeField] private ParticleSystem deathEffect;
@@ -22,6 +22,7 @@ public class SimpleEnemy : Enemy
     private float hitFlashDuration = 0.2f;
     private static readonly int ColorProperty = Shader.PropertyToID("_Color");
     private MaterialPropertyBlock propertyBlock;
+    private bool isDead = false;
 
     void Start()
     {
@@ -118,9 +119,10 @@ public class SimpleEnemy : Enemy
         hitFlashTimer = hitFlashDuration;
 
         health -= damage;
-        if (health <= 0f)
+        if (health <= 0f && isDead == false)
         {
             enemySpawner.currentEnemies--; // Debugging: Decrease enemy count in spawner
+            isDead = true;
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Die();
         }

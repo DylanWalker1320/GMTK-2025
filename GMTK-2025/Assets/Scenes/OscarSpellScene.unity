@@ -151521,6 +151521,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2010852978544530942, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3992889852123394306, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -151617,11 +151621,15 @@ PrefabInstance:
     - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: 'spellArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 7732002758274677308, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
+      objectReference: {fileID: 6813655516327199667, guid: 4bb26d09d3a2bc842bb79b63d0cb72a9, type: 3}
     - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: 'spellArray.Array.data[1]'
       value: 
-      objectReference: {fileID: 4587004831938667483, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
+      objectReference: {fileID: 6813655516327199667, guid: 4bb26d09d3a2bc842bb79b63d0cb72a9, type: 3}
+    - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: 'spellArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6813655516327199667, guid: 4bb26d09d3a2bc842bb79b63d0cb72a9, type: 3}
     - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: 'spellArray.Array.data[3]'
       value: 
@@ -151633,15 +151641,15 @@ PrefabInstance:
     - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: 'spellArray.Array.data[5]'
       value: 
-      objectReference: {fileID: 7732002758274677308, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
+      objectReference: {fileID: 8039000571881017357, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
     - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: 'spellArray.Array.data[6]'
       value: 
-      objectReference: {fileID: 4587004831938667483, guid: 5c99f578d2ed4be4b9797b19751ba40f, type: 3}
+      objectReference: {fileID: 8039000571881017357, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
     - target: {fileID: 583175720542500669, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: 'spellArray.Array.data[7]'
       value: 
-      objectReference: {fileID: 7732002758274677308, guid: 51b1169bb595efa4da27df1e42dc765b, type: 3}
+      objectReference: {fileID: 8039000571881017357, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
     - target: {fileID: 2777935211835947792, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -151810,7 +151818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: spawnInterval
-      value: 50
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: maxWavePopulation

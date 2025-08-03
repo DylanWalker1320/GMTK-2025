@@ -62,7 +62,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -271,6 +271,7 @@ MonoBehaviour:
   speed: 0
   spellType1: 3
   spellType2: 2
-  spellSprite: {fileID: 1895929340, guid: 8c92e23a8dcabd64ab737177f766f01e, type: 3}
+  spellSprite: {fileID: 1875631905663805349, guid: 0ab5bf3359fa07e49a4882bc05415df3, type: 3}
   range: 1
   rangeUpgrade: 0.2
+  damageUpgrade: 2

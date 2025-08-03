@@ -130,10 +130,13 @@ MonoBehaviour:
   speed: 20
   spellType1: 2
   spellType2: 1
-  spellSprite: {fileID: 7072109450132228763, guid: d21a51bc96922dd42a550f765933ec24, type: 3}
+  spellSprite: {fileID: -6371365488196154562, guid: 6937d95c21caa514db02ef75fcda9d53, type: 3}
   searchRadius: 5
   chains: 3
-  falloffPerChain: 0.2
+  minChainDamage: 0.5
+  damageUpgrade: 0.5
+  chainsUpgrade: 1
+  searchRadiusUpgrade: 0.5
 --- !u!50 &787266561512865477
 Rigidbody2D:
   serializedVersion: 5
