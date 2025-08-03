@@ -12,7 +12,6 @@ public class GameSettings : MonoBehaviour
     {
         public PlayerAttributes initialPlayerAttributes; // Initial spells for the player
         public CurrentPlayerAttributes currentPlayerAttributes; // Current spells for the player
-        public bool isSaved; // Flag to check if the game is saved
     }
     [System.Serializable]
     public class PlayerAttributes
