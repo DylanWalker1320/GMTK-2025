@@ -244,7 +244,7 @@ MonoBehaviour:
   speed: 0
   spellType1: 1
   spellType2: 0
-  spellSprite: {fileID: 1851400165, guid: ef7df2016889a8f49a9fed541a20340d, type: 3}
+  spellSprite: {fileID: 2678532488670500709, guid: 1eb14dacbc8f5764eb1e5ad24cdd974c, type: 3}
   knockbackForce: 1
   damageCooldown: 0.5
   range: 1

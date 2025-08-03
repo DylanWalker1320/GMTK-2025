@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject tutorialMenu;
     public GameObject spellUpgradeUI;
     public GameObject barAllocationUI;
+    public GameObject newGameLoopUI;
 
     public bool isInShop;
     public UnityEvent onShopFinish;
@@ -64,12 +65,27 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if (gameManager.levelComplete && !isInShop)
+        if (gameManager.levelComplete && !isInShop && !gameManager.loopComplete)
         {
             isInShop = true;
             SetActiveUpgradeUI();
             upgradeUI.GetComponent<ThreeUpgradeScreen>().UpdateDisplays();
         }
+        else if (gameManager.loopComplete)
+        {
+            isInShop = true;
+            gameManager.loopComplete = false;
+            NewGameLoopUpgradeUI();
+            newGameLoopUI.GetComponent<NewGameLoopMenu>().UpdateDisplays();
+        }
+    }
+
+    public void NewGameLoopUpgradeUI()
+    {
+        newGameLoopUI.SetActive(!newGameLoopUI.activeSelf);
+        upgradeUI.SetActive(false);
+        spellUpgradeUI.SetActive(false);
+        barAllocationUI.SetActive(false);
     }
 
     public void HandleBackToGameButton()
@@ -198,6 +214,7 @@ public class UIManager : MonoBehaviour
         upgradeUI.SetActive(false);
         spellUpgradeUI.SetActive(false);
         barAllocationUI.SetActive(false);
+        newGameLoopUI.SetActive(false);
         gameManager.isInSafeArea = false;
         onShopFinish.Invoke();
     }
