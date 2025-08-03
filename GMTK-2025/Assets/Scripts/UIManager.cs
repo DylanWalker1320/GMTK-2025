@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,6 +14,15 @@ public class UIManager : MonoBehaviour
     public GameObject spellUpgradeUI;
     public GameObject barAllocationUI;
     public GameObject newGameLoopUI;
+    public GameObject Slide1;
+    public GameObject Slide2;
+    public GameObject Slide3;
+    public GameObject Slide4;
+    private Button button1;
+    private Button button2;
+    private Button button3;
+    private Button button4;
+
 
     public bool isInShop;
     public UnityEvent onShopFinish;
@@ -39,10 +49,21 @@ public class UIManager : MonoBehaviour
     }
 
     void Start()
+{
+    Time.timeScale = 0;
+    currentMenu = Menu.StartMenu;
+
+    button1 = GameObject.Find("1")?.GetComponent<Button>();
+    button2 = GameObject.Find("2")?.GetComponent<Button>();
+    button3 = GameObject.Find("3")?.GetComponent<Button>();
+    button4 = GameObject.Find("4")?.GetComponent<Button>();
+
+    if (!button1 || !button2 || !button3 || !button4)
     {
-        Time.timeScale = 0;
-        currentMenu = Menu.StartMenu;
+        Debug.LogError("One or more slide buttons not found!");
     }
+}
+
 
     void Update()
     {
@@ -86,6 +107,73 @@ public class UIManager : MonoBehaviour
         upgradeUI.SetActive(false);
         spellUpgradeUI.SetActive(false);
         barAllocationUI.SetActive(false);
+    }
+
+    private void SetButtonColor(Button button, Color color)
+    {
+        if (button != null)
+        {
+            var colors = button.colors;
+            colors.normalColor = color;
+            button.colors = colors;
+        }
+    }
+
+
+    public void HandleSlideChange(string buttonPressed)
+    {
+        Debug.Log("Changing slide: " + buttonPressed);
+
+        Slide1.SetActive(buttonPressed == "1");
+        Slide2.SetActive(buttonPressed == "2");
+        Slide3.SetActive(buttonPressed == "3");
+        Slide4.SetActive(buttonPressed == "4");
+
+        // Set all buttons to gray first
+        SetButtonColor(button1, Color.gray);
+        SetButtonColor(button2, Color.gray);
+        SetButtonColor(button3, Color.gray);
+        SetButtonColor(button4, Color.gray);
+
+        // Set selected button to white
+        switch (buttonPressed)
+        {
+            case "1": SetButtonColor(button1, Color.white); break;
+            case "2": SetButtonColor(button2, Color.white); break;
+            case "3": SetButtonColor(button3, Color.white); break;
+            case "4": SetButtonColor(button4, Color.white); break;
+        }
+
+
+        Debug.Log("Changing slide:" + buttonPressed);
+        if(buttonPressed == "1")
+        {
+            Slide1.SetActive(true);
+            Slide2.SetActive(false);
+            Slide3.SetActive(false);
+            Slide4.SetActive(false);
+        }
+        if(buttonPressed == "2")
+        {
+            Slide1.SetActive(false);
+            Slide2.SetActive(true);
+            Slide3.SetActive(false);
+            Slide4.SetActive(false);
+        }
+        if(buttonPressed == "3")
+        {
+            Slide1.SetActive(false);
+            Slide2.SetActive(false);
+            Slide3.SetActive(true);
+            Slide4.SetActive(false);
+        }
+        if(buttonPressed == "4")
+        {
+            Slide1.SetActive(false);
+            Slide2.SetActive(false);
+            Slide3.SetActive(false);
+            Slide4.SetActive(true);
+        }
     }
 
     public void HandleBackToGameButton()
