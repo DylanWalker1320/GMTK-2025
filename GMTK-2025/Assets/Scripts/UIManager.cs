@@ -73,6 +73,7 @@ public class UIManager : MonoBehaviour
         upgradeUI.SetActive(false);
         spellUpgradeUI.SetActive(false);
         barAllocationUI.SetActive(false);
+        gameManager.isInSafeArea = false;
         onShopFinish.Invoke();
     }
 }
