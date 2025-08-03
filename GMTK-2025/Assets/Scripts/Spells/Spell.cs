@@ -132,6 +132,9 @@ public abstract class Spell : MonoBehaviour
 
     protected float CalculateDamage(float baseDamage, SpellType type1, SpellType type2)
     {
+        float castStrength = GameObject.FindObjectOfType<PlayerMovement>().castStrength; // Get the player's cast strength
+        spellModifiers[SpellType.General] = castStrength; // Normalize cast strength to a range suitable for modifiers
+
         // Prevent double counting of damage modifiers if both types are the same, or the second type is None
         float damage = baseDamage * spellModifiers[type1] * spellModifiers[SpellType.General];
         if (type1 != type2 && type2 != SpellType.None)

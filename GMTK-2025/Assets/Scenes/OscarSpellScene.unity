@@ -151464,6 +151464,10 @@ PrefabInstance:
       propertyPath: experience
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7818191223313872262, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+      propertyPath: castStrength
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 8016173160932670840, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
       propertyPath: m_Name
       value: Player
@@ -151488,6 +151492,10 @@ PrefabInstance:
     - target: {fileID: 1198620248225866394, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: castStrengthUpgradeIncrease
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2777935211835947792, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_Name
