@@ -126,11 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02abd67b34acc6748a669e9cbd868e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 50
-  maxSpeed: 3
+  moveForce: 30
+  maxSpeed: 2
   damage: 10
   targetTag: Player
-  health: 100
+  health: 150
   deathEffect: {fileID: 8720471837675972744, guid: ed081c54d46bc0e49a232f77143ce028, type: 3}
   maxHitSlowPercent: 1
   damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
