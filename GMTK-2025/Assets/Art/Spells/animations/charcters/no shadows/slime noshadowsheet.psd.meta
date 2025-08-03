@@ -547,7 +547,24 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slime noshadowsheet_0: -3375536517674760947
+      slime noshadowsheet_1: -2829286851408253986
+      slime noshadowsheet_10: 8665866276073466497
+      slime noshadowsheet_11: -6639625256938438299
+      slime noshadowsheet_12: 6080511518696133073
+      slime noshadowsheet_13: 3823191537287111227
+      slime noshadowsheet_14: -1315260418846068840
+      slime noshadowsheet_15: 1178418179099900269
+      slime noshadowsheet_16: -6564132248191892450
+      slime noshadowsheet_2: 6235738584714426777
+      slime noshadowsheet_3: 2449188382630536404
+      slime noshadowsheet_4: 9160452031714204788
+      slime noshadowsheet_5: 2288362989166106628
+      slime noshadowsheet_6: 4721945984167414664
+      slime noshadowsheet_7: 5974788252141430956
+      slime noshadowsheet_8: -1028524152559299516
+      slime noshadowsheet_9: 5909610685169353277
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

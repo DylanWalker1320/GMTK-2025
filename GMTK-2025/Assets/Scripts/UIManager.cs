@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
                                  // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject spellUpgradeUI;
     public GameObject barAllocationUI;
+
+    public bool isInShop;
     public UnityEvent onShopFinish;
     void Awake()
     {
@@ -25,8 +27,9 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.levelComplete)
+        if (gameManager.levelComplete && !isInShop)
         {
+            isInShop = true;
             SetActiveUpgradeUI();
             upgradeUI.GetComponent<ThreeUpgradeScreen>().UpdateDisplays();
 
@@ -42,6 +45,8 @@ public class UIManager : MonoBehaviour
     public void SetActiveUpgradeUI()
     {
         upgradeUI.SetActive(!upgradeUI.activeSelf);
+        spellUpgradeUI.SetActive(false);
+        barAllocationUI.SetActive(false);
     }
 
     // Last Shop Panel
@@ -49,13 +54,30 @@ public class UIManager : MonoBehaviour
     {
         spellUpgradeUI.SetActive(!spellUpgradeUI.activeSelf);
         spellUpgradeUI.GetComponent<SpellUpgradeUI>().UpdateExperience();
-
-        onShopFinish.Invoke();
+        upgradeUI.SetActive(false);
+        barAllocationUI.SetActive(false);
     }
 
     public void SetActiveBarAllocUI()
     {
         barAllocationUI.SetActive(!barAllocationUI.activeSelf);
-        FindFirstObjectByType<InteractableLoopBar>().OnCall();
+        upgradeUI.SetActive(false);
+        if (barAllocationUI.activeSelf != false)
+        {
+            FindFirstObjectByType<InteractableLoopBar>().OnCall();
+        }
+    }
+
+    public void GameplayMode()
+    {
+        inventoryUI.SetActive(false);
+        upgradeUI.SetActive(false);
+        spellUpgradeUI.SetActive(false);
+        barAllocationUI.SetActive(false);
+    }
+
+    public void FinishShop()
+    {
+        onShopFinish.Invoke();
     }
 }

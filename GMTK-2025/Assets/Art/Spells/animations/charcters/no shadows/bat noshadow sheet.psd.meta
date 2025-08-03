@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bat noshadow sheet_0: -7427059761708727525
+      bat noshadow sheet_1: -4632066474015245220
+      bat noshadow sheet_2: 7108948754184938520
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

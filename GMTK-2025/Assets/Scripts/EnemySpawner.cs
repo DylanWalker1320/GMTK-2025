@@ -24,9 +24,11 @@ public class EnemySpawner : MonoBehaviour
     
     [Header("Debug Info ")]
     public int currentEnemies = 0; // Current number of enemies spawned
+    [SerializeField] private UIManager uIManager;
 
     void Awake()
     {
+        uIManager = FindFirstObjectByType<UIManager>();
     }
     void Start()
     {
@@ -49,6 +51,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void Restart()
     {
+        uIManager.isInShop = false;
         maxWavePopulation = Mathf.RoundToInt(lastMaxWavePopulation * 1.5f); // Increase max population by 50% on restart
         lastMaxWavePopulation = maxWavePopulation; // Update last max population
     }
