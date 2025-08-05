@@ -29,6 +29,7 @@ public class SimpleEnemy : Enemy
 
     void Start()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
         enemySpawner = FindFirstObjectByType<EnemySpawner>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -58,7 +59,7 @@ public class SimpleEnemy : Enemy
 
     void MultiplyStats()
     {
-        health *= gameManager.loopsCompleted;
+        health *= gameManager.loopsCompleted + 1;
         damage = damage * gameManager.loopsCompleted / 1.5f;
         maxSpeed += gameManager.loopsCompleted;
     }
