@@ -21,7 +21,7 @@ public class Dark : Spell
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2)); // Deal damage to the enemy
                 Destroy(gameObject);
             }
         }

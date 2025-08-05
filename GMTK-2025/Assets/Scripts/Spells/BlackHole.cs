@@ -63,7 +63,6 @@ public class BlackHole : Spell
                 // Apply a force towards the black hole
                 Vector2 direction = (transform.position - collider.transform.position).normalized;
                 //Debug.DrawLine(transform.position, collider.transform.position, Color.green, 2f);
-                Debug.Log(collider.GetComponent<Rigidbody2D>());
                 collider.GetComponent<Rigidbody2D>().AddForce(direction * pullStrength);
             }
         }
@@ -90,7 +89,7 @@ public class BlackHole : Spell
         yield return new WaitForSeconds(pullDelay);
         Destroy(gameObject, destroyTime); // Destroy the black hole after a certain time
         Pull(); // Start pulling enemies towards the black hole
-        Animator animator = GetComponent<Animator>();
+        Animator animator = GetComponentInChildren<Animator>();
         if (animator != null)
         {
             animator.SetBool("IsPulling", true); // Trigger the pulling animation

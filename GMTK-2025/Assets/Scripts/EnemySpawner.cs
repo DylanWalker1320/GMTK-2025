@@ -53,13 +53,17 @@ public class EnemySpawner : MonoBehaviour
     public void Restart()
     {
         uIManager.isInShop = false;
-        maxWavePopulation = Mathf.RoundToInt(lastMaxWavePopulation * 1.5f); // Increase max population by 50% on restart
+        maxWavePopulation = Mathf.RoundToInt(lastMaxWavePopulation * 1.1f); // Increase max population by 10% on restart
         lastMaxWavePopulation = maxWavePopulation; // Update last max population
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
+        if (currentEnemies < 0)
+        {
+            currentEnemies = 0;
+        }
 
         if (timer <= 0f && maxWavePopulation > 0 && player != null)
         {

@@ -237,6 +237,6 @@ MonoBehaviour:
   spellType2: 1
   spellSprite: {fileID: -6179780737336541088, guid: 4d07166559c3fbf4492077a1fa28ba92, type: 3}
   visuals: {fileID: 4197480274875293710}
-  damageUpgrade: 1
+  damageUpgrade: 15
   speedUpgrade: 0.5
   sizeUpgrade: 0.2

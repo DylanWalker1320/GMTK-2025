@@ -374,7 +374,7 @@ Transform:
   m_GameObject: {fileID: 7401414082824820847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 1.56, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -421,15 +421,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 657184637
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3865754878444347168, guid: 42b8e91964916e34e91d55ec09be84e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.12, y: 0.08}
+  m_Size: {x: 7.2114377, y: 8.340001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -686,14 +686,15 @@ MonoBehaviour:
   maxSpeed: 5
   maxHealth: 100
   castSpeed: 1
-  castStrength: 0
+  castStrength: 1
   health: 100
   invincibilityFrames: 1
   damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
   damageNumberSpawnRadius: 1
   reticle: {fileID: 7450107430420979136}
-  experience: 1000
+  experience: 0
   Healthbar: {fileID: 5543022282655952352}
+  dashStrength: 10
   animator: {fileID: 3534183547916771480}
   shadowAnimator: {fileID: 3984339337594563963}
 --- !u!82 &3143450366318264070
@@ -1185,8 +1186,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 657184637
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

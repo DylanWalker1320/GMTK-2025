@@ -12,7 +12,6 @@ public class GameSettings : MonoBehaviour
     {
         public PlayerAttributes initialPlayerAttributes; // Initial spells for the player
         public CurrentPlayerAttributes currentPlayerAttributes; // Current spells for the player
-        public bool isSaved; // Flag to check if the game is saved
     }
     [System.Serializable]
     public class PlayerAttributes
@@ -45,16 +44,8 @@ public class GameSettings : MonoBehaviour
     }
     void Start()
     {
-        if (System.IO.File.Exists(Application.persistentDataPath + "/GameSettings.json") && !firstLevelInit)
-        {
-            Load(); // Load the game settings if already saved
-        }
-        else
-        {
-            Debug.Log("No saved game settings found, using default settings.");
-            gameSettingsInfo = JsonUtility.FromJson<GameSettingsInfo>(gameSettingsFile.text);
-            SetInitialPlayerAttributes(gameSettingsInfo.initialPlayerAttributes); // Set initial player attributes from the loaded settings   
-        }
+        gameSettingsInfo = JsonUtility.FromJson<GameSettingsInfo>(gameSettingsFile.text);
+        SetInitialPlayerAttributes(gameSettingsInfo.initialPlayerAttributes); // Set initial player attributes from the loaded settings   
     }
 
     // Update is called once per frame
@@ -63,30 +54,30 @@ public class GameSettings : MonoBehaviour
 
     }
 
-    public void Save()
-    {
-        Debug.Log("Saving game settings...");
-        // Save the current player attributes to the game settings file
-        string json = JsonUtility.ToJson(gameSettingsInfo, true);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/GameSettings.json", json);
+    // public void Save()
+    // {
+    //     Debug.Log("Saving game settings...");
+    //     // Save the current player attributes to the game settings file
+    //     string json = JsonUtility.ToJson(gameSettingsInfo, true);
+    //     System.IO.File.WriteAllText(Application.persistentDataPath + "/GameSettings.json", json);
 
-    }
+    // }
 
-    public void Load()
-    {
-        Debug.Log("Loading game settings...");
-        // Load the game settings from the JSON file
-        if (System.IO.File.Exists(Application.persistentDataPath + "/GameSettings.json"))
-        {
-            string json = System.IO.File.ReadAllText(Application.persistentDataPath + "/GameSettings.json");
-            gameSettingsInfo = JsonUtility.FromJson<GameSettingsInfo>(json);
-            LoadPlayerStats(gameSettingsInfo.currentPlayerAttributes, player); // Set current player attributes from the loaded settings
-        }
-        else
-        {
-            Debug.LogWarning("Game settings file not found, using default settings.");
-        }
-    }
+    // public void Load()
+    // {
+    //     Debug.Log("Loading game settings...");
+    //     // Load the game settings from the JSON file
+    //     if (System.IO.File.Exists(Application.persistentDataPath + "/GameSettings.json"))
+    //     {
+    //         string json = System.IO.File.ReadAllText(Application.persistentDataPath + "/GameSettings.json");
+    //         gameSettingsInfo = JsonUtility.FromJson<GameSettingsInfo>(json);
+    //         LoadPlayerStats(gameSettingsInfo.currentPlayerAttributes, player); // Set current player attributes from the loaded settings
+    //     }
+    //     else
+    //     {
+    //         Debug.LogWarning("Game settings file not found, using default settings.");
+    //     }
+    // }
     public void LoadPlayerStats(CurrentPlayerAttributes attributes, PlayerMovement player)
     {
         if (player != null)

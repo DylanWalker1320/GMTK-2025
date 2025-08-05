@@ -1,0 +1,310 @@
+fileFormatVersion: 2
+guid: 88c1e5dc3ecc3104fa753022a542de40
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9143304786379464319
+    second: boss slam sheet 1_0
+  - first:
+      213: 3457794280515722013
+    second: boss slam sheet 1_1
+  - first:
+      213: 3065180345235223444
+    second: boss slam sheet 1_2
+  - first:
+      213: -7650993105006974648
+    second: boss slam sheet 1_3
+  - first:
+      213: 7426607897650070119
+    second: boss slam sheet 1_4
+  - first:
+      213: -4709331232457239788
+    second: boss slam sheet 1_5
+  - first:
+      213: 5124710925122559761
+    second: boss slam sheet 1_6
+  - first:
+      213: 6728167883712537266
+    second: boss slam sheet 1_7
+  - first:
+      213: -200450863203016293
+    second: boss slam sheet 1_8
+  - first:
+      213: -2291227124288710164
+    second: boss slam sheet 1_9
+  - first:
+      213: 2284281834033940045
+    second: boss slam sheet 1_10
+  - first:
+      213: -5214555962792575022
+    second: boss slam sheet 1_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boss slam sheet 1_0
+      rect:
+        serializedVersion: 2
+        x: 2920
+        y: 4534
+        width: 927
+        height: 3892
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18129b67db47c1180800000000000000
+      internalID: -9143304786379464319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss slam sheet 1_3
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 4579
+        width: 927
+        height: 3810
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 849a815ce4632d590800000000000000
+      internalID: -7650993105006974648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss slam sheet 1_6
+      rect:
+        serializedVersion: 2
+        x: 4650
+        y: 2981
+        width: 1591
+        height: 3972
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11f5e7c3f61ae1740800000000000000
+      internalID: 5124710925122559761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss slam sheet 1_7
+      rect:
+        serializedVersion: 2
+        x: 6667
+        y: 2284
+        width: 2036
+        height: 4710
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b2a0e9fa014f5d50800000000000000
+      internalID: 6728167883712537266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss slam sheet 1_8
+      rect:
+        serializedVersion: 2
+        x: 8971
+        y: 861
+        width: 1887
+        height: 6166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b912ddf700bd73df0800000000000000
+      internalID: -200450863203016293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss slam sheet 1_9
+      rect:
+        serializedVersion: 2
+        x: 10997
+        y: 583
+        width: 2198
+        height: 6552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce91805e11de330e0800000000000000
+      internalID: -2291227124288710164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f2abee0deff3f4240a69cf01963bc22b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      boss slam sheet 1_0: -9143304786379464319
+      boss slam sheet 1_1: 3457794280515722013
+      boss slam sheet 1_10: 2284281834033940045
+      boss slam sheet 1_11: -5214555962792575022
+      boss slam sheet 1_2: 3065180345235223444
+      boss slam sheet 1_3: -7650993105006974648
+      boss slam sheet 1_4: 7426607897650070119
+      boss slam sheet 1_5: -4709331232457239788
+      boss slam sheet 1_6: 5124710925122559761
+      boss slam sheet 1_7: 6728167883712537266
+      boss slam sheet 1_8: -200450863203016293
+      boss slam sheet 1_9: -2291227124288710164
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

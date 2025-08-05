@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 using System.Collections.Generic;
 
 public class ThreeUpgradeScreen : MonoBehaviour
@@ -52,7 +51,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
     [SerializeField] private int speedUpgradeIncrease;
     [SerializeField] private int iFramesUpgradeIncrease;
     [SerializeField] private float castSpeedUpgradeIncrease;
-    [SerializeField] private int castStrengthUpgradeIncrease;
+    [SerializeField] private float castStrengthUpgradeIncrease;
 
     [Header("Upgrade Index")]
 
@@ -113,7 +112,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
                 upgradeTextTwo.text = "Cast Speed +" + castSpeedUpgradeIncrease;
                 break;
             case 4:
-                upgradeTextTwo.text = "Cast Strength +" + castStrengthUpgradeIncrease;
+                upgradeTextTwo.text = "Cast Strength + " + 100 * castStrengthUpgradeIncrease + "%";
                 break;
             default:
                 Debug.LogError("Invalid upgrade index for stats.");
@@ -155,7 +154,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
         }
     }
 
-    public void Slot1()
+    public void SlotOne()
     {
         if (player.health + healAmount <= player.maxHealth)
         {
@@ -171,7 +170,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     }
 
-    public void Slot2()
+    public void SlotTwo()
     {
         switch (upgradeIndexTwo)
         {
@@ -199,7 +198,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
         uiManager.SetActiveSpellUpgradeUI();
         
     }
-    public void Slot3()
+    public void SlotThree()
     {
         uiManager.SetActiveBarAllocUI();
     }
