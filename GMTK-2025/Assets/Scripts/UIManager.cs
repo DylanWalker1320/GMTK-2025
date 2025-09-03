@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -240,24 +241,25 @@ public class UIManager : MonoBehaviour
 
     public void HandleReturnToMainMenu()
     {
-        Debug.Log("HandleReturnToMainMenu | Returning to Start Menu from Pause Menu");
+        // Debug.Log("HandleReturnToMainMenu | Returning to Start Menu from Pause Menu");
 
-        // Close all in-game UI
-        pauseMenu.SetActive(false);
-        settingsMenu.SetActive(false);
-        tutorialMenu.SetActive(false);
-        inventoryUI.SetActive(false);
-        upgradeUI.SetActive(false);
+        // // Close all in-game UI
+        // pauseMenu.SetActive(false);
+        // settingsMenu.SetActive(false);
+        // tutorialMenu.SetActive(false);
+        // inventoryUI.SetActive(false);
+        // upgradeUI.SetActive(false);
 
-        // Open the start menu
-        startMenu.SetActive(true);
+        // // Open the start menu
+        // startMenu.SetActive(true);
 
-        // Update menu tracking
-        lastMenu = Menu.PauseMenu;
-        currentMenu = Menu.StartMenu;
+        // // Update menu tracking
+        // lastMenu = Menu.PauseMenu;
+        // currentMenu = Menu.StartMenu;
 
-        // Stop the game time
-        Time.timeScale = 0;
+        // // Stop the game time
+        // Time.timeScale = 0;
+        SceneManager.LoadScene("OscarSpellScene"); // Rework this section, but this'll serve for now long term
     }
 
 
