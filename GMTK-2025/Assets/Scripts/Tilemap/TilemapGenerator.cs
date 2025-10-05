@@ -46,7 +46,7 @@ public class TilemapGenerator : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.N))
         {
             if (debugMode) Debug.Log("Generating blob...");
             floor.ClearAllTiles();

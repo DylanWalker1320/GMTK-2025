@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
+using NavMeshPlus.Components;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class SimpleEnemy : Enemy
@@ -15,6 +17,7 @@ public class SimpleEnemy : Enemy
     private SpriteRenderer spriteRenderer;
     private EnemySpawner enemySpawner; // Reference to the enemy spawner
     private GameManager gameManager;
+    [SerializeField] private NavMeshAgent agent;
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private float maxHitSlowPercent = 0.2f; // 20% slow at max
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
@@ -34,6 +37,12 @@ public class SimpleEnemy : Enemy
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         propertyBlock = new MaterialPropertyBlock();
+        agent = GetComponent<NavMeshAgent>();
+
+        // Prevent NavMeshAgent from tilting or trying to use Y as up
+        agent.updateUpAxis = false;
+        agent.updateRotation = false;
+        
         MultiplyStats(); // Scaling
         FindClosestTarget();    
     }
@@ -78,10 +87,12 @@ public class SimpleEnemy : Enemy
             slowMultiplier = 1f - (maxHitSlowPercent * lerpT);
         }
 
-        if (rb.linearVelocity.magnitude < maxSpeed)
-        {
-            rb.AddForce(direction * moveForce * slowMultiplier);
-        }
+        // if (rb.linearVelocity.magnitude < maxSpeed)
+        // {
+        //     rb.AddForce(direction * moveForce * slowMultiplier);
+        // }
+
+        agent.SetDestination(target.position);
 
         spriteRenderer.flipX = direction.x > 0;
 
