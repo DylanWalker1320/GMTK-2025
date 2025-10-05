@@ -3,6 +3,8 @@ using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
+using UnityEngine.AI;
+using NavMeshPlus.Components;
 
 public class TilemapGenerator : MonoBehaviour
 {
@@ -16,9 +18,12 @@ public class TilemapGenerator : MonoBehaviour
     [Header("Tilemaps and Tiles")]
     public Tilemap floor;
     public Tilemap wall;
+    public TileBase wallTile;
     public TileBase baseFloorTile;
     public TileBase[] extraFloorTiles;
-    public TileBase wallTile;
+
+    [Header("NavMesh")]
+    public NavMeshSurface navMeshSurface;
 
     [Header("Generation Settings")]
     public int numSamples = 20; // number of angle samples (e.g., 72 = every 5°)
@@ -85,6 +90,13 @@ public class TilemapGenerator : MonoBehaviour
             Debug.Log($"Floor generation complete. Total tiles placed: {filledCells.Count}");
 
         GenerateWalls();
+
+        // === 4. Bake NavMesh ===
+        if (navMeshSurface != null)
+        {
+            if (debugMode) Debug.Log("Baking NavMesh...");
+            navMeshSurface.BuildNavMesh();
+        }
     }
 
     List<Vector2> SmoothPoints(List<Vector2> pts, int smoothness)
