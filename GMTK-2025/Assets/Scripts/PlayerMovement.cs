@@ -165,7 +165,10 @@ public class PlayerMovement : MonoBehaviour
         if (damageNumber != null)
         {
             damageNumber.SetDamageAmount(damageAmount);
-            damageNumber.SetColor(Color.red);
+
+            float interpolate = Mathf.Clamp01(damageAmount / maxHealth); // Adjust 100f to your max expected damage
+            Color gradientColor = Color.Lerp(new Color(128, 0, 0), Color.red, interpolate); // marooon to red, interpolates between using t
+            damageNumber.SetColor(gradientColor);
         }
     }
 
