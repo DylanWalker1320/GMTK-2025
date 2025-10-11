@@ -60,7 +60,7 @@ public class SimpleEnemy : Enemy
     void MultiplyStats()
     {
         health *= gameManager.loopsCompleted + 1;
-        damage = damage * gameManager.loopsCompleted / 1.5f;
+        damage = Mathf.Round(damage * gameManager.loopsCompleted / 1.5f);
         maxSpeed += gameManager.loopsCompleted;
     }
 

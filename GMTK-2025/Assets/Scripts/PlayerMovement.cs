@@ -1,11 +1,13 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player Stats")]
     public float moveForce = 50f;
     public float maxSpeed = 5f;
     public float maxHealth = 100f;
@@ -17,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
     public Transform reticle; // Reference to the reticle script for aiming
     public float experience;
-    public Slider Healthbar;
+    public UnityEvent<float, float> updateHealthUI;
     private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -34,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         reticle = FindFirstObjectByType<Reticle>().GetComponent<Transform>();
         health = maxHealth;
+    }
+
+    void Start()
+    {
+        updateHealthUI.Invoke(health, maxHealth);
     }
 
     void Update()
@@ -99,13 +106,9 @@ public class PlayerMovement : MonoBehaviour
         SpawnDamageNumber(damageAmount);
 
         invincibilityTimer = invincibilityFrames;
-
         health -= damageAmount;
 
-        Healthbar.value = health;
-
-        if (health <= maxHealth / 2)
-            Debug.Log("Half HP");
+        updateHealthUI.Invoke(health, maxHealth);
 
         if (health <= 0)
         {

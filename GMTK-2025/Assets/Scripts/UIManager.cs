@@ -2,10 +2,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     private GameManager gameManager;
+    [Header("UI Panels")]
     public GameObject inventoryUI;
     public GameObject upgradeUI;
     public GameObject pauseMenu;
@@ -15,15 +17,19 @@ public class UIManager : MonoBehaviour
     public GameObject spellUpgradeUI;
     public GameObject barAllocationUI;
     public GameObject newGameLoopUI;
+    [Header("Slides")]
     public GameObject Slide1;
     public GameObject Slide2;
     public GameObject Slide3;
     public GameObject Slide4;
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
-
+    [Header("Health Bar")]
+    public Slider healthBar;
+    public TextMeshProUGUI healthBarText;
+    [Header("Buttons")]
+    [SerializeField] private Button button1;
+    [SerializeField] private Button button2;
+    [SerializeField] private Button button3;
+    [SerializeField] private Button button4;
 
     public bool isInShop;
     public UnityEvent onShopFinish;
@@ -53,16 +59,6 @@ public class UIManager : MonoBehaviour
 {
     Time.timeScale = 0;
     currentMenu = Menu.StartMenu;
-
-    button1 = GameObject.Find("1")?.GetComponent<Button>();
-    button2 = GameObject.Find("2")?.GetComponent<Button>();
-    button3 = GameObject.Find("3")?.GetComponent<Button>();
-    button4 = GameObject.Find("4")?.GetComponent<Button>();
-
-    if (!button1 || !button2 || !button3 || !button4)
-    {
-        Debug.LogError("One or more slide buttons not found!");
-    }
 }
 
 
@@ -100,6 +96,12 @@ public class UIManager : MonoBehaviour
             NewGameLoopUpgradeUI();
             newGameLoopUI.GetComponent<NewGameLoopMenu>().UpdateDisplays();
         }
+    }
+
+    public void UpdateHealthUI(float health, float maxHealth)
+    {
+        healthBar.value = health / maxHealth * 100;
+        healthBarText.text = $"{health} / {maxHealth}";
     }
 
     public void NewGameLoopUpgradeUI()

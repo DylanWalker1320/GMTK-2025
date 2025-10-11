@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class ThreeUpgradeScreen : MonoBehaviour
 {
@@ -26,6 +26,8 @@ public class ThreeUpgradeScreen : MonoBehaviour
     {
         Heal
     }
+
+    public UnityEvent<float, float> updateHealthUI;
 
     private GameManager gameManager; // Reference to the GameManager script
     private PlayerMovement player; // Reference to the PlayerMovement script
@@ -164,7 +166,9 @@ public class ThreeUpgradeScreen : MonoBehaviour
         {
             player.health = player.maxHealth;
         }
-        healAmount += player.health / 3.0f;
+        healAmount += Mathf.Round(player.health / 3.0f);
+
+        updateHealthUI.Invoke(player.health, player.maxHealth);
         uiManager.SetActiveUpgradeUI();
         uiManager.SetActiveSpellUpgradeUI();
 
@@ -176,6 +180,12 @@ public class ThreeUpgradeScreen : MonoBehaviour
         {
             case 0:
                 player.maxHealth += healthUpgradeIncrease; // Upgrade health
+                player.health += healthUpgradeIncrease;
+                if(player.health > player.maxHealth)
+                {
+                    player.health = player.maxHealth;
+                }
+                updateHealthUI.Invoke(player.health, player.maxHealth);
                 break;
             case 1:
                 player.moveForce += speedUpgradeIncrease; // Upgrade speed
