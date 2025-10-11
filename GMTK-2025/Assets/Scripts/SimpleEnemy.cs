@@ -172,7 +172,9 @@ public class SimpleEnemy : Enemy
         if (damageNumber != null)
         {
             damageNumber.SetDamageAmount(damageAmount);
-            damageNumber.SetColor(Color.red);
+            float t = Mathf.Clamp01(damageAmount / 100f); // Adjust 100f to your max expected damage
+            Color gradientColor = Color.Lerp(Color.yellow, new Color(1f, 0.5f, 0f), t); // yellow to orange, interpolates between using t
+            damageNumber.SetColor(gradientColor);
         }
     }
 
