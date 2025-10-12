@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public int invincibilityFrames = 1; // Invincibility frames after taking damage
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
+    private AudioManager audioManager;
     public Transform reticle; // Reference to the reticle script for aiming
     public float experience;
     public UnityEvent<float, float> updateHealthUI;
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         playerSprite = GetComponent<SpriteRenderer>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
         reticle = FindFirstObjectByType<Reticle>().GetComponent<Transform>();
         health = maxHealth;
@@ -99,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         if (invincibilityTimer > 0f) return; // Ignore damage if invincibility frames are active
 
         StartCoroutine(HitEffect(Color.red, 0.5f));
-
+        audioManager.Play("PlayerHurt");
         Debug.Log("Player took " + damageAmount + " damage");
 
         // Spawn damage number

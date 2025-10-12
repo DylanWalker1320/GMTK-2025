@@ -5,6 +5,7 @@ public class Boss : Enemy
     [Header("Enemy Settings")]
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around enemy to spawn damage numbers
+    private AudioManager audioManager;
     [Header("Boss Settings")]
     [SerializeField] protected float maxHealth = 5000f;
     [SerializeField] protected float moveSpeed = 3f;
@@ -23,6 +24,7 @@ public class Boss : Enemy
     {
         health = maxHealth;
         animator = GetComponent<Animator>();
+        audioManager = FindFirstObjectByType<AudioManager>();
     }
 
     public override void TakeDamage(float damage)
@@ -39,6 +41,7 @@ public class Boss : Enemy
 
     void Die()
     {
+        audioManager.Play("EnemyHurt");
         // Handle boss death (e.g., play death animation, drop loot)
         Debug.Log("Boss defeated!");
         if (deathEffect != null)

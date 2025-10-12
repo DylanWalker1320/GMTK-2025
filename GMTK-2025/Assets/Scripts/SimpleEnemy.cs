@@ -15,6 +15,7 @@ public class SimpleEnemy : Enemy
     private SpriteRenderer spriteRenderer;
     private EnemySpawner enemySpawner; // Reference to the enemy spawner
     private GameManager gameManager;
+    private AudioManager audioManager;
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private float maxHitSlowPercent = 0.2f; // 20% slow at max
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
@@ -30,6 +31,7 @@ public class SimpleEnemy : Enemy
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         enemySpawner = FindFirstObjectByType<EnemySpawner>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -127,8 +129,9 @@ public class SimpleEnemy : Enemy
 
     public override void TakeDamage(float damage)
     {
+        
         hitFlashTimer = hitFlashDuration;
-
+        audioManager.Play("EnemyHurt");
         // Spawn damage number
         SpawnDamageNumber(damage);
 
