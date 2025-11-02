@@ -6,7 +6,6 @@ public class SpellCombinations : MonoBehaviour
     [SerializeField] private Spell[] combinationSpellPrefabs; // Prefab for the combination spell
     public Spell OutputSpellCombination(Spell spellOne, Spell spellTwo)
     {
-
         // For now, we will deal with this. It's probably better to use a dictionary or something similar for combinations.
         switch (spellOne.spellType1, spellTwo.spellType1)
         {
