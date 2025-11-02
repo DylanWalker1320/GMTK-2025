@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000051f6579e5dd5ad647dd72b275579e7d247b4e62b
+  m_ApplyToSortingLayers: 0000000051f6579e5dd5ad647dd72b275579e7d247b4e62b07acaf0a
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1901,6 +1901,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e7ff386086200734a9e8001ca4b0f931, type: 2}
   - {fileID: 11400000, guid: beea906b5a0b6784c820776788b576fa, type: 2}
   navMeshSurface: {fileID: 58362942}
+  obstaclePrefabs:
+  - {fileID: 3341681888908762737, guid: bae4706f4f25a40458c20e086acb1d21, type: 3}
+  - {fileID: 1588345562700510080, guid: eda578c1c7f27574ab22223d104feb14, type: 3}
+  - {fileID: 5928778723929173206, guid: 50715c2952701d04188b6173deafedf2, type: 3}
+  baseNumObstacles: 5
+  numObstacleRange: 3
+  obstaclePlacementAttempts: 20
+  obstaclePadding: 2
+  overrideNumObstaclesByArea: 1
+  areaPerObstacle: 50
+  playerSafeRadius: 5
   numSamples: 20
   baseRadius: 20
   radiusVariation: 6
@@ -1908,7 +1919,7 @@ MonoBehaviour:
   smoothness: 6
   extraTileChance: 20
   wallThickness: 3
-  debugMode: 0
+  debugMode: 1
 --- !u!1 &1341329489
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,7 +2141,7 @@ GameObject:
   - component: {fileID: 1342099669}
   - component: {fileID: 1342099668}
   - component: {fileID: 1342099671}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2472,7 +2483,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1638402479
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -566598446, guid: f04de046b398ba54298bd52edb16989a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3765,7 +3776,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1638402479
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 8719759597818100740, guid: f9b205779a6dfb14da76797b770c90f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

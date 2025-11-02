@@ -18,8 +18,8 @@ TagManager:
   - Water
   - UI
   - Spell
-  - 
-  - 
+  - Objects
+  - Walls
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Spell
     uniqueID: 1689113949
+    locked: 0
+  - name: Obstacles
+    uniqueID: 179284999
     locked: 0
   - name: Player
     uniqueID: 657184637
