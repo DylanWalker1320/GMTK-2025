@@ -1,25 +1,34 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
+using NavMeshPlus.Components;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class SimpleEnemy : Enemy
 {
-    public float moveForce = 30f;
-    public float maxSpeed = 3f;
-    public float damage = 10f;
     public string targetTag = "Player";
     private Rigidbody2D rb;
     private Transform target;
     private bool touchingTarget = false;
-    public float health = 100f;
     private SpriteRenderer spriteRenderer;
     private EnemySpawner enemySpawner; // Reference to the enemy spawner
     private GameManager gameManager;
+    [SerializeField] private NavMeshAgent agent;
     private AudioManager audioManager;
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private float maxHitSlowPercent = 0.2f; // 20% slow at max
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around enemy to spawn damage numbers
+
+    [System.Serializable]
+    public struct EnemyStats
+    {
+        public float health;
+        public float damage;
+        public float speed;
+    }
+
+    public EnemyStats stats;
 
     // Hit flash
     private float hitFlashTimer = 0f;
@@ -36,7 +45,13 @@ public class SimpleEnemy : Enemy
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         propertyBlock = new MaterialPropertyBlock();
-        MultiplyStats(); // Scaling
+        agent = GetComponent<NavMeshAgent>();
+
+        // Prevent NavMeshAgent from tilting or trying to use Y as up
+        agent.updateUpAxis = false;
+        agent.updateRotation = false;
+        
+        InitStats(); // Scaling
         FindClosestTarget();    
     }
 
@@ -59,11 +74,19 @@ public class SimpleEnemy : Enemy
         target = closestTarget;
     }
 
-    void MultiplyStats()
+    void InitStats()
     {
-        health *= gameManager.loopsCompleted + 1;
-        damage = Mathf.Round(damage * gameManager.loopsCompleted / 1.5f);
-        maxSpeed += gameManager.loopsCompleted;
+        // health *= gameManager.loopsCompleted + 1;
+        // damage = damage * gameManager.loopsCompleted / 1.5f;
+        // maxSpeed += gameManager.loopsCompleted;
+
+        //                                   v Scaling factor
+        stats.health = stats.health * (1f + 0.5f * gameManager.loopsCompleted);
+        stats.damage = stats.damage * (1f + 0.15f * gameManager.loopsCompleted);
+        stats.speed = stats.speed * (1f + 0.25f * gameManager.loopsCompleted);
+
+        agent.speed = stats.speed;
+        agent.acceleration = stats.speed * 2f;
     }
 
     void FixedUpdate()
@@ -80,16 +103,13 @@ public class SimpleEnemy : Enemy
             slowMultiplier = 1f - (maxHitSlowPercent * lerpT);
         }
 
-        if (rb.linearVelocity.magnitude < maxSpeed)
-        {
-            rb.AddForce(direction * moveForce * slowMultiplier);
-        }
+        agent.SetDestination(target.position);
 
         spriteRenderer.flipX = direction.x > 0;
 
         if (touchingTarget)
         {
-            target.GetComponent<PlayerMovement>().TakeDamage(damage);
+            target.GetComponent<PlayerMovement>().TakeDamage(stats.damage);
         }
 
         // Flash effect
@@ -135,13 +155,20 @@ public class SimpleEnemy : Enemy
         // Spawn damage number
         SpawnDamageNumber(damage);
 
-        health -= damage;
-        if (health <= 0f && isDead == false)
+        stats.health -= damage;
+        if (stats.health <= 0f && isDead == false)
         {
             enemySpawner.currentEnemies--; // Debugging: Decrease enemy count in spawner
             isDead = true;
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Die();
+        }
+
+        // Knockback
+        if (target != null)
+        {
+            Vector2 knockbackDirection = (transform.position - target.position).normalized;
+            rb.AddForce(knockbackDirection * 5f, ForceMode2D.Impulse);
         }
     }
 

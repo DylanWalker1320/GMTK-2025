@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7269256169569573615}
   - component: {fileID: 6194187486926783592}
   - component: {fileID: 7907789145732432508}
+  - component: {fileID: -4207720235258383604}
   m_Layer: 0
   m_Name: Anim Slime
   m_TagString: Enemy
@@ -126,15 +127,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02abd67b34acc6748a669e9cbd868e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 30
-  maxSpeed: 2
-  damage: 10
   targetTag: Player
-  health: 150
+  agent: {fileID: 0}
   deathEffect: {fileID: 8720471837675972744, guid: ed081c54d46bc0e49a232f77143ce028, type: 3}
   maxHitSlowPercent: 1
   damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
   damageNumberSpawnRadius: 1
+  stats:
+    health: 150
+    damage: 10
+    speed: 2
 --- !u!50 &6194187486926783592
 Rigidbody2D:
   serializedVersion: 5
@@ -198,6 +200,28 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.5}
   m_Radius: 0.82
+--- !u!195 &-4207720235258383604
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3784918887274043200}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1.4175
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7378894498098931806
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,42 +1,56 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.AI;
 
 public class Boss : Enemy
 {
     [Header("Enemy Settings")]
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around enemy to spawn damage numbers
+    [SerializeField] protected NavMeshAgent agent;
+
     private AudioManager audioManager;
     [Header("Boss Settings")]
-    [SerializeField] protected float maxHealth = 5000f;
-    [SerializeField] protected float moveSpeed = 3f;
-    [SerializeField] protected float maxMoveSpeed = 5f;
     [SerializeField] protected float attackCooldown = 1f;
-    [SerializeField] protected float phaseChangeHealth = 2500f;
     [SerializeField] protected ParticleSystem deathEffect;
-
-    [Header("Fight Monitor")]
-    [SerializeField] protected float health = 5000f;
-
+    [SerializeField] protected EnemyStats stats;
+    [SerializeField] protected float phaseChangeHealth;
     protected float attackCooldownTimer = 0f;
     protected Animator animator;
 
     void Awake()
     {
-        health = maxHealth;
         animator = GetComponent<Animator>();
+        phaseChangeHealth = stats.health / 2f;
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
         audioManager = FindFirstObjectByType<AudioManager>();
     }
 
     public override void TakeDamage(float damage)
     {
         // Handle boss taking damage
-        health -= damage;
+        stats.health -= damage;
         // Spawn damage number
         SpawnDamageNumber(damage);
-        if (health <= 0f)
+        if (stats.health <= 0f)
         {
             Die();
         }
+    }
+
+    void InitStats()
+    {      
+        var gameManager = FindFirstObjectByType<GameManager>();
+        //                                  v Scaling factor
+        stats.health = stats.health * (1f + 0.15f * gameManager.loopsCompleted);
+        stats.damage = stats.damage * (1f + 0.15f * gameManager.loopsCompleted);
+        stats.speed = stats.speed * (1f + 0.25f * gameManager.loopsCompleted);
+
+        agent.speed = stats.speed;
+        agent.acceleration = stats.speed * 2f;
     }
 
     void Die()
