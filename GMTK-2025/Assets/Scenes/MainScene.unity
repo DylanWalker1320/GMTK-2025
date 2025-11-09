@@ -342,6 +342,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6382199126839844870, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
   m_PrefabInstance: {fileID: 886359775287220342}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &210664063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3720529127291938436, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+  m_PrefabInstance: {fileID: 1623962048301412911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &284294703 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
@@ -1218,6 +1229,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0.013897479, y: -0.31676018}
   m_Size: {x: 0.7634648, y: 1.7348316}
   m_Direction: 0
+--- !u!114 &602890148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2223822578655150519, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+  m_PrefabInstance: {fileID: 1623962048301412911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,6 +1632,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+--- !u!114 &811399661 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8710589917390204402, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+  m_PrefabInstance: {fileID: 1623962048301412911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &842618121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,6 +1718,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842618121}
   m_CullTransparentMesh: 1
+--- !u!114 &874466065 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8933547172300750112, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+  m_PrefabInstance: {fileID: 1623962048301412911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &997901451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,6 +1964,17 @@ MonoBehaviour:
   extraTileChance: 20
   wallThickness: 3
   debugMode: 1
+--- !u!114 &1056614178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 816006778671264758, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+  m_PrefabInstance: {fileID: 886359775287220342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1341329489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3789,6 +3844,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1772329143 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3650768838688147647, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+  m_PrefabInstance: {fileID: 886359775287220342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2060055942 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
@@ -3813,6 +3879,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2136229333936556990, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136229333936556990, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691827713803300352, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6382199126839844870, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6920736
@@ -3920,6 +3998,14 @@ PrefabInstance:
     - target: {fileID: 7818191223313872262, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
       propertyPath: castStrength
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818191223313872262, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+      propertyPath: updateHealthUI.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2060055942}
+    - target: {fileID: 7818191223313872262, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+      propertyPath: updateHealthUI.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateHealthUI
       objectReference: {fileID: 0}
     - target: {fileID: 8016173160932670840, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
       propertyPath: m_Name
@@ -4901,6 +4987,30 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SlotTwo
       objectReference: {fileID: 0}
+    - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: button1
+      value: 
+      objectReference: {fileID: 874466065}
+    - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: button2
+      value: 
+      objectReference: {fileID: 811399661}
+    - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: button3
+      value: 
+      objectReference: {fileID: 602890148}
+    - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: button4
+      value: 
+      objectReference: {fileID: 210664063}
+    - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1772329143}
+    - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: healthBarText
+      value: 
+      objectReference: {fileID: 1056614178}
     - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: newGameLoopUI
       value: 
