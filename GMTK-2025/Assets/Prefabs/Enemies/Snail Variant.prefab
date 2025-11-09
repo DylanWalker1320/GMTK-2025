@@ -76,6 +76,18 @@ PrefabInstance:
       propertyPath: moveForce
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: stats.speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: stats.damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: stats.health
+      value: 75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

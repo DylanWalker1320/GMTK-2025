@@ -23,9 +23,7 @@ public class DarkKnight : Boss
     {
         if (target != null)
         {
-            Vector2 direction = (target.transform.position - transform.position).normalized;
-            movement = direction * moveSpeed;
-            rb.linearVelocity = new Vector2(movement.x, movement.y);
+            agent.SetDestination(target.transform.position);
         }
 
         if (attackCooldownTimer > 0f)
@@ -95,8 +93,7 @@ public class DarkKnight : Boss
     {
         if (other.CompareTag("Player"))
         {
-            // Handle player collision (e.g., deal damage)
-            other.GetComponent<PlayerMovement>().TakeDamage(10f);
+            other.GetComponent<PlayerMovement>().TakeDamage(stats.damage);
         }
     }   
 }
