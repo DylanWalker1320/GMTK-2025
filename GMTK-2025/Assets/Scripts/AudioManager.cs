@@ -14,6 +14,7 @@ public class Sound
     [Range(0.1f, 3f)]
     public float pitch = 1f;
     public bool loop = false;
+    public bool oneShot = false;
     public AudioMixerGroup mixer;
     
     [Header("Fade Settings")]
@@ -52,7 +53,7 @@ public class AudioManager : MonoBehaviour
         }
         
     }
-
+    // Consider adding random pitch change for variety
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -61,6 +62,10 @@ public class AudioManager : MonoBehaviour
         if (s.useFadeIn)
         {
             StartCoroutine(FadeIn(s, s.fadeInTime));
+        }
+        else if( s.oneShot)
+        {
+            s.source.PlayOneShot(s.clip, s.volume);
         }
         else
         {

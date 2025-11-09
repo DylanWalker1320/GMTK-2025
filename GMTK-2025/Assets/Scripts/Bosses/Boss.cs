@@ -5,6 +5,7 @@ public class Boss : Enemy
     [Header("Enemy Settings")]
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around enemy to spawn damage numbers
+    private AudioManager audioManager;
     [Header("Boss Settings")]
     [SerializeField] protected float maxHealth = 5000f;
     [SerializeField] protected float moveSpeed = 3f;
@@ -23,6 +24,7 @@ public class Boss : Enemy
     {
         health = maxHealth;
         animator = GetComponent<Animator>();
+        audioManager = FindFirstObjectByType<AudioManager>();
     }
 
     public override void TakeDamage(float damage)
@@ -39,6 +41,7 @@ public class Boss : Enemy
 
     void Die()
     {
+        audioManager.Play("EnemyHurt");
         // Handle boss death (e.g., play death animation, drop loot)
         Debug.Log("Boss defeated!");
         if (deathEffect != null)
@@ -78,7 +81,9 @@ public class Boss : Enemy
         if (damageNumber != null)
         {
             damageNumber.SetDamageAmount(damageAmount);
-            damageNumber.SetColor(Color.red);
+            float t = Mathf.Clamp01(damageAmount / 100f); // Adjust 100f to your max expected damage
+            Color gradientColor = Color.Lerp(Color.yellow, new Color(1f, 0.5f, 0f), t); // yellow to orange, interpolates between using t
+            damageNumber.SetColor(gradientColor);
         }
     }
 }

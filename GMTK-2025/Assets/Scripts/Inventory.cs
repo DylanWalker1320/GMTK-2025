@@ -15,8 +15,8 @@ public class Inventory : MonoBehaviour
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public Spell[] spellArray = new Spell[8]; // Holds spell prefabs, consider changing prefabs to be of spell type
     [SerializeField] private float maxTimeBetweenSpells;
+    public Spell chosenSpell;
     private float timeBetweenSpells; // Time between casting spells
-    public bool isPlayerAlive = true; // Flag to check if the player is active
     public bool isCasting = false; // casting current spell
     public int currentSpellIndex = 0; // Index of the current spell being cast
     public TextMeshProUGUI experienceText;
@@ -69,7 +69,6 @@ public class Inventory : MonoBehaviour
             if (audioManager != null)
             {
                 string spellName = spellArray[currentSpellIndex].name;
-                Debug.Log("Casting spell: " + spellName);
                 audioManager.Play(spellName);
             }
         }
@@ -93,74 +92,28 @@ public class Inventory : MonoBehaviour
                 Debug.Log("Spell is null, skipping check.");
                 continue; // Skip if either spell is null
             }
-            //Spell Combo Check
-            else if (i % 2 == 0 && i < spellArray.Length - 1 && spellArray[i + 1] != null) // Check Combination using first slot of the pair (change this up later)
-            {
-                if (spellArray[i].spellType2 == Spell.SpellType.None)
-                {
-                    Spell comboSpell = spellCombinations.OutputSpellCombination(spellArray[i], spellArray[i + 1]);
-                    if (comboSpell != null)
-                    {
-                        spellArray[i] = comboSpell; // Assign the combination spell to the current slot
-                        spellArray[i + 1] = comboSpell; // Assign the same combination spell to the next slot
-                        inventorySlots[i].sprite = comboSpell.spellSprite;
-                        inventorySlots[i + 1].sprite = comboSpell.spellSprite;
-                        i++; // Skip the next slot since it's part of the combination
-                    }
-                    else
-                    {
-                        // Null Slot
-                        inventorySlots[i].sprite = spellArray[i].spellSprite;
-                    }
-                }
-                else
-                {
-                    // Keep as is
-                    inventorySlots[i].sprite = spellArray[i].spellSprite;
-                }
-            }
-            else // Should patch this later for cleaner but it works for now. Covers the odd index slots if no combo
+            else
             {
                 inventorySlots[i].sprite = spellArray[i].spellSprite;
             }
         }
     }
 
-    public bool  CheckNewElementSelection(int index)
+    public bool CheckNewElementSelection(int index)
     {
         bool isSingle = false;
-
-        if (index % 2 == 0)
+        if (spellArray[index] != null)
         {
-            if (spellArray[index + 1] != null)
-            {
-                Spell comboSpell = spellCombinations.OutputSpellCombination(spellArray[index], spellArray[index + 1]);
-                if (comboSpell != null)
-                {
-                    isSingle = true;
-                    spellArray[index] = comboSpell; // Assign the combination spell to the current slot
-                    spellArray[index + 1] = comboSpell; // Assign the same combination spell to the next slot
-                    inventorySlots[index].sprite = comboSpell.spellSprite;
-                    inventorySlots[index + 1].sprite = comboSpell.spellSprite;
-                }
-            }
+            Spell comboSpell = spellCombinations.OutputSpellCombination(spellArray[index], chosenSpell);
+            isSingle = true;
+            spellArray[index] = comboSpell; // Assign the combination spell to the current slot
+            inventorySlots[index].sprite = comboSpell.spellSprite;
+            GetSpellSprites();
         }
         else
         {
-            Debug.Log("Odd");
-            if (spellArray[index - 1] != null)
-            {
-                Spell comboSpell = spellCombinations.OutputSpellCombination(spellArray[index - 1], spellArray[index]);
-                if (comboSpell != null)
-                {
-                    isSingle = true;
-                    spellArray[index - 1] = comboSpell; // Assign the combination spell to the current slot
-                    spellArray[index] = comboSpell; // Assign the same combination spell to the next slot
-                    inventorySlots[index - 1].sprite = comboSpell.spellSprite;
-                    inventorySlots[index].sprite = comboSpell.spellSprite;
-                }
-
-            }
+            spellArray[index] = chosenSpell;
+            inventorySlots[index].sprite = chosenSpell.spellSprite;   
         }
 
         return isSingle;

@@ -15,6 +15,7 @@ public class SimpleEnemy : Enemy
     private SpriteRenderer spriteRenderer;
     private EnemySpawner enemySpawner; // Reference to the enemy spawner
     private GameManager gameManager;
+    private AudioManager audioManager;
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private float maxHitSlowPercent = 0.2f; // 20% slow at max
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
@@ -30,6 +31,7 @@ public class SimpleEnemy : Enemy
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         enemySpawner = FindFirstObjectByType<EnemySpawner>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -60,7 +62,7 @@ public class SimpleEnemy : Enemy
     void MultiplyStats()
     {
         health *= gameManager.loopsCompleted + 1;
-        damage = damage * gameManager.loopsCompleted / 1.5f;
+        damage = Mathf.Round(damage * gameManager.loopsCompleted / 1.5f);
         maxSpeed += gameManager.loopsCompleted;
     }
 
@@ -127,8 +129,9 @@ public class SimpleEnemy : Enemy
 
     public override void TakeDamage(float damage)
     {
+        
         hitFlashTimer = hitFlashDuration;
-
+        audioManager.Play("EnemyHurt");
         // Spawn damage number
         SpawnDamageNumber(damage);
 
@@ -172,7 +175,9 @@ public class SimpleEnemy : Enemy
         if (damageNumber != null)
         {
             damageNumber.SetDamageAmount(damageAmount);
-            damageNumber.SetColor(Color.red);
+            float t = Mathf.Clamp01(damageAmount / 100f); // Adjust 100f to your max expected damage
+            Color gradientColor = Color.Lerp(Color.yellow, new Color(1f, 0.5f, 0f), t); // yellow to orange, interpolates between using t
+            damageNumber.SetColor(gradientColor);
         }
     }
 
