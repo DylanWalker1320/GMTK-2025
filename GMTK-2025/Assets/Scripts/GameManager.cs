@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     void ResetGame()
     {
-        SceneManager.LoadScene("OscarSpellScene");
+        SceneManager.LoadScene("MainScene");
     }
 
 
