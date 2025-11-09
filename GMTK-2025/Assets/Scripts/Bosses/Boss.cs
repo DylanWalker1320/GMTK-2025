@@ -9,6 +9,7 @@ public class Boss : Enemy
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around enemy to spawn damage numbers
     [SerializeField] protected NavMeshAgent agent;
 
+    private AudioManager audioManager;
     [Header("Boss Settings")]
     [SerializeField] protected float attackCooldown = 1f;
     [SerializeField] protected ParticleSystem deathEffect;
@@ -25,6 +26,7 @@ public class Boss : Enemy
         {
             agent = GetComponent<NavMeshAgent>();
         }
+        audioManager = FindFirstObjectByType<AudioManager>();
     }
 
     public override void TakeDamage(float damage)
@@ -53,6 +55,9 @@ public class Boss : Enemy
 
     void Die()
     {
+        audioManager.Play("EnemyHurt");
+        // Handle boss death (e.g., play death animation, drop loot)
+        Debug.Log("Boss defeated!");
         if (deathEffect != null)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
@@ -90,7 +95,9 @@ public class Boss : Enemy
         if (damageNumber != null)
         {
             damageNumber.SetDamageAmount(damageAmount);
-            damageNumber.SetColor(Color.red);
+            float t = Mathf.Clamp01(damageAmount / 100f); // Adjust 100f to your max expected damage
+            Color gradientColor = Color.Lerp(Color.yellow, new Color(1f, 0.5f, 0f), t); // yellow to orange, interpolates between using t
+            damageNumber.SetColor(gradientColor);
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class NewGameLoopMenu : MonoBehaviour
 {
+    public UnityEvent<float, float> updateHealthUI;
     private GameManager gameManager; // Reference to the GameManager script
     private PlayerMovement player; // Reference to the PlayerMovement script
     private UIManager uiManager;
@@ -34,18 +35,6 @@ public class NewGameLoopMenu : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
         uiManager = FindFirstObjectByType<UIManager>();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void UpdateDisplays()
     {
         upgradeIndex = Random.Range(0, 5);
@@ -113,6 +102,12 @@ public class NewGameLoopMenu : MonoBehaviour
         {
             case 0:
                 player.maxHealth += healthUpgradeIncrease; // Upgrade health
+                player.health += healthUpgradeIncrease;
+                if(player.health > player.maxHealth)
+                {
+                    player.health = player.maxHealth;
+                }
+                updateHealthUI.Invoke(player.health, player.maxHealth);
                 break;
             case 1:
                 player.moveForce += speedUpgradeIncrease; // Upgrade speed

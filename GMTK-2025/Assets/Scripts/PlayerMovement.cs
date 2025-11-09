@@ -1,11 +1,13 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player Stats")]
     public float moveForce = 50f;
     public float maxSpeed = 5f;
     public float maxHealth = 100f;
@@ -15,9 +17,10 @@ public class PlayerMovement : MonoBehaviour
     public int invincibilityFrames = 1; // Invincibility frames after taking damage
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
+    private AudioManager audioManager;
     public Transform reticle; // Reference to the reticle script for aiming
     public float experience;
-    public Slider Healthbar;
+    public UnityEvent<float, float> updateHealthUI;
     private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -31,9 +34,15 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         playerSprite = GetComponent<SpriteRenderer>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
         reticle = FindFirstObjectByType<Reticle>().GetComponent<Transform>();
         health = maxHealth;
+    }
+
+    void Start()
+    {
+        updateHealthUI.Invoke(health, maxHealth);
     }
 
     void Update()
@@ -92,20 +101,16 @@ public class PlayerMovement : MonoBehaviour
         if (invincibilityTimer > 0f) return; // Ignore damage if invincibility frames are active
 
         StartCoroutine(HitEffect(Color.red, 0.5f));
-
+        audioManager.Play("PlayerHurt");
         Debug.Log("Player took " + damageAmount + " damage");
 
         // Spawn damage number
         SpawnDamageNumber(damageAmount);
 
         invincibilityTimer = invincibilityFrames;
-
         health -= damageAmount;
 
-        Healthbar.value = health;
-
-        if (health <= maxHealth / 2)
-            Debug.Log("Half HP");
+        updateHealthUI.Invoke(health, maxHealth);
 
         if (health <= 0)
         {
@@ -162,7 +167,10 @@ public class PlayerMovement : MonoBehaviour
         if (damageNumber != null)
         {
             damageNumber.SetDamageAmount(damageAmount);
-            damageNumber.SetColor(Color.red);
+
+            float interpolate = Mathf.Clamp01(damageAmount / maxHealth); // Adjust 100f to your max expected damage
+            Color gradientColor = Color.Lerp(new Color(128, 0, 0), Color.red, interpolate); // marooon to red, interpolates between using t
+            damageNumber.SetColor(gradientColor);
         }
     }
 
