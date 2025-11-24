@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 718d1a9589179a1488afeb46ed648310
+guid: b566223a371c27641a20f932f0d02766
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4468715442509986080
-    second: spike_trap_out_0
+      213: -5547544557476776802
+    second: spike trap in_0
   - first:
-      213: 1614155685739521612
-    second: spike_trap_out_1
+      213: 8567013662838149872
+    second: spike trap in_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 750
+  spritePixelsToUnits: 700
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,40 +99,49 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spike_trap_out_0
+      name: spike trap in_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 54
-        width: 2805
-        height: 2745
+        x: 202
+        y: 1408
+        width: 20
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0293c19c401140e30800000000000000
-      internalID: 4468715442509986080
+      spriteID: e94f1fbfd992303b0800000000000000
+      internalID: -5547544557476776802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spike trap in_1
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 226
+        width: 2419
+        height: 2347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f2d26f498524e670800000000000000
+      internalID: 8567013662838149872
       vertices: []
       indices: 
       edges: []
@@ -141,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9e83f449e0fe598428d214fc45b82339
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -151,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spike_trap_out_0: 4468715442509986080
+      spike trap in_0: -5547544557476776802
+      spike trap in_1: 8567013662838149872
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

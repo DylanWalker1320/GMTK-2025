@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: ef2192259d98b194bbf2ecfb0b5209ff
+guid: bd14d5b94175ebe4599857399a76e30c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6186859840573146144
-    second: spike_trap_in_0
+      213: 4326778667425123280
+    second: rock shadow_0
+  - first:
+      213: -6806542876905451164
+    second: rock shadow_1
+  - first:
+      213: 1654972257500704645
+    second: rock shadow_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 750
+  spritePixelsToUnits: 700
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,30 +102,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spike_trap_in_0
+      name: rock shadow_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 54
-        width: 2805
-        height: 2745
+        x: 1428
+        y: 1596
+        width: 49
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ebf18f11cbd32aa0800000000000000
-      internalID: -6186859840573146144
+      spriteID: 0dbcc95164ecb0c30800000000000000
+      internalID: 4326778667425123280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock shadow_1
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 805
+        width: 1010
+        height: 1329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 461d599e05d4a81a0800000000000000
+      internalID: -6806542876905451164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock shadow_2
+      rect:
+        serializedVersion: 2
+        x: 2146
+        y: 758
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58fa471ff74a7f610800000000000000
+      internalID: 1654972257500704645
       vertices: []
       indices: 
       edges: []
@@ -148,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spike_trap_in_0: -6186859840573146144
+      rock shadow_0: 4326778667425123280
+      rock shadow_1: -6806542876905451164
+      rock shadow_2: 1654972257500704645
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
