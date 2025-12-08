@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button button2;
     [SerializeField] private Button button3;
     [SerializeField] private Button button4;
+    [Header("UI State Management")]
+    [SerializeField] private Animator spellbarAllocationAnimator;
 
     public bool isInShop;
     public UnityEvent onShopFinish;
@@ -294,6 +296,7 @@ public class UIManager : MonoBehaviour
     public void SetActiveBarAllocUI()
     {
         barAllocationUI.SetActive(!barAllocationUI.activeSelf);
+        spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
         upgradeUI.SetActive(false);
         if (barAllocationUI.activeSelf != false)
         {
