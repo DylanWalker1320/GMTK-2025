@@ -67,13 +67,14 @@ public class DarkKnight : Boss
     public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
-        StartCoroutine(HitEffect(Color.red, 0.2f));
+        Debug.Log("TakeDamage called - Starting HitEffect coroutine");
+        StartCoroutine(HitEffect(Color.red, 1f));
     }
 
     private IEnumerator HitEffect(Color hitColor, float duration)
     {
         float elapsed = 0f;
-        Color originalColor = sprite.color;
+        Color originalColor = Color.white;
 
         // Fast fade to hit color
         sprite.color = hitColor;

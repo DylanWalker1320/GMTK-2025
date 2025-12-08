@@ -23,6 +23,10 @@ public class Fireball : Spell
             collisionObject.GetComponent<Enemy>().TakeDamage(CalculateDamage(damage, spellType1, spellType2));
             Destroy(gameObject); // Destroy the fireball after dealing damage
         }
+        else if (collisionObject.CompareTag("Obstacles") || collisionObject.CompareTag("Walls"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     void AddUpgrade()

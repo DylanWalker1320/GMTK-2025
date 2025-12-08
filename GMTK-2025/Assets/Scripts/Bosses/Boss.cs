@@ -4,6 +4,9 @@ using UnityEngine.AI;
 
 public class Boss : Enemy
 {
+    [Header("Game Settings")]
+    [SerializeField] protected GameManager gameManager;
+
     [Header("Enemy Settings")]
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around enemy to spawn damage numbers
@@ -27,6 +30,14 @@ public class Boss : Enemy
             agent = GetComponent<NavMeshAgent>();
         }
         audioManager = FindFirstObjectByType<AudioManager>();
+        if (gameManager == null)
+        {
+            gameManager = FindFirstObjectByType<GameManager>();
+        }
+
+        // Prevent NavMeshAgent from tilting or trying to use Y as up
+        agent.updateUpAxis = false;
+        agent.updateRotation = false;
     }
 
     public override void TakeDamage(float damage)
@@ -62,6 +73,9 @@ public class Boss : Enemy
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
+
+        gameManager.bossAlive = false;
+
         Destroy(gameObject);
     }
 

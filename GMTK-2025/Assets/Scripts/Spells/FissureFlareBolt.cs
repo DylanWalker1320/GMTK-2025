@@ -1,17 +1,21 @@
 using UnityEngine;
 using System;
+using UnityEngine.Tilemaps;
 
 public class FissureFlareBolt : Spell
 {
     [Header("Fissure Flare Bolt Settings")]
     [SerializeField] private float waveAmplitude = 0.5f;
     [SerializeField] private float waveFrequency = 2f;
-    [SerializeField] private float groundEffectCooldown = 0.5f; // Cooldown for ground effect
+    [SerializeField] private float groundEffectCooldown = 0.2f; // Cooldown for ground effect
     [SerializeField] private GameObject groundEffectPrefab; // Prefab for the ground effect
 
     [Header("Upgrade Scaling")]
-    [SerializeField] private float groundEffectFrequencyUpgrade = 0.05f; // Frequency increase per upgrade
+    [SerializeField] private float groundEffectFrequencyUpgrade = 0.025f; // Frequency increase per upgrade
     [SerializeField] private float damageUpgrade = 1f; // Damage increase per upgrade
+
+    [Header("Ground Detection")]
+    [SerializeField] private Tilemap groundTilemap; // Reference to the ground tilemap
 
     private Vector2 direction;
     private Vector2 perpendicular;
@@ -28,6 +32,11 @@ public class FissureFlareBolt : Spell
         initialPosition = transform.position;
         lastPosition = transform.position;
         Destroy(gameObject, destroyTime); // Destroy the bolt after a certain time
+
+        if (groundTilemap == null)
+        {
+            groundTilemap = GameObject.Find("Floor").GetComponent<Tilemap>();
+        }
     }
 
     public void SetDirection(Vector2 dir)
@@ -63,7 +72,7 @@ public class FissureFlareBolt : Spell
         }
 
         // Check for ground effect
-        if (groundEffectTimer <= 0f)
+        if (groundEffectTimer <= 0f && IsValidGroundPosition(transform.position))
         {
             // Instantiate ground effect at the current position
             Instantiate(groundEffectPrefab, transform.position, Quaternion.identity);
@@ -77,6 +86,18 @@ public class FissureFlareBolt : Spell
         // Calculate angle and rotate the object
         float angle = Mathf.Atan2(movementDirection.y, movementDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    private bool IsValidGroundPosition(Vector3 position)
+    {
+        // Convert world position to tilemap cell position
+        Vector3Int cellPosition = groundTilemap.WorldToCell(position);
+        
+        // Check if there's a tile at this position
+        TileBase tile = groundTilemap.GetTile(cellPosition);
+        
+        // Return true if there's a tile (valid ground to spawn on)
+        return tile != null;
     }
 
     void OnTriggerEnter2D(Collider2D collision)

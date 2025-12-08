@@ -263,7 +263,7 @@ public class UIManager : MonoBehaviour
 
         // // Stop the game time
         // Time.timeScale = 0;
-        SceneManager.LoadScene("OscarSpellScene"); // Rework this section, but this'll serve for now long term
+        SceneManager.LoadScene("MainScene"); // Rework this section, but this'll serve for now long term
     }
 
 
@@ -312,5 +312,6 @@ public class UIManager : MonoBehaviour
         newGameLoopUI.SetActive(false);
         gameManager.isInSafeArea = false;
         onShopFinish.Invoke();
+        Debug.LogWarning("GameplayMode invoked");
     }
 }

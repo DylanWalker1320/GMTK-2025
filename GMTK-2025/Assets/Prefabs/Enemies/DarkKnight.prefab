@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8791522315997099448}
   - component: {fileID: 1322379481110869328}
-  m_Layer: 0
-  m_Name: SwipeHurtbox
+  m_Layer: 9
+  m_Name: SwipeHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,11 +78,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4354346131405678969}
   - component: {fileID: 3690080727080236314}
-  - component: {fileID: 2941802840941120317}
-  - component: {fileID: 4026281805978708750}
-  - component: {fileID: 6452189228605317572}
   - component: {fileID: 7774479320385412515}
-  m_Layer: 0
+  - component: {fileID: 4026281805978708750}
+  - component: {fileID: 2941802840941120317}
+  - component: {fileID: 6452189228605317572}
+  - component: {fileID: -8316310802773399973}
+  m_Layer: 9
   m_Name: DarkKnight
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -98,7 +99,7 @@ Transform:
   m_GameObject: {fileID: 4174751936452664056}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.86, y: 18.78, z: 0}
+  m_LocalPosition: {x: 0.208, y: 0.032, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -147,7 +148,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 736539719
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -2793842201916679373, guid: e17c8bd1712a4c24ba10ee9df8e58133, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -160,6 +161,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7774479320385412515
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4174751936452664056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: efc0182f244521349b27d0fc1f8bd796, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4026281805978708750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4174751936452664056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d5a09dbda4eb449ae7095c7d42279e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
+  damageNumberSpawnRadius: 1
+  agent: {fileID: 0}
+  attackCooldown: 5
+  deathEffect: {fileID: 8720471837675972744, guid: ed081c54d46bc0e49a232f77143ce028, type: 3}
+  stats:
+    health: 5000
+    damage: 20
+    speed: 1
+  phaseChangeHealth: 2500
 --- !u!50 &2941802840941120317
 Rigidbody2D:
   serializedVersion: 5
@@ -187,27 +232,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4026281805978708750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4174751936452664056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d5a09dbda4eb449ae7095c7d42279e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
-  damageNumberSpawnRadius: 1
-  maxHealth: 5000
-  moveSpeed: 3
-  maxMoveSpeed: 5
-  attackCooldown: 5
-  phaseChangeHealth: 2500
-  deathEffect: {fileID: 8720471837675972744, guid: ed081c54d46bc0e49a232f77143ce028, type: 3}
-  health: 5000
 --- !u!70 &6452189228605317572
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -242,28 +266,28 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.9027009, y: 0}
-  m_Size: {x: 3.154685, y: 7.066667}
+  m_Offset: {x: 0.9027009, y: 0.015716553}
+  m_Size: {x: 3.154685, y: 7.0981007}
   m_Direction: 0
---- !u!95 &7774479320385412515
-Animator:
-  serializedVersion: 7
+--- !u!195 &-8316310802773399973
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4174751936452664056}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: efc0182f244521349b27d0fc1f8bd796, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_AgentTypeID: 0
+  m_Radius: 1.16
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3.5
+  m_BaseOffset: 3.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

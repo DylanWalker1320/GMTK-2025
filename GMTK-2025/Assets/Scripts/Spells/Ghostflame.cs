@@ -22,7 +22,7 @@ public class Ghostflame : Spell
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(GetDamage());
+                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2));
             }
         }
     }

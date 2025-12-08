@@ -3,8 +3,8 @@ using UnityEngine;
 public class FissureFlareGround : Spell
 {
     [Header("Upgrade Scaling")]
-    [SerializeField] private float damageUpgrade = 0.5f; // Damage increase per upgrade
-    [SerializeField] private float durationUpgrade = 0.5f; // Duration increase per upgrade
+    [SerializeField] private float damageUpgrade = 0.2f; // Damage increase per upgrade
+    [SerializeField] private float durationUpgrade = 0.2f; // Duration increase per upgrade
 
     void Start()
     {

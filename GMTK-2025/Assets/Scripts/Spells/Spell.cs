@@ -136,6 +136,7 @@ public abstract class Spell : MonoBehaviour
         spellModifiers[SpellType.General] = castStrength; // Normalize cast strength to a range suitable for modifiers
 
         // Prevent double counting of damage modifiers if both types are the same, or the second type is None
+        // Debug.Log($"Calculating damage with baseDamage: damage = {baseDamage} * (spellModifiers[{type1}] = {spellModifiers[type1]}) * (spellModifiers[{SpellType.General}] = {spellModifiers[SpellType.General]})");
         float damage = baseDamage * spellModifiers[type1] * spellModifiers[SpellType.General];
         if (type1 != type2 && type2 != SpellType.None)
         {

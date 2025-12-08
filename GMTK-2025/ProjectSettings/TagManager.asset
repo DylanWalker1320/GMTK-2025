@@ -10,6 +10,8 @@ TagManager:
   - Stairs
   - Campfire
   - Shop
+  - Walls
+  - Obstacles
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Spell
   - Objects
   - Walls
-  - 
+  - Boss
   - 
   - 
   - 
@@ -50,20 +52,20 @@ TagManager:
   - name: Background
     uniqueID: 3538385237
     locked: 0
-  - name: Spell
-    uniqueID: 1689113949
-    locked: 0
   - name: Obstacles
     uniqueID: 179284999
     locked: 0
-  - name: EXP
-    uniqueID: 3625360891
+  - name: Spell
+    uniqueID: 1689113949
     locked: 0
-  - name: Player
-    uniqueID: 657184637
+  - name: EXP
+    uniqueID: 805757109
     locked: 0
   - name: Enemy
     uniqueID: 736539719
+    locked: 0
+  - name: Player
+    uniqueID: 657184637
     locked: 0
   - name: UI
     uniqueID: 2656564817

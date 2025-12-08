@@ -9,7 +9,7 @@ public class FissureFlare : Spell
     [SerializeField] private FissureFlareBolt spellPrefab;       // Prefab for the bolt spell
 
     [Header("Upgrade Scaling")]
-    [SerializeField] private float numberOfBoltsUpgrade = 1f; // Increase in number of bolts per upgrade
+    [SerializeField] private float numberOfBoltsUpgrade = 0.5f; // Increase in number of bolts per upgrade
     [SerializeField] private float boltSpreadAngleUpgrade = 2f; // Angle increase per upgrade
 
     void Start()

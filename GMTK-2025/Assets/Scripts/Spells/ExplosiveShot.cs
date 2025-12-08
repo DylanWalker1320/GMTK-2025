@@ -39,7 +39,7 @@ public class ExplosiveShot : Spell
         Destroy(gameObject, explosionDuration); // Destroy the spell after a certain time
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -52,6 +52,13 @@ public class ExplosiveShot : Spell
                 }
 
                 enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2));
+            }
+        }
+        else if (collision.gameObject.CompareTag("Obstacles") || collision.gameObject.CompareTag("Walls"))
+        {
+            if (!isExploding)
+            {
+                Explode();
             }
         }
     }

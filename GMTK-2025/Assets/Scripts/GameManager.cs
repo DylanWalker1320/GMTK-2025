@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private PlayerMovement player; // Reference to the player movement script
     private EnemySpawner enemySpawner; // Reference to the enemy spawner script
     private bool isGamePaused = false; // Flag to check if the game is paused
+    public bool bossAlive = false; // Flag to check if a boss is alive
     public bool isInSafeArea = false; // Flag to check if the player is in a safe area
     public bool levelComplete = false;
     public bool loopComplete = false;
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         }
         else if (enemySpawner != null)
         {
-            if (enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0 && !isInSafeArea)
+            if (enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0 && !isInSafeArea && !bossAlive)
             {
                 levelComplete = true; // Set level complete when all enemies are defeated
                 isInSafeArea = true; // Switch to safe area when all enemies are defeated
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
         if (wavesCompleted % 3 == 0)
         {
             // Spawn a boss enemy
+            bossAlive = true;   
             Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
         }
     }

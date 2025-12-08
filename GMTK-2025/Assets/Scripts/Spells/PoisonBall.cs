@@ -40,7 +40,14 @@ public class PoisonBall : Spell
         if (collisionObject.CompareTag("Enemy"))
         {
             // If the fireball collides with an enemy, deal damage
-            collisionObject.GetComponent<SimpleEnemy>().TakeDamage(CalculateDamage(damage, spellType1, spellType2));
+            collisionObject.GetComponent<Enemy>().TakeDamage(CalculateDamage(damage, spellType1, spellType2));
+            Debug.Log("Poison Ball hit an enemy, doing damage: " + damage);
+            GameObject puddle = GameObject.Instantiate(poisonPuddlePrefab, transform.position, Quaternion.identity);
+            puddle.transform.localScale = new Vector3(puddle.transform.localScale.x * finalPuddleScale, puddle.transform.localScale.y * finalPuddleScale, 1f);
+            Destroy(gameObject); // Destroy the poison ball after dealing damage
+        }
+        else if (collisionObject.CompareTag("Obstacles") || collisionObject.CompareTag("Walls"))
+        {
             GameObject puddle = GameObject.Instantiate(poisonPuddlePrefab, transform.position, Quaternion.identity);
             puddle.transform.localScale = new Vector3(puddle.transform.localScale.x * finalPuddleScale, puddle.transform.localScale.y * finalPuddleScale, 1f);
             Destroy(gameObject); // Destroy the poison ball after dealing damage
@@ -50,7 +57,7 @@ public class PoisonBall : Spell
     void AddUpgrade()
     {
         int spellLevel = GetSpellLevel(Spells.PoisonPuddle);
-        damage = damageUpgrade * spellLevel; // Increase the damage based on upgrades
+        damage += damageUpgrade * spellLevel; // Increase the damage based on upgrades
         poisonSpawnInterval -= poisonSpawnIntervalUpgrade * spellLevel; // Decrease the spawn interval of poison puddles
         if (poisonSpawnInterval < 0.1f) // Ensure the interval does not go below a minimum value
         {
