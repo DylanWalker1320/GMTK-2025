@@ -3881,16 +3881,16 @@ ParticleSystem:
       emitProbability: 1
   LightsModule:
     enabled: 0
-    ratio: 0
-    light: {fileID: 0}
-    randomDistribution: 1
+    ratio: 1
+    light: {fileID: 6925166659335386221, guid: bf81f205c49f28445a14859ef8dfece7, type: 3}
+    randomDistribution: 0
     color: 1
-    range: 1
-    intensity: 1
+    range: 0
+    intensity: 0
     rangeCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 128.4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3943,7 +3943,7 @@ ParticleSystem:
     intensityCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 145.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4860,8 +4860,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 657184637
-  m_SortingLayer: 3
+  m_SortingLayerID: -669606405
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
