@@ -66,6 +66,8 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        if (!gameManager) return;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Escape key pressed");

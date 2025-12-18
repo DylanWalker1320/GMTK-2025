@@ -4908,6 +4908,56 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &1747860762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1747860764}
+  - component: {fileID: 1747860763}
+  m_Layer: 0
+  m_Name: Hats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1747860763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747860762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e1889e8e1d1654ebcd5caf99639f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 544334509}
+  hatPrefab: {fileID: 4440522776312486262, guid: e185fd9090714944f82486f84318953f, type: 3}
+  hatContainer: {fileID: 1747860762}
+  hatSprites:
+  - {fileID: -220729229975464070, guid: d21a51bc96922dd42a550f765933ec24, type: 3}
+  debugMode: 1
+--- !u!4 &1747860764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747860762}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1756532686
 GameObject:
   m_ObjectHideFlags: 0
@@ -5465,6 +5515,10 @@ PrefabInstance:
     - target: {fileID: 2136229333936556990, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3691598859508209867, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
+      propertyPath: debugMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5691827713803300352, guid: 5db640455d244cb449eb89dd9c879f72, type: 3}
       propertyPath: m_Camera
@@ -7672,7 +7726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7736,7 +7790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1572260809960612400, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6904963768786313972, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7910,3 +7964,4 @@ SceneRoots:
   - {fileID: 3775874250551741460}
   - {fileID: 789389037}
   - {fileID: 58362940}
+  - {fileID: 1747860764}

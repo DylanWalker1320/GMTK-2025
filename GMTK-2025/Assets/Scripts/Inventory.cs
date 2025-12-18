@@ -41,6 +41,8 @@ public class Inventory : MonoBehaviour
     }
     private void Update()
     {
+        if (!gameManager) return;
+
         experienceText.text = player.experience.ToString();
         timeBetweenSpells -= Time.deltaTime * player.castSpeed; // Decrease the time between spells
         if (!isCasting && !gameManager.isInSafeArea)
