@@ -3,11 +3,11 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using System;
 
 public class UIManager : MonoBehaviour
 {
     private GameManager gameManager;
+    [SerializeField] private bool debugMode;
     [Header("UI Panels")]
     public GameObject inventoryUI;
     public GameObject upgradeUI;
@@ -65,8 +65,17 @@ public class UIManager : MonoBehaviour
 
     void Start()
 {
-    Time.timeScale = 0;
-    currentMenu = Menu.StartMenu;
+    if(debugMode)
+    {
+        startMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+    else
+    {
+        startMenu.SetActive(true);
+        Time.timeScale = 0;
+        currentMenu = Menu.StartMenu;
+    }
 }
 
 
