@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button button4;
     [Header("UI State Management")]
     [SerializeField] private Animator spellbarAllocationAnimator;
+    [SerializeField] private Animator upgradeUIAnimator;
 
     public bool isInShop;
     public UnityEvent onShopFinish;
@@ -295,6 +296,7 @@ public class UIManager : MonoBehaviour
     public void SetActiveUpgradeUI()
     {
         upgradeUI.SetActive(!upgradeUI.activeSelf);
+        upgradeUIAnimator.SetTrigger("BeginThreeUpgrades");
         spellUpgradeUI.SetActive(false);
         barAllocationUI.SetActive(false);
     }
