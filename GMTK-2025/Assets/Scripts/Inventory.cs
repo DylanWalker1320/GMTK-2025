@@ -18,7 +18,6 @@ public class Inventory : MonoBehaviour
     private float timeBetweenSpells; // Time between casting spells
     public bool isCasting = false; // casting current spell
     public int currentSpellIndex = 0; // Index of the current spell being cast
-    public TextMeshProUGUI experienceText;
     private void Awake()
     {
         player = FindFirstObjectByType<PlayerMovement>();
@@ -41,7 +40,6 @@ public class Inventory : MonoBehaviour
     }
     private void Update()
     {
-        experienceText.text = player.experience.ToString();
         timeBetweenSpells -= Time.deltaTime * player.castSpeed; // Decrease the time between spells
         if (!isCasting && !gameManager.isInSafeArea)
         {

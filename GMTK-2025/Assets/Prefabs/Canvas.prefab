@@ -562,10 +562,9 @@ MonoBehaviour:
   - {fileID: 8039000571881017357, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
   - {fileID: 0}
   maxTimeBetweenSpells: 0.5
-  isPlayerAlive: 1
+  chosenSpell: {fileID: 0}
   isCasting: 0
   currentSpellIndex: 0
-  experienceText: {fileID: 8242344282852262020}
 --- !u!114 &6633504052758639909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3854,6 +3853,7 @@ RectTransform:
   - {fileID: 618531309382739348}
   - {fileID: 1968602853754443377}
   - {fileID: 5220050621873958619}
+  - {fileID: 8857508102386679224}
   - {fileID: 4120373715053523991}
   m_Father: {fileID: 7099670567376308663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7539,6 +7539,16 @@ MonoBehaviour:
   Slide2: {fileID: 4163636214921294302}
   Slide3: {fileID: 8854956599102853528}
   Slide4: {fileID: 3471030686186587331}
+  healthBar: {fileID: 0}
+  healthBarText: {fileID: 0}
+  experienceBar: {fileID: 0}
+  experienceBarText: {fileID: 0}
+  soulsText: {fileID: 0}
+  button1: {fileID: 0}
+  button2: {fileID: 0}
+  button3: {fileID: 0}
+  button4: {fileID: 0}
+  spellbarAllocationAnimator: {fileID: 0}
   isInShop: 0
   onShopFinish:
     m_PersistentCalls:
@@ -8237,6 +8247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e101a77059156674785e9c89a0bd4e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateHealthUI:
+    m_PersistentCalls:
+      m_Calls: []
   unityEvent:
     m_PersistentCalls:
       m_Calls:
@@ -14424,7 +14437,6 @@ RectTransform:
   m_LocalScale: {x: 6.72, y: 6.72, z: 6.72}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 8857508102386679224}
   - {fileID: 1836495450978489173}
   m_Father: {fileID: 4293268928618112463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14483,6 +14495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd7be9accc53244a8fd2ce543329565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateHealthUI:
+    m_PersistentCalls:
+      m_Calls: []
   upgradeListHeader: {fileID: 0}
   upgradeHeaderOne: {fileID: 8583280645549603730}
   upgradeHeaderTwo: {fileID: 8906159363159606225}
@@ -23504,12 +23519,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9193258682189577656}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7099670567376308663}
+  m_Father: {fileID: 1836495450978489173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

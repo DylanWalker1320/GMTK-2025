@@ -27,7 +27,7 @@ public class ExpCollector : MonoBehaviour
         // Deletes individual particles once entering collector's collider
         for (int i = 0; i < triggeredParticles; i++)
         {
-            player.experience += 1; // Increment player's experience by 1 for each collected particle
+            player.GainExperience();
             ParticleSystem.Particle oneParticle = particles[i];
             oneParticle.remainingLifetime = 0f;
             particles[i] = oneParticle;

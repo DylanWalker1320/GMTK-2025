@@ -8,6 +8,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Player Stats")]
+    public int level = 1;
     public float moveForce = 50f;
     public float maxSpeed = 5f;
     public float maxHealth = 100f;
@@ -19,22 +20,25 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
     private AudioManager audioManager;
     public Transform reticle; // Reference to the reticle script for aiming
+    public int souls;
     public float experience;
+    public float nextLevelExperience = 50f;
     public UnityEvent<float, float> updateHealthUI;
     private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
     private Rigidbody2D rb;
     private Vector2 movement;
-    private bool canCastMagic = true;
     private float invincibilityTimer = 0f; // Timer for invincibility frames
     [SerializeField] private float dashStrength = 10f; // Strength of the dash
     [SerializeField] private Animator animator;
     [SerializeField] private Animator shadowAnimator;
+    private UIManager uiManager;
 
 
     void Awake()
     {
         playerSprite = GetComponent<SpriteRenderer>();
         audioManager = FindFirstObjectByType<AudioManager>();
+        uiManager = FindFirstObjectByType<UIManager>();
         rb = GetComponent<Rigidbody2D>();
         reticle = FindFirstObjectByType<Reticle>().GetComponent<Transform>();
         health = maxHealth;
@@ -94,6 +98,21 @@ public class PlayerMovement : MonoBehaviour
         {
             playerSprite.flipX = false;
         }
+    }
+
+    public void GainExperience()
+    {
+        experience += 1;
+        souls += 1;
+        if (experience >= nextLevelExperience)
+        {
+            level++;
+            experience = experience - nextLevelExperience;
+            nextLevelExperience = Mathf.Round(nextLevelExperience * 2f);
+            Debug.Log("Leveled up to level " + level);
+        }
+        uiManager.UpdateExperienceUI(experience, nextLevelExperience, level, souls);
+        
     }
 
     public void TakeDamage(float damageAmount)

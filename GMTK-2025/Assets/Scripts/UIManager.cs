@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class UIManager : MonoBehaviour
     [Header("Health Bar")]
     public Slider healthBar;
     public TextMeshProUGUI healthBarText;
+    [Header("Experience Bar")]
+    public Slider experienceBar;
+    public TextMeshProUGUI experienceBarText;
+    public TextMeshProUGUI soulsText;
     [Header("Buttons")]
     [SerializeField] private Button button1;
     [SerializeField] private Button button2;
@@ -104,6 +109,15 @@ public class UIManager : MonoBehaviour
     {
         healthBar.value = health / maxHealth * 100;
         healthBarText.text = $"{health} / {maxHealth}";
+    }
+
+    public void UpdateExperienceUI(float currentEXP, float nextLevelEXP, int level, int souls)
+    {
+        float experiencePercentage = Mathf.Round(currentEXP / nextLevelEXP * 100.00f);
+        experienceBar.value = experiencePercentage;
+        experienceBarText.text = $"LV {level} {experiencePercentage}%";
+        soulsText.text = souls.ToString();
+
     }
 
     public void NewGameLoopUpgradeUI()
