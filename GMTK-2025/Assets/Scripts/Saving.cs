@@ -19,6 +19,7 @@ public class Saving : MonoBehaviour
         public float moveForce;
         public float maxSpeed;
         public float health;
+        public float maxHealth;
         public int invincibilityFrames;
         public float experience;
         public float castStrength;
@@ -62,6 +63,7 @@ public class Saving : MonoBehaviour
                 moveForce = player.moveForce,
                 maxSpeed = player.maxSpeed,
                 health = player.health,
+                maxHealth = player.maxHealth,
                 invincibilityFrames = player.invincibilityFrames,
                 experience = player.experience,
                 castStrength = player.castStrength,
@@ -114,6 +116,7 @@ public class Saving : MonoBehaviour
             player.moveForce = attributes.moveForce;
             player.maxSpeed = attributes.maxSpeed;
             player.health = attributes.health;
+            player.maxHealth = attributes.maxHealth;
             player.invincibilityFrames = attributes.invincibilityFrames;
             player.experience = attributes.experience;
             player.castStrength = attributes.castStrength;
