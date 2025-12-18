@@ -111,12 +111,17 @@ public class PlayerMovement : MonoBehaviour
         invincibilityTimer = invincibilityFrames;
         health -= damageAmount;
 
-        updateHealthUI.Invoke(health, maxHealth);
+        UpdateUI();
 
         if (health <= 0)
         {
             Die();
         }
+    }
+
+    public void UpdateUI()
+    {
+        updateHealthUI.Invoke(health, maxHealth);
     }
 
     private IEnumerator HitEffect(Color hitColor, float duration)

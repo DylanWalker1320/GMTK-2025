@@ -61,7 +61,7 @@ public class Saving : MonoBehaviour
             {
                 moveForce = player.moveForce,
                 maxSpeed = player.maxSpeed,
-                maxHealth = player.maxHealth,
+                health = player.health,
                 invincibilityFrames = player.invincibilityFrames,
                 experience = player.experience,
                 castStrength = player.castStrength,
@@ -113,11 +113,13 @@ public class Saving : MonoBehaviour
         {
             player.moveForce = attributes.moveForce;
             player.maxSpeed = attributes.maxSpeed;
-            player.maxHealth = attributes.maxHealth;
+            player.health = attributes.health;
             player.invincibilityFrames = attributes.invincibilityFrames;
             player.experience = attributes.experience;
             player.castStrength = attributes.castStrength;
             player.castSpeed = attributes.castSpeed;
         }
+
+        player.UpdateUI();
     }
 }
