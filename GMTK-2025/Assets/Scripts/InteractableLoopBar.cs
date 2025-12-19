@@ -139,6 +139,6 @@ public class InteractableLoopBar : MonoBehaviour
             GetSpellSprites();
         }
 
-        unityEvent.Invoke();
+        unityEvent.Invoke(); // Gameplay Mode
     }
 }

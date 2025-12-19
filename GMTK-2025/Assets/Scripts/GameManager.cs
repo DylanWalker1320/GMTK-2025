@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 
     public void TrySpawnBoss()
     {
-        if (wavesCompleted % 3 == 0)
+        if (wavesCompleted % 3 == 0 && wavesCompleted != 0)
         {
             // Spawn a boss enemy
             bossAlive = true;   

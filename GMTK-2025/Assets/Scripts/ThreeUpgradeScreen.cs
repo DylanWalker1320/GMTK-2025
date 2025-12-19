@@ -33,6 +33,8 @@ public class ThreeUpgradeScreen : MonoBehaviour
     private PlayerMovement player; // Reference to the PlayerMovement script
     private UIManager uiManager;
 
+    [SerializeField] private UnityEvent unityEvent;
+
     [Header("Upgrade List")]
     [SerializeField] private TextMeshProUGUI upgradeListHeader; // Header for the upgrade list
 
@@ -169,8 +171,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
         healAmount += Mathf.Round(player.health / 3.0f);
 
         updateHealthUI.Invoke(player.health, player.maxHealth);
-        uiManager.SetActiveUpgradeUI();
-        uiManager.SetActiveSpellUpgradeUI();
+        unityEvent.Invoke();
 
     }
 
@@ -204,9 +205,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
                 Debug.LogError("Invalid upgrade index for stats.");
                 break;
         }
-        uiManager.SetActiveUpgradeUI();
-        uiManager.SetActiveSpellUpgradeUI();
-        
+        unityEvent.Invoke();
     }
     public void SlotThree()
     {

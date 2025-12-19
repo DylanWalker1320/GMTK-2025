@@ -15,9 +15,8 @@ public class UIManager : MonoBehaviour
     public GameObject startMenu;
     public GameObject settingsMenu;
     public GameObject tutorialMenu;
-    public GameObject spellUpgradeUI;
     public GameObject barAllocationUI;
-    public GameObject newGameLoopUI;
+    // TODO: Add Level UP UI & Potentially Hat Roll UI
     [Header("Slides")]
     public GameObject Slide1;
     public GameObject Slide2;
@@ -36,10 +35,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button button3;
     [SerializeField] private Button button4;
     [Header("UI State Management")]
+    private bool isLevelingUp;
     [SerializeField] private Animator spellbarAllocationAnimator;
     [SerializeField] private Animator upgradeUIAnimator;
-
-    public bool isInShop;
+    // [SerializeField] private Animator spellUpgradeAnimator;
     public UnityEvent onShopFinish;
 
     private Menu lastMenu = Menu.StartMenu;
@@ -47,6 +46,7 @@ public class UIManager : MonoBehaviour
 
     private enum Menu
     {
+        GameMenu,
         StartMenu,
         PauseMenu,
         TutorialMenu,
@@ -68,6 +68,7 @@ public class UIManager : MonoBehaviour
     if(debugMode)
     {
         startMenu.SetActive(false);
+        currentMenu = Menu.None;
         Time.timeScale = 1;
     }
     else
@@ -92,26 +93,45 @@ public class UIManager : MonoBehaviour
                 currentMenu = Menu.PauseMenu;
                 Time.timeScale = 0;
             }
-            else if (currentMenu == Menu.PauseMenu)
+            else if (currentMenu == Menu.GameMenu)
+            {
+                pauseMenu.SetActive(true);
+                lastMenu = currentMenu;
+                currentMenu = Menu.PauseMenu;
+            }
+            else if (currentMenu == Menu.PauseMenu && lastMenu == Menu.None)
             {
                 pauseMenu.SetActive(false);
                 currentMenu = Menu.None;
                 Time.timeScale = 1;
             }
+            else if(currentMenu == Menu.PauseMenu && lastMenu == Menu.GameMenu)
+            {
+                pauseMenu.SetActive(false);
+                currentMenu = Menu.GameMenu;
+            }
         }
 
-        if (gameManager.levelComplete && !isInShop && !gameManager.loopComplete)
+        if (gameManager.levelComplete && gameManager.isInSafeArea && !gameManager.loopComplete)
         {
-            isInShop = true;
+            currentMenu = Menu.GameMenu;
+            Time.timeScale = 0;
             SetActiveUpgradeUI();
             upgradeUI.GetComponent<ThreeUpgradeScreen>().UpdateDisplays();
         }
-        else if (gameManager.loopComplete)
+        else if (gameManager.loopComplete && gameManager.bossAlive == false)
         {
-            isInShop = true;
+            currentMenu = Menu.GameMenu;
+            Time.timeScale = 0;
             gameManager.loopComplete = false;
-            NewGameLoopUpgradeUI();
-            newGameLoopUI.GetComponent<NewGameLoopMenu>().UpdateDisplays();
+            SetActiveUpgradeUI();
+            upgradeUI.GetComponent<ThreeUpgradeScreen>().UpdateDisplays();
+            // INSERT HAT ROLL LOGIC HERE
+
+            // isInShop = true;
+            // gameManager.loopComplete = false;
+            // NewGameLoopUpgradeUI();
+            // newGameLoopUI.GetComponent<NewGameLoopMenu>().UpdateDisplays();
         }
     }
 
@@ -130,13 +150,6 @@ public class UIManager : MonoBehaviour
 
     }
 
-    public void NewGameLoopUpgradeUI()
-    {
-        newGameLoopUI.SetActive(!newGameLoopUI.activeSelf);
-        upgradeUI.SetActive(false);
-        spellUpgradeUI.SetActive(false);
-        barAllocationUI.SetActive(false);
-    }
 
     private void SetButtonColor(Button button, Color color)
     {
@@ -207,9 +220,16 @@ public class UIManager : MonoBehaviour
 
     public void HandleBackToGameButton()
     {
+        if(lastMenu == Menu.None) 
+        {
+            Time.timeScale = 1;
+            currentMenu = Menu.None;
+        }
+        else if(lastMenu == Menu.GameMenu)
+        {
+            currentMenu = Menu.GameMenu;
+        }
         pauseMenu.SetActive(false);
-        currentMenu = Menu.None;
-        Time.timeScale = 1;
     }
     public void HandleSettingsButton()
     {
@@ -306,17 +326,33 @@ public class UIManager : MonoBehaviour
     {
         upgradeUI.SetActive(!upgradeUI.activeSelf);
         upgradeUIAnimator.SetTrigger("BeginThreeUpgrades");
-        spellUpgradeUI.SetActive(false);
+        // levelUpUI.SetActive(false);
         barAllocationUI.SetActive(false);
     }
 
-    public void SetActiveSpellUpgradeUI()
+    public void SetActiveLevelUpUI()
     {
-        spellUpgradeUI.SetActive(!spellUpgradeUI.activeSelf);
-        spellUpgradeUI.GetComponent<SpellUpgradeUI>().UpdateExperience();
+        // levelUpUI.SetActive(!levelUpUI.activeSelf);
+        // levelUpUI.GetComponent<SpellUpgradeUI>().UpdateExperience();
         upgradeUI.SetActive(false);
-        barAllocationUI.SetActive(false);
+        barAllocationUI.SetActive(false);        
     }
+
+    // public void SetActiveSpellUpgradeUI() // Delete this as soon as level up UI is fully functional
+    // {
+    //     levelUpUI.SetActive(!levelUpUI.activeSelf);
+    //     levelUpUI.GetComponent<SpellUpgradeUI>().UpdateExperience();
+    //     upgradeUI.SetActive(false);
+    //     barAllocationUI.SetActive(false);
+    // }
+
+    // public void NewGameLoopUpgradeUI()
+    // {
+    //     newGameLoopUI.SetActive(!newGameLoopUI.activeSelf);
+    //     upgradeUI.SetActive(false);
+    //     levelUpUI.SetActive(false);
+    //     barAllocationUI.SetActive(false);
+    // }
 
     public void SetActiveBarAllocUI()
     {
@@ -329,13 +365,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void GameplayMode()
+    public void GameplayMode() // Invoked as Unity Event
     {
+        Time.timeScale = 1;
+        currentMenu = Menu.None;
         upgradeUI.SetActive(false);
-        spellUpgradeUI.SetActive(false);
+        // levelUpUI.SetActive(false);
         barAllocationUI.SetActive(false);
-        newGameLoopUI.SetActive(false);
-        gameManager.isInSafeArea = false;
+        // newGameLoopUI.SetActive(false);
         onShopFinish.Invoke();
         Debug.LogWarning("GameplayMode invoked");
     }
