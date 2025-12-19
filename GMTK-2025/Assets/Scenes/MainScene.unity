@@ -1337,6 +1337,7 @@ MonoBehaviour:
     playerAttributes:
       moveForce: 0
       maxSpeed: 0
+      health: 0
       maxHealth: 0
       invincibilityFrames: 0
       experience: 0
@@ -4964,11 +4965,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e1889e8e1d1654ebcd5caf99639f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 544334509}
   hatPrefab: {fileID: 4440522776312486262, guid: e185fd9090714944f82486f84318953f, type: 3}
   hatContainer: {fileID: 1747860762}
   hatSprites:
   - {fileID: -220729229975464070, guid: d21a51bc96922dd42a550f765933ec24, type: 3}
+  player: {fileID: 544334509}
   debugMode: 1
 --- !u!4 &1747860764
 Transform:
