@@ -117,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         if (invincibilityTimer > 0f) return; // Ignore damage if invincibility frames are active
-        damageAmount = Mathf.Round(damageAmount); // Prevent overhealing
+        damageAmount = Mathf.Round(damageAmount);
 
         StartCoroutine(HitEffect(Color.red, 0.5f));
         audioManager.Play("PlayerHurt");

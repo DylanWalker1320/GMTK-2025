@@ -919,10 +919,10 @@ RectTransform:
   - {fileID: 374648168454033528}
   m_Father: {fileID: 8519804332646739649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -66.66666}
+  m_SizeDelta: {x: 400, y: 133.33333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4203474809784022755
 CanvasRenderer:
@@ -2217,7 +2217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.0022465999, g: 0, b: 0.047169805, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2592,6 +2592,7 @@ GameObject:
   - component: {fileID: 1353019968150247771}
   - component: {fileID: 2004188129852144233}
   - component: {fileID: 7144050274492112673}
+  - component: {fileID: 8402946805421177894}
   m_Layer: 5
   m_Name: Upgrade Slot 2
   m_TagString: Untagged
@@ -2714,6 +2715,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &8402946805421177894
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198349824269660098}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18c53fab4e922ca4bbc9420f3d114164, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1198620248225866394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,7 +2797,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 11743592d294ed2439ddd3abad2e22f1, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -4304,7 +4327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5565,6 +5588,7 @@ GameObject:
   - component: {fileID: 2845066081359235607}
   - component: {fileID: 4007902955424821982}
   - component: {fileID: 3094241045253974573}
+  - component: {fileID: 1561812782627363486}
   m_Layer: 5
   m_Name: Upgrade Slot 3
   m_TagString: Untagged
@@ -5688,6 +5712,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &1561812782627363486
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2265689661373412627}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3dde4c31279e2ed428f1b777610d4825, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2272172356693522068
 GameObject:
   m_ObjectHideFlags: 0
@@ -7266,15 +7312,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44fa41fcb0476ff478df76ee6f90676e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 1
   inventoryUI: {fileID: 0}
   upgradeUI: {fileID: 5426611615716575750}
   pauseMenu: {fileID: 2754647700473958472}
   startMenu: {fileID: 1433582577132190180}
   settingsMenu: {fileID: 6924414449566820590}
   tutorialMenu: {fileID: 1317385549848778148}
-  spellUpgradeUI: {fileID: 7846164153555656264}
   barAllocationUI: {fileID: 1198620248225866394}
-  newGameLoopUI: {fileID: 3164281335331101454}
   Slide1: {fileID: 4204805689127992762}
   Slide2: {fileID: 4163636214921294302}
   Slide3: {fileID: 8854956599102853528}
@@ -7289,7 +7334,7 @@ MonoBehaviour:
   button3: {fileID: 2223822578655150519}
   button4: {fileID: 3720529127291938436}
   spellbarAllocationAnimator: {fileID: 2073389983386064020}
-  isInShop: 0
+  upgradeUIAnimator: {fileID: 6843259737600931758}
   onShopFinish:
     m_PersistentCalls:
       m_Calls:
@@ -7850,6 +7895,7 @@ GameObject:
   - component: {fileID: 4532475115353049400}
   - component: {fileID: 5794799363048589133}
   - component: {fileID: 105771320585960491}
+  - component: {fileID: 7513924663521846428}
   m_Layer: 5
   m_Name: Upgrade Slot 1
   m_TagString: Untagged
@@ -7899,7 +7945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.14199066, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.13836479, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7972,6 +8018,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &7513924663521846428
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3143216127808397735}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd7fbe45770e4e447a1efdf38d992adc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3154518736907791814
 GameObject:
   m_ObjectHideFlags: 0
@@ -8926,10 +8994,10 @@ RectTransform:
   - {fileID: 4213040346759514131}
   m_Father: {fileID: 8519804332646739649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -333.3333}
+  m_SizeDelta: {x: 400, y: 133.33333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5501190550399231203
 CanvasRenderer:
@@ -14216,7 +14284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7099670567376308663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14274,6 +14342,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7146313590158813708}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: GameplayMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   upgradeListHeader: {fileID: 0}
   upgradeHeaderOne: {fileID: 8583280645549603730}
   upgradeHeaderTwo: {fileID: 8906159363159606225}
@@ -14309,7 +14392,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e70f0f98fc13b5b4c9fcd7e2255ba627, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -19286,7 +19369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.49999976, y: 14.159989}
+  m_AnchoredPosition: {x: 0.49999976, y: 14.6}
   m_SizeDelta: {x: 71.48, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5956211445978431736
@@ -19311,7 +19394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -20177,10 +20260,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7095759259292764606}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -50}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5150008616171834375
 CanvasRenderer:
@@ -21545,7 +21628,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7146313590158813708}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: SetActiveSpellUpgradeUI
+        m_MethodName: GameplayMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23666,10 +23749,10 @@ RectTransform:
   - {fileID: 6891596696383707695}
   m_Father: {fileID: 8519804332646739649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -200}
+  m_SizeDelta: {x: 400, y: 133.33333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6983367411565261591
 CanvasRenderer:
@@ -23824,7 +23907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

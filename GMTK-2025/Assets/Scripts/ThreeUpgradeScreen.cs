@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
 
 public class ThreeUpgradeScreen : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
     private GameManager gameManager; // Reference to the GameManager script
     private PlayerMovement player; // Reference to the PlayerMovement script
     private UIManager uiManager;
+    private float restoreHealthHandicap = 3;
 
     [SerializeField] private UnityEvent unityEvent;
 
@@ -45,22 +47,22 @@ public class ThreeUpgradeScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI upgradeTextOne; 
     [SerializeField] private TextMeshProUGUI upgradeTextTwo; 
     [SerializeField] private TextMeshProUGUI upgradeTextThree; 
-    [SerializeField] private Button upgradeButtonOne;
-    [SerializeField] private Button upgradeButtonTwo;
-    [SerializeField] private Button upgradeButtonThree;
+    [SerializeField] private Animator boxOneAnimator;
+    [SerializeField] private Animator boxTwoAnimator;
+    [SerializeField] private Animator boxThreeAnimator;
 
     [Header("Upgrade Increases")]
-    [SerializeField] private float healAmount;
-    [SerializeField] private int healthUpgradeIncrease;
-    [SerializeField] private int speedUpgradeIncrease;
-    [SerializeField] private int iFramesUpgradeIncrease;
-    [SerializeField] private float castSpeedUpgradeIncrease;
-    [SerializeField] private float castStrengthUpgradeIncrease;
+    public float healAmount;
+    public int healthUpgradeIncrease;
+    public int speedUpgradeIncrease;
+    public int iFramesUpgradeIncrease;
+    public float castSpeedUpgradeIncrease;
+    public float castStrengthUpgradeIncrease;
 
     [Header("Upgrade Index")]
 
-    [SerializeField] private int upgradeIndexTwo; // Statas
-    [SerializeField] private int upgradeIndexThree; // Spells
+    public StatIncreaseType upgradeStatType; // Statas
+    public SpriteType upgradeSpriteType; // Spells
 
     [Header("Elemental Sprites")]
     [SerializeField] private Image displaySprite;
@@ -68,6 +70,22 @@ public class ThreeUpgradeScreen : MonoBehaviour
     [SerializeField] private Sprite waterSprite;
     [SerializeField] private Sprite lightSprite;
     [SerializeField] private Sprite darkSprite;
+
+    public enum StatIncreaseType
+    {
+        Health = 0,
+        Speed = 1,
+        IFrames = 2,
+        CastSpeed = 3,
+        CastStrength = 4
+    }
+    public enum SpriteType
+    {
+        Fire = 0,
+        Water = 1,
+        Lightning = 2,
+        Dark = 3
+    }
 
 
     void Awake()
@@ -77,45 +95,35 @@ public class ThreeUpgradeScreen : MonoBehaviour
         uiManager = FindFirstObjectByType<UIManager>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void UpdateDisplays()
     {
+        RestartAnimators();
         upgradeTextOne.text = "Heal " + healAmount + " HP";
 
-        upgradeIndexTwo = Random.Range(0, 5); // Change this according to the number of stats in the enum class
+        upgradeStatType = (StatIncreaseType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(StatIncreaseType)).Length); // Change this according to the number of stats in the enum class
         UpdateStatDisplay();
 
-        upgradeIndexThree = Random.Range(0, 4); // Change this according to the number of spells in the enum class
+        upgradeSpriteType = (SpriteType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(SpriteType)).Length); // Change this according to the number of spells in the enum class
         UpdateSpellDisplay();
     }
 
     void UpdateStatDisplay()
     {
-        switch (upgradeIndexTwo)
+        switch (upgradeStatType)
         {
-            case 0:
+            case StatIncreaseType.Health:
                 upgradeTextTwo.text = "Health +" + healthUpgradeIncrease;
                 break;
-            case 1:
+            case StatIncreaseType.Speed:
                 upgradeTextTwo.text = "Speed +" + speedUpgradeIncrease;
                 break;
-            case 2:
+            case StatIncreaseType.IFrames:
                 upgradeTextTwo.text = "IFrames +" + iFramesUpgradeIncrease;
                 break;
-            case 3:
+            case StatIncreaseType.CastSpeed:
                 upgradeTextTwo.text = "Cast Speed +" + castSpeedUpgradeIncrease;
                 break;
-            case 4:
+            case StatIncreaseType.CastStrength:
                 upgradeTextTwo.text = "Cast Strength + " + 100 * castStrengthUpgradeIncrease + "%";
                 break;
             default:
@@ -126,27 +134,27 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     void UpdateSpellDisplay()
     {
-        switch (upgradeIndexThree)
+        switch (upgradeSpriteType)
         {
-            case 0:
+            case SpriteType.Fire:
                 upgradeTextThree.text = "Fireball";
                 gameManager.allocateSpell = Spell.SpellType.Fire;
                 gameManager.spellImage = fireSprite;
                 displaySprite.sprite = fireSprite;
                 break;
-            case 1:
+            case SpriteType.Water:
                 upgradeTextThree.text = "Waterball";
                 gameManager.allocateSpell = Spell.SpellType.Water;
                 gameManager.spellImage = waterSprite;
                 displaySprite.sprite = waterSprite;
                 break;
-            case 2:
+            case SpriteType.Lightning:
                 upgradeTextThree.text = "Lightning";
                 gameManager.allocateSpell = Spell.SpellType.Lightning;
                 gameManager.spellImage = lightSprite;
                 displaySprite.sprite = lightSprite;
                 break;
-            case 3:
+            case SpriteType.Dark:
                 upgradeTextThree.text = "Dark";
                 gameManager.allocateSpell = Spell.SpellType.Dark;
                 gameManager.spellImage = darkSprite;
@@ -168,18 +176,18 @@ public class ThreeUpgradeScreen : MonoBehaviour
         {
             player.health = player.maxHealth;
         }
-        healAmount += Mathf.Round(player.health / 3.0f);
+        healAmount += Mathf.Round(player.health / restoreHealthHandicap);
 
         updateHealthUI.Invoke(player.health, player.maxHealth);
-        unityEvent.Invoke();
+        DisableUpgradeScreen();
 
     }
 
     public void SlotTwo()
     {
-        switch (upgradeIndexTwo)
+        switch (upgradeStatType)
         {
-            case 0:
+            case StatIncreaseType.Health:
                 player.maxHealth += healthUpgradeIncrease; // Upgrade health
                 player.health += healthUpgradeIncrease;
                 if(player.health > player.maxHealth)
@@ -188,27 +196,56 @@ public class ThreeUpgradeScreen : MonoBehaviour
                 }
                 updateHealthUI.Invoke(player.health, player.maxHealth);
                 break;
-            case 1:
+            case StatIncreaseType.Speed:
                 player.moveForce += speedUpgradeIncrease; // Upgrade speed
                 player.maxSpeed += speedUpgradeIncrease;
                 break;
-            case 2:
+            case StatIncreaseType.IFrames:
                 player.invincibilityFrames += iFramesUpgradeIncrease; // Upgrade invincibility frames
                 break;
-            case 3:
+            case StatIncreaseType.CastSpeed:
                 player.castSpeed += castSpeedUpgradeIncrease; // Upgrade cast speed
                 break;
-            case 4:
+            case StatIncreaseType.CastStrength:
                 player.castStrength += castStrengthUpgradeIncrease; // Upgrade cast strength
                 break;
             default:
                 Debug.LogError("Invalid upgrade index for stats.");
                 break;
         }
-        unityEvent.Invoke();
+        DisableUpgradeScreen();
     }
     public void SlotThree()
     {
+        DisableUpgradeScreen(false);
+        // Send to spell allocation UI
         uiManager.SetActiveBarAllocUI();
     }
+
+    private void DisableUpgradeScreen(bool unityEventInvoke = true)
+    {
+        PreserveAnimStateOnDisable();
+        TooltipManager._instance.HideTooltip();
+        if(unityEventInvoke)
+        {
+            unityEvent.Invoke();   
+        }
+    }
+
+    private void PreserveAnimStateOnDisable()
+    {
+        boxOneAnimator.keepAnimatorStateOnDisable = true;
+        boxTwoAnimator.keepAnimatorStateOnDisable = true;
+        boxThreeAnimator.keepAnimatorStateOnDisable = true;
+    }
+    private void RestartAnimators()
+    {
+        boxOneAnimator.SetTrigger("Normal");
+        boxOneAnimator.Update(0f);
+        boxTwoAnimator.SetTrigger("Normal");
+        boxTwoAnimator.Update(0f);
+        boxThreeAnimator.SetTrigger("Normal");
+        boxThreeAnimator.Update(0f);
+    }
+    
 }
