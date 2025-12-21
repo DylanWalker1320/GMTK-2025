@@ -23,7 +23,10 @@ public class PlayerHat : Hat
             transform.position = new Vector3(transform.position.x, hatBelow.transform.position.y + yDifference, transform.position.z);
             StartCoroutine(MoveHat());
         }
+    }
 
+    void Update()
+    {
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -38,10 +41,7 @@ public class PlayerHat : Hat
         {
             playerRb = player.GetComponent<Rigidbody2D>();
         }
-    }
 
-    void Update()
-    {
         // Get the speed of the player
         float playerSpeed = playerRb.linearVelocity.magnitude;
 
