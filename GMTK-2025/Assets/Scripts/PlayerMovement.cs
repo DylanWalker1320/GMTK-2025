@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public UnityEvent<float, float> updateHealthUI;
     private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
     private Rigidbody2D rb;
-    private Vector2 movement;
+    public Vector2 movement;
     private float invincibilityTimer = 0f; // Timer for invincibility frames
     [SerializeField] private float dashStrength = 10f; // Strength of the dash
     [SerializeField] private Animator animator;
@@ -129,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
         invincibilityTimer = invincibilityFrames;
         health -= damageAmount;
 
-        updateHealthUI.Invoke(health, maxHealth);
+        UpdateUI();
 
         if (health <= 0)
         {
@@ -198,5 +198,10 @@ public class PlayerMovement : MonoBehaviour
         // Handle enemy death (e.g., play animation, destroy object)
         Debug.Log("Game Over!");
         Destroy(gameObject);
+    }
+
+    public void UpdateUI()
+    {
+        updateHealthUI.Invoke(health, maxHealth);
     }
 }
