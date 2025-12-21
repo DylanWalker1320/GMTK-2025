@@ -7,7 +7,7 @@ public class HatGenerator : MonoBehaviour
     [SerializeField] private GameObject hatContainer;
     [SerializeField] public Sprite[] hatSprites;
     [SerializeField] private GameObject player;
-    private int numHats = 0;
+    private int numHatsStacked = 0;
     public bool debugMode = false;
     public List<GameObject> stackedHatObjects = new List<GameObject>();
 
@@ -48,19 +48,25 @@ public class HatGenerator : MonoBehaviour
         PlayerHat hatScript = hatInstance.GetComponent<PlayerHat>();
         if (hatScript != null)
         {
-            if (numHats == 1)
+            if (numHatsStacked == 0)
             {
                 hatScript.hatBelow = player; // First hat sits on the player
             }
             else
             {
-                hatScript.hatBelow = stackedHatObjects[numHats - 2]; // Subsequent hats sit on the previous hat
+                hatScript.hatBelow = stackedHatObjects[numHatsStacked - 1]; // Subsequent hats sit on the previous hat
             }
+
+            hatScript.hatNumber = numHatsStacked;
+            numHatsStacked++;
         }
         else
         {
             Debug.LogError("Hat prefab does not have a Hat script component.");
         }
+
+        SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
+        sr.sortingOrder = numHatsStacked + 2; // Ensure proper rendering order
     }
 
     public void StackHatWithStats(GeneratedHat hatData)
@@ -71,19 +77,25 @@ public class HatGenerator : MonoBehaviour
         PlayerHat hatScript = hatInstance.GetComponent<PlayerHat>();
         if (hatScript != null)
         {
-            if (numHats == 1)
+            if (numHatsStacked == 0)
             {
                 hatScript.hatBelow = player; // First hat sits on the player
             }
             else
             {
-                hatScript.hatBelow = stackedHatObjects[numHats - 2]; // Subsequent hats sit on the previous hat
+                hatScript.hatBelow = stackedHatObjects[numHatsStacked - 1]; // Subsequent hats sit on the previous hat
             }
+
+            hatScript.hatNumber = numHatsStacked;
+            numHatsStacked++;
         }
         else
         {
             Debug.LogError("Hat prefab does not have a Hat script component.");
         }
+
+        SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
+        sr.sortingOrder = numHatsStacked + 2; // Ensure proper rendering order
     }
 
     public GameObject GenerateHat(bool applyStats = true)
@@ -95,7 +107,6 @@ public class HatGenerator : MonoBehaviour
         // Reset local position and rotation
         hatInstance.transform.localPosition = Vector3.zero;
         hatInstance.transform.localRotation = Quaternion.identity;
-        numHats++;
 
         // Generate and assign stats to the hat
         Hat hatScript = hatInstance.GetComponent<Hat>();
@@ -107,7 +118,6 @@ public class HatGenerator : MonoBehaviour
             // Assign the provided sprite if available
             SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
             if (sr != null && hatData.hatSprite != null) sr.sprite = hatData.hatSprite;
-            sr.sortingOrder = numHats + 2; // Ensure proper rendering order
             
             // Pass the generated data to the Hat script
             hatScript.Initialize(hatData, applyStats);
@@ -137,12 +147,10 @@ public class HatGenerator : MonoBehaviour
         // Assign the provided sprite if available
         SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
         if (sr != null && hatData.hatSprite != null) sr.sprite = hatData.hatSprite;
-        sr.sortingOrder = numHats + 2; // Ensure proper rendering order
 
         // Reset local position and rotation
         hatInstance.transform.localPosition = Vector3.zero;
         hatInstance.transform.localRotation = Quaternion.identity;
-        numHats++;
 
         // Assign provided stats to the hat
         Hat hatScript = hatInstance.GetComponent<Hat>();
@@ -170,7 +178,7 @@ public class HatGenerator : MonoBehaviour
             Destroy(stackedHatObjects[i]);
         }
         stackedHatObjects.Clear();
-        numHats = 0;
+        numHatsStacked = 0;
     }
 
     public Sprite GetHatSprite()

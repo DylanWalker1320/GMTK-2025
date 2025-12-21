@@ -4,33 +4,24 @@ using System.Collections.Generic;
 
 public class HatPositioner : MonoBehaviour
 {
-    public List<Vector2> hatPositions = new List<Vector2> { new Vector2(1,0), new Vector2(0,-1), new Vector2(-1,0), new Vector2(0,1) };
-    public int currentHatIndex = 0;
-    public bool isWalking = false;
-    public Transform hatContainer;
-    public float positionLerpSpeed = 10f;
-    void UpdatePosition()
+    public List<Vector2> hatPositions;
+    public static Vector2 currentOffset;   
+    public int animFrame = 0;
+    public SpriteRenderer spriteRenderer;
+
+    void Awake()
     {
-        if (isWalking)
+        if (spriteRenderer == null)
         {
-            currentHatIndex = (currentHatIndex + 1) % hatPositions.Count;
-            StartCoroutine(MoveHats());
-        } else
-        {
-            currentHatIndex = 0;
-            StartCoroutine(MoveHats());
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
     }
-
-    IEnumerator MoveHats()
+    
+    void Update()
     {
-        // Lerp the hat container to the target position
-        if (hatContainer != null)
-        {
-            Vector2 targetPos = hatPositions[currentHatIndex];
-            hatContainer.localPosition = Vector3.Lerp(hatContainer.localPosition, new Vector3(targetPos.x, targetPos.y, 0), Time.deltaTime * positionLerpSpeed);
-        }
+        // Get the last character of the sprite name as the animation frame. Terrible awful code, but animation keyframes have forced my hand...
+        animFrame = (int)char.GetNumericValue(spriteRenderer.sprite.name[ spriteRenderer.sprite.name.Length - 1 ]);
 
-        yield return null;
+        currentOffset = hatPositions[animFrame];
     }
 }

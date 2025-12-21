@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public UnityEvent<float, float> updateHealthUI;
     private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
     private Rigidbody2D rb;
-    private Vector2 movement;
+    public Vector2 movement;
     private bool canCastMagic = true;
     private float invincibilityTimer = 0f; // Timer for invincibility frames
     [SerializeField] private float dashStrength = 10f; // Strength of the dash

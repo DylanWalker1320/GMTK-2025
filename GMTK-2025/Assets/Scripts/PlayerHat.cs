@@ -4,27 +4,74 @@ using System.Collections;
 public class PlayerHat : Hat
 {
     public GameObject hatBelow;
+    public int hatNumber;
     private static readonly float moveThreshold = 0.01f;
     private static readonly float lerpSpeed = 50f;
     private static readonly float yDifference = 0.3f;
     private static readonly float initialYOffset = 0.52f;
+    private static GameObject player;
+    private SpriteRenderer spriteRenderer;
+    private bool isFirstHat => hatNumber == 0;
+    private Rigidbody2D playerRb;
 
-    void Update()
+    void Start()
     {
-        // If this is the first hat, rigidly position it above the player.
-        if (hatBelow.CompareTag("Player"))
-        {
-            transform.position = hatBelow.transform.position + new Vector3(0, initialYOffset, 0); 
-        }
-        // Otherwise, try and lerp to the hat below it.
-        else if (Vector3.Distance(transform.position, hatBelow.transform.position + new Vector3(0, yDifference, 0)) > moveThreshold)
+        
+        if (Vector3.Distance(transform.position, hatBelow.transform.position + new Vector3(0, yDifference, 0)) > moveThreshold)
         {
             // Clamp the y position to be above the hat below
             transform.position = new Vector3(transform.position.x, hatBelow.transform.position.y + yDifference, transform.position.z);
             StartCoroutine(MoveHat());
         }
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        if (playerRb == null)
+        {
+            playerRb = player.GetComponent<Rigidbody2D>();
+        }
     }
 
+    void Update()
+    {
+        // Get the speed of the player
+        float playerSpeed = playerRb.linearVelocity.magnitude;
+
+        // Move in the inverse direction of the player's movement to create a bobbing effect, and multiply by the hat number
+        if (isFirstHat)
+        {
+            transform.position = new Vector3(player.transform.position.x,
+                                         hatBelow.transform.position.y + yDifference, 
+                                         0);
+            transform.position += (Vector3) HatPositioner.currentOffset;
+        } else
+        {
+            transform.position = new Vector3(player.transform.position.x - playerRb.linearVelocity.x * 0.01f * (hatNumber + 1) + Mathf.Sin(Time.time * 5f + hatNumber) * 0.01f * (hatNumber + 1),
+                                hatBelow.transform.position.y + yDifference, 
+                                0);
+        }
+
+        // Flip the player to face the movement direction
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        if (playerMovement.movement.x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (playerMovement.movement.x < 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+    }
+
+    // Only runs on hat spawn
     IEnumerator MoveHat()
     {
         if (hatBelow != null)
