@@ -94,7 +94,7 @@ public class PlayerHat : Hat
     private void ApplyStats()
     {
 
-        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
         
         foreach (var stat in hatData.stats)
         {
@@ -105,6 +105,7 @@ public class PlayerHat : Hat
                     break;
                     
                 case StatType.Health:
+                    player.health += stat.value;
                     player.maxHealth += stat.value;
                     break;
                     
@@ -128,5 +129,6 @@ public class PlayerHat : Hat
                     break;
             }
         }
+        player.UpdateUI();
     }
 }

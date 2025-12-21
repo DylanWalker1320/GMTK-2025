@@ -4518,10 +4518,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1572260809960612400, guid: 60b89602d55196a418964efd649d7765, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6904963768786313972, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.410042
@@ -4562,10 +4558,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
-      propertyPath: bossPrefab
-      value: 
-      objectReference: {fileID: 4174751936452664056, guid: b18a9491e4d308c499a886bef3b9b9c6, type: 3}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: enemiesRemaining
       value: 
