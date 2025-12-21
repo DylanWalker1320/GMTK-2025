@@ -52,6 +52,7 @@ MonoBehaviour:
   speed: 5
   spellType1: 3
   spellType2: 0
+  markupColor: '#add8e6ff'
   spellSprite: {fileID: 1463400881537363154, guid: b58ea23dd7600a4439181ec1e9e0e04d, type: 3}
   scaleSpeed: 0.3
   damageUpgrade: 15
@@ -194,7 +195,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1689113949
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1463400881537363154, guid: b58ea23dd7600a4439181ec1e9e0e04d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

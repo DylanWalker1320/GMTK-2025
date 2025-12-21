@@ -5,7 +5,7 @@ public class Inventory : MonoBehaviour
 {
     private GameManager gameManager;
     private PlayerMovement player;
-    private SpellCombinations spellCombinations;
+    public SpellCombinations spellCombinations;
     private AudioManager audioManager;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public Spell[] spellArray = new Spell[8]; // Holds spell prefabs, consider changing prefabs to be of spell type

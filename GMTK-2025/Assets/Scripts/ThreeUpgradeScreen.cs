@@ -97,7 +97,6 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     public void UpdateDisplays()
     {
-        RestartAnimators();
         upgradeTextOne.text = "Heal " + healAmount + " HP";
 
         upgradeStatType = (StatIncreaseType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(StatIncreaseType)).Length); // Change this according to the number of stats in the enum class
@@ -224,28 +223,11 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     private void DisableUpgradeScreen(bool unityEventInvoke = true)
     {
-        PreserveAnimStateOnDisable();
         TooltipManager._instance.HideTooltip();
         if(unityEventInvoke)
         {
             unityEvent.Invoke();   
         }
-    }
-
-    private void PreserveAnimStateOnDisable()
-    {
-        boxOneAnimator.keepAnimatorStateOnDisable = true;
-        boxTwoAnimator.keepAnimatorStateOnDisable = true;
-        boxThreeAnimator.keepAnimatorStateOnDisable = true;
-    }
-    private void RestartAnimators()
-    {
-        boxOneAnimator.SetTrigger("Normal");
-        boxOneAnimator.Update(0f);
-        boxTwoAnimator.SetTrigger("Normal");
-        boxTwoAnimator.Update(0f);
-        boxThreeAnimator.SetTrigger("Normal");
-        boxThreeAnimator.Update(0f);
     }
     
 }

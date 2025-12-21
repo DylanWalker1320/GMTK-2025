@@ -6,7 +6,6 @@ public class TooltipManager : MonoBehaviour
 
     public static TooltipManager _instance;
     public TextMeshProUGUI tooltipText;
-    private Vector3 offset = new(0f, 0f, -8000f);
     private new Camera camera;
 
     private void Awake()

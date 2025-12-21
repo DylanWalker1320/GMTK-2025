@@ -8,8 +8,7 @@ public class InteractableLoopBar : MonoBehaviour
     private Inventory loopbarInventory;
     private GameManager gameManager;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
-    public Spell[] spellArray = new Spell[8]; // Holds spell prefabs, consider changing prefabs to be of spell type
-    private SpellCombinations spellCombinations;
+    public Spell[] spellArray = new Spell[8]; 
     [SerializeField] private TextMeshProUGUI[] typeText = new TextMeshProUGUI[8];
     [SerializeField] private Image spellImage;
     [SerializeField] private Spell[] spellReplacements = new Spell[4];
@@ -20,7 +19,6 @@ public class InteractableLoopBar : MonoBehaviour
     public void OnCall()
     {
         gameManager = FindFirstObjectByType<GameManager>();
-        spellCombinations = FindFirstObjectByType<SpellCombinations>();
         loopbarInventory = FindFirstObjectByType<Inventory>();
         spellImage.sprite = gameManager.spellImage;
         spellArray = loopbarInventory.spellArray; //pointer for actual spell array
@@ -68,7 +66,7 @@ public class InteractableLoopBar : MonoBehaviour
                             typeText[i].color = Color.gray;
                             break;
                         default:
-                            typeText[i].text = "";
+                            typeText[i].text = "Empty";
                             break;
 
                     }   
@@ -112,25 +110,11 @@ public class InteractableLoopBar : MonoBehaviour
 
     void SelectSpellReplacement(int index)
     {
-        switch (gameManager.allocateSpell)
-        {
-            case Spell.SpellType.Fire:
-                loopbarInventory.chosenSpell = spellReplacements[0];
-                break;
-            case Spell.SpellType.Water:
-                loopbarInventory.chosenSpell = spellReplacements[1];
-                break;
-            case Spell.SpellType.Lightning:
-                loopbarInventory.chosenSpell = spellReplacements[2];
-                break;
-            case Spell.SpellType.Dark:
-                loopbarInventory.chosenSpell = spellReplacements[3];
-                break;
-        }
-        TransitionToMagicUpgradeScreen(index);
+        loopbarInventory.chosenSpell = GetChosenSpell();
+        TransitionToGameplayMode(index);
     }
 
-    public void TransitionToMagicUpgradeScreen(int index)
+    public void TransitionToGameplayMode(int index)
     {
         bool isSingle;
         isSingle = loopbarInventory.CheckNewElementSelection(index);
@@ -138,7 +122,24 @@ public class InteractableLoopBar : MonoBehaviour
         {
             GetSpellSprites();
         }
-
+        TooltipManager._instance.HideTooltip();
         unityEvent.Invoke(); // Gameplay Mode
+    }
+
+    public Spell GetChosenSpell()
+    {
+        switch (gameManager.allocateSpell)
+        {
+            case Spell.SpellType.Fire:
+                return spellReplacements[0];
+            case Spell.SpellType.Water:
+                return spellReplacements[1];
+            case Spell.SpellType.Lightning:
+                return spellReplacements[2];
+            case Spell.SpellType.Dark:
+                return spellReplacements[3];
+            default:
+                return null;
+        }
     }
 }
