@@ -24,6 +24,7 @@ public class Saving : MonoBehaviour
         public float experience;
         public float castStrength;
         public float castSpeed;
+        public List<GeneratedHat> hats;
     }
 
     public GameSettingsInfo gameSettingsInfo = new GameSettingsInfo(); // Game settings loaded from the JSON file
@@ -67,7 +68,8 @@ public class Saving : MonoBehaviour
                 invincibilityFrames = player.invincibilityFrames,
                 experience = player.experience,
                 castStrength = player.castStrength,
-                castSpeed = player.castSpeed
+                castSpeed = player.castSpeed,
+                hats = HatStatsGenerator.generatedHats
             };
         }
     }
@@ -107,6 +109,8 @@ public class Saving : MonoBehaviour
         {
             Debug.Log($"{debugPrefix} Loaded Data: {JsonUtility.ToJson(gameSettingsInfo, true)}");
         }
+
+        HatStatsGenerator.LoadHats(gameSettingsInfo.playerAttributes.hats);
     }
 
     public void LoadPlayerStats(PlayerAttributes attributes, PlayerMovement player)

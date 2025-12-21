@@ -33,14 +33,18 @@ public class PlayerHat : Hat
         yield return null;
     }
 
-    public override void Initialize(GeneratedHat data)
+    public override void Initialize(GeneratedHat data, bool applyStats = true)
     {
         hatData = data;
-        ApplyStats();
+        if (applyStats)
+        {
+            ApplyStats();
+        }
     }
     
     private void ApplyStats()
     {
+
         PlayerMovement player = FindObjectOfType<PlayerMovement>();
         
         foreach (var stat in hatData.stats)

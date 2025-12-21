@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public abstract class Hat : MonoBehaviour
+public class Hat : MonoBehaviour
 {
-    protected GeneratedHat hatData;
+    public GeneratedHat hatData;
     
     // Called by HatGenerator after instantiation
-    public abstract void Initialize(GeneratedHat data);
+    public virtual void Initialize(GeneratedHat data, bool applyStats = true)
+    {
+        hatData = data;
+    }
 }

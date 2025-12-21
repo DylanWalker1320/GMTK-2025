@@ -116,12 +116,35 @@ public class GeneratedHat
     public string hatName;
     public Rarity rarity;
     public List<HatStat> stats;
+    public Sprite hatSprite;
+    public override string ToString()
+    {
+        string output = $"{hatName} (Rarity: {rarity})\nStats:\n";
+        foreach (var stat in stats)
+        {
+            output += $"- {stat}\n";
+        }
+        return output;
+    }
+    public string GetRarityColor()
+    {
+        return rarity switch
+        {
+            Rarity.Common => "#FFFFFF",      // White
+            Rarity.Uncommon => "#55FF55",    // Green
+            Rarity.Rare => "#5555FF",        // Blue
+            Rarity.Epic => "#AA00FF",        // Purple
+            Rarity.Legendary => "#FFAA00",   // Orange
+            _ => "#FFFFFF"
+        };
+    }
 
-    public GeneratedHat(string name, Rarity rarity, List<HatStat> stats)
+    public GeneratedHat(string name, Rarity rarity, List<HatStat> stats, Sprite hatSprite = null)
     {
         this.hatName = name;
         this.rarity = rarity;
         this.stats = stats;
+        this.hatSprite = hatSprite;
     }
 }
 

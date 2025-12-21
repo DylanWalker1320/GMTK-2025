@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using WeightedListSpace;
+using Debug = UnityEngine.Debug;
 
 public static class HatStatsGenerator
 {
@@ -8,6 +9,8 @@ public static class HatStatsGenerator
     private static Dictionary<Rarity, WeightedList<StatType>> statWeightsByRarity;
     private static WeightedList<Rarity> rarityWeights;
     private static bool isInitialized = false;
+    private static HatGenerator hatGenerator;
+    public static List<GeneratedHat> generatedHats = new List<GeneratedHat>();
 
     private static void EnsureInitialized()
     {
@@ -32,6 +35,9 @@ public static class HatStatsGenerator
             statWeightsByRarity[rarityKvp.Key] = wl;
         }
 
+        hatGenerator = Object.FindObjectOfType<HatGenerator>();
+        if (hatGenerator == null) Debug.LogError("HatStatsGenerator: No HatGenerator found in the scene.");
+
         isInitialized = true;
     }
 
@@ -42,8 +48,11 @@ public static class HatStatsGenerator
         Rarity rarity = rarityWeights.Next();
         int statCount = HatStatDefinitions.StatCountByRarity[rarity];
         List<HatStat> stats = GenerateStats(rarity, statCount);
+
+        GeneratedHat generatedHat = new GeneratedHat(hatName, rarity, stats, hatGenerator.GetHatSprite());
+        generatedHats.Add(generatedHat);
         
-        return new GeneratedHat(hatName, rarity, stats);
+        return generatedHat;
     }
 
     private static List<HatStat> GenerateStats(Rarity rarity, int count)
@@ -85,5 +94,22 @@ public static class HatStatsGenerator
         }
 
         return stats;
+    }
+
+    public static void ClearGeneratedHats()
+    {
+        hatGenerator.ClearHats();
+        generatedHats.Clear();
+    }
+
+    public static void LoadHats(List<GeneratedHat> hats)
+    {
+        Debug.Log("<color=#55AAFF>[HatStatsGenerator]</color> Loading hats from save data...");
+        EnsureInitialized();
+        ClearGeneratedHats();
+        foreach (var hatData in hats)
+        {
+            hatGenerator.StackHatWithStats(hatData);
+        }
     }
 }
