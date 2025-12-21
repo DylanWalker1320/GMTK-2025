@@ -1343,6 +1343,7 @@ MonoBehaviour:
       experience: 0
       castStrength: 0
       castSpeed: 0
+      hats: []
   debugMode: 1
 --- !u!114 &574457063
 MonoBehaviour:
@@ -4968,9 +4969,15 @@ MonoBehaviour:
   hatPrefab: {fileID: 4440522776312486262, guid: e185fd9090714944f82486f84318953f, type: 3}
   hatContainer: {fileID: 1747860762}
   hatSprites:
-  - {fileID: -220729229975464070, guid: d21a51bc96922dd42a550f765933ec24, type: 3}
+  - {fileID: -3957006435994600188, guid: fba287c873e68af4ea2a231d103b6942, type: 3}
+  - {fileID: -7490629062201625198, guid: c9dea3a1772ca084ebae24f546f595d6, type: 3}
+  - {fileID: -6887262100565661247, guid: 65392b9696603a44fb0ecb7997f5c6d6, type: 3}
+  - {fileID: 1568221407020485856, guid: a48e3996f04c08d4da89340940f5ef42, type: 3}
+  - {fileID: 1048962812178416128, guid: 754fa531f56f7e141a40da3fd706c1c9, type: 3}
+  - {fileID: 8981166263664889069, guid: cdbcf3b7cf405c64681ed29964aa5cfb, type: 3}
   player: {fileID: 544334509}
   debugMode: 1
+  stackedHatObjects: []
 --- !u!4 &1747860764
 Transform:
   m_ObjectHideFlags: 0
@@ -7754,7 +7761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_StaticEditorFlags

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 public class HatGenerator : MonoBehaviour
 {
@@ -43,7 +42,7 @@ public class HatGenerator : MonoBehaviour
 
     public void StackHat()
     {
-        GameObject hatInstance = GenerateHat(false);
+        GameObject hatInstance = GenerateHat();
 
         // Set the hatBelow reference for proper stacking
         PlayerHat hatScript = hatInstance.GetComponent<PlayerHat>();
@@ -66,7 +65,7 @@ public class HatGenerator : MonoBehaviour
 
     public void StackHatWithStats(GeneratedHat hatData)
     {
-        GameObject hatInstance = GenerateHatWithStats(hatData, false);
+        GameObject hatInstance = GenerateHatWithStats(hatData);
 
         // Set the hatBelow reference for proper stacking
         PlayerHat hatScript = hatInstance.GetComponent<PlayerHat>();
@@ -104,6 +103,11 @@ public class HatGenerator : MonoBehaviour
         {
             // Generate stats using the static HatStatsGenerator
             GeneratedHat hatData = HatStatsGenerator.GenerateHatStats("Default Hat");
+
+            // Assign the provided sprite if available
+            SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
+            if (sr != null && hatData.hatSprite != null) sr.sprite = hatData.hatSprite;
+            sr.sortingOrder = numHats + 2; // Ensure proper rendering order
             
             // Pass the generated data to the Hat script
             hatScript.Initialize(hatData, applyStats);
@@ -126,11 +130,14 @@ public class HatGenerator : MonoBehaviour
     public GameObject GenerateHatWithStats(GeneratedHat hatData, bool applyStats = true)
     {
         GameObject hatInstance = Instantiate(hatPrefab);
-        Debug.Log("Check 1");
         hatInstance.transform.SetParent(hatContainer.transform);
-        Debug.Log("Inserting hat: " + hatData.hatName);
         stackedHatObjects.Add(hatInstance);
         hatInstance.name = hatData.hatName;
+
+        // Assign the provided sprite if available
+        SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
+        if (sr != null && hatData.hatSprite != null) sr.sprite = hatData.hatSprite;
+        sr.sortingOrder = numHats + 2; // Ensure proper rendering order
 
         // Reset local position and rotation
         hatInstance.transform.localPosition = Vector3.zero;

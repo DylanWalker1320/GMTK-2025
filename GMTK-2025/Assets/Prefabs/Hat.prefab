@@ -100,4 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aec01cab54820d4e952096c131f1a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hatData:
+    hatName: 
+    rarity: 0
+    stats: []
+    hatSprite: {fileID: 0}
   hatBelow: {fileID: 0}
+  initialYOffset: 0

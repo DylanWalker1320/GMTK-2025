@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using WeightedListSpace;
-using Debug = UnityEngine.Debug;
 
 public static class HatStatsGenerator
 {

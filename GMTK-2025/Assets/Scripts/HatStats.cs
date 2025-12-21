@@ -126,18 +126,6 @@ public class GeneratedHat
         }
         return output;
     }
-    public string GetRarityColor()
-    {
-        return rarity switch
-        {
-            Rarity.Common => "#FFFFFF",      // White
-            Rarity.Uncommon => "#55FF55",    // Green
-            Rarity.Rare => "#5555FF",        // Blue
-            Rarity.Epic => "#AA00FF",        // Purple
-            Rarity.Legendary => "#FFAA00",   // Orange
-            _ => "#FFFFFF"
-        };
-    }
 
     public GeneratedHat(string name, Rarity rarity, List<HatStat> stats, Sprite hatSprite = null)
     {
