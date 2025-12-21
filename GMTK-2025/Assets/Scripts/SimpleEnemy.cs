@@ -1,7 +1,5 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.AI;
-using NavMeshPlus.Components;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class SimpleEnemy : Enemy
@@ -20,13 +18,6 @@ public class SimpleEnemy : Enemy
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around enemy to spawn damage numbers
 
-    [System.Serializable]
-    public struct EnemyStats
-    {
-        public float health;
-        public float damage;
-        public float speed;
-    }
 
     public EnemyStats stats;
 
@@ -138,13 +129,13 @@ public class SimpleEnemy : Enemy
         if (collision.gameObject.CompareTag(targetTag))
         {
             touchingTarget = true;
-        }
+        }        
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(targetTag))
-            touchingTarget = false;
+            touchingTarget = false;        
     }
 
     public override void TakeDamage(float damage)

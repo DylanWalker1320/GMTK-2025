@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Threading.Tasks;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +5,7 @@ public class Inventory : MonoBehaviour
 {
     private GameManager gameManager;
     private PlayerMovement player;
-    private SpellCombinations spellCombinations;
+    public SpellCombinations spellCombinations;
     private AudioManager audioManager;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public Spell[] spellArray = new Spell[8]; // Holds spell prefabs, consider changing prefabs to be of spell type
@@ -18,7 +14,6 @@ public class Inventory : MonoBehaviour
     private float timeBetweenSpells; // Time between casting spells
     public bool isCasting = false; // casting current spell
     public int currentSpellIndex = 0; // Index of the current spell being cast
-    public TextMeshProUGUI experienceText;
     private void Awake()
     {
         player = FindFirstObjectByType<PlayerMovement>();
@@ -41,9 +36,6 @@ public class Inventory : MonoBehaviour
     }
     private void Update()
     {
-        if (!gameManager) return;
-
-        experienceText.text = player.experience.ToString();
         timeBetweenSpells -= Time.deltaTime * player.castSpeed; // Decrease the time between spells
         if (!isCasting && !gameManager.isInSafeArea)
         {

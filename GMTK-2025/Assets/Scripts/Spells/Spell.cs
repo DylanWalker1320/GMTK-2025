@@ -65,6 +65,7 @@ public abstract class Spell : MonoBehaviour
     [SerializeField] protected float speed;
     public SpellType spellType1;
     public SpellType spellType2;
+    public string markupColor;
     [SerializeField] public Sprite spellSprite; // Sprite for the spell
     protected Rigidbody2D rb;
     protected Vector3 mousePos;
@@ -132,9 +133,8 @@ public abstract class Spell : MonoBehaviour
 
     protected float CalculateDamage(float baseDamage, SpellType type1, SpellType type2)
     {
-        float castStrength = GameObject.FindObjectOfType<PlayerMovement>().castStrength; // Get the player's cast strength
+        float castStrength = FindFirstObjectByType<PlayerMovement>().castStrength; // Get the player's cast strength
         spellModifiers[SpellType.General] = castStrength; // Normalize cast strength to a range suitable for modifiers
-
         // Prevent double counting of damage modifiers if both types are the same, or the second type is None
         // Debug.Log($"Calculating damage with baseDamage: damage = {baseDamage} * (spellModifiers[{type1}] = {spellModifiers[type1]}) * (spellModifiers[{SpellType.General}] = {spellModifiers[SpellType.General]})");
         float damage = baseDamage * spellModifiers[type1] * spellModifiers[SpellType.General];

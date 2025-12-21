@@ -51,6 +51,7 @@ MonoBehaviour:
   speed: 0
   spellType1: 2
   spellType2: 2
+  markupColor: N/A
   spellSprite: {fileID: 0}
   damageUpgrade: 15
   speedUpgrade: 0.5
@@ -158,7 +159,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1689113949
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 3406445712956845340, guid: a1e0fc0c06d6b49459112028a3b066ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

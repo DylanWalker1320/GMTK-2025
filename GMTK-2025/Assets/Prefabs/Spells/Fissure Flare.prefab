@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 787266561512865477}
   - component: {fileID: -7064469638007357661}
   m_Layer: 6
-  m_Name: FissureFlare
+  m_Name: Fissure Flare
   m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1689113949
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 2857225077214164437, guid: c06cd410af118864ea816c1de0e2fe6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -107,6 +107,7 @@ MonoBehaviour:
   speed: 0
   spellType1: 0
   spellType2: 2
+  markupColor: '#a52a2aff'
   spellSprite: {fileID: 2857225077214164437, guid: c06cd410af118864ea816c1de0e2fe6c, type: 3}
   numberOfBolts: 3
   boltSpreadAngle: 10

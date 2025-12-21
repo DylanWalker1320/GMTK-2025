@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1689113949
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 2857225077214164437, guid: c06cd410af118864ea816c1de0e2fe6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -130,6 +130,7 @@ MonoBehaviour:
   speed: 10
   spellType1: 0
   spellType2: 2
+  markupColor: N/A
   spellSprite: {fileID: 0}
   waveAmplitude: 2
   waveFrequency: 5
@@ -137,6 +138,7 @@ MonoBehaviour:
   groundEffectPrefab: {fileID: 7136817257210570753, guid: 5b89aad288e2a7446bfbd5cb190366de, type: 3}
   groundEffectFrequencyUpgrade: 0.05
   damageUpgrade: 3
+  groundTilemap: {fileID: 0}
 --- !u!50 &787266561512865477
 Rigidbody2D:
   serializedVersion: 5

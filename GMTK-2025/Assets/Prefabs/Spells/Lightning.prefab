@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1689113949
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1452822719542193163, guid: a6596b75f98aa9548aca5fc406d59069, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -130,6 +130,7 @@ MonoBehaviour:
   speed: 20
   spellType1: 2
   spellType2: 4
+  markupColor: yellow
   spellSprite: {fileID: 1452822719542193163, guid: a6596b75f98aa9548aca5fc406d59069, type: 3}
   searchRadius: 5
   speedUpgrade: 1

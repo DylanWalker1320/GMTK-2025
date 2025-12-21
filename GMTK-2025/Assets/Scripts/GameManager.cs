@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     private PlayerMovement player; // Reference to the player movement script
     private EnemySpawner enemySpawner; // Reference to the enemy spawner script
-    private bool isGamePaused = false; // Flag to check if the game is paused
     public bool bossAlive = false; // Flag to check if a boss is alive
     public bool isInSafeArea = false; // Flag to check if the player is in a safe area
     public bool levelComplete = false;
@@ -75,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void TrySpawnBoss()
     {
-        if (wavesCompleted % 3 == 0)
+        if (wavesCompleted % 3 == 0 && wavesCompleted != 0)
         {
             // Spawn a boss enemy
             bossAlive = true;   
