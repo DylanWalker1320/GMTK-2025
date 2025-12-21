@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1602544616192926945}
   - component: {fileID: 33669166565166630}
-  - component: {fileID: 1852485298335592737}
+  - component: {fileID: 4388538150838997307}
   m_Layer: 0
   m_Name: Hat
   m_TagString: Untagged
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1852485298335592737
+--- !u!114 &4388538150838997307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,13 +97,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4440522776312486262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aec01cab54820d4e952096c131f1a2d, type: 3}
+  m_Script: {fileID: 11500000, guid: eadcb9779da6f69409f1e45993a811d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hatData:
-    hatName: 
-    rarity: 0
-    stats: []
-    hatSprite: {fileID: 0}
   hatBelow: {fileID: 0}
-  initialYOffset: 0
