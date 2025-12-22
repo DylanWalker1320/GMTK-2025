@@ -40,7 +40,7 @@ public class LevelUpSpellLevelBonus
 }
 
 [Serializable]
-public class LevelUpStatDist // class for assigning stats and their value distribution -> look into this more for accurate definition
+public class LevelUpStatDist // Needs Renaming. Class for individual stat containing their stat type and corresponding value for an externally defined rarity type
 {
     public LevelUpStatType type;
     public float value;
