@@ -39,21 +39,21 @@ public class LevelUpSpellLevelBonus
     }
 }
 
-
-public class LevelUpStatDist : MonoBehaviour
+[Serializable]
+public class LevelUpStatDist // class for assigning stats and their value distribution -> look into this more for accurate definition
 {
     public LevelUpStatType type;
     public float value;
     public LevelUpSpellLevelBonus LevelUpSpellLevelBonus;
 
-    public void CreateStatWithoutSpellBonus(LevelUpStatType type, float value)
+    public LevelUpStatDist(LevelUpStatType type, float value)
     {
         this.type = type;
         this.value = value;
         this.LevelUpSpellLevelBonus = null;
     }
 
-    public void CreateStatWithSpellBonus(LevelUpStatType type, LevelUpSpellLevelBonus spellBonus)
+    public LevelUpStatDist(LevelUpStatType type, LevelUpSpellLevelBonus spellBonus)
     {
         this.type = type;
         this.value = spellBonus.levelBonus;
@@ -75,17 +75,26 @@ public class LevelUpStatDist : MonoBehaviour
 }
 
 [SerializeField]
-public class GeneratedStat
+public class GeneratedStat // class for the generated stat list and the overall rarity
 {
     public string statName;
-    public StatRarity StatRarity;
+    public StatRarity statRarity;
     public List<LevelUpStatDist> stats;
 
     public GeneratedStat(string name, StatRarity StatRarity, List<LevelUpStatDist> stats)
     {
         this.statName = name;
-        this.StatRarity = StatRarity;
+        this.statRarity = StatRarity;
         this.stats = stats;
+    }
+    public override string ToString()
+    {
+        string output = $"{statName} (Rarity: {statRarity})\nStats:\n";
+        foreach (var stat in stats)
+        {
+            output += $"- {stat}\n";
+        }
+        return output;
     }
 }
 
