@@ -81,10 +81,10 @@ public class GeneratedStat // class for the generated stat list and the overall 
     public StatRarity statRarity;
     public List<LevelUpStatDist> stats;
 
-    public GeneratedStat(string name, StatRarity StatRarity, List<LevelUpStatDist> stats)
+    public GeneratedStat(string name, StatRarity statRarity, List<LevelUpStatDist> stats)
     {
-        this.statName = name;
-        this.statRarity = StatRarity;
+        this.statName = statRarity.ToString();
+        this.statRarity = statRarity;
         this.stats = stats;
     }
     public override string ToString()
