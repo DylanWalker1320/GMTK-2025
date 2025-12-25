@@ -31,8 +31,9 @@ public class BlackFlash : Spell
 
     public void AddUpgrade()
     {
-        damage += damageUpgrade; // Increase damage by the upgrade value
-        range += rangeUpgrade; // Increase range by the upgrade value
+        int spellLevel = GetSpellLevel(Spells.BlackFlash);
+        damage += damageUpgrade * spellLevel; // Increase damage by the upgrade value
+        range += rangeUpgrade * spellLevel; // Increase range by the upgrade value
         transform.localScale = new Vector3(range, range, 1f); // Scale the spell based on the new range
     }
 

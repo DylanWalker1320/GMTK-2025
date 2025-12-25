@@ -9,8 +9,8 @@ public class UIManager : MonoBehaviour
     private GameManager gameManager;
     [SerializeField] private bool debugMode;
     [Header("UI Panels")]
-    public GameObject inventoryUI;
     public GameObject upgradeUI;
+    public GameObject levelUpUI;
     public GameObject pauseMenu;
     public GameObject startMenu;
     public GameObject settingsMenu;
@@ -319,11 +319,6 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void SetActiveInventoryUI()
-    {
-        inventoryUI.SetActive(!upgradeUI.activeSelf);
-    }
-
     public void SetActiveUpgradeUI()
     {
         upgradeUI.SetActive(!upgradeUI.activeSelf);
@@ -334,27 +329,11 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveLevelUpUI()
     {
-        // levelUpUI.SetActive(!levelUpUI.activeSelf);
+        levelUpUI.SetActive(!levelUpUI.activeSelf);
         // levelUpUI.GetComponent<SpellUpgradeUI>().UpdateExperience();
         upgradeUI.SetActive(false);
         barAllocationUI.SetActive(false);        
     }
-
-    // public void SetActiveSpellUpgradeUI() // Delete this as soon as level up UI is fully functional
-    // {
-    //     levelUpUI.SetActive(!levelUpUI.activeSelf);
-    //     levelUpUI.GetComponent<SpellUpgradeUI>().UpdateExperience();
-    //     upgradeUI.SetActive(false);
-    //     barAllocationUI.SetActive(false);
-    // }
-
-    // public void NewGameLoopUpgradeUI()
-    // {
-    //     newGameLoopUI.SetActive(!newGameLoopUI.activeSelf);
-    //     upgradeUI.SetActive(false);
-    //     levelUpUI.SetActive(false);
-    //     barAllocationUI.SetActive(false);
-    // }
 
     public void SetActiveBarAllocUI()
     {

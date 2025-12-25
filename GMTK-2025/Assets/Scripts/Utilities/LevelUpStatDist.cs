@@ -126,10 +126,11 @@ public static class LevelUpStatDefinitions
         { 
             StatRarity.Common, new Dictionary<LevelUpStatType, int>
             {
-                { LevelUpStatType.Speed,        30 },
+                { LevelUpStatType.Speed,        25 },
                 { LevelUpStatType.Health,       30 },
-                { LevelUpStatType.CastSpeed,    20 },
-                { LevelUpStatType.CastStrength, 20 }
+                { LevelUpStatType.CastSpeed,    15 },
+                { LevelUpStatType.CastStrength, 20 },
+                { LevelUpStatType.SpellLevel,   10 }
             }
         },
         { 
@@ -137,23 +138,13 @@ public static class LevelUpStatDefinitions
             {
                 { LevelUpStatType.Speed,        25 },
                 { LevelUpStatType.Health,       25 },
-                { LevelUpStatType.CastSpeed,    20 },
-                { LevelUpStatType.CastStrength, 25 },
-                { LevelUpStatType.SpellLevel,   5  }
+                { LevelUpStatType.CastSpeed,    15 },
+                { LevelUpStatType.CastStrength, 20 },
+                { LevelUpStatType.SpellLevel,   15 }
             }
         },
         { 
             StatRarity.Rare, new Dictionary<LevelUpStatType, int>
-            {
-                { LevelUpStatType.Speed,        20 },
-                { LevelUpStatType.Health,       20 },
-                { LevelUpStatType.CastSpeed,    25 },
-                { LevelUpStatType.CastStrength, 25 },
-                { LevelUpStatType.SpellLevel,   10 }
-            }
-        },
-        { 
-            StatRarity.Epic, new Dictionary<LevelUpStatType, int>
             {
                 { LevelUpStatType.Speed,        20 },
                 { LevelUpStatType.Health,       20 },
@@ -163,13 +154,23 @@ public static class LevelUpStatDefinitions
             }
         },
         { 
+            StatRarity.Epic, new Dictionary<LevelUpStatType, int>
+            {
+                { LevelUpStatType.Speed,        15 },
+                { LevelUpStatType.Health,       15 },
+                { LevelUpStatType.CastSpeed,    25 },
+                { LevelUpStatType.CastStrength, 20 },
+                { LevelUpStatType.SpellLevel,   25 }
+            }
+        },
+        { 
             StatRarity.Legendary, new Dictionary<LevelUpStatType, int>
             {
                 { LevelUpStatType.Speed,        10 },
                 { LevelUpStatType.Health,       10 },
-                { LevelUpStatType.CastSpeed,    20 },
-                { LevelUpStatType.CastStrength, 20 },
-                { LevelUpStatType.SpellLevel,   40 }
+                { LevelUpStatType.CastSpeed,    25 },
+                { LevelUpStatType.CastStrength, 25 },
+                { LevelUpStatType.SpellLevel,   30 }
             }
         }
     };

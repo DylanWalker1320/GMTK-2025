@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-
 public class Inventory : MonoBehaviour
 {
     private GameManager gameManager;
@@ -8,7 +7,7 @@ public class Inventory : MonoBehaviour
     public SpellCombinations spellCombinations;
     private AudioManager audioManager;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
-    public Spell[] spellArray = new Spell[8]; // Holds spell prefabs, consider changing prefabs to be of spell type
+    public Spell[] spellArray = new Spell[8]; // Holds Spell Prefabs
     [SerializeField] private float maxTimeBetweenSpells;
     public Spell chosenSpell;
     private float timeBetweenSpells; // Time between casting spells
