@@ -118,6 +118,7 @@ public class LevelUpUI : MonoBehaviour
     public void Exit()
     {
         Time.timeScale = 1;
+        TooltipManager._instance.HideTooltip();
         unityEvent.Invoke();
     }
     

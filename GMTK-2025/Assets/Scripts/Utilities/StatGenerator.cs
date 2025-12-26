@@ -32,7 +32,7 @@ public class StatGenerator : Stats
             {
                 case LevelUpStatType.Speed:
                     player.maxSpeed += stat.value;
-                    Debug.Log($"Max Speed increased from {player.maxSpeed - stat.value} to {player.maxSpeed}");
+                    Debug.Log($"Speed increased from {player.maxSpeed - stat.value} to {player.maxSpeed}");
                     break;
                     
                 case LevelUpStatType.Health:
@@ -43,12 +43,12 @@ public class StatGenerator : Stats
                     
                 case LevelUpStatType.CastSpeed:
                     player.castSpeed += stat.value;
-                    Debug.Log($"Max Speed increased from {player.castSpeed - stat.value} to {player.castSpeed}");
+                    Debug.Log($"Cast Speed increased from {player.castSpeed - stat.value} to {player.castSpeed}");
                     break;
                     
                 case LevelUpStatType.CastStrength:
                     player.castStrength += stat.value;
-                    Debug.Log($"Max Speed increased from {player.castStrength- stat.value} to {player.castStrength}");
+                    Debug.Log($"Cast Strength increased from {player.castStrength- stat.value} to {player.castStrength}");
                     break;
                     
                 case LevelUpStatType.SpellLevel:
