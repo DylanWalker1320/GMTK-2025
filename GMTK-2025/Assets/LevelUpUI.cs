@@ -1,32 +1,33 @@
 using UnityEngine;
 using TMPro;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class StatPanel
 {
+    public int soulCost;
+    public Button button;
     public TextMeshProUGUI rarityText;
+    public TextMeshProUGUI costText;
     public TextMeshProUGUI statDescription;
     public RawImage boxSprite;
 }
 
 public class LevelUpUI : MonoBehaviour
 {
+    private PlayerMovement player;
     private StatGenerator statGenerator;
+    [SerializeField] private float rerollCost;
+    [SerializeField] private float rerollCostMultiplier;
+    [SerializeField] private TextMeshProUGUI rerollText;
     public StatPanel[] panels = new StatPanel[3];
+    public UnityEvent unityEvent;
 
     public void Awake()
     {
+        player = FindAnyObjectByType<PlayerMovement>();
         statGenerator = FindAnyObjectByType<StatGenerator>();
-    }
-
-    public void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            InitializeLevelUpUI();
-        }
     }
     
     
@@ -34,14 +35,18 @@ public class LevelUpUI : MonoBehaviour
     {
         for(int i = 0; i < 3; i++)
         {
-            StatPanel panel = panels[i];
             string output = "";
+            StatPanel panel = panels[i];
             GeneratedStat statData = LevelUpStatsGenerator.GenerateStats("Default Stat");
-            statGenerator.Initialize(statData, i, true);
 
-            panel.boxSprite.color = DetermineColor(statData.statRarity);
+            statGenerator.Initialize(statData, i, true);
             
+            rerollText.text = rerollCost.ToString();
+            panels[i].button.interactable = true;
+            panel.soulCost = LevelUpStatDefinitions.StatSoulCost[statData.statRarity];
+            panel.costText.text = panel.soulCost.ToString();
             panel.rarityText.text = statGenerator.statData.statName; // stat name already set to rarity
+            panel.boxSprite.color = DetermineColor(statData.statRarity);
             panel.rarityText.color = DetermineColor(statData.statRarity);
 
              foreach (var stat in statGenerator.statData.stats)
@@ -71,23 +76,61 @@ public class LevelUpUI : MonoBehaviour
         }
     }
 
+    private void TurnButtonOff(int index)
+    {
+        panels[index].button.interactable = false;
+        panels[index].rarityText.text = "Purchased";
+        panels[index].statDescription.text = string.Empty;
+    }
+
     public void SlotOne()
     {
-        statGenerator.ApplyStats(0);
-        // TODO Subtract Soul Cost
+        if(player.souls - panels[0].soulCost >= 0)
+        {
+            TurnButtonOff(0);
+            player.souls -= panels[0].soulCost;
+            statGenerator.ApplyStats(0);
+            
+        }
+        
     }
 
     public void SlotTwo()
     {
-        statGenerator.ApplyStats(1);
-        // TODO Subtract Soul Cost        
+        if(player.souls - panels[1].soulCost >= 0)
+        {
+            TurnButtonOff(1);
+            player.souls -= panels[1].soulCost;
+            statGenerator.ApplyStats(1);
+        }    
     }
 
     public void SlotThree()
     {
-        statGenerator.ApplyStats(0);
-        // TODO Subtract Soul Cost        
+        if(player.souls - panels[2].soulCost >= 0)
+        {
+            TurnButtonOff(2);
+            player.souls -= panels[2].soulCost;
+            statGenerator.ApplyStats(2);
+        }     
     }
 
+    public void Exit()
+    {
+        Time.timeScale = 1;
+        unityEvent.Invoke();
+    }
+    
+    public void Reroll()
+    {
+        if(player.souls - rerollCost >= 0)
+        {
+            player.souls -= (int) rerollCost;
+            rerollCost = Mathf.Round(rerollCost * rerollCostMultiplier);
+            player.UpdateUI();
+            InitializeLevelUpUI();
+            
+        }
+    }
 
 }

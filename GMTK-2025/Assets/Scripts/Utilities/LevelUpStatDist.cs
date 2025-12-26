@@ -120,6 +120,15 @@ public static class LevelUpStatDefinitions
         { StatRarity.Legendary, 3 }
     };
 
+    public static readonly Dictionary<StatRarity, int> StatSoulCost = new()
+    {
+        { StatRarity.Common,    20 },
+        { StatRarity.Uncommon,  30 },
+        { StatRarity.Rare,      50 },
+        { StatRarity.Epic,      75 },
+        { StatRarity.Legendary, 100}
+    };
+
     // Stat weights by StatRarity (Weights are in n% form because WeightedList uses int weights)
     public static readonly Dictionary<StatRarity, Dictionary<LevelUpStatType, int>> StatWeightsByStatRarity = new()
     {
@@ -218,10 +227,11 @@ public static class LevelUpStatDefinitions
             },
             LevelUpStatType.SpellLevel => StatRarity switch
             {
+                StatRarity.Common => 1f,
                 StatRarity.Uncommon =>  1f,
                 StatRarity.Rare =>      Random.Range(1f, 2f) >= 1.5f ? 2f : 1f, // 50% chance for +2
                 StatRarity.Epic =>      Random.Range(1f, 2f) >= 1.5f ? 2f : 1f, // 50% chance for +2
-                StatRarity.Legendary => Random.Range(1, 4),                     // +1 to +3
+                StatRarity.Legendary => 2,
                 _ => 0f
             },
             _ => 0f

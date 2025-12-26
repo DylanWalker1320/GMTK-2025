@@ -330,9 +330,11 @@ public class UIManager : MonoBehaviour
     public void SetActiveLevelUpUI()
     {
         levelUpUI.SetActive(!levelUpUI.activeSelf);
-        // levelUpUI.GetComponent<SpellUpgradeUI>().UpdateExperience();
         upgradeUI.SetActive(false);
-        barAllocationUI.SetActive(false);        
+        barAllocationUI.SetActive(false);
+
+        Time.timeScale = 0;
+        levelUpUI.GetComponent<LevelUpUI>().InitializeLevelUpUI();
     }
 
     public void SetActiveBarAllocUI()
@@ -351,9 +353,8 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         currentMenu = Menu.None;
         upgradeUI.SetActive(false);
-        // levelUpUI.SetActive(false);
+        levelUpUI.SetActive(false);
         barAllocationUI.SetActive(false);
-        // newGameLoopUI.SetActive(false);
         onShopFinish.Invoke();
         Debug.LogWarning("GameplayMode invoked");
     }
