@@ -46,32 +46,52 @@ public class TooltipLevelUp : Tooltip
     private void CreateStatChangeMessage()
     {
         message = string.Empty;
+        string messageColor = DetermineMessageColor(statContainers.panelStats[panelIndex].statRarity);
         foreach (var stat in statContainers.panelStats[panelIndex].stats)
         {
             switch(stat.type)
             {
                 case LevelUpStatType.Speed:
-                    message += $"Speed: {player.maxSpeed} -> {player.maxSpeed + stat.value}\n";
+                    message += $"Speed: {player.maxSpeed} -> <color={messageColor}>{player.maxSpeed + stat.value}</color>\n";
                     break;
                 case LevelUpStatType.Health:
-                    message += $"Health: {player.maxHealth} -> {player.maxHealth + stat.value}\n";
+                    message += $"Health: {player.maxHealth} -> <color={messageColor}>{player.maxHealth + stat.value}</color>\n";
                     break;
                 case LevelUpStatType.CastSpeed:
-                    message += $"Cast Speed: {Mathf.Round(player.castSpeed * 100.00f) * 0.01f} -> {Mathf.Round((player.castSpeed + stat.value) * 100.00f) * 0.01f}\n";
+                    message += $"Cast Speed: {Mathf.Round(player.castSpeed * 100.00f) * 0.01f} -> <color={messageColor}>{Mathf.Round((player.castSpeed + stat.value) * 100.00f) * 0.01f}</color>\n";
                     break;
                 case LevelUpStatType.CastStrength:
-                    message += $"Cast Strength: {Mathf.Round(player.castStrength * 100.00f) * 0.01f} -> {Mathf.Round((player.castStrength + stat.value) * 100.00f) * 0.01f}\n";
+                    message += $"Cast Strength: {Mathf.Round(player.castStrength * 100.00f) * 0.01f} -> <color={messageColor}>{Mathf.Round((player.castStrength + stat.value) * 100.00f) * 0.01f}</color>\n";
                     break;
                 case LevelUpStatType.SpellLevel:
                     if (stat.LevelUpSpellLevelBonus != null)
                     {
-                        message += $"{stat.LevelUpSpellLevelBonus.spell}: Lv.{Spell.GetSpellLevel(stat.LevelUpSpellLevelBonus.spell)} -> Lv.{Spell.GetSpellLevel(stat.LevelUpSpellLevelBonus.spell) + stat.value}\n";   
+                        message += $"{stat.LevelUpSpellLevelBonus.spell}: Lv.{Spell.GetSpellLevel(stat.LevelUpSpellLevelBonus.spell)} -> <color={messageColor}>Lv.{Spell.GetSpellLevel(stat.LevelUpSpellLevelBonus.spell) + stat.value}</color>\n";   
                     }
                     break;
                 default:
                     message += $"No Upgrade Here";
                     break;
             }
+        }
+    }
+
+    private string DetermineMessageColor(StatRarity statRarity)
+    {
+        switch(statRarity)
+        {
+            case StatRarity.Common:
+                return "#808080ff";
+            case StatRarity.Uncommon:
+                return "#00df4aff";
+            case StatRarity.Rare:
+                return "#0011ffff";
+            case StatRarity.Epic:
+                return "#ec00ecff";
+            case StatRarity.Legendary:
+                return "#ff1e00ff";
+            default:
+                return "white";
         }
     }
 }

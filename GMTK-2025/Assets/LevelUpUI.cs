@@ -68,9 +68,9 @@ public class LevelUpUI : MonoBehaviour
             case StatRarity.Rare:
                 return Color.blue;
             case StatRarity.Epic:
-                return new Color(0.627451f, 0.1254902f, 0.9411765f); // purple
+                return Color.magenta; // purple
             case StatRarity.Legendary:
-                return new Color(255, 165, 0); // orange
+                return Color.red; // orange
             default:
                 return Color.white;
         }

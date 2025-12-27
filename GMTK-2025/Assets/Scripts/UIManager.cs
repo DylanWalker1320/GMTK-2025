@@ -334,6 +334,7 @@ public class UIManager : MonoBehaviour
         barAllocationUI.SetActive(false);
 
         Time.timeScale = 0;
+        isLevelingUp = true;
         levelUpUI.GetComponent<LevelUpUI>().InitializeLevelUpUI();
     }
 
@@ -355,7 +356,12 @@ public class UIManager : MonoBehaviour
         upgradeUI.SetActive(false);
         levelUpUI.SetActive(false);
         barAllocationUI.SetActive(false);
-        onShopFinish.Invoke();
+        
+        if (!isLevelingUp)
+        {
+            onShopFinish.Invoke();
+        }
+        isLevelingUp = false;
         Debug.LogWarning("GameplayMode invoked");
     }
 }
