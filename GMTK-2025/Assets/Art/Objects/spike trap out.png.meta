@@ -112,28 +112,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spike trap out_0
-      rect:
-        serializedVersion: 2
-        x: 1377
-        y: 2790
-        width: 29
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fee5f3454c3011c10800000000000000
-      internalID: 2022401849427975919
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spike trap out_1
       rect:
         serializedVersion: 2
@@ -142,7 +120,7 @@ TextureImporter:
         width: 2533
         height: 2527
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -155,77 +133,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: spike trap out_2
-      rect:
-        serializedVersion: 2
-        x: 1333
-        y: 2606
-        width: 91
-        height: 170
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79d701fecf7832ec0800000000000000
-      internalID: -3592878557299180137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spike trap out_3
-      rect:
-        serializedVersion: 2
-        x: 2626
-        y: 1581
-        width: 14
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d8d6942f91cba7830800000000000000
-      internalID: 4069772032907767181
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spike trap out_4
-      rect:
-        serializedVersion: 2
-        x: 185
-        y: 1409
-        width: 20
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6b0152f44f3049950800000000000000
-      internalID: 6454788513763496118
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ca8331e715dad0340957e89c5e8750d5
     internalID: 0
     vertices: []
     indices: 

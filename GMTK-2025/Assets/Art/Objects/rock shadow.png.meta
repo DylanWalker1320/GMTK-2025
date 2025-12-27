@@ -106,28 +106,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rock shadow_0
-      rect:
-        serializedVersion: 2
-        x: 1428
-        y: 1596
-        width: 49
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0dbcc95164ecb0c30800000000000000
-      internalID: 4326778667425123280
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: rock shadow_1
       rect:
         serializedVersion: 2
@@ -136,7 +114,7 @@ TextureImporter:
         width: 1010
         height: 1329
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,33 +127,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: rock shadow_2
-      rect:
-        serializedVersion: 2
-        x: 2146
-        y: 758
-        width: 22
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 58fa471ff74a7f610800000000000000
-      internalID: 1654972257500704645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 46f587157478f654fb9330f5e2e64d7e
     internalID: 0
     vertices: []
     indices: 

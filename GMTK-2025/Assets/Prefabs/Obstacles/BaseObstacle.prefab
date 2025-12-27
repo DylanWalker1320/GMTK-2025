@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 921888681766554589}
-  - component: {fileID: 5751531287863777299}
+  - component: {fileID: 2174066237386177184}
   m_Layer: 7
   m_Name: BaseObstacle
   m_TagString: Obstacles
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5751531287863777299
+--- !u!114 &2174066237386177184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
