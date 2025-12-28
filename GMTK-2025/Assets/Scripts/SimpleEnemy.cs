@@ -72,7 +72,7 @@ public class SimpleEnemy : Enemy
         // maxSpeed += gameManager.loopsCompleted;
 
         //                                   v Scaling factor
-        stats.health = stats.health * (1f + 0.5f * gameManager.loopsCompleted);
+        stats.health = stats.health * (1f + 0.75f * gameManager.loopsCompleted);
         stats.damage = stats.damage * (1f + 0.15f * gameManager.loopsCompleted);
         stats.speed = stats.speed * (1f + 0.25f * gameManager.loopsCompleted);
 
