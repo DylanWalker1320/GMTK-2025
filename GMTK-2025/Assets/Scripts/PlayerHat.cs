@@ -4,13 +4,14 @@ using System.Collections;
 public class PlayerHat : Hat
 {
     public GameObject hatBelow;
+    public HatShadowPositioner hatShadowPositioner;
     public int hatNumber;
     private static readonly float moveThreshold = 0.01f;
     private static readonly float lerpSpeed = 50f;
-    private static readonly float yDifference = 0.3f;
-    private static readonly float initialYOffset = 0.52f;
+    public static readonly float yDifference = 0.3f;
+    public static readonly float initialYOffset = 0.52f;
     private static GameObject player;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     private bool isFirstHat => hatNumber == 0;
     private Rigidbody2D playerRb;
 
@@ -64,10 +65,12 @@ public class PlayerHat : Hat
         if (playerMovement.movement.x > 0)
         {
             spriteRenderer.flipX = true;
+            hatShadowPositioner.FlipSprite(true);
         }
         else if (playerMovement.movement.x < 0)
         {
             spriteRenderer.flipX = false;
+            hatShadowPositioner.FlipSprite(false);
         }
     }
 
