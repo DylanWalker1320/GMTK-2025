@@ -36,11 +36,11 @@ public class HatScroll : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left * 100, _speed * Time.deltaTime * 30); // Magic number, replace 30 with a variable
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left * 100, _speed * Time.unscaledDeltaTime * 30); // Magic number, replace 30 with a variable
 
         if(_speed > 0)
         {
-            _speed -= Time.deltaTime * Random.Range(1.2f, 1.5f); // Magic Numbers, replace with variables
+            _speed -= Time.unscaledDeltaTime * Random.Range(1.2f, 1.5f); // Magic Numbers, replace with variables
         }
         else
         {
