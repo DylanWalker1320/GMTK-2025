@@ -14,6 +14,8 @@ public class HatCell : MonoBehaviour
 
     [SerializeField] private int[] _chances;
     [SerializeField] private Color[] _colors;
+    private Rarity[] rarities = new Rarity[] { Rarity.Common, Rarity.Uncommon, Rarity.Rare, Rarity.Epic, Rarity.Legendary };
+    private Rarity rarity;
 
     public void Setup()
     {
@@ -21,9 +23,10 @@ public class HatCell : MonoBehaviour
         Debug.Log(index);
         GetComponent<Image>().sprite = _sprites[index].HatSprites[Random.Range(0, _sprites[index].HatSprites.Count)];
         transform.parent.GetComponent<Image>().color = _colors[index];
+        rarity = rarities[index];
     }
 
-    private int Randomize()
+    private int Randomize() // index is chosen based off the chances array (the higher the chance, the lower the chance that rarity will be chosen and will move on to the next)
     {
         int index = 0;
         for (int i = 0; i < _chances.Length; i++)
@@ -45,5 +48,14 @@ public class HatCell : MonoBehaviour
             index++;
         }
         return index;
+    }
+
+    public Sprite GetHatSprite()
+    {
+        return GetComponent<Image>().sprite;
+    }
+    public Rarity GetRarity()
+    {
+        return rarity;
     }
 }

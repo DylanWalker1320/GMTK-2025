@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-
 public class HatScroll : MonoBehaviour
 {
     [SerializeField]
@@ -34,7 +33,7 @@ public class HatScroll : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void Update() // With this setup, cell 43 will always win
     {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left * 100, _speed * Time.unscaledDeltaTime * 30); // Magic number, replace 30 with a variable
 
@@ -47,6 +46,5 @@ public class HatScroll : MonoBehaviour
             _speed = 0;
             _isScrolling = false;
         }
-
     }
 }

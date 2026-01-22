@@ -36,13 +36,13 @@ public class HatGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H) && debugMode)
         {
-            StackHat();
-        }   
+            StackHat(GenerateHat());
+        }
     }
+    
 
-    public void StackHat()
+    public void StackHat(GameObject hatInstance)
     {
-        GameObject hatInstance = GenerateHat();
 
         // Set the hatBelow reference for proper stacking
         PlayerHat hatScript = hatInstance.GetComponent<PlayerHat>();

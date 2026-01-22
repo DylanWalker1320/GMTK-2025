@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [Header("UI Panels")]
     public GameObject upgradeUI;
     public GameObject levelUpUI;
+    public GameObject scrollUI;
     public GameObject pauseMenu;
     public GameObject startMenu;
     public GameObject settingsMenu;
@@ -356,6 +357,7 @@ public class UIManager : MonoBehaviour
         upgradeUI.SetActive(false);
         levelUpUI.SetActive(false);
         barAllocationUI.SetActive(false);
+        scrollUI.SetActive(false);
         
         if (!isLevelingUp)
         {
