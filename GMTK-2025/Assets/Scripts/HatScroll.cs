@@ -45,7 +45,7 @@ public class HatScroll : MonoBehaviour
         {
             counter++;
             cell.Setup();
-            if (counter == 43)
+            if (counter == 39)
             {
                 targetHatObject = cell.GetHatObject();
                 targetHatData = cell.GetHatData();
@@ -58,13 +58,13 @@ public class HatScroll : MonoBehaviour
         hatGenerator = FindFirstObjectByType<HatGenerator>();
     }
 
-    private void Update() // With this setup, cell 43/50 will always win
+    private void Update() // With this setup, cell 39/50 will always win
     {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left * 100, _speed * Time.unscaledDeltaTime * 30); // Magic number, replace 30 with a variable
 
         if (_speed > 0)
         {
-            _speed -= Time.unscaledDeltaTime * Random.Range(1.2f, 1.5f); // Magic Numbers, replace with variables
+            _speed -= Time.unscaledDeltaTime * 1.5f; // Magic Numbers, replace with variables
         }
         else if (_speed < 0 && _isScrolling)
         {
