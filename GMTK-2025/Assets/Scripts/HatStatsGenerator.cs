@@ -48,7 +48,7 @@ public static class HatStatsGenerator
         int statCount = HatStatDefinitions.StatCountByRarity[rarity];
         List<HatStat> stats = GenerateStats(rarity, statCount);
 
-        GeneratedHat generatedHat = new GeneratedHat(hatName, rarity, stats, hatGenerator.GetHatSprite());
+        GeneratedHat generatedHat = new GeneratedHat(hatName, rarity, stats, hatGenerator.GetHatSprite(rarity));
         generatedHats.Add(generatedHat);
         
         return generatedHat;

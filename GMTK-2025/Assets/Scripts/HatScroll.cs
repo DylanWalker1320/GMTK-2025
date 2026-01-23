@@ -5,10 +5,12 @@ public class HatScroll : MonoBehaviour
     [SerializeField]
     private GameObject _prefab;
 
-    private float _speed;
+    public float _speed;
     private bool _isScrolling;
-
+    public bool _hasScrolled = false;
+    private int counter;
     private List<HatCell> _cells = new List<HatCell>();
+    private GeneratedHat targetHatData;
 
     public void Scroll()
     {
@@ -16,6 +18,7 @@ public class HatScroll : MonoBehaviour
             return;
         _speed = Random.Range(4, 5);
         _isScrolling = true;
+        counter = 0;
 
 
         GetComponent<RectTransform>().localPosition = new Vector2(1080, 0);
@@ -29,22 +32,36 @@ public class HatScroll : MonoBehaviour
         }
         foreach(var cell in _cells)
         {
+            counter++;
             cell.Setup();
+            if(counter == 43)
+            {
+                targetHatData = cell.GetHatData();
+            }
         }
     }
 
-    private void Update() // With this setup, cell 43 will always win
+    private void Update() // With this setup, cell 43/50 will always win
     {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left * 100, _speed * Time.unscaledDeltaTime * 30); // Magic number, replace 30 with a variable
 
-        if(_speed > 0)
+        if (_speed > 0)
         {
             _speed -= Time.unscaledDeltaTime * Random.Range(1.2f, 1.5f); // Magic Numbers, replace with variables
         }
-        else
+        else if (_speed < 0 && _isScrolling)
         {
             _speed = 0;
             _isScrolling = false;
+            _hasScrolled = true;
+
         }
+
     }
+
+    public GeneratedHat GetTargetHatData()
+    {
+        return targetHatData;
+    }
+
 }

@@ -127,6 +127,16 @@ public class GeneratedHat
         return output;
     }
 
+    public string PrintStatsOnly()
+    {
+        string output = "";
+        foreach (var stat in stats)
+        {
+            output += $"- {stat}\n";
+        }
+        return output;
+    }
+
     public GeneratedHat(string name, Rarity rarity, List<HatStat> stats, Sprite hatSprite = null)
     {
         this.hatName = name;
@@ -142,11 +152,11 @@ public static class HatStatDefinitions
     // Rarity chances (out of 100)
     public static readonly Dictionary<Rarity, int> RarityWeights = new()
     {
-        { Rarity.Common,    40 },
-        { Rarity.Uncommon,  30 },
-        { Rarity.Rare,      15 },
-        { Rarity.Epic,      10 },
-        { Rarity.Legendary, 5  }
+        { Rarity.Common,    30 },
+        { Rarity.Uncommon,  25 },
+        { Rarity.Rare,      20 },
+        { Rarity.Epic,      15 },
+        { Rarity.Legendary, 10 }
     };
 
     // Number of stat lines per rarity

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerHat : Hat
 {
-    public GameObject hatBelow;
+    private GameObject hatBelow;
     public int hatNumber;
     private static readonly float moveThreshold = 0.01f;
     private static readonly float lerpSpeed = 50f;
@@ -14,7 +14,7 @@ public class PlayerHat : Hat
     private bool isFirstHat => hatNumber == 0;
     private Rigidbody2D playerRb;
 
-    void Start()
+    public void Initialize()
     {
         
         if (Vector3.Distance(transform.position, hatBelow.transform.position + new Vector3(0, yDifference, 0)) > moveThreshold)
@@ -44,19 +44,21 @@ public class PlayerHat : Hat
 
         // Get the speed of the player
         float playerSpeed = playerRb.linearVelocity.magnitude;
-
-        // Move in the inverse direction of the player's movement to create a bobbing effect, and multiply by the hat number
-        if (isFirstHat)
+        if(hatBelow != null)
         {
-            transform.position = new Vector3(player.transform.position.x,
-                                         hatBelow.transform.position.y + yDifference, 
-                                         0);
-            transform.position += (Vector3) HatPositioner.currentOffset;
-        } else
-        {
-            transform.position = new Vector3(player.transform.position.x - playerRb.linearVelocity.x * 0.01f * (hatNumber + 1) + Mathf.Sin(Time.time * 5f + hatNumber) * 0.01f * (hatNumber + 1),
-                                hatBelow.transform.position.y + yDifference, 
-                                0);
+            // Move in the inverse direction of the player's movement to create a bobbing effect, and multiply by the hat number
+            if (isFirstHat)
+            {
+                transform.position = new Vector3(player.transform.position.x,
+                                            hatBelow.transform.position.y + yDifference, 
+                                            0);
+                transform.position += (Vector3) HatPositioner.currentOffset;
+            } else
+            {
+                transform.position = new Vector3(player.transform.position.x - playerRb.linearVelocity.x * 0.01f * (hatNumber + 1) + Mathf.Sin(Time.time * 5f + hatNumber) * 0.01f * (hatNumber + 1),
+                                    hatBelow.transform.position.y + yDifference, 
+                                    0);
+            }            
         }
 
         // Flip the player to face the movement direction
@@ -90,12 +92,12 @@ public class PlayerHat : Hat
             ApplyStats();
         }
     }
-    
+
     private void ApplyStats()
     {
 
         PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
-        
+
         foreach (var stat in hatData.stats)
         {
             switch (stat.type)
@@ -103,20 +105,20 @@ public class PlayerHat : Hat
                 case StatType.Speed:
                     player.maxSpeed += stat.value;
                     break;
-                    
+
                 case StatType.Health:
                     player.health += stat.value;
                     player.maxHealth += stat.value;
                     break;
-                    
+
                 case StatType.CastSpeed:
                     player.castSpeed += stat.value;
                     break;
-                    
+
                 case StatType.CastStrength:
                     player.castStrength += stat.value;
                     break;
-                    
+
                 case StatType.SpellLevel:
                     if (stat.spellBonus != null)
                     {
@@ -130,5 +132,10 @@ public class PlayerHat : Hat
             }
         }
         player.UpdateUI();
+    }
+    
+    public void SetHatBelow(GameObject gameObject)
+    {
+        hatBelow = gameObject;
     }
 }
