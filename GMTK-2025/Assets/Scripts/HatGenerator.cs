@@ -43,7 +43,8 @@ public class HatGenerator : MonoBehaviour
 
     public void StackHat(GameObject hatInstance)
     {
-
+        stackedHatObjects.Add(hatInstance);
+        
         // Set the hatBelow reference for proper stacking
         PlayerHat hatScript = hatInstance.GetComponent<PlayerHat>();
         if (hatScript != null)
@@ -64,7 +65,7 @@ public class HatGenerator : MonoBehaviour
         {
             Debug.LogError("Hat prefab does not have a Hat script component.");
         }
-        hatScript.Initialize();
+        hatScript.InitializeNewHat();
 
         SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
         sr.sortingOrder = numHatsStacked + 2; // Ensure proper rendering order
@@ -99,11 +100,10 @@ public class HatGenerator : MonoBehaviour
         sr.sortingOrder = numHatsStacked + 2; // Ensure proper rendering order
     }
 
-    public GameObject GenerateHat(bool applyStats = true)
+    public GameObject GenerateHat(bool applyStats = false)
     {
         GameObject hatInstance = Instantiate(hatPrefab);
         hatInstance.transform.SetParent(hatContainer.transform);
-        stackedHatObjects.Add(hatInstance);
 
         // Reset local position and rotation
         hatInstance.transform.localPosition = Vector3.zero;

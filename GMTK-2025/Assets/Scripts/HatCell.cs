@@ -36,10 +36,14 @@ public class HatCell : MonoBehaviour
     {
         return GetHatData().rarity;
     }
-    
+
 
     public GeneratedHat GetHatData()
     {
         return hatObject.GetComponent<PlayerHat>().hatData;
+    }
+    public GameObject GetHatObject()
+    {
+        return hatObject;
     }
 }

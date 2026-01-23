@@ -4,21 +4,32 @@ public class HatScroll : MonoBehaviour
 {
     [SerializeField]
     private GameObject _prefab;
+    private GameObject _currentHatPrefabContainer;
 
     public float _speed;
     private bool _isScrolling;
     public bool _hasScrolled = false;
     private int counter;
     private List<HatCell> _cells = new List<HatCell>();
+    private GameObject targetHatObject;
     private GeneratedHat targetHatData;
+    private HatGenerator hatGenerator;
+
+    public void Initialize()
+    {
+        _currentHatPrefabContainer = _prefab;
+        GetComponent<RectTransform>().localPosition = new Vector2(1080, 0);
+
+    }
 
     public void Scroll()
     {
-        if(_isScrolling)
+        if (_isScrolling)
             return;
         _speed = Random.Range(4, 5);
         _isScrolling = true;
         counter = 0;
+
 
 
         GetComponent<RectTransform>().localPosition = new Vector2(1080, 0);
@@ -27,18 +38,24 @@ public class HatScroll : MonoBehaviour
         {
             for (int i = 0; i < 50; i++)
             {
-                _cells.Add(Instantiate(_prefab, transform).GetComponentInChildren<HatCell>());
+                _cells.Add(Instantiate(_currentHatPrefabContainer, transform).GetComponentInChildren<HatCell>());
             }
         }
-        foreach(var cell in _cells)
+        foreach (var cell in _cells)
         {
             counter++;
             cell.Setup();
-            if(counter == 43)
+            if (counter == 43)
             {
+                targetHatObject = cell.GetHatObject();
                 targetHatData = cell.GetHatData();
             }
         }
+    }
+    
+    private void Start()
+    {
+        hatGenerator = FindFirstObjectByType<HatGenerator>();
     }
 
     private void Update() // With this setup, cell 43/50 will always win
@@ -62,6 +79,11 @@ public class HatScroll : MonoBehaviour
     public GeneratedHat GetTargetHatData()
     {
         return targetHatData;
+    }
+    
+    public void ApplyPrizeHatStats()
+    {
+        hatGenerator.StackHat(targetHatObject);
     }
 
 }

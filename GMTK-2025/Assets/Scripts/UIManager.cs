@@ -339,6 +339,16 @@ public class UIManager : MonoBehaviour
         levelUpUI.GetComponent<LevelUpUI>().InitializeLevelUpUI();
     }
 
+    public void SetActiveScrollUI()
+    {
+        Time.timeScale = 0;
+        isLevelingUp = true;
+        scrollUI.SetActive(!scrollUI.activeSelf);
+        scrollUI.GetComponent<HatScrollUI>().ToggleScrollUI(newInitialization: true);
+        upgradeUI.SetActive(false);
+        barAllocationUI.SetActive(false);
+    }
+
     public void SetActiveBarAllocUI()
     {
         barAllocationUI.SetActive(!barAllocationUI.activeSelf);

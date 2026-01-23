@@ -14,9 +14,9 @@ public class PlayerHat : Hat
     private bool isFirstHat => hatNumber == 0;
     private Rigidbody2D playerRb;
 
-    public void Initialize()
+    public void InitializeNewHat()
     {
-        
+        Initialize(hatData, true);
         if (Vector3.Distance(transform.position, hatBelow.transform.position + new Vector3(0, yDifference, 0)) > moveThreshold)
         {
             // Clamp the y position to be above the hat below

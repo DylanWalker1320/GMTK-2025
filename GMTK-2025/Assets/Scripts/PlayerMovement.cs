@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
             level++;
             experience -= nextLevelExperience;
             nextLevelExperience = Mathf.Round(nextLevelExperience * 1.5f);
-            FindAnyObjectByType<UIManager>().SetActiveLevelUpUI();
+            FindAnyObjectByType<UIManager>().SetActiveScrollUI();
             Debug.Log("Leveled up to level " + level);
         }
         uiManager.UpdateExperienceUI(experience, nextLevelExperience, level, souls);

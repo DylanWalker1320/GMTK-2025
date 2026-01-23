@@ -16,8 +16,10 @@ public class HatScrollUI : MonoBehaviour
 
     void Update()
     {
-        if (hatPrizeUI.activeSelf && Input.GetKeyDown(KeyCode.F))
+        if (hatPrizeUI.activeSelf && Input.GetKeyDown(KeyCode.Mouse0))
         {
+            Debug.Log("Apply Hat Stats");
+            scrollUI.GetComponent<HatScroll>().ApplyPrizeHatStats();
             unityEvent.Invoke();
         }
         if(scrollUI.GetComponent<HatScroll>()._speed == 0 && scrollUI.GetComponent<HatScroll>()._hasScrolled == true)
@@ -28,10 +30,16 @@ public class HatScrollUI : MonoBehaviour
         }
     }
 
-    public void ToggleScrollUI()
+    public void ToggleScrollUI(bool newInitialization = false)
     {
+        if (newInitialization)
+        {
+            scrollUI.GetComponent<HatScroll>().Initialize();
+        }
+        hatPrizeUI.SetActive(false);
         scrollUI.SetActive(!scrollUI.activeSelf);
         scrollButton.SetActive(!scrollButton.activeSelf);
+        
     }
 
     public void ToggleHatPrize(GeneratedHat hatData)
