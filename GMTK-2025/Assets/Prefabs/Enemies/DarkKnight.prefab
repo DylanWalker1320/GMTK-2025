@@ -195,16 +195,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d5a09dbda4eb449ae7095c7d42279e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
   damageNumberSpawnRadius: 1
   agent: {fileID: 0}
   attackCooldown: 5
   deathEffect: {fileID: 8720471837675972744, guid: ed081c54d46bc0e49a232f77143ce028, type: 3}
   stats:
-    health: 5000
+    health: 1000
     damage: 20
     speed: 1
-  phaseChangeHealth: 2500
+  phaseChangeHealth: 500
 --- !u!50 &2941802840941120317
 Rigidbody2D:
   serializedVersion: 5

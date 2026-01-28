@@ -49,10 +49,10 @@ public class TooltipThreeUpgrades : Tooltip
                     message = $"<u><color=yellow>Invicibility Frames Increase</color></u>\n\n{FindAnyObjectByType<PlayerMovement>().invincibilityFrames} -> <color=yellow>{FindAnyObjectByType<PlayerMovement>().invincibilityFrames + threeUpgradeScreenReference.iFramesUpgradeIncrease}</color>\n";
                     break;
                 case ThreeUpgradeScreen.StatIncreaseType.CastSpeed:
-                    message = $"<u><color=yellow>Cast Speed Increase</color></u>\n\n{FindAnyObjectByType<PlayerMovement>().castSpeed} -> <color=yellow>{FindAnyObjectByType<PlayerMovement>().castSpeed + threeUpgradeScreenReference.castSpeedUpgradeIncrease}</color>\n";
+                    message = $"<u><color=yellow>Cast Speed Increase</color></u>\n\n{Mathf.Round(FindAnyObjectByType<PlayerMovement>().castSpeed * 100.00f) * 0.01f} -> <color=yellow>{Mathf.Round((FindAnyObjectByType<PlayerMovement>().castSpeed + threeUpgradeScreenReference.castSpeedUpgradeIncrease) * 100.00f) * 0.01f}</color>\n";
                     break;
                 case ThreeUpgradeScreen.StatIncreaseType.CastStrength:
-                    message = $"<u><color=yellow>Cast Strength Increase</color></u>\n\n{FindAnyObjectByType<PlayerMovement>().castStrength} -> <color=yellow>{FindAnyObjectByType<PlayerMovement>().castStrength + threeUpgradeScreenReference.castStrengthUpgradeIncrease}</color>\n";
+                    message = $"<u><color=yellow>Cast Strength Increase</color></u>\n\n{Mathf.Round(FindAnyObjectByType<PlayerMovement>().castStrength * 100.00f) * 0.01f} -> <color=yellow>{Mathf.Round((FindAnyObjectByType<PlayerMovement>().castStrength + threeUpgradeScreenReference.castStrengthUpgradeIncrease) * 100.00f) * 0.01f}</color>\n";
                     break;
                 default:
                     Debug.LogError("Invalid upgrade index for stats.");

@@ -134,7 +134,7 @@ MonoBehaviour:
   damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
   damageNumberSpawnRadius: 1
   stats:
-    health: 150
+    health: 30
     damage: 10
     speed: 2
 --- !u!50 &6194187486926783592
