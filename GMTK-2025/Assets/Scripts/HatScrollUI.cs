@@ -22,7 +22,7 @@ public class HatScrollUI : MonoBehaviour
             scrollUI.GetComponent<HatScroll>().ApplyPrizeHatStats();
             unityEvent.Invoke();
         }
-        if(scrollUI.GetComponent<HatScroll>()._speed == 0 && scrollUI.GetComponent<HatScroll>()._hasScrolled == true)
+        if(scrollUI.GetComponent<HatScroll>()._speed == 0 && scrollUI.GetComponent<HatScroll>()._hasScrolled == true) // Click
         {
             scrollUI.GetComponent<HatScroll>()._hasScrolled = false;
             ToggleScrollUI();

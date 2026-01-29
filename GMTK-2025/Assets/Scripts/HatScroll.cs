@@ -36,7 +36,7 @@ public class HatScroll : MonoBehaviour
 
         if (_cells.Count == 0)
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 53; i++)
             {
                 _cells.Add(Instantiate(_currentHatPrefabContainer, transform).GetComponentInChildren<HatCell>());
             }
@@ -45,7 +45,7 @@ public class HatScroll : MonoBehaviour
         {
             counter++;
             cell.Setup();
-            if (counter == 39)
+            if (counter == 49)
             {
                 targetHatObject = cell.GetHatObject();
                 targetHatData = cell.GetHatData();
@@ -64,7 +64,11 @@ public class HatScroll : MonoBehaviour
 
         if (_speed > 0)
         {
-            _speed -= Time.unscaledDeltaTime * 1.5f; // Magic Numbers, replace with variables
+            _speed -= Time.unscaledDeltaTime * 1.2f; // Magic Numbers, replace with variables
+        }
+        else if (_speed < 0.5f && _speed > 0)
+        {
+            _speed -= Time.unscaledDeltaTime * 3; // Magic Numbers, replace with variables
         }
         else if (_speed < 0 && _isScrolling)
         {
