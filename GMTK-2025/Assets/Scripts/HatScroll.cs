@@ -83,7 +83,7 @@ public class HatScroll : MonoBehaviour
     
     public void ApplyPrizeHatStats()
     {
-        hatGenerator.StackHat(targetHatObject);
+        hatGenerator.GeneratePlayerHatWithStats(targetHatData);
     }
 
 }

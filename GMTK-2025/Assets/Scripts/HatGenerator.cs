@@ -30,21 +30,24 @@ public class HatGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H) && debugMode)
         {
-            StackHat(GenerateHat());
+            GeneratePlayerHat();
         }
     }
     
 
-    public void StackHat(GameObject hatInstance)
+    public void GeneratePlayerHat()
     {
-        
+        GameObject hatInstance = GenerateHat(true);
+
         hatInstance.transform.SetParent(hatContainer.transform);
         stackedHatObjects.Add(hatInstance);
         
-        // Set the hatBelow reference for proper stacking
+        // Set the hatBelow reference for stacking
         Hat hatScript = hatInstance.GetComponent<Hat>();
+        
         if (hatScript != null)
         {
+            hatScript.playerHat = true;
             if (numHatsStacked == 0)
             {
                 hatScript.SetHatBelow(player); // First hat sits on the player
@@ -61,17 +64,20 @@ public class HatGenerator : MonoBehaviour
         {
             Debug.LogError("Hat prefab does not have a Hat script component.");
         }
-        hatScript.InitializeNewHat();
     }
 
-    public void StackHatWithStats(GeneratedHat hatData) // Function for loading hats with predefined stats
+    public void GeneratePlayerHatWithStats(GeneratedHat hatData, bool applyStats = true) // Function for loading hats with predefined stats
     {
-        GameObject hatInstance = GenerateHatWithStats(hatData);
+        GameObject hatInstance = GenerateHatWithStats(hatData, applyStats);
+
+        hatInstance.transform.SetParent(hatContainer.transform);
+        stackedHatObjects.Add(hatInstance);
 
         // Set the hatBelow reference for proper stacking
         Hat hatScript = hatInstance.GetComponent<Hat>();
         if (hatScript != null)
         {
+            hatScript.playerHat = true;
             if (numHatsStacked == 0)
             {
                 hatScript.SetHatBelow(player); // First hat sits on the player
@@ -88,9 +94,6 @@ public class HatGenerator : MonoBehaviour
         {
             Debug.LogError("Hat prefab does not have a Hat script component.");
         }
-
-        // SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
-        // sr.sortingOrder = numHatsStacked + 2; // Ensure proper rendering order
     }
 
     public GameObject GenerateHat(bool applyStats = false)
@@ -129,13 +132,7 @@ public class HatGenerator : MonoBehaviour
     public GameObject GenerateHatWithStats(GeneratedHat hatData, bool applyStats = true) // Wrapper for loading hats with predefined stats
     {
         GameObject hatInstance = Instantiate(hatData.components.hatType);
-        hatInstance.transform.SetParent(hatContainer.transform);
-        stackedHatObjects.Add(hatInstance);
         hatInstance.name = hatData.hatName;
-
-        // Assign the provided sprite if available
-        //SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
-        //if (sr != null && hatData.hatSprite != null) sr.sprite = hatData.hatSprite;
 
         // Reset local position and rotation
         hatInstance.transform.localPosition = Vector3.zero;

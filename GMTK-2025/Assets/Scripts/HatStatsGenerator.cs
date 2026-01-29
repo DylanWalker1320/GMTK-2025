@@ -108,7 +108,7 @@ public static class HatStatsGenerator
         ClearGeneratedHats();
         foreach (var hatData in hats)
         {
-            hatGenerator.StackHatWithStats(hatData);
+            hatGenerator.GeneratePlayerHatWithStats(hatData, false);
         }
     }
 }
