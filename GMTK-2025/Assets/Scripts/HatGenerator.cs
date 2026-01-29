@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class HatGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject hatPrefab;
     [SerializeField] private GameObject hatContainer;
-    [SerializeField] public Sprite[] hatSprites;
+    [SerializeField] public GameObject[] hatTypes;
+    [SerializeField] public Sprite[] hatPatterns;
     [SerializeField] private GameObject player;
     private int numHatsStacked = 0;
     public bool debugMode = false;
@@ -13,9 +13,9 @@ public class HatGenerator : MonoBehaviour
 
     public void Start()
     {
-        if (hatPrefab == null)
+        if (hatTypes == null || hatTypes.Length == 0)
         {
-            Debug.LogError("Hat prefab is not assigned.");
+            Debug.LogError("No hat types available.");
             return;
         }
 
@@ -24,18 +24,13 @@ public class HatGenerator : MonoBehaviour
             Debug.LogError("Hat container is not assigned.");
             return;
         }
-
-        if (hatSprites.Length == 0)
-        {
-            Debug.LogError("No hat sprites available.");
-            return;
-        }
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.H) && debugMode)
         {
+            Debug.Log("Generating and Stacking a new Hat for testing.");
             StackHat(GenerateHat());
         }
     }
@@ -43,6 +38,8 @@ public class HatGenerator : MonoBehaviour
 
     public void StackHat(GameObject hatInstance)
     {
+        
+        hatInstance.transform.SetParent(hatContainer.transform);
         stackedHatObjects.Add(hatInstance);
         
         // Set the hatBelow reference for proper stacking
@@ -66,9 +63,6 @@ public class HatGenerator : MonoBehaviour
             Debug.LogError("Hat prefab does not have a Hat script component.");
         }
         hatScript.InitializeNewHat();
-
-        SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
-        sr.sortingOrder = numHatsStacked + 2; // Ensure proper rendering order
     }
 
     public void StackHatWithStats(GeneratedHat hatData) // Function for loading hats with predefined stats
@@ -96,14 +90,17 @@ public class HatGenerator : MonoBehaviour
             Debug.LogError("Hat prefab does not have a Hat script component.");
         }
 
-        SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
-        sr.sortingOrder = numHatsStacked + 2; // Ensure proper rendering order
+        // SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
+        // sr.sortingOrder = numHatsStacked + 2; // Ensure proper rendering order
     }
 
     public GameObject GenerateHat(bool applyStats = false)
     {
-        GameObject hatInstance = Instantiate(hatPrefab);
-        hatInstance.transform.SetParent(hatContainer.transform);
+        GeneratedHat hatData = HatStatsGenerator.GenerateHatStats(hatName: "Default Hat");
+        
+        // Generate components
+        hatData.components = GetRandomHatComponents(hatData);
+        GameObject hatInstance = Instantiate(hatData.components.hatType);
 
         // Reset local position and rotation
         hatInstance.transform.localPosition = Vector3.zero;
@@ -113,16 +110,9 @@ public class HatGenerator : MonoBehaviour
         Hat hatScript = hatInstance.GetComponent<Hat>();
         if (hatScript != null)
         {
-            // Generate stats using the static HatStatsGenerator
-            GeneratedHat hatData = HatStatsGenerator.GenerateHatStats("Default Hat");
-
-            // Assign the provided sprite if available
-            SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
-            if (sr != null && hatData.hatSprite != null) sr.sprite = hatData.hatSprite;
-
             // Pass the generated data to the Hat script
             hatScript.Initialize(hatData, applyStats);
-
+            
             hatScript.hatData.hatName = GenerateHatName(hatData.rarity);
             hatInstance.name = hatScript.hatData.hatName;
 
@@ -139,14 +129,14 @@ public class HatGenerator : MonoBehaviour
 
     public GameObject GenerateHatWithStats(GeneratedHat hatData, bool applyStats = true) // Wrapper for loading hats with predefined stats
     {
-        GameObject hatInstance = Instantiate(hatPrefab);
+        GameObject hatInstance = Instantiate(hatData.components.hatType);
         hatInstance.transform.SetParent(hatContainer.transform);
         stackedHatObjects.Add(hatInstance);
         hatInstance.name = hatData.hatName;
 
         // Assign the provided sprite if available
-        SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
-        if (sr != null && hatData.hatSprite != null) sr.sprite = hatData.hatSprite;
+        //SpriteRenderer sr = hatInstance.GetComponent<SpriteRenderer>();
+        //if (sr != null && hatData.hatSprite != null) sr.sprite = hatData.hatSprite;
 
         // Reset local position and rotation
         hatInstance.transform.localPosition = Vector3.zero;
@@ -171,6 +161,25 @@ public class HatGenerator : MonoBehaviour
         return hatInstance;
     }
 
+    private HatComponents GetRandomHatComponents(GeneratedHat hatData)
+    {
+        HatComponents components = new HatComponents();
+        components.hatType = hatTypes[Random.Range(0, hatTypes.Length)];
+        components.pattern = hatPatterns[Random.Range(0, hatPatterns.Length)];
+    
+        components.color = hatData.rarity switch
+        {   //                                   minHue     maxHue minSat maxSat minVal maxVal
+            Rarity.Common =>    Random.ColorHSV(0f,        0f,        0.5f, 0f, 0f,    1f), // Hue: 0 - 0, saturation: 0% to 0%, Value: 50% to 100%        -> Shades of grey
+            Rarity.Uncommon =>  Random.ColorHSV(90f/360f,  150f/360f, 0.5f, 1f, 0.75f, 1f), // Hue: 90 - 150, Saturation: 50% to 100%, Value: 75% to 100%  -> Shades of green 
+            Rarity.Rare =>      Random.ColorHSV(200f/360f, 260f/360f, 0.5f, 1f, 0.75f, 1f), // Hue: 200 - 260, Saturation: 50% to 100%, Value: 75% to 100% -> Shades of blue
+            Rarity.Epic =>      Random.ColorHSV(280f/360f, 310f/360f, 0.5f, 1f, 0.75f, 1f), // Hue: 280 - 310, Saturation: 50% to 100%, Value: 75% to 100% -> Shades of purple - fuscia
+            Rarity.Legendary => Random.ColorHSV(30f/360f,  60f/360f,  0.5f, 1f, 0.75f, 1f), // Hue: 20 - 40, Saturation: 50% to 100%, Value: 75% to 100%   -> Shades of orange - yellow
+            _ => Color.white
+        };
+
+        return components;
+    }
+
     public void ClearHats()
     {
         for (int i = stackedHatObjects.Count - 1; i >= 0; i--)
@@ -179,26 +188,6 @@ public class HatGenerator : MonoBehaviour
         }
         stackedHatObjects.Clear();
         numHatsStacked = 0;
-    }
-
-    public Sprite GetHatSprite(Rarity rarity)
-    {
-        switch(rarity)
-        {
-            case Rarity.Common:
-                return hatSprites[0];
-            case Rarity.Uncommon:
-                return hatSprites[1];
-            case Rarity.Rare:
-                return hatSprites[2];
-            case Rarity.Epic:
-                return hatSprites[3];
-            case Rarity.Legendary:
-                return hatSprites[Random.Range(4, hatSprites.Length)];
-            default:
-                return hatSprites[0];
-        }
-
     }
 
     private string GenerateHatName(Rarity rarity)

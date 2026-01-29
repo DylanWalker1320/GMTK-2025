@@ -7,12 +7,14 @@ public class PlayerHat : Hat
     public int hatNumber;
     private static readonly float moveThreshold = 0.01f;
     private static readonly float lerpSpeed = 50f;
-    private static readonly float yDifference = 0.3f;
-    private static readonly float initialYOffset = 0.52f;
+    public static readonly float yDifference = 0.3f;
+    public static readonly float initialYOffset = 0.52f;
     private static GameObject player;
-    private SpriteRenderer spriteRenderer;
     private bool isFirstHat => hatNumber == 0;
     private Rigidbody2D playerRb;
+    private HatSpriteLayerUpdater spriteLayerUpdater;
+    public GameObject hatVisuals;
+    public GameObject hatShadow;
 
     public void InitializeNewHat()
     {
@@ -30,11 +32,6 @@ public class PlayerHat : Hat
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
-        }
-
-        if (spriteRenderer == null)
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         if (playerRb == null)
@@ -63,14 +60,8 @@ public class PlayerHat : Hat
 
         // Flip the player to face the movement direction
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-        if (playerMovement.movement.x > 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else if (playerMovement.movement.x < 0)
-        {
-            spriteRenderer.flipX = false;
-        }
+        hatVisuals.transform.localScale = new Vector3(playerMovement.facingRight ? -1 : 1, 1, 1);
+        hatShadow.transform.localScale = new Vector3(playerMovement.facingRight ? -1 : 1, 1, 1);
     }
 
     // Only runs on hat spawn
@@ -91,6 +82,9 @@ public class PlayerHat : Hat
         {
             ApplyStats();
         }
+        
+        spriteLayerUpdater = GetComponent<HatSpriteLayerUpdater>();
+        spriteLayerUpdater.UpdateSpriteLayers();
     }
 
     private void ApplyStats()

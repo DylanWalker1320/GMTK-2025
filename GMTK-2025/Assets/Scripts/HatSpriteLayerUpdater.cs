@@ -1,0 +1,37 @@
+using UnityEngine;
+
+public class HatSpriteLayerUpdater : MonoBehaviour
+{
+    public PlayerHat playerHat;
+    public SpriteRenderer front;
+    public SpriteMask frontMask;
+    public SpriteRenderer back;
+    public SpriteRenderer outline;
+    public SpriteRenderer pattern;
+    public SpriteMask tipMask;
+    public SpriteMask[] brimMasks;
+
+    public void UpdateSpriteLayers()
+    {
+
+        int hatNumber = playerHat.hatNumber;
+
+        // Update sorting orders based on hat number
+        // Front: 1, Front Mask: 1-2, Back 0, Outline: 1, Pattern: 2, Tip Mask: 0-2, Brim Mask: 1-2, Add 3 for each stacked hat
+        front.sortingOrder =                1 + (hatNumber * 3);
+        frontMask.frontSortingOrder =       1 + (hatNumber * 3);
+        frontMask.backSortingOrder =        2 + (hatNumber * 3);
+        back.sortingOrder =                 0 + (hatNumber * 3);
+        outline.sortingOrder =              1 + (hatNumber * 3);
+        pattern.sortingOrder =              2 + (hatNumber * 3);
+        tipMask.frontSortingOrder =         0 + (hatNumber * 3);
+        tipMask.backSortingOrder =          2 + (hatNumber * 3);
+        foreach (SpriteMask brimMask in brimMasks)
+        {
+            brimMask.frontSortingOrder =    1 + (hatNumber * 3);
+            brimMask.backSortingOrder =     2 + (hatNumber * 3);
+        }
+
+        playerHat.hatSpriteMinLayer = back.sortingOrder;
+    }
+}

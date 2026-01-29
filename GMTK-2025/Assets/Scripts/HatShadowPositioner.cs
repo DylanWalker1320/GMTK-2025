@@ -29,15 +29,7 @@ public class HatShadowPositioner : MonoBehaviour
         if (spriteRenderer != null)
         {
             // Adjust the sorting order to be below the hat
-            spriteRenderer.sortingOrder = playerHat.spriteRenderer.sortingOrder - 1;
-        }
-    }
-
-    public void FlipSprite(bool flip)
-    {
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.flipX = flip;
+            spriteRenderer.sortingOrder = playerHat.hatSpriteMinLayer - 1;
         }
     }
 }

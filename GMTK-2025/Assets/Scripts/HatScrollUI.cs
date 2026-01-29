@@ -47,7 +47,8 @@ public class HatScrollUI : MonoBehaviour
         if(hatData != null)
         {
             hatNameText.text = hatData.hatName;
-            HatSpriteImage.sprite = hatData.hatSprite;
+            //HatSpriteImage.sprite = hatData.hatSprite;
+            // TODO: Replace with the object instead of just the sprite
             hatRarityText.text = hatData.rarity.ToString();
             hatStatsText.text = hatData.PrintStatsOnly();
         }

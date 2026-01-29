@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Animator shadowAnimator;
     private UIManager uiManager;
+    public bool facingRight = true;
 
 
     void Awake()
@@ -92,10 +93,12 @@ public class PlayerMovement : MonoBehaviour
         if (movement.x > 0)
         {
             playerSprite.flipX = true;
+            facingRight = true;
         }
         else if (movement.x < 0)
         {
             playerSprite.flipX = false;
+            facingRight = false;
         }
     }
 

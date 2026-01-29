@@ -22,14 +22,10 @@ public class HatCell : MonoBehaviour
     {
         hatGenerator = FindFirstObjectByType<HatGenerator>();
         hatObject = hatGenerator.GenerateHat();
-        GetComponent<Image>().sprite = GetHatSprite();
+        hatObject.transform.SetParent(this.transform);
         colorIndex = (int)GetHatRarity();
         transform.parent.GetComponent<Image>().color = _colors[colorIndex];
  
-    }
-    public Sprite GetHatSprite()
-    {
-        return GetHatData().hatSprite;
     }
 
     public Rarity GetHatRarity()

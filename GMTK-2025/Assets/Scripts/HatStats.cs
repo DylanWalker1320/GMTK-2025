@@ -111,12 +111,20 @@ public class HatStat
 }
 
 [Serializable]
+public struct HatComponents
+{
+    public GameObject hatType;
+    public Sprite pattern;
+    public Color color;
+}
+
+[Serializable]
 public class GeneratedHat
 {
     public string hatName;
     public Rarity rarity;
     public List<HatStat> stats;
-    public Sprite hatSprite;
+    public HatComponents components;
     public override string ToString()
     {
         string output = $"{hatName} (Rarity: {rarity})\nStats:\n";
@@ -137,12 +145,11 @@ public class GeneratedHat
         return output;
     }
 
-    public GeneratedHat(string name, Rarity rarity, List<HatStat> stats, Sprite hatSprite = null)
+    public GeneratedHat(string name, Rarity rarity, List<HatStat> stats)
     {
         this.hatName = name;
         this.rarity = rarity;
         this.stats = stats;
-        this.hatSprite = hatSprite;
     }
 }
 
