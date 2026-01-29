@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HatSpriteLayerUpdater : MonoBehaviour
 {
-    public PlayerHat playerHat;
+    public Hat Hat;
     public SpriteRenderer front;
     public SpriteMask frontMask;
     public SpriteRenderer back;
@@ -14,7 +14,7 @@ public class HatSpriteLayerUpdater : MonoBehaviour
     public void UpdateSpriteLayers()
     {
 
-        int hatNumber = playerHat.hatNumber;
+        int hatNumber = Hat.hatNumber;
 
         // Update sorting orders based on hat number
         // Front: 1, Front Mask: 1-2, Back 0, Outline: 1, Pattern: 2, Tip Mask: 0-2, Brim Mask: 1-2, Add 3 for each stacked hat
@@ -32,6 +32,12 @@ public class HatSpriteLayerUpdater : MonoBehaviour
             brimMask.backSortingOrder =     2 + (hatNumber * 3);
         }
 
-        playerHat.hatSpriteMinLayer = back.sortingOrder;
+        Hat.hatSpriteMinLayer = back.sortingOrder;
+    }
+
+    public void ApplyComponents(HatComponents components)
+    {
+        pattern.sprite = components.pattern;
+        front.color = components.color;
     }
 }

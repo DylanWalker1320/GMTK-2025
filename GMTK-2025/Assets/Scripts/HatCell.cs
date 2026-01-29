@@ -36,7 +36,7 @@ public class HatCell : MonoBehaviour
 
     public GeneratedHat GetHatData()
     {
-        return hatObject.GetComponent<PlayerHat>().hatData;
+        return hatObject.GetComponent<Hat>().hatData;
     }
     public GameObject GetHatObject()
     {

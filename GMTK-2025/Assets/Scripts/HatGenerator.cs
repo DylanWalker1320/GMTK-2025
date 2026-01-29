@@ -30,7 +30,6 @@ public class HatGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H) && debugMode)
         {
-            Debug.Log("Generating and Stacking a new Hat for testing.");
             StackHat(GenerateHat());
         }
     }
@@ -43,7 +42,7 @@ public class HatGenerator : MonoBehaviour
         stackedHatObjects.Add(hatInstance);
         
         // Set the hatBelow reference for proper stacking
-        PlayerHat hatScript = hatInstance.GetComponent<PlayerHat>();
+        Hat hatScript = hatInstance.GetComponent<Hat>();
         if (hatScript != null)
         {
             if (numHatsStacked == 0)
@@ -70,7 +69,7 @@ public class HatGenerator : MonoBehaviour
         GameObject hatInstance = GenerateHatWithStats(hatData);
 
         // Set the hatBelow reference for proper stacking
-        PlayerHat hatScript = hatInstance.GetComponent<PlayerHat>();
+        Hat hatScript = hatInstance.GetComponent<Hat>();
         if (hatScript != null)
         {
             if (numHatsStacked == 0)

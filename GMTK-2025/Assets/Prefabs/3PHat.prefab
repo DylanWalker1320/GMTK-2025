@@ -562,6 +562,7 @@ MonoBehaviour:
       pattern: {fileID: 0}
       color: {r: 0, g: 0, b: 0, a: 0}
   hatSpriteMinLayer: 0
+  playerHat: 0
   hatNumber: 0
   hatVisuals: {fileID: 753119305398716077}
   hatShadow: {fileID: 1015490866414470364}
@@ -577,7 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d186d7b4c83b594297949c0283ebc7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHat: {fileID: 5484457867036218671}
+  Hat: {fileID: 5484457867036218671}
   front: {fileID: 5737994544590857743}
   frontMask: {fileID: 9075697098801582814}
   back: {fileID: 4106798686655489815}
@@ -1014,7 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec5a5b1d41a87b4f9661075e96fb4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHat: {fileID: 5484457867036218671}
+  Hat: {fileID: 0}
 --- !u!4 &4580036006112509969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8990358697506668082, guid: c306432772672214b878e8f7afe0f15b, type: 3}

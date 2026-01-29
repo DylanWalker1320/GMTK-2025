@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HatShadowPositioner : MonoBehaviour
 {
-    public PlayerHat playerHat;
+    public Hat Hat;
     private float hatHeight;
     private static float shadowAngle = 75f; // Angle of the light source in degrees (counter-clockwise from horizontal)
     private float baseOffset = 1f; // Base offset to ensure shadow is not directly under the hat
@@ -11,13 +11,13 @@ public class HatShadowPositioner : MonoBehaviour
 
     void Start()
     {
-        if (playerHat == null)
+        if (Hat == null)
         {
-            playerHat = GetComponentInParent<PlayerHat>();
+            Hat = GetComponentInParent<Hat>();
         }
 
         // Find hat height
-        hatHeight = PlayerHat.initialYOffset + (playerHat.hatNumber * PlayerHat.yDifference);
+        hatHeight = Hat.initialYOffset + (Hat.hatNumber * Hat.yDifference);
 
         // Calculate shadow position as an offset found with x = h / tan(shadowAngle)
         float shadowOffsetX = hatHeight / Mathf.Tan(shadowAngle * Mathf.Deg2Rad) + baseOffset; 
@@ -29,7 +29,7 @@ public class HatShadowPositioner : MonoBehaviour
         if (spriteRenderer != null)
         {
             // Adjust the sorting order to be below the hat
-            spriteRenderer.sortingOrder = playerHat.hatSpriteMinLayer - 1;
+            spriteRenderer.sortingOrder = Hat.hatSpriteMinLayer - 1;
         }
     }
 }
