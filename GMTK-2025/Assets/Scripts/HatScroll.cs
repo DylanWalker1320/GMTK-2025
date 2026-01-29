@@ -84,6 +84,9 @@ public class HatScroll : MonoBehaviour
     public void ApplyPrizeHatStats()
     {
         hatGenerator.GeneratePlayerHatWithStats(targetHatData);
+
+        // Clear generated hats to prevent memory leak
+        HatCell.ClearGeneratedHats();
     }
 
 }

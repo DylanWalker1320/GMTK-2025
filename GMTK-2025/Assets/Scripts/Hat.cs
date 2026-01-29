@@ -21,6 +21,13 @@ public class Hat : MonoBehaviour
     public GameObject hatVisuals;
     public GameObject hatShadow;
 
+    void Start()
+    {
+        spriteLayerUpdater = GetComponent<HatSpriteLayerUpdater>();
+        spriteLayerUpdater.ApplyComponents(hatData.components);
+        spriteLayerUpdater.UpdateSpriteLayers();
+    }
+
     void Update()
     {
         if (playerHat) // Could be replaced with a return, left as an if for posterity
@@ -90,10 +97,6 @@ public class Hat : MonoBehaviour
                 ApplyStats();
             }
         }
-
-        spriteLayerUpdater = GetComponent<HatSpriteLayerUpdater>();
-        spriteLayerUpdater.ApplyComponents(hatData.components);
-        spriteLayerUpdater.UpdateSpriteLayers();
     }
 
     private void ApplyStats()

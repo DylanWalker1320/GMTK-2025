@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &234521612
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5653,7 +5653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5911,7 +5911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5912192111657467476, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: hatPatterns.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5912192111657467476, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'hatTypes.Array.data[0]'
@@ -5953,6 +5953,10 @@ PrefabInstance:
       propertyPath: 'hatPatterns.Array.data[2]'
       value: 
       objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 5912192111657467476, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: 'hatPatterns.Array.data[3]'
+      value: 
+      objectReference: {fileID: -6985431393051561228, guid: 003ed8c744d08d94a862e364c818a663, type: 3}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[0]'
       value: 
