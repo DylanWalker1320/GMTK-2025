@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(HatSpriteLayerUpdater))]
+[RequireComponent(typeof(HatComponentManager))]
 public class Hat : MonoBehaviour
 {
     public GeneratedHat hatData;
@@ -16,13 +16,13 @@ public class Hat : MonoBehaviour
     private static GameObject player;
     private bool isFirstHat => hatNumber == 0;
     private Rigidbody2D playerRb;
-    private HatSpriteLayerUpdater spriteLayerUpdater;
+    private HatComponentManager spriteLayerUpdater;
     public GameObject hatVisuals;
     public GameObject hatShadow;
 
     void Start()
     {
-        spriteLayerUpdater = GetComponent<HatSpriteLayerUpdater>();
+        spriteLayerUpdater = GetComponent<HatComponentManager>();
         spriteLayerUpdater.ApplyComponents(hatData.components);
         spriteLayerUpdater.UpdateSpriteLayers();
     }

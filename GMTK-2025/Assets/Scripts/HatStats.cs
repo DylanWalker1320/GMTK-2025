@@ -5,11 +5,11 @@ using Random = UnityEngine.Random;
 
 /* 
 Hat Rarity Chances:
-Common: 40%
-Uncommon: 30%
-Rare: 15%
-Epic: 10%
-Legendary: 5%
+Common: 30%
+Uncommon: 25%
+Rare: 20%
+Epic: 15%
+Legendary: 10%
 
 Number Of Stat Lines Per Rarity:
 Common: 1
@@ -57,9 +57,9 @@ public enum StatType
 }
 
 // ===== Data Classes =====
-public class RarityColors
+public class HatColors
 {
-    public static readonly Dictionary<Rarity, Color> Colors = new()
+    private static readonly Dictionary<Rarity, Color> RarityColors = new()
     {
         { Rarity.Common,    ColorUtility.TryParseHtmlString("#C0C0C0", out Color commonColor) ? commonColor : Color.gray },
         { Rarity.Uncommon,  ColorUtility.TryParseHtmlString("#00FF00", out Color uncommonColor) ? uncommonColor : Color.green },
@@ -67,6 +67,25 @@ public class RarityColors
         { Rarity.Epic,      ColorUtility.TryParseHtmlString("#ff00ff", out Color epicColor) ? epicColor : Color.magenta },
         { Rarity.Legendary, ColorUtility.TryParseHtmlString("#FFA500", out Color legendaryColor) ? legendaryColor : new Color(1f, 0.65f, 0f) }
     };
+
+    private static readonly Dictionary<StatType, Color> StatTypeColors = new()
+    {
+        { StatType.Speed,    ColorUtility.TryParseHtmlString("#fff201", out Color commonColor) ? commonColor : Color.yellow },
+        { StatType.Health,  ColorUtility.TryParseHtmlString("#00FF00", out Color uncommonColor) ? uncommonColor : Color.green },
+        { StatType.CastSpeed,      ColorUtility.TryParseHtmlString("#3c3cff", out Color rareColor) ? rareColor : Color.blue },
+        { StatType.CastStrength,      ColorUtility.TryParseHtmlString("#ff0000", out Color epicColor) ? epicColor : Color.magenta },
+        { StatType.SpellLevel, ColorUtility.TryParseHtmlString("#ff2ed5", out Color legendaryColor) ? legendaryColor : new Color(1f, 0.65f, 0f) }
+    };
+
+    public static Color GetRarityColor(Rarity rarity)
+    {
+        return RarityColors[rarity];
+    }
+
+    public static Color GetStatTypeColor(StatType statType)
+    {
+        return StatTypeColors[statType];
+    }
 }
 
 [Serializable]

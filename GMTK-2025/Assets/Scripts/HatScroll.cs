@@ -49,6 +49,7 @@ public class HatScroll : MonoBehaviour
             {
                 targetHatObject = cell.GetHatObject();
                 targetHatData = cell.GetHatData();
+                Debug.Log("Target Hat Set to Cell 39 with Rarity: " + targetHatData);
             }
         }
     }
@@ -86,7 +87,9 @@ public class HatScroll : MonoBehaviour
         hatGenerator.GeneratePlayerHatWithStats(targetHatData);
 
         // Clear generated hats to prevent memory leak
+        Debug.Log("<color=#55AAFF>[HatScroll]</color> Clearing generated hats to prevent memory leak...");
         HatCell.ClearGeneratedHats();
+        HatScrollUI.DestroyTargetHat();
     }
 
 }

@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class HatSpriteLayerUpdater : MonoBehaviour
+public class HatComponentManager : MonoBehaviour
 {
     public Hat hat;
     public SpriteRenderer front;
@@ -40,5 +40,10 @@ public class HatSpriteLayerUpdater : MonoBehaviour
     {
         pattern.sprite = components.pattern;
         front.color = components.color;
+    }
+
+    public void DisableShadow()
+    {
+        hat.hatShadow.SetActive(false);
     }
 }

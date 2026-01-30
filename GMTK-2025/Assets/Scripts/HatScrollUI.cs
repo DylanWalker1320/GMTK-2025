@@ -11,10 +11,10 @@ public class HatScrollUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hatRarityText;
     [SerializeField] private TextMeshProUGUI hatNameText;
     [SerializeField] private Image HatSpriteImage;
-    [SerializeField] private TextMeshProUGUI hatStatsText;
+    [SerializeField] private TextMeshProUGUI[] hatStatsTexts;
     [SerializeField] private UnityEvent unityEvent;
     private HatGenerator hatGenerator;
-    private GameObject hatObject;
+    private static GameObject hatObject;
 
     void Update()
     {
@@ -46,24 +46,50 @@ public class HatScrollUI : MonoBehaviour
 
     public void ToggleHatPrize(GeneratedHat hatData)
     {
+        Debug.Log("hat data received: " + hatData);
         if(hatData != null) // Toggle On
         {
             // Make a new hat object to display
             if (hatGenerator == null)
                 hatGenerator = FindFirstObjectByType<HatGenerator>();
             
-            GameObject hatObject = hatGenerator.GenerateHatWithStats(hatData);
+            hatObject = hatGenerator.GenerateHatWithStats(hatData);
             hatObject.transform.SetParent(HatSpriteImage.transform);
             hatObject.transform.localPosition = Vector3.zero;
+            hatObject.GetComponent<HatComponentManager>().DisableShadow();
 
             hatNameText.text = hatData.hatName;
             hatRarityText.text = hatData.rarity.ToString();
-            hatStatsText.text = hatData.PrintStatsOnly();
-        } else // Toggle Off
+            for (int i = 0; i < hatStatsTexts.Length; i++)
+            {
+                if (i < hatData.stats.Count)
+                {
+                    hatStatsTexts[i].text = hatData.stats[i].ToString();
+                    hatStatsTexts[i].color = HatColors.GetStatTypeColor(hatData.stats[i].type);
+                }
+                else
+                {
+                    hatStatsTexts[i].text = "";
+                }
+            }
+
+            // Colour the UI based on rarity
+            Color rarityColor = HatColors.GetRarityColor(hatData.rarity);
+            hatNameText.color = rarityColor;
+            hatRarityText.color = rarityColor;
+            HatSpriteImage.color = rarityColor;
+            
+        }
+        hatPrizeUI.SetActive(!hatPrizeUI.activeSelf);
+    }
+
+    public static void DestroyTargetHat()
+    {
+        if (hatObject != null)
         {
+            Debug.Log("Destroying hat object" + hatObject.name);
             Destroy(hatObject);
             hatObject = null;
         }
-        hatPrizeUI.SetActive(!hatPrizeUI.activeSelf);
     }
 }

@@ -7,7 +7,6 @@ public class HatCell : MonoBehaviour
     private GameObject hatObject;
     private HatGenerator hatGenerator;
     private static List<GameObject> generatedHats;
-    [SerializeField] private int[] _chances;
 
     public void Setup()
     {
@@ -17,11 +16,13 @@ public class HatCell : MonoBehaviour
         hatGenerator = FindFirstObjectByType<HatGenerator>();
         hatObject = hatGenerator.GenerateHat();
         hatObject.transform.SetParent(this.transform);
-        generatedHats.Add(hatObject);
+        hatObject.GetComponent<HatComponentManager>().DisableShadow();
         hatObject.transform.localPosition = Vector3.zero;
 
+        generatedHats.Add(hatObject);
+
         // Reference the defined colours in the HatStats script
-        GetComponent<Image>().color = RarityColors.Colors[GetHatRarity()];
+        GetComponent<Image>().color = HatColors.GetRarityColor(GetHatRarity());
     }
 
     public Rarity GetHatRarity()
