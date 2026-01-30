@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 234521615}
   - component: {fileID: 234521614}
   - component: {fileID: 234521613}
+  - component: {fileID: 234521616}
   m_Layer: 5
   m_Name: ScrollButton
   m_TagString: Untagged
@@ -333,6 +334,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234521611}
   m_CullTransparentMesh: 1
+--- !u!210 &234521616
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234521611}
+  m_Enabled: 1
+  m_SortingLayerID: -1638402479
+  m_SortingLayer: 7
+  m_SortingOrder: 5
+  m_SortAtRoot: 0
 --- !u!114 &284294703 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
@@ -1695,7 +1708,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 120.4}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 129.11, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635146026
 MonoBehaviour:
@@ -5688,6 +5701,7 @@ MonoBehaviour:
   _prefab: {fileID: 1338505782523705248, guid: fb7cf807ddeb9834a88497c7c540d9a5, type: 3}
   _speed: 0
   _hasScrolled: 0
+  zeroTimerLength: 0.9
 --- !u!114 &513395322923412352 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2491465562893273137, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
@@ -6253,6 +6267,14 @@ PrefabInstance:
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: dashStrength
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: experienceMultiplierGain
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: experiencePerLevelMultiplier
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: updateHealthUI.m_PersistentCalls.m_Calls.Array.data[0].m_Target

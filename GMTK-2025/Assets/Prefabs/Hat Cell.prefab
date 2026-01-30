@@ -88,23 +88,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c31c72f5039db84e93fec065d63a5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprites:
-  - HatSprites:
-    - {fileID: -3957006435994600188, guid: fba287c873e68af4ea2a231d103b6942, type: 3}
-  - HatSprites:
-    - {fileID: 1048962812178416128, guid: 754fa531f56f7e141a40da3fd706c1c9, type: 3}
-  - HatSprites:
-    - {fileID: -6887262100565661247, guid: 65392b9696603a44fb0ecb7997f5c6d6, type: 3}
-  - HatSprites:
-    - {fileID: -7490629062201625198, guid: c9dea3a1772ca084ebae24f546f595d6, type: 3}
-  - HatSprites:
-    - {fileID: 1048962812178416128, guid: 754fa531f56f7e141a40da3fd706c1c9, type: 3}
-    - {fileID: 1568221407020485856, guid: a48e3996f04c08d4da89340940f5ef42, type: 3}
-    - {fileID: 8981166263664889069, guid: cdbcf3b7cf405c64681ed29964aa5cfb, type: 3}
-  _chances: 410000003c000000320000002800000023000000
-  _colors:
-  - {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
-  - {r: 0.33456242, g: 1, b: 0, a: 1}
-  - {r: 0.04431629, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0, b: 0.77912426, a: 1}
-  - {r: 1, g: 0.07585368, b: 0, a: 1}
+  localScaleFactor: 1.6

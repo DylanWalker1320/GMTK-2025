@@ -7,8 +7,10 @@ public class HatScroll : MonoBehaviour
     private GameObject _currentHatPrefabContainer;
 
     public float _speed;
-    private bool _isScrolling;
     public bool _hasScrolled = false;
+    public float zeroTimerLength;
+    private float zeroTimerOnFinish;
+    private bool _isScrolling;
     private int counter;
     private List<HatCell> _cells = new List<HatCell>();
     private GameObject targetHatObject;
@@ -19,7 +21,7 @@ public class HatScroll : MonoBehaviour
     {
         _currentHatPrefabContainer = _prefab;
         GetComponent<RectTransform>().localPosition = new Vector2(1080, 0);
-
+        zeroTimerOnFinish = zeroTimerLength;
     }
 
     public void Scroll()
@@ -75,8 +77,16 @@ public class HatScroll : MonoBehaviour
         {
             _speed = 0;
             _isScrolling = false;
-            _hasScrolled = true;
-
+            Debug.Log("Scrolling finished.");
+        }
+        else if(_speed == 0 && !_isScrolling)
+        {
+            zeroTimerOnFinish -= Time.unscaledDeltaTime;
+            if (zeroTimerOnFinish <= 0)
+            {
+                _hasScrolled = true;
+                Debug.Log("Zero Timer finished, ready for UI Switch.");
+            }
         }
 
     }

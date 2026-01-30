@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class HatCell : MonoBehaviour
 {
+    [SerializeField] private float localScaleFactor;
     private GameObject hatObject;
     private HatGenerator hatGenerator;
     private static List<GameObject> generatedHats;
@@ -18,6 +19,7 @@ public class HatCell : MonoBehaviour
         hatObject.transform.SetParent(this.transform);
         hatObject.GetComponent<HatComponentManager>().DisableShadow();
         hatObject.transform.localPosition = Vector3.zero;
+        hatObject.transform.localScale *= localScaleFactor;
 
         generatedHats.Add(hatObject);
 
