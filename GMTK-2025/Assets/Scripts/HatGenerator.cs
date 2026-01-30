@@ -59,6 +59,9 @@ public class HatGenerator : MonoBehaviour
 
             hatScript.hatNumber = numHatsStacked;
             numHatsStacked++;
+
+            // Re-initialize the hat to apply player hat settings (this is also called in GenerateHat, but the function wont run redundant code)
+            hatScript.Initialize(hatScript.hatData, true);
         }
         else
         {
@@ -89,6 +92,8 @@ public class HatGenerator : MonoBehaviour
 
             hatScript.hatNumber = numHatsStacked;
             numHatsStacked++;
+            // Re-initialize the hat to apply player hat settings (this is also called in GenerateHatWithStats, but the function wont run redundant code)
+            hatScript.Initialize(hatData, applyStats);
         }
         else
         {

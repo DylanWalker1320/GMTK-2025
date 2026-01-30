@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.IO.Compression;
 
 [RequireComponent(typeof(HatSpriteLayerUpdater))]
 public class Hat : MonoBehaviour

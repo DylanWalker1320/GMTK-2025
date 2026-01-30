@@ -9,20 +9,19 @@ public class HatCell : MonoBehaviour
     private static List<GameObject> generatedHats;
     [SerializeField] private int[] _chances;
 
-    public void Start()
-    {
-        generatedHats = new List<GameObject>();
-    }
-
     public void Setup()
     {
+        if (generatedHats == null)
+            generatedHats = new List<GameObject>();
+
         hatGenerator = FindFirstObjectByType<HatGenerator>();
         hatObject = hatGenerator.GenerateHat();
         hatObject.transform.SetParent(this.transform);
         generatedHats.Add(hatObject);
+        hatObject.transform.localPosition = Vector3.zero;
 
-        // Set the border color based on rarity
-        transform.parent.GetComponent<Image>().color = RarityColors.Colors[GetHatRarity()];
+        // Reference the defined colours in the HatStats script
+        GetComponent<Image>().color = RarityColors.Colors[GetHatRarity()];
     }
 
     public Rarity GetHatRarity()

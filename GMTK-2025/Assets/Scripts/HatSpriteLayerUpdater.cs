@@ -19,7 +19,6 @@ public class HatSpriteLayerUpdater : MonoBehaviour
 
         // Update sorting orders based on hat number
         // Front: 1, Front Mask: 1-2, Back 0, Outline: 1, Pattern: 2, Tip Mask: 0-2, Brim Mask: 1-2, Add 3 for each stacked hat
-        Debug.Log($"Updating sprite layers for hat number: {hatNumber}");
         front.sortingOrder =                1 + (hatNumber * 3);
         frontMask.frontSortingOrder =       2 + (hatNumber * 3);
         frontMask.backSortingOrder =        1 + (hatNumber * 3);

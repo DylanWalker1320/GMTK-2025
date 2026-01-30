@@ -13,6 +13,8 @@ public class HatScrollUI : MonoBehaviour
     [SerializeField] private Image HatSpriteImage;
     [SerializeField] private TextMeshProUGUI hatStatsText;
     [SerializeField] private UnityEvent unityEvent;
+    private HatGenerator hatGenerator;
+    private GameObject hatObject;
 
     void Update()
     {
@@ -44,13 +46,23 @@ public class HatScrollUI : MonoBehaviour
 
     public void ToggleHatPrize(GeneratedHat hatData)
     {
-        if(hatData != null)
+        if(hatData != null) // Toggle On
         {
+            // Make a new hat object to display
+            if (hatGenerator == null)
+                hatGenerator = FindFirstObjectByType<HatGenerator>();
+            
+            GameObject hatObject = hatGenerator.GenerateHatWithStats(hatData);
+            hatObject.transform.SetParent(HatSpriteImage.transform);
+            hatObject.transform.localPosition = Vector3.zero;
+
             hatNameText.text = hatData.hatName;
-            //HatSpriteImage.sprite = hatData.hatSprite;
-            // TODO: Replace with the object instead of just the sprite
             hatRarityText.text = hatData.rarity.ToString();
             hatStatsText.text = hatData.PrintStatsOnly();
+        } else // Toggle Off
+        {
+            Destroy(hatObject);
+            hatObject = null;
         }
         hatPrizeUI.SetActive(!hatPrizeUI.activeSelf);
     }

@@ -64,7 +64,7 @@ public class RarityColors
         { Rarity.Common,    ColorUtility.TryParseHtmlString("#C0C0C0", out Color commonColor) ? commonColor : Color.gray },
         { Rarity.Uncommon,  ColorUtility.TryParseHtmlString("#00FF00", out Color uncommonColor) ? uncommonColor : Color.green },
         { Rarity.Rare,      ColorUtility.TryParseHtmlString("#0000FF", out Color rareColor) ? rareColor : Color.blue },
-        { Rarity.Epic,      ColorUtility.TryParseHtmlString("#800080", out Color epicColor) ? epicColor : Color.magenta },
+        { Rarity.Epic,      ColorUtility.TryParseHtmlString("#ff00ff", out Color epicColor) ? epicColor : Color.magenta },
         { Rarity.Legendary, ColorUtility.TryParseHtmlString("#FFA500", out Color legendaryColor) ? legendaryColor : new Color(1f, 0.65f, 0f) }
     };
 }
