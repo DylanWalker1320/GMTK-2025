@@ -4,32 +4,25 @@ using UnityEngine.UI;
 
 public class HatCell : MonoBehaviour
 {
-    [System.Serializable]
-    private class ListOfSprites
-    {
-        public List<Sprite> HatSprites;
-    }
-
     private GameObject hatObject;
     private HatGenerator hatGenerator;
-    private int colorIndex;
-    [SerializeField] private List<ListOfSprites> _sprites;
-
-    [SerializeField] private int[] _chances;
-    [SerializeField] private Color[] _colors;
+    private static List<GameObject> generatedHats;
 
     public void Setup()
     {
+        if (generatedHats == null)
+            generatedHats = new List<GameObject>();
+
         hatGenerator = FindFirstObjectByType<HatGenerator>();
         hatObject = hatGenerator.GenerateHat();
-        GetComponent<Image>().sprite = GetHatSprite();
-        colorIndex = (int)GetHatRarity();
-        transform.parent.GetComponent<Image>().color = _colors[colorIndex];
- 
-    }
-    public Sprite GetHatSprite()
-    {
-        return GetHatData().hatSprite;
+        hatObject.transform.SetParent(this.transform);
+        hatObject.GetComponent<HatComponentManager>().DisableShadow();
+        hatObject.transform.localPosition = Vector3.zero;
+
+        generatedHats.Add(hatObject);
+
+        // Reference the defined colours in the HatStats script
+        GetComponent<Image>().color = HatColors.GetRarityColor(GetHatRarity());
     }
 
     public Rarity GetHatRarity()
@@ -37,13 +30,21 @@ public class HatCell : MonoBehaviour
         return GetHatData().rarity;
     }
 
-
     public GeneratedHat GetHatData()
     {
-        return hatObject.GetComponent<PlayerHat>().hatData;
+        return hatObject.GetComponent<Hat>().hatData;
     }
     public GameObject GetHatObject()
     {
         return hatObject;
+    }
+
+    public static void ClearGeneratedHats()
+    {
+        foreach (var hat in generatedHats)
+        {
+            GameObject.Destroy(hat);
+        }
+        generatedHats.Clear();
     }
 }
