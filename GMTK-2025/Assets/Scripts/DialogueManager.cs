@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
-// Dialogue data structure for JSON
+
 [System.Serializable]
 public class DialogueData
 {
@@ -18,28 +18,45 @@ public class DialogueCollection
     public List<DialogueData> dialogues;
 }
 
+// Individual dialogue instance that tracks its own state
+public class DialogueInstance
+{
+    public TextMeshProUGUI dialogueText;
+    public Image dialogueBoxImage;
+    public bool isTyping = false;
+    public bool isActive = false;
+    public int currentLineIndex = 0;
+    public List<string> lines;
+    public Coroutine typingCoroutine;
+    public Action onComplete;
+    public Action onCancel; // Callback for when dialogue is force-stopped
+    public float textSpeed;
+    
+    public DialogueInstance(TextMeshProUGUI text, Image box, float speed)
+    {
+        dialogueText = text;
+        dialogueBoxImage = box;
+        textSpeed = speed;
+    }
+}
+
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
+    [Header("Default UI (Screen Space)")]
     [SerializeField] private float textSpeed = 0.05f;
-    [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private Image dialogueBoxImage;
+    [SerializeField] private TextMeshProUGUI defaultDialogueText;
+    [SerializeField] private Image defaultDialogueBoxImage;
     public bool debugMode = false;
     
-    private bool isTyping = false;
-    private bool dialogueActive = false;
-    private int currentLineIndex = 0;
-    private List<string> activeDialogueLines;
-    private Coroutine typingCoroutine;
-    private Action onDialogueComplete;
-    
-    // Dictionary to store loaded dialogues
     private Dictionary<string, List<string>> dialogueDatabase = new Dictionary<string, List<string>>();
+    
+    // Track multiple active dialogue instances
+    private List<DialogueInstance> activeInstances = new List<DialogueInstance>();
 
     void Awake()
     {
-        // Singleton pattern
         if (Instance == null)
         {
             Instance = this;
@@ -53,38 +70,42 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        LoadDialoguesFromJSON("dialogues"); // Load from Resources folder
-        dialogueBoxImage.enabled = false;
+        LoadDialoguesFromJSON("dialogues");
+        
+        if (defaultDialogueBoxImage != null)
+            defaultDialogueBoxImage.enabled = false;
     }
 
     void Update()
     {
+        // Handle input for all active dialogues
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            if (dialogueActive)
+            // Process each active instance
+            for (int i = activeInstances.Count - 1; i >= 0; i--)
             {
-                if (isTyping)
+                DialogueInstance instance = activeInstances[i];
+                
+                if (instance.isTyping)
                 {
-                    // Skip typing animation
-                    CompleteCurrentLine();
+                    CompleteCurrentLine(instance);
                 }
                 else
                 {
-                    // Move to next line
-                    AdvanceDialogue();
+                    AdvanceDialogue(instance);
                 }
             }
         }
 
-        // Debug input to start a dialogue
+        // Debug trigger for testing dialogues
         if (Input.GetKeyDown(KeyCode.T) && debugMode)
         {
-            // Choose a random dialogue from the database to start
-            if (dialogueDatabase.Count > 0)
+            List<string> keys = new List<string>(dialogueDatabase.Keys);
+            if (keys.Count > 0)
             {
-                String randomID = new List<string>(dialogueDatabase.Keys)[UnityEngine.Random.Range(0, dialogueDatabase.Count)];
-                Debug.Log($"Starting dialogue with ID: {randomID}");
-                StartDialogue(randomID);
+                string randomKey = keys[UnityEngine.Random.Range(0, keys.Count)];
+                Debug.Log($"Debug Triggering Dialogue: {randomKey}");
+                StartDialogue(randomKey);
             }
         }
     }
@@ -99,99 +120,162 @@ public class DialogueManager : MonoBehaviour
             {
                 dialogueDatabase[dialogue.dialogueId] = dialogue.lines;
             }
-            
-            if (debugMode) Debug.Log($"Loaded {collection.dialogues.Count} dialogues from JSON");
+            Debug.Log($"Loaded {collection.dialogues.Count} dialogues from JSON");
         }
         else
         {
-            if (debugMode) Debug.LogError($"Could not find dialogue file: {fileName}");
+            Debug.LogError($"Could not find dialogue file: {fileName}");
         }
     }
 
-    public void StartDialogue(string dialogueId, Action onComplete = null)
+    // Main method - starts dialogue with specific UI targets
+    public DialogueInstance StartDialogue(string dialogueId, TextMeshProUGUI textTarget, Image boxTarget, Action onComplete = null, Action onCancel = null)
     {
         if (dialogueDatabase.ContainsKey(dialogueId))
         {
-            StartDialogue(dialogueDatabase[dialogueId], onComplete);
+            return StartDialogue(dialogueDatabase[dialogueId], textTarget, boxTarget, onComplete, onCancel);
         }
         else
         {
             Debug.LogError($"Dialogue ID '{dialogueId}' not found in database!");
+            return null;
         }
     }
 
-    public void StartDialogue(List<string> dialogueLines, Action onComplete = null)
+    public DialogueInstance StartDialogue(List<string> dialogueLines, TextMeshProUGUI textTarget, Image boxTarget, Action onComplete = null, Action onCancel = null)
     {
-        if (dialogueActive) return;
+        // Check if this UI is already being used
+        DialogueInstance existingInstance = FindInstanceByUI(textTarget, boxTarget);
+        if (existingInstance != null)
+        {
+            Debug.LogWarning("This UI is already displaying dialogue. Stopping previous dialogue.");
+            StopDialogue(existingInstance);
+        }
 
-        dialogueBoxImage.enabled = true;
-        dialogueActive = true;
-        activeDialogueLines = dialogueLines;
-        currentLineIndex = 0;
-        onDialogueComplete = onComplete;
+        // Create new instance
+        DialogueInstance instance = new DialogueInstance(textTarget, boxTarget, textSpeed);
+        instance.lines = dialogueLines;
+        instance.onComplete = onComplete;
+        instance.onCancel = onCancel;
+        instance.isActive = true;
+        instance.currentLineIndex = 0;
         
-        DisplayLine(activeDialogueLines[currentLineIndex]);
-    }
-
-    void DisplayLine(string line)
-    {
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-        }
-        typingCoroutine = StartCoroutine(TypeDialogue(line));
-    }
-
-    void CompleteCurrentLine()
-    {
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-        }
-        dialogueText.text = activeDialogueLines[currentLineIndex];
-        isTyping = false;
-    }
-
-    void AdvanceDialogue()
-    {
-        currentLineIndex++;
+        activeInstances.Add(instance);
         
-        if (currentLineIndex < activeDialogueLines.Count)
+        if (instance.dialogueBoxImage != null)
+            instance.dialogueBoxImage.enabled = true;
+        
+        DisplayLine(instance, instance.lines[instance.currentLineIndex]);
+        
+        return instance;
+    }
+
+    // Convenience methods for using default UI
+    public DialogueInstance StartDialogue(string dialogueId, Action onComplete = null, Action onCancel = null)
+    {
+        return StartDialogue(dialogueId, defaultDialogueText, defaultDialogueBoxImage, onComplete, onCancel);
+    }
+
+    public DialogueInstance StartDialogue(List<string> dialogueLines, Action onComplete = null, Action onCancel = null)
+    {
+        return StartDialogue(dialogueLines, defaultDialogueText, defaultDialogueBoxImage, onComplete, onCancel);
+    }
+
+    // Force stop a specific dialogue (e.g., when player leaves area)
+    public void StopDialogue(DialogueInstance instance)
+    {
+        if (instance == null || !activeInstances.Contains(instance)) return;
+        
+        if (instance.typingCoroutine != null)
         {
-            DisplayLine(activeDialogueLines[currentLineIndex]);
+            StopCoroutine(instance.typingCoroutine);
+        }
+        
+        if (instance.dialogueBoxImage != null)
+            instance.dialogueBoxImage.enabled = false;
+        
+        instance.dialogueText.text = "";
+        instance.isActive = false;
+        
+        activeInstances.Remove(instance);
+        
+        // Trigger cancel callback instead of complete
+        instance.onCancel?.Invoke();
+    }
+
+    void DisplayLine(DialogueInstance instance, string line)
+    {
+        if (instance.typingCoroutine != null)
+        {
+            StopCoroutine(instance.typingCoroutine);
+        }
+        instance.typingCoroutine = StartCoroutine(TypeDialogue(instance, line));
+    }
+
+    void CompleteCurrentLine(DialogueInstance instance)
+    {
+        if (instance.typingCoroutine != null)
+        {
+            StopCoroutine(instance.typingCoroutine);
+        }
+        instance.dialogueText.text = instance.lines[instance.currentLineIndex];
+        instance.isTyping = false;
+    }
+
+    void AdvanceDialogue(DialogueInstance instance)
+    {
+        instance.currentLineIndex++;
+        
+        if (instance.currentLineIndex < instance.lines.Count)
+        {
+            DisplayLine(instance, instance.lines[instance.currentLineIndex]);
         }
         else
         {
-            EndDialogue();
+            EndDialogue(instance);
         }
     }
 
-    void EndDialogue()
+    void EndDialogue(DialogueInstance instance)
     {
-        dialogueBoxImage.enabled = false;
-        dialogueActive = false;
-        currentLineIndex = 0;
-        dialogueText.text = "";
+        if (instance.dialogueBoxImage != null)
+            instance.dialogueBoxImage.enabled = false;
         
-        onDialogueComplete?.Invoke();
+        instance.isActive = false;
+        instance.currentLineIndex = 0;
+        instance.dialogueText.text = "";
+        
+        activeInstances.Remove(instance);
+        
+        instance.onComplete?.Invoke();
     }
 
-    IEnumerator TypeDialogue(string line)
+    IEnumerator TypeDialogue(DialogueInstance instance, string line)
     {
-        isTyping = true;
-        dialogueText.text = "";
+        instance.isTyping = true;
+        instance.dialogueText.text = "";
         
         foreach (char letter in line.ToCharArray())
         {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(textSpeed);
+            instance.dialogueText.text += letter;
+            yield return new WaitForSeconds(instance.textSpeed);
         }
         
-        isTyping = false;
+        instance.isTyping = false;
     }
 
-    public bool IsDialogueActive()
+    DialogueInstance FindInstanceByUI(TextMeshProUGUI text, Image box)
     {
-        return dialogueActive;
+        return activeInstances.Find(i => i.dialogueText == text && i.dialogueBoxImage == box);
+    }
+
+    public bool IsAnyDialogueActive()
+    {
+        return activeInstances.Count > 0;
+    }
+    
+    public bool IsDialogueActive(DialogueInstance instance)
+    {
+        return instance != null && instance.isActive && activeInstances.Contains(instance);
     }
 }
