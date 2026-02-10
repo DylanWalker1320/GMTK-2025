@@ -1,0 +1,34 @@
+{
+  "dialogues": [
+    {
+      "dialogueId": "newGame1",
+      "lines": [
+        "... Where am I?",
+        "...",
+        "My hat! I must find my hat."
+      ]
+    },
+    {
+      "dialogueId": "newGame2",
+      "lines": [
+        "This isn't my hat...",
+        "It is now though!",
+        "... Now where is my real hat?"
+      ]
+    },
+    {
+      "dialogueId": "pond_lady1",
+      "lines": [
+        "... Hi... I guess..."
+      ]
+    },
+    {
+      "dialogueId": "newLoop1",
+      "lines": [
+        "... Here again!?",
+        "...",
+        "My hats!"
+      ]
+    }
+  ]
+}
