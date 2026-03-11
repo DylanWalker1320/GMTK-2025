@@ -31,6 +31,7 @@ public class DialogueInstance
     public Action onComplete;
     public Action onCancel; // Callback for when dialogue is force-stopped
     public float textSpeed;
+    public bool debugMode = false;
     
     public DialogueInstance(TextMeshProUGUI text, Image box, float speed)
     {
@@ -104,7 +105,7 @@ public class DialogueManager : MonoBehaviour
             if (keys.Count > 0)
             {
                 string randomKey = keys[UnityEngine.Random.Range(0, keys.Count)];
-                Debug.Log($"Debug Triggering Dialogue: {randomKey}");
+                if (debugMode) Debug.Log($"Debug Triggering Dialogue: {randomKey}");
                 StartDialogue(randomKey);
             }
         }
@@ -120,11 +121,11 @@ public class DialogueManager : MonoBehaviour
             {
                 dialogueDatabase[dialogue.dialogueId] = dialogue.lines;
             }
-            Debug.Log($"Loaded {collection.dialogues.Count} dialogues from JSON");
+            if (debugMode) Debug.Log($"Loaded {collection.dialogues.Count} dialogues from JSON");
         }
         else
         {
-            Debug.LogError($"Could not find dialogue file: {fileName}");
+            if (debugMode) Debug.LogError($"Could not find dialogue file: {fileName}");
         }
     }
 
@@ -137,7 +138,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"Dialogue ID '{dialogueId}' not found in database!");
+            if (debugMode) Debug.LogError($"Dialogue ID '{dialogueId}' not found in database!");
             return null;
         }
     }
@@ -148,7 +149,7 @@ public class DialogueManager : MonoBehaviour
         DialogueInstance existingInstance = FindInstanceByUI(textTarget, boxTarget);
         if (existingInstance != null)
         {
-            Debug.LogWarning("This UI is already displaying dialogue. Stopping previous dialogue.");
+            if (debugMode) Debug.LogWarning("This UI is already displaying dialogue. Stopping previous dialogue.");
             StopDialogue(existingInstance);
         }
 
