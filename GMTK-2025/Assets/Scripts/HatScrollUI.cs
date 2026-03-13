@@ -21,6 +21,7 @@ public class HatScrollUI : MonoBehaviour
         if (hatPrizeUI.activeSelf && Input.GetKeyDown(KeyCode.Mouse0)) // Apply Hat Stats after clicking off prize menu
         {
             scrollUI.GetComponent<HatScroll>().ApplyPrizeHatStats();
+            FindAnyObjectByType<UIManager>().updateStatTrackerUI();
             unityEvent.Invoke();
         }
         if(scrollUI.GetComponent<HatScroll>()._speed == 0 && scrollUI.GetComponent<HatScroll>()._hasScrolled == true) // Click

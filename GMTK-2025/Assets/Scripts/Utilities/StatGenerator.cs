@@ -64,6 +64,7 @@ public class StatGenerator : Stats
                     break;
             }
         }
+        FindAnyObjectByType<UIManager>().updateStatTrackerUI();
         player.UpdateUI();
     }   
 }

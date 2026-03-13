@@ -212,6 +212,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
                 Debug.LogError("Invalid upgrade index for stats.");
                 break;
         }
+        uiManager.updateStatTrackerUI();
         DisableUpgradeScreen();
     }
     public void SlotThree()

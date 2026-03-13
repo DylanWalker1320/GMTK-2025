@@ -12,11 +12,12 @@ public class UIManager : MonoBehaviour
     public GameObject upgradeUI;
     public GameObject levelUpUI;
     public GameObject scrollUI;
+    public GameObject barAllocationUI;
+    public GameObject statTrackerUI;
     public GameObject pauseMenu;
     public GameObject startMenu;
     public GameObject settingsMenu;
     public GameObject tutorialMenu;
-    public GameObject barAllocationUI;
     // TODO: Add Level UP UI & Potentially Hat Roll UI
     [Header("Slides")]
     public GameObject Slide1;
@@ -114,6 +115,14 @@ public class UIManager : MonoBehaviour
                 currentMenu = Menu.GameMenu;
             }
         }
+        else if(Input.GetKeyDown(KeyCode.C))
+        {
+            statTrackerUI.SetActive(!statTrackerUI.activeSelf);
+            if(statTrackerUI.activeSelf)
+            {
+                updateStatTrackerUI(); // panel needs to update with current data once player toggles
+            }
+        }
 
         if (gameManager.levelComplete && gameManager.isInSafeArea && !gameManager.loopComplete)
         {
@@ -151,6 +160,14 @@ public class UIManager : MonoBehaviour
         experienceBarText.text = $"LV {level} {experiencePercentage}%";
         soulsText.text = souls.ToString();
 
+    }
+
+    public void updateStatTrackerUI()
+    {
+        if(statTrackerUI.activeSelf)
+        {
+            statTrackerUI.GetComponent<PlayerStatTracker>().UpdateStatTrackerPanel(FindAnyObjectByType<PlayerMovement>());
+        }
     }
 
 
