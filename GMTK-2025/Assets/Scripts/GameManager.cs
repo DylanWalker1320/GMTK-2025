@@ -11,13 +11,14 @@ public class GameManager : MonoBehaviour
     public bool isInSafeArea = false;
     public bool levelComplete = false;
     public bool loopComplete = false;
-    public bool waitingForPortalReturn = false; // True after boss dies, waiting for player to use portal
+    public bool waitingForPortalReturn = false;
+    private bool bossHasDied = false; // Tracks boss death without opening portal yet
     public int loopsCompleted;
     public int wavesCompleted;
     public TextMeshProUGUI loopsAmountCompleted;
     public TextMeshProUGUI enemiesRemaining;
     public GameObject bossPrefab;
-    public GameObject portalObject; // Assign the portal GameObject in Inspector — disabled by default
+    public GameObject portalObject;
 
     public Spell.SpellType allocateSpell;
     public Sprite spellImage;
@@ -31,7 +32,6 @@ public class GameManager : MonoBehaviour
         if (!isInSafeArea)
             enemySpawner = FindFirstObjectByType<EnemySpawner>();
 
-        // Ensure portal starts disabled
         if (portalObject != null)
             portalObject.SetActive(false);
     }
@@ -50,16 +50,26 @@ public class GameManager : MonoBehaviour
         {
             enemiesRemaining.text = enemySpawner.currentEnemies.ToString();
 
-            if (enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0 && !isInSafeArea && !bossAlive)
-            {
-                levelComplete = true;
-                isInSafeArea = true;
-                wavesCompleted++;
+            bool waveCleared = enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0;
 
-                if (wavesCompleted % 4 == 0)
+            if (waveCleared && !isInSafeArea && !bossAlive)
+            {
+                // If the boss already died before the last enemy, open the portal now
+                if (bossHasDied)
                 {
-                    loopComplete = true;
-                    loopsCompleted++;
+                    OpenPortal();
+                }
+                else
+                {
+                    levelComplete = true;
+                    isInSafeArea = true;
+                    wavesCompleted++;
+
+                    if (wavesCompleted % 4 == 0)
+                    {
+                        loopComplete = true;
+                        loopsCompleted++;
+                    }
                 }
             }
         }
@@ -77,32 +87,42 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-    // Called from the Boss script when the boss dies.
     public void OnBossDied()
     {
         bossAlive = false;
+        bossHasDied = true;
+
+        // Only open the portal if all regular enemies are also gone
+        bool waveCleared = enemySpawner != null &&
+                           enemySpawner.maxWavePopulation <= 0 &&
+                           enemySpawner.currentEnemies <= 0;
+
+        if (waveCleared)
+            OpenPortal();
+        // Otherwise Update() will catch it when the last enemy dies
+    }
+
+    private void OpenPortal()
+    {
         waitingForPortalReturn = true;
+        bossHasDied = false; // Reset for next loop 
+        isInSafeArea = true;
 
         if (portalObject != null)
             portalObject.SetActive(true);
 
-        // Stop any remaining enemy spawning while player is in refresh room
         if (enemySpawner != null)
             enemySpawner.SetSpawningPaused(true);
     }
 
-    /// <summary>
-    /// Called by the Portal when the player travels through it back to the main area.
-    /// </summary>
     public void OnPlayerReturnedFromPortal()
     {
         waitingForPortalReturn = false;
+        isInSafeArea = false;
 
         if (portalObject != null)
             portalObject.SetActive(false);
 
-        // Resume spawning for the next loop
         if (enemySpawner != null)
         {
             enemySpawner.SetSpawningPaused(false);
