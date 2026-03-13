@@ -74,7 +74,7 @@ public class Boss : Enemy
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
 
-        gameManager.bossAlive = false;
+        gameManager.OnBossDied(); // Notify GameManager that the boss has died
 
         Destroy(gameObject);
     }

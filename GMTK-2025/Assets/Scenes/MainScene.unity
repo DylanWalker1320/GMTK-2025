@@ -5264,7 +5264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1596357089
 Transform:
   m_ObjectHideFlags: 0
@@ -5329,6 +5329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: {fileID: 1178680864}
+  isReturnPortal: 0
 --- !u!212 &1596357092
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5939,6 +5940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: {fileID: 1227942948}
+  isReturnPortal: 1
 --- !u!212 &1986131582
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6495,7 +6497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6597,6 +6599,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
+      propertyPath: portalObject
+      value: 
+      objectReference: {fileID: 1596357088}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: enemiesRemaining
       value: 
