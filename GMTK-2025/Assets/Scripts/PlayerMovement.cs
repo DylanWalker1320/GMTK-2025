@@ -15,22 +15,30 @@ public class PlayerMovement : MonoBehaviour
     public float castStrength;
     public float health;
     public int invincibilityFrames = 1; // Invincibility frames after taking damage
-    [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
-    [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
-    private AudioManager audioManager;
-    public Transform reticle; // Reference to the reticle script for aiming
+    [SerializeField] private float dashStrength = 10f; // Strength of the dash
+    [Header("Currency")]
     public int souls;
+    [Header("Experience")]
     public float experience;
     public float nextLevelExperience = 50f;
+    public float experiencePerLevelMultiplier;
+    public float experienceMultiplierGain;
+    // public float experiencePerSoul = 1f; // could be used as a stat modifier where players gain more experience per soul collected
+    [Header("UI Elements")]
+    [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
+    [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
+    public Transform reticle; // Reference to the reticle script for aiming
     public UnityEvent<float, float> updateHealthUI;
-    private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
-    private Rigidbody2D rb;
+    [Header("Movement/Animation")]
     public Vector2 movement;
-    private float invincibilityTimer = 0f; // Timer for invincibility frames
-    [SerializeField] private float dashStrength = 10f; // Strength of the dash
     [SerializeField] private Animator animator;
     [SerializeField] private Animator shadowAnimator;
+    public bool facingRight = true;
+    private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
+    private Rigidbody2D rb;
+    private AudioManager audioManager;
     private UIManager uiManager;
+    private float invincibilityTimer = 0f; // Timer for invincibility frames
 
 
     void Awake()
@@ -92,10 +100,12 @@ public class PlayerMovement : MonoBehaviour
         if (movement.x > 0)
         {
             playerSprite.flipX = true;
+            facingRight = true;
         }
         else if (movement.x < 0)
         {
             playerSprite.flipX = false;
+            facingRight = false;
         }
     }
 
@@ -107,7 +117,9 @@ public class PlayerMovement : MonoBehaviour
         {
             level++;
             experience -= nextLevelExperience;
-            nextLevelExperience = Mathf.Round(nextLevelExperience * 1.5f);
+            nextLevelExperience = Mathf.Round(nextLevelExperience * experiencePerLevelMultiplier);
+            experiencePerLevelMultiplier += experienceMultiplierGain;
+            experienceMultiplierGain += experienceMultiplierGain;
             FindAnyObjectByType<UIManager>().SetActiveScrollUI();
             Debug.Log("Leveled up to level " + level);
         }

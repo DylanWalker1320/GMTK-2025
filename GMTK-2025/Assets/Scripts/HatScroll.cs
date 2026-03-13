@@ -7,8 +7,11 @@ public class HatScroll : MonoBehaviour
     private GameObject _currentHatPrefabContainer;
 
     public float _speed;
-    private bool _isScrolling;
     public bool _hasScrolled = false;
+    public float zeroTimerLength;
+    private float zeroTimerOnFinish;
+    private bool _isScrolling;
+    private bool _hasInteracted;
     private int counter;
     private List<HatCell> _cells = new List<HatCell>();
     private GameObject targetHatObject;
@@ -19,7 +22,8 @@ public class HatScroll : MonoBehaviour
     {
         _currentHatPrefabContainer = _prefab;
         GetComponent<RectTransform>().localPosition = new Vector2(1080, 0);
-
+        zeroTimerOnFinish = zeroTimerLength;
+        _hasInteracted = false;
     }
 
     public void Scroll()
@@ -27,6 +31,7 @@ public class HatScroll : MonoBehaviour
         if (_isScrolling)
             return;
         _speed = Random.Range(4, 5);
+        _hasInteracted = true;
         _isScrolling = true;
         counter = 0;
 
@@ -36,7 +41,7 @@ public class HatScroll : MonoBehaviour
 
         if (_cells.Count == 0)
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 53; i++)
             {
                 _cells.Add(Instantiate(_currentHatPrefabContainer, transform).GetComponentInChildren<HatCell>());
             }
@@ -45,10 +50,11 @@ public class HatScroll : MonoBehaviour
         {
             counter++;
             cell.Setup();
-            if (counter == 39)
+            if (counter == 49)
             {
                 targetHatObject = cell.GetHatObject();
                 targetHatData = cell.GetHatData();
+                Debug.Log("Target Hat Set to Cell 39 with Rarity: " + targetHatData);
             }
         }
     }
@@ -64,14 +70,26 @@ public class HatScroll : MonoBehaviour
 
         if (_speed > 0)
         {
-            _speed -= Time.unscaledDeltaTime * 1.5f; // Magic Numbers, replace with variables
+            _speed -= Time.unscaledDeltaTime * 1.2f; // Magic Numbers, replace with variables
+        }
+        else if (_speed < 0.5f && _speed > 0)
+        {
+            _speed -= Time.unscaledDeltaTime * 3; // Magic Numbers, replace with variables
         }
         else if (_speed < 0 && _isScrolling)
         {
             _speed = 0;
             _isScrolling = false;
-            _hasScrolled = true;
-
+            Debug.Log("Scrolling finished.");
+        }
+        else if(_speed == 0 && !_isScrolling && _hasInteracted)
+        {
+            zeroTimerOnFinish -= Time.unscaledDeltaTime;
+            if (zeroTimerOnFinish <= 0)
+            {
+                _hasScrolled = true;
+                Debug.Log("Zero Timer finished, ready for UI Switch.");
+            }
         }
 
     }
@@ -83,7 +101,12 @@ public class HatScroll : MonoBehaviour
     
     public void ApplyPrizeHatStats()
     {
-        hatGenerator.StackHat(targetHatObject);
+        hatGenerator.GeneratePlayerHatWithStats(targetHatData);
+
+        // Clear generated hats to prevent memory leak
+        Debug.Log("<color=#55AAFF>[HatScroll]</color> Clearing generated hats to prevent memory leak...");
+        HatCell.ClearGeneratedHats();
+        HatScrollUI.DestroyTargetHat();
     }
 
 }

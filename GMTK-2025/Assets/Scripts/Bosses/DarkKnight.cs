@@ -67,7 +67,6 @@ public class DarkKnight : Boss
     public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
-        Debug.Log("TakeDamage called - Starting HitEffect coroutine");
         StartCoroutine(HitEffect(Color.red, 1f));
     }
 

@@ -19,7 +19,7 @@ public class HatPositioner : MonoBehaviour
     
     void Update()
     {
-        // Get the last character of the sprite name as the animation frame. Terrible awful code, but animation keyframes have forced my hand...
+        // Get the last character of the sprite name as the animation frame. Terrible, awful code but animation keyframes have forced my hand...
         animFrame = (int)char.GetNumericValue(spriteRenderer.sprite.name[ spriteRenderer.sprite.name.Length - 1 ]);
 
         currentOffset = hatPositions[animFrame];

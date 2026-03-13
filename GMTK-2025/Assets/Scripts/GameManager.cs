@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemiesRemaining.text = enemySpawner.currentEnemies.ToString();
         loopsAmountCompleted.text = loopsCompleted.ToString() + " Loops";
         if (levelComplete)
         {
@@ -52,6 +51,7 @@ public class GameManager : MonoBehaviour
         }
         else if (enemySpawner != null)
         {
+            enemiesRemaining.text = enemySpawner.currentEnemies.ToString();
             if (enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0 && !isInSafeArea && !bossAlive)
             {
                 levelComplete = true; // Set level complete when all enemies are defeated
