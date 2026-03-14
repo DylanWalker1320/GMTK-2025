@@ -21,7 +21,6 @@ public class HatScroll : MonoBehaviour
     public void Initialize()
     {
         _currentHatPrefabContainer = _prefab;
-        GetComponent<RectTransform>().localPosition = new Vector2(1080, 0);
         zeroTimerOnFinish = zeroTimerLength;
         _hasInteracted = false;
     }
@@ -34,11 +33,7 @@ public class HatScroll : MonoBehaviour
         _hasInteracted = true;
         _isScrolling = true;
         counter = 0;
-
-
-
-        GetComponent<RectTransform>().localPosition = new Vector2(1080, 0);
-
+        
         if (_cells.Count == 0)
         {
             for (int i = 0; i < 53; i++)
@@ -107,6 +102,16 @@ public class HatScroll : MonoBehaviour
         Debug.Log("<color=#55AAFF>[HatScroll]</color> Clearing generated hats to prevent memory leak...");
         HatCell.ClearGeneratedHats();
         HatScrollUI.DestroyTargetHat();
+    }
+
+    public bool GetIsScrolling()
+    {
+        return _isScrolling;
+    }
+
+    public void SetIsScrolling(bool setter)
+    {
+        _isScrolling = setter;
     }
 
 }

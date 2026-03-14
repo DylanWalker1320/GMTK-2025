@@ -30,6 +30,12 @@ public class HatScrollUI : MonoBehaviour
             ToggleScrollUI();
             ToggleHatPrize(scrollUI.GetComponent<HatScroll>().GetTargetHatData());
         }
+        if(scrollUI.activeSelf && Input.GetKeyDown(KeyCode.Mouse0) && scrollUI.GetComponent<HatScroll>().GetIsScrolling())
+        {
+            scrollUI.GetComponent<HatScroll>()._hasScrolled = false;
+            ToggleScrollUI();
+            ToggleHatPrize(scrollUI.GetComponent<HatScroll>().GetTargetHatData());
+        }
     }
 
     public void ToggleScrollUI(bool newInitialization = false)
@@ -38,6 +44,9 @@ public class HatScrollUI : MonoBehaviour
         {
             scrollUI.GetComponent<HatScroll>().Initialize();
         }
+        scrollUI.GetComponent<RectTransform>().localPosition = new Vector2(1080, 0);
+        scrollUI.GetComponent<HatScroll>()._speed = 0;
+        scrollUI.GetComponent<HatScroll>().SetIsScrolling(false);
         hatPrizeUI.SetActive(false);
         scrollUI.SetActive(!scrollUI.activeSelf);
         scrollButton.SetActive(!scrollButton.activeSelf);

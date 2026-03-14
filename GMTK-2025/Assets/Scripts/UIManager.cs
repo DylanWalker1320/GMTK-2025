@@ -357,7 +357,7 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveScrollUI()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0;        
         isLevelingUp = true;
         scrollUI.SetActive(!scrollUI.activeSelf);
         scrollUI.GetComponent<HatScrollUI>().ToggleScrollUI(newInitialization: true);
