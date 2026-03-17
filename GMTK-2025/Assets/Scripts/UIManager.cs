@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject scrollUI;
     public GameObject barAllocationUI;
     public GameObject statTrackerUI;
+    public GameObject spellBookUI;
     public GameObject pauseMenu;
     public GameObject startMenu;
     public GameObject settingsMenu;
@@ -88,7 +89,6 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Escape key pressed");
 
             if (currentMenu == Menu.None) // Only allow pause if in game
             {
@@ -121,6 +121,14 @@ public class UIManager : MonoBehaviour
             if(statTrackerUI.activeSelf)
             {
                 updateStatTrackerUI(); // panel needs to update with current data once player toggles
+            }
+        }
+        
+        else if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if((currentMenu == Menu.GameMenu || currentMenu == Menu.None) && scrollUI.activeSelf == false)
+            {
+                spellBookUI.SetActive(!spellBookUI.activeSelf);
             }
         }
 
