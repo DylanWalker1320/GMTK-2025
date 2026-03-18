@@ -122,20 +122,6 @@ public class UIManager : MonoBehaviour
             SetActiveUpgradeUI();
             upgradeUI.GetComponent<ThreeUpgradeScreen>().UpdateDisplays();
         }
-        else if (gameManager.loopComplete && gameManager.bossAlive == false)
-        {
-            currentMenu = Menu.GameMenu;
-            Time.timeScale = 0;
-            gameManager.loopComplete = false;
-            SetActiveLevelUpUI();
-            upgradeUI.GetComponent<ThreeUpgradeScreen>().UpdateDisplays();
-            // INSERT HAT ROLL LOGIC HERE
-
-            // isInShop = true;
-            // gameManager.loopComplete = false;
-            // NewGameLoopUpgradeUI();
-            // newGameLoopUI.GetComponent<NewGameLoopMenu>().UpdateDisplays();
-        }
     }
 
     public void UpdateHealthUI(float health, float maxHealth)
@@ -368,7 +354,7 @@ public class UIManager : MonoBehaviour
         barAllocationUI.SetActive(false);
         scrollUI.SetActive(false);
         
-        if (!isLevelingUp)
+        if (!isLevelingUp && !gameManager.waitingForPortalReturn)
         {
             onShopFinish.Invoke();
         }

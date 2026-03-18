@@ -27,5 +27,7 @@ public class Portal : MonoBehaviour
         // If this is the return portal, tell GameManager the player is back
         if (isReturnPortal && gameManager != null)
             gameManager.OnPlayerReturnedFromPortal();
+        else if (gameManager != null)
+            gameManager.playerInSafeArea = true;
     }
 }

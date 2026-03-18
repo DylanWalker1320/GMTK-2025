@@ -12,16 +12,19 @@ public class GameManager : MonoBehaviour
     public bool levelComplete = false;
     public bool loopComplete = false;
     public bool waitingForPortalReturn = false;
-    private bool bossHasDied = false; // Tracks boss death without opening portal yet
+    private bool bossHasDied = false;
     public int loopsCompleted;
     public int wavesCompleted;
     public TextMeshProUGUI loopsAmountCompleted;
     public TextMeshProUGUI enemiesRemaining;
     public GameObject bossPrefab;
     public GameObject portalObject;
+    public MapGenerator mapGenerator;
 
     public Spell.SpellType allocateSpell;
     public Sprite spellImage;
+
+    public bool playerInSafeArea = false;
 
     void Awake()
     {
@@ -36,11 +39,10 @@ public class GameManager : MonoBehaviour
             portalObject.SetActive(false);
     }
 
-    void Start() { }
-
     void Update()
     {
         loopsAmountCompleted.text = loopsCompleted.ToString() + " Loops";
+        Debug.Log($"Waves completed: {wavesCompleted} | waveCleared: {enemySpawner != null && enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0} | isInSafeArea: {isInSafeArea} | bossAlive: {bossAlive} | bossHasDied: {bossHasDied}");
 
         if (levelComplete)
         {
@@ -54,7 +56,6 @@ public class GameManager : MonoBehaviour
 
             if (waveCleared && !isInSafeArea && !bossAlive)
             {
-                // If the boss already died before the last enemy, open the portal now
                 if (bossHasDied)
                 {
                     OpenPortal();
@@ -91,32 +92,41 @@ public class GameManager : MonoBehaviour
     {
         bossAlive = false;
         bossHasDied = true;
-
-        // Only open the portal if all regular enemies are also gone
-        bool waveCleared = enemySpawner != null &&
-                           enemySpawner.maxWavePopulation <= 0 &&
-                           enemySpawner.currentEnemies <= 0;
-
-        if (waveCleared)
-            OpenPortal();
-        // Otherwise Update() will catch it when the last enemy dies
     }
 
     private void OpenPortal()
     {
+        // Count the wave and loop here for the boss wave
+        wavesCompleted++;
+        if (wavesCompleted % 4 == 0)
+        {
+            loopComplete = true;
+            loopsCompleted++;
+        }
+
+        levelComplete = true;
+        isInSafeArea = true;       // Safe area is true while waiting for portal return
         waitingForPortalReturn = true;
-        bossHasDied = false; // Reset for next loop 
-        isInSafeArea = true;
+        bossHasDied = false;
 
         if (portalObject != null)
             portalObject.SetActive(true);
 
         if (enemySpawner != null)
+        {
             enemySpawner.SetSpawningPaused(true);
+            Debug.Log("Enemy spawning paused.");
+        }
+
+        Debug.Log("Portal opened! Waiting for player to return...");
     }
 
     public void OnPlayerReturnedFromPortal()
     {
+        //mapGenerator.Generate();
+
+        playerInSafeArea = false;
+
         waitingForPortalReturn = false;
         isInSafeArea = false;
 

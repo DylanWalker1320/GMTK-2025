@@ -6,13 +6,14 @@ public class Statue : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject canvas;
-    [SerializeField] private StatueDialogue statueDialogue;
+    [SerializeField] private StatueType statueType;
     [SerializeField] private float basePrice;
     [SerializeField] private float price;
     [SerializeField] private float priceIncreaseRate;
     [SerializeField] private float textSpeed = 0.05f;
     [SerializeField] private float proximityDistance = 3f;
     [SerializeField] private KeyCode interactKey = KeyCode.E;
+    [SerializeField] private UIManager uiManager;
     private string dialogueLine;
     private bool isTyping = false;
     private bool playerInRange = false;
@@ -26,10 +27,19 @@ public class Statue : MonoBehaviour
     [SerializeField]private TextMeshProUGUI dialogueText;
 
     
-    enum StatueDialogue
+    enum StatueType
     {
         Hat,
         Stat
+    }
+
+    public static void ResetPrices()
+    {
+        foreach (Statue statue in FindObjectsOfType<Statue>())
+        {
+            statue.price = statue.basePrice;
+            statue.UpdatePrice();
+        }
     }
 
     void Start()
@@ -76,13 +86,23 @@ public class Statue : MonoBehaviour
                 playerMovement.UpdateUI(); // Update UI to reflect new soul count
                 price *= priceIncreaseRate; // Increase price for next purchase
 
+                switch (statueType)
+                {
+                    case StatueType.Hat:
+                        uiManager.SetActiveScrollUI();
+                        break;
+                    case StatueType.Stat:
+                        uiManager.SetActiveLevelUpUI();
+                        break;
+                }
+
                 UpdatePrice(); // Update the dialogue text with the new price
 
-                TypeDialogue($"Purchase successful! You have {soulPrefixSymbol}{playerSouls}{soulSuffixSymbol} souls left.");
+                TypeDialogue($"Purchase successful!");
             }
             else
             {
-                TypeDialogue($"Not enough souls! You need {soulPrefixSymbol}{price - playerSouls} more souls{soulSuffixSymbol} to purchase this.");
+                TypeDialogue($"Not enough souls!");
             }
         }
 
@@ -99,12 +119,12 @@ public class Statue : MonoBehaviour
 
     void UpdatePrice()
     {
-        switch (statueDialogue)
+        switch (statueType)
         {
-            case StatueDialogue.Hat:
+            case StatueType.Hat:
                 dialogueLine = $"Press 'E' to buy a hat for {soulPrefixSymbol}{price} souls{soulSuffixSymbol}!";
                 break;
-            case StatueDialogue.Stat:
+            case StatueType.Stat:
                 dialogueLine = $"Press 'E' to increase your stats for {soulPrefixSymbol}{price} souls{soulSuffixSymbol}!";
                 break;
         }
