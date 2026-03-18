@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Experience")]
     public float experience;
     public float nextLevelExperience = 50f;
+    public float newExperiencePerLevel;
     public float experiencePerLevelMultiplier;
-    public float experienceMultiplierGain;
     // public float experiencePerSoul = 1f; // could be used as a stat modifier where players gain more experience per soul collected
     [Header("UI Elements")]
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
@@ -117,9 +117,8 @@ public class PlayerMovement : MonoBehaviour
         {
             level++;
             experience -= nextLevelExperience;
-            nextLevelExperience = Mathf.Round(nextLevelExperience * experiencePerLevelMultiplier);
-            experiencePerLevelMultiplier += experienceMultiplierGain;
-            experienceMultiplierGain += experienceMultiplierGain;
+            nextLevelExperience = Mathf.Round(nextLevelExperience + newExperiencePerLevel * experiencePerLevelMultiplier);
+            newExperiencePerLevel *= experiencePerLevelMultiplier;
             FindAnyObjectByType<UIManager>().SetActiveScrollUI();
             Debug.Log("Leveled up to level " + level);
         }

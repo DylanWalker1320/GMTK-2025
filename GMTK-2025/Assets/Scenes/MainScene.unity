@@ -4955,12 +4955,20 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: experienceGain
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: newExperiencePerLevel
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: experienceMultiplierGain
-      value: 0.01
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: experiencePerLevelMultiplier
-      value: 1.05
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: updateHealthUI.m_PersistentCalls.m_Calls.Array.data[0].m_Target
