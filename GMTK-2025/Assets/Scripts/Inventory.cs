@@ -110,4 +110,13 @@ public class Inventory : MonoBehaviour
 
         return isSingle;
     }
+
+
+    public void WipeInventory()
+    {
+        for(int index = 0; index < spellArray.Length; index++)
+        {
+            spellArray[index] = null;
+        }
+    }
 }

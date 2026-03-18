@@ -11,25 +11,28 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawn Settings")]
     [SerializeField] private float spawnInterval = 2f;
-    [SerializeField] private float spawnMargin = 2f; // How far outside the camera-circle to spawn
+    [SerializeField] private float spawnMargin = 2f;
     public int maxWavePopulation = 10;
-    private int lastMaxWavePopulation = 10; // To track changes in max population
+    private int lastMaxWavePopulation = 10;
     private float timer;
     private Camera mainCam;
-    
+
     [Header("Tilemap Validation")]
-    [SerializeField] private Tilemap groundTilemap; // Reference to the ground tilemap
-    [SerializeField] private int maxSpawnAttempts = 10; // Maximum attempts to find a valid spawn position
-    [SerializeField] private bool disableTilemapValidation = false; // Toggle to disable tilemap validation
-    
-    [Header("Debug Info ")]
-    public int currentEnemies = 0; // Current number of enemies spawned
+    [SerializeField] private Tilemap groundTilemap;
+    [SerializeField] private int maxSpawnAttempts = 10;
+    [SerializeField] private bool disableTilemapValidation = false;
+
+    [Header("Debug Info")]
+    public int currentEnemies = 0;
+
+    private bool spawningPaused = false; // Paused while player is in refresh room
     private GameManager gameManager;
 
     void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
     }
+
     void Start()
     {
         if (player == null)
@@ -41,34 +44,38 @@ public class EnemySpawner : MonoBehaviour
 
         mainCam = Camera.main;
         timer = spawnInterval;
-        
-        // Try to find the ground tilemap if not assigned
+
         if (groundTilemap == null)
-        {
             groundTilemap = GameObject.Find("Floor").GetComponent<Tilemap>();
-        }
+    }
+
+    // Pause or resume enemy spawning. Used by GameManager for portal transitions.
+    public void SetSpawningPaused(bool paused)
+    {
+        spawningPaused = paused;
     }
 
     public void Restart()
     {
         gameManager.ToggleSafeArea(false);
-        maxWavePopulation = Mathf.RoundToInt(lastMaxWavePopulation * 1.1f); // Increase max population by 10% on restart
-        lastMaxWavePopulation = maxWavePopulation; // Update last max population
+        maxWavePopulation = Mathf.RoundToInt(lastMaxWavePopulation * 1.1f);
+        lastMaxWavePopulation = maxWavePopulation;
+        spawningPaused = false; // Ensure spawning resumes on restart
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
-        if (currentEnemies < 0)
-        {
-            currentEnemies = 0;
-        }
 
-        if (timer <= 0f && maxWavePopulation > 0 && player != null)
-        {
-            SpawnEnemy();
-            timer = spawnInterval;
-        }
+        if (currentEnemies < 0)
+            currentEnemies = 0;
+
+        // Don't spawn if paused, wave is exhausted, or player is missing
+        if (spawningPaused || timer > 0f || maxWavePopulation <= 0 || player == null)
+            return;
+
+        SpawnEnemy();
+        timer = spawnInterval;
     }
 
     void SpawnEnemy()
@@ -78,48 +85,39 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogError("EnemySpawner: enemyPrefabs is null or empty!");
             return;
         }
-        
         if (maxWavePopulation == 0)
         {
             Debug.LogWarning("EnemySpawner: maxWavePopulation is 0, cannot spawn");
             return;
         }
-        
         if (player == null)
         {
             Debug.LogError("EnemySpawner: player is null!");
             return;
         }
-        
         if (mainCam == null)
         {
             Debug.LogError("EnemySpawner: mainCam is null!");
             return;
         }
-            
+
         Vector3 spawnPos = GetValidSpawnPosition();
-        
-        // If we couldn't find a valid position, don't spawn
         if (spawnPos == Vector3.zero)
         {
             Debug.LogWarning("EnemySpawner: Could not find valid spawn position for enemy");
             return;
         }
-        
+
         maxWavePopulation--;
         currentEnemies++;
-        
+
         int randomIndex = Random.Range(0, enemyPrefabs.Length);
         GameObject prefabToSpawn = enemyPrefabs[randomIndex];
-        
+
         if (prefabToSpawn != null)
-        {
             Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
-        }
         else
-        {
             Debug.LogError($"EnemySpawner: Enemy prefab is null at index {randomIndex}");
-        }
     }
 
     Vector3 GetValidSpawnPosition()
@@ -129,52 +127,33 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogError("EnemySpawner: Player or Camera is null in GetValidSpawnPosition");
             return Vector3.zero;
         }
-        
+
         for (int attempt = 0; attempt < maxSpawnAttempts; attempt++)
         {
             Vector3 candidatePos = GetCircularSpawnPosition();
-            
-            // Check if the position is on a valid tilemap tile
             if (IsValidSpawnPosition(candidatePos))
-            {
                 return candidatePos;
-            }
         }
-        
+
         Debug.LogWarning($"EnemySpawner: Could not find valid spawn position after {maxSpawnAttempts} attempts");
-        // If we couldn't find a valid position after max attempts, return zero
         return Vector3.zero;
     }
 
     bool IsValidSpawnPosition(Vector3 position)
     {
-        // If tilemap validation is disabled, assume the position is valid
-        if (disableTilemapValidation)
-        {
-            return true;
-        }
-        
-        // If no tilemap is assigned, assume the position is valid
-        if (groundTilemap == null)
-        {
-            return true;
-        }
-        
+        if (disableTilemapValidation) return true;
+        if (groundTilemap == null) return true;
+
         try
         {
-            // Convert world position to tilemap cell position
             Vector3Int cellPosition = groundTilemap.WorldToCell(position);
-            
-            // Check if there's a tile at this position
             TileBase tile = groundTilemap.GetTile(cellPosition);
-            
-            // Return true if there's a tile (valid ground to spawn on)
             return tile != null;
         }
         catch (System.Exception e)
         {
             Debug.LogWarning($"EnemySpawner: Error checking tilemap position {position}: {e.Message}");
-            return true; // Fallback to allowing spawn
+            return true;
         }
     }
 
@@ -185,22 +164,13 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogError("EnemySpawner: Player or Camera is null in GetCircularSpawnPosition");
             return Vector3.zero;
         }
-        
-        // Get camera size
+
         float camHeight = 2f * mainCam.orthographicSize;
         float camWidth = camHeight * mainCam.aspect;
-
-        // Radius of the circle that contains the camera rectangle
         float radius = 0.5f * Mathf.Sqrt(camWidth * camWidth + camHeight * camHeight);
-
-        // Spawn just outside that radius
         float spawnRadius = radius + spawnMargin;
-
-        // Random angle in radians
         float angle = Random.Range(0f, Mathf.PI * 2f);
         Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * spawnRadius;
-        Vector3 spawnPos = player.position + (Vector3)offset;
-
-        return spawnPos;
+        return player.position + (Vector3)offset;
     }
 }

@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button button4;
     [Header("UI State Management")]
     private bool isLevelingUp;
-    [SerializeField] private Animator spellbarAllocationAnimator;
+    public Animator spellbarAllocationAnimator;
     [SerializeField] private Animator upgradeUIAnimator;
     // [SerializeField] private Animator spellUpgradeAnimator;
     public UnityEvent onShopFinish;
@@ -345,11 +345,20 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void SetBetaGameplay()
+    {
+        Time.timeScale = 0;
+
+        FindAnyObjectByType<Inventory>().WipeInventory();
+
+        barAllocationUI.SetActive(true);
+        FindAnyObjectByType<InteractableLoopBar>().BetaLoop(); // needs above to be active in the first place
+    }
+
     public void SetActiveUpgradeUI()
     {
         upgradeUI.SetActive(!upgradeUI.activeSelf);
         upgradeUIAnimator.SetTrigger("BeginThreeUpgrades");
-        // levelUpUI.SetActive(false);
         barAllocationUI.SetActive(false);
     }
 
@@ -398,6 +407,7 @@ public class UIManager : MonoBehaviour
             onShopFinish.Invoke();
         }
         isLevelingUp = false;
+        gameManager.SetEnemyPause(false);
         Debug.LogWarning("GameplayMode invoked");
     }
 }

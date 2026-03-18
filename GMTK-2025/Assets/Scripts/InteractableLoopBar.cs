@@ -7,6 +7,7 @@ public class InteractableLoopBar : MonoBehaviour
 {
     private Inventory loopbarInventory;
     private GameManager gameManager;
+    private int startingSpellCounter;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public Spell[] spellArray = new Spell[8]; 
     [SerializeField] private TextMeshProUGUI[] typeText = new TextMeshProUGUI[8];
@@ -16,10 +17,27 @@ public class InteractableLoopBar : MonoBehaviour
     [SerializeField] private UnityEvent unityEvent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public void OnCall()
+    void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
         loopbarInventory = FindFirstObjectByType<Inventory>();
+        startingSpellCounter = gameManager.betaSpellCounter;
+    }
+    public void BetaLoop()
+    {
+        gameManager.ChangeSpellAllocation();
+        OnCall();
+
+        FindAnyObjectByType<UIManager>().spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
+
+        startingSpellCounter--;
+        if(startingSpellCounter <= 0)
+        {
+            gameManager.betaMode = false;
+        }
+    }
+    public void OnCall()
+    {
         spellImage.sprite = gameManager.spellImage;
         spellArray = loopbarInventory.spellArray; //pointer for actual spell array
         GetSpellSprites();
@@ -110,18 +128,29 @@ public class InteractableLoopBar : MonoBehaviour
 
     void SelectSpellReplacement(int index)
     {
-        loopbarInventory.chosenSpell = GetChosenSpell();
-        TransitionToGameplayMode(index);
-    }
-
-    public void TransitionToGameplayMode(int index)
-    {
         bool isSingle;
+
+        loopbarInventory.chosenSpell = GetChosenSpell();
         isSingle = loopbarInventory.CheckNewElementSelection(index);
+
         if (!isSingle)
         {
             GetSpellSprites();
         }
+
+
+        if(gameManager.betaMode)
+        {
+            BetaLoop();
+        }
+        else
+        {
+            TransitionToGameplayMode(); 
+        }
+    }
+
+    public void TransitionToGameplayMode()
+    {
         TooltipManager._instance.HideTooltip();
         unityEvent.Invoke(); // Gameplay Mode
     }
