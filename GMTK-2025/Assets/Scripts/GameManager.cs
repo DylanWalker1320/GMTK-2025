@@ -172,7 +172,7 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerReturnedFromPortal()
     {
-        //mapGenerator.Generate();
+        mapGenerator.Generate();
 
         playerInSafeArea = false;
 
