@@ -11271,6 +11271,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: -1060
       objectReference: {fileID: 0}
+    - target: {fileID: 2525225270090421067, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2670598044492269815, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: spellCombinationsReference
       value: 
