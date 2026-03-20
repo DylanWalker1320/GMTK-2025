@@ -131,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
         if (invincibilityTimer > 0f) return; // Ignore damage if invincibility frames are active
         damageAmount = Mathf.Round(damageAmount);
 
+        CinemachineShake.Instance.ShakeCamera(3f, .1f);
+
         StartCoroutine(HitEffect(Color.red, 0.5f));
         audioManager.Play("PlayerHurt");
 
