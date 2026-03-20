@@ -20,6 +20,8 @@ public class Portal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
+        
+        FindAnyObjectByType<AudioManager>().Play("PORTALTRANSITION");
 
         camera.OnTargetObjectWarped(other.transform, location.position - other.transform.position);
         other.transform.position = location.position;

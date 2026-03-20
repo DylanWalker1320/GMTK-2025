@@ -128,6 +128,9 @@ public class InteractableLoopBar : MonoBehaviour
 
     void SelectSpellReplacement(int index)
     {
+        FindAnyObjectByType<AudioManager>().Play("UICONFIRM");
+
+
         bool isSingle;
 
         loopbarInventory.chosenSpell = GetChosenSpell();

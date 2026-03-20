@@ -14,7 +14,13 @@ public class HatScrollUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] hatStatsTexts;
     [SerializeField] private UnityEvent unityEvent;
     private HatGenerator hatGenerator;
+    private AudioManager audioManager;
     private static GameObject hatObject;
+
+    void Awake()
+    {
+        audioManager = FindAnyObjectByType<AudioManager>();
+    }
 
     void Update()
     {
@@ -90,6 +96,7 @@ public class HatScrollUI : MonoBehaviour
             
         }
         hatPrizeUI.SetActive(!hatPrizeUI.activeSelf);
+        audioManager.Play("NewHatGet!");
     }
 
     public static void DestroyTargetHat()

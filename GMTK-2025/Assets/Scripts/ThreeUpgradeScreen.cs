@@ -33,6 +33,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
     private GameManager gameManager; // Reference to the GameManager script
     private PlayerMovement player; // Reference to the PlayerMovement script
     private UIManager uiManager;
+    private AudioManager audioManager;
     private float restoreHealthHandicap = 3;
 
     [SerializeField] private UnityEvent unityEvent;
@@ -93,6 +94,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
         player = FindFirstObjectByType<PlayerMovement>();
         gameManager = FindFirstObjectByType<GameManager>();
         uiManager = FindFirstObjectByType<UIManager>();
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     public void UpdateDisplays()
@@ -177,6 +179,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
         }
         healAmount += Mathf.Round(player.health / restoreHealthHandicap);
 
+        audioManager.Play("HealOption");
         updateHealthUI.Invoke(player.health, player.maxHealth);
         DisableUpgradeScreen();
 
@@ -217,6 +220,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
     }
     public void SlotThree()
     {
+        FindAnyObjectByType<AudioManager>().Play("UIInteraction" + UnityEngine.Random.Range(1, 3));
         DisableUpgradeScreen(false);
         // Send to spell allocation UI
         uiManager.SetActiveBarAllocUI();
