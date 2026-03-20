@@ -119,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
             experience -= nextLevelExperience;
             nextLevelExperience = Mathf.Round(nextLevelExperience + newExperiencePerLevel * experiencePerLevelMultiplier);
             newExperiencePerLevel *= experiencePerLevelMultiplier;
+            audioManager.Play("LevelUp!");
             FindAnyObjectByType<UIManager>().SetActiveScrollUI();
         }
         uiManager.UpdateExperienceUI(experience, nextLevelExperience, level, souls);

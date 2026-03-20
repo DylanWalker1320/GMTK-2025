@@ -31,6 +31,7 @@ public class Sound
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] private bool debugMode;
     public Sound[] sounds;
 
     // Start is called before the first frame update
@@ -53,6 +54,12 @@ public class AudioManager : MonoBehaviour
         }
         
     }
+
+    void DebuggerLogs(string log)
+    {
+        Debug.Log(log);
+    }
+
     // Consider adding random pitch change for variety
     public void Play(string name)
     {
@@ -71,6 +78,11 @@ public class AudioManager : MonoBehaviour
         {
             s.source.volume = s.volume;
             s.source.Play();
+        }
+
+        if(debugMode)
+        {
+            DebuggerLogs("Playing " + name);
         }
     }
 

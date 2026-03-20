@@ -11,6 +11,7 @@ public class Pond : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
+            FindAnyObjectByType<AudioManager>().Play("HealPond");
             if (playerMovement != null)
             {
                 healTimer += Time.deltaTime;
