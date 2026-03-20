@@ -177,6 +177,8 @@ public class GameManager : MonoBehaviour
 
         waitingForPortalReturn = false;
         isInSafeArea = false;
+        loopComplete = false;
+        levelComplete = false;
 
         if (portalObject != null)
             portalObject.SetActive(false);
@@ -195,6 +197,7 @@ public class GameManager : MonoBehaviour
 
     void ResetGame()
     {
+        betaMode = true;
         SceneManager.LoadScene("MainScene");
     }
 }
