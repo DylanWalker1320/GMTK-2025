@@ -47,6 +47,8 @@ public class UIManager : MonoBehaviour
     private Menu lastMenu = Menu.StartMenu;
     private Menu currentMenu = Menu.StartMenu;
 
+    public bool isInUI = false; // Flag to track if any UI is currently active
+
     private enum Menu
     {
         GameMenu,
@@ -67,21 +69,20 @@ public class UIManager : MonoBehaviour
     }
 
     void Start()
-{
-    if(debugMode)
     {
-        startMenu.SetActive(false);
-        currentMenu = Menu.None;
-        Time.timeScale = 1;
+        if(debugMode)
+        {
+            startMenu.SetActive(false);
+            currentMenu = Menu.None;
+            Time.timeScale = 1;
+        }
+        else
+        {
+            startMenu.SetActive(true);
+            Time.timeScale = 0;
+            currentMenu = Menu.StartMenu;
+        }
     }
-    else
-    {
-        startMenu.SetActive(true);
-        Time.timeScale = 0;
-        currentMenu = Menu.StartMenu;
-    }
-}
-
 
     void Update()
     {
@@ -343,6 +344,8 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveUpgradeUI()
     {
+        if (isInUI) return; // Prevent opening if already in a UI
+        isInUI = true;
         upgradeUI.SetActive(!upgradeUI.activeSelf);
         upgradeUIAnimator.SetTrigger("BeginThreeUpgrades");
         barAllocationUI.SetActive(false);
@@ -350,6 +353,8 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveLevelUpUI()
     {
+        if (isInUI) return; // Prevent opening if already in a UI
+        isInUI = true;
         levelUpUI.SetActive(!levelUpUI.activeSelf);
         upgradeUI.SetActive(false);
         barAllocationUI.SetActive(false);
@@ -360,6 +365,8 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveScrollUI()
     {
+        if (isInUI) return; // Prevent opening if already in a UI
+        isInUI = true;
         Time.timeScale = 0;        
         isLevelingUp = true;
         scrollUI.SetActive(!scrollUI.activeSelf);
@@ -370,6 +377,7 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveBarAllocUI()
     {
+        // No check here because it is only called from the level up UI, so we want to allow it to open even if we're already in a UI
         barAllocationUI.SetActive(!barAllocationUI.activeSelf);
         spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
         upgradeUI.SetActive(false);
@@ -381,6 +389,7 @@ public class UIManager : MonoBehaviour
 
     public void GameplayMode() // Invoked as Unity Event
     {
+        isInUI = false;
         Time.timeScale = 1;
         currentMenu = Menu.None;
         upgradeUI.SetActive(false);
