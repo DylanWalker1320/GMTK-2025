@@ -77,6 +77,8 @@ public class Statue : MonoBehaviour
         // Interact trigger
         if (playerInRange && Input.GetKeyDown(interactKey))
         {
+            if (uiManager.isInUI) return; // Prevent interaction if already in a UI
+
             playerSouls = player.GetComponent<PlayerMovement>()?.souls ?? 0; // Get player's current souls
             if (playerSouls >= price)
             {

@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         if (loopsCompleted * 4 + 3 == wavesCompleted)
         {
             bossAlive = true;
-            Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
+            Instantiate(bossPrefab, enemySpawner.GetValidSpawnPosition(), Quaternion.identity);
         }
     }
 

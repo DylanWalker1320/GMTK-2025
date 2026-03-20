@@ -120,7 +120,7 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogError($"EnemySpawner: Enemy prefab is null at index {randomIndex}");
     }
 
-    Vector3 GetValidSpawnPosition()
+    public Vector3 GetValidSpawnPosition()
     {
         if (player == null || mainCam == null)
         {
