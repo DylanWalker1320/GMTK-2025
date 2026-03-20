@@ -17,6 +17,7 @@ public class HatScroll : MonoBehaviour
     private GameObject targetHatObject;
     private GeneratedHat targetHatData;
     private HatGenerator hatGenerator;
+    public bool debugMode;
 
     public void Initialize()
     {
@@ -49,7 +50,7 @@ public class HatScroll : MonoBehaviour
             {
                 targetHatObject = cell.GetHatObject();
                 targetHatData = cell.GetHatData();
-                Debug.Log("Target Hat Set to Cell 39 with Rarity: " + targetHatData);
+                if (debugMode) Debug.Log("Target Hat Set to Cell 39 with Rarity: " + targetHatData);
             }
         }
     }
@@ -75,7 +76,7 @@ public class HatScroll : MonoBehaviour
         {
             _speed = 0;
             _isScrolling = false;
-            Debug.Log("Scrolling finished.");
+            if (debugMode) Debug.Log("Scrolling finished.");
         }
         else if(_speed == 0 && !_isScrolling && _hasInteracted)
         {
@@ -83,7 +84,7 @@ public class HatScroll : MonoBehaviour
             if (zeroTimerOnFinish <= 0)
             {
                 _hasScrolled = true;
-                Debug.Log("Zero Timer finished, ready for UI Switch.");
+                if (debugMode) Debug.Log("Zero Timer finished, ready for UI Switch.");
             }
         }
 
@@ -99,7 +100,7 @@ public class HatScroll : MonoBehaviour
         hatGenerator.GeneratePlayerHatWithStats(targetHatData);
 
         // Clear generated hats to prevent memory leak
-        Debug.Log("<color=#55AAFF>[HatScroll]</color> Clearing generated hats to prevent memory leak...");
+        if (debugMode) Debug.Log("<color=#55AAFF>[HatScroll]</color> Clearing generated hats to prevent memory leak...");
         HatCell.ClearGeneratedHats();
         HatScrollUI.DestroyTargetHat();
     }

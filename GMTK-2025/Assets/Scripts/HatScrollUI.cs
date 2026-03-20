@@ -55,7 +55,6 @@ public class HatScrollUI : MonoBehaviour
 
     public void ToggleHatPrize(GeneratedHat hatData)
     {
-        Debug.Log("hat data received: " + hatData);
         if(hatData != null) // Toggle On
         {
             // Make a new hat object to display
@@ -96,7 +95,6 @@ public class HatScrollUI : MonoBehaviour
     {
         if (hatObject != null)
         {
-            Debug.Log("Destroying hat object" + hatObject.name);
             Destroy(hatObject);
             hatObject = null;
         }

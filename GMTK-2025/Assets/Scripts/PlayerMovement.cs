@@ -120,7 +120,6 @@ public class PlayerMovement : MonoBehaviour
             nextLevelExperience = Mathf.Round(nextLevelExperience + newExperiencePerLevel * experiencePerLevelMultiplier);
             newExperiencePerLevel *= experiencePerLevelMultiplier;
             FindAnyObjectByType<UIManager>().SetActiveScrollUI();
-            Debug.Log("Leveled up to level " + level);
         }
         uiManager.UpdateExperienceUI(experience, nextLevelExperience, level, souls);
         
@@ -217,7 +216,6 @@ public class PlayerMovement : MonoBehaviour
     void Die()
     {
         // Handle enemy death (e.g., play animation, destroy object)
-        Debug.Log("Game Over!");
         Destroy(gameObject);
     }
 

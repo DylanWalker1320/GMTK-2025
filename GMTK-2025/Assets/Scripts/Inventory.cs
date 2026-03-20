@@ -81,7 +81,7 @@ public class Inventory : MonoBehaviour
         {
             if (spellArray[i] == null)
             {
-                Debug.Log("Spell is null, skipping check.");
+                // Debug.Log("Spell is null, skipping check.");
                 continue; // Skip if either spell is null
             }
             else

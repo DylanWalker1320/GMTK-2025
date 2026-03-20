@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private EnemySpawner enemySpawner; // Reference to the enemy spawner script
     private UIManager uIManager;
     public bool betaMode;
+    public bool debugMode;
     public int betaSpellCounter;
     public bool bossAlive = false; // Flag to check if a boss is alive
     public bool isInSafeArea = false; // Flag to check if the player is in a safe area
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
         player = FindFirstObjectByType<PlayerMovement>();
         uIManager = FindFirstObjectByType<UIManager>();
         if (player == null)
-            Debug.LogError("PlayerMovement not found in the scene.");
+            if (debugMode) Debug.LogError("PlayerMovement not found in the scene.");
 
         if (!isInSafeArea)
             enemySpawner = FindFirstObjectByType<EnemySpawner>();
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         loopsAmountCompleted.text = loopsCompleted.ToString() + " Loops";
-        Debug.Log($"Waves completed: {wavesCompleted} | waveCleared: {enemySpawner != null && enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0} | isInSafeArea: {isInSafeArea} | bossAlive: {bossAlive} | bossHasDied: {bossHasDied}");
+        if (debugMode) Debug.Log($"Waves completed: {wavesCompleted} | waveCleared: {enemySpawner != null && enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0} | isInSafeArea: {isInSafeArea} | bossAlive: {bossAlive} | bossHasDied: {bossHasDied}");
 
         if (levelComplete)
         {
@@ -163,10 +164,10 @@ public class GameManager : MonoBehaviour
         if (enemySpawner != null)
         {
             enemySpawner.SetSpawningPaused(true);
-            Debug.Log("Enemy spawning paused.");
+            if (debugMode) Debug.Log("Enemy spawning paused.");
         }
 
-        Debug.Log("Portal opened! Waiting for player to return...");
+        if (debugMode) Debug.Log("Portal opened! Waiting for player to return...");
     }
 
     public void OnPlayerReturnedFromPortal()

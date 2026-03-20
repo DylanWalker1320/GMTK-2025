@@ -32,23 +32,23 @@ public class StatGenerator : Stats
             {
                 case LevelUpStatType.Speed:
                     player.maxSpeed += stat.value;
-                    Debug.Log($"Speed increased from {player.maxSpeed - stat.value} to {player.maxSpeed}");
+                    if (debugMode) Debug.Log($"Speed increased from {player.maxSpeed - stat.value} to {player.maxSpeed}");
                     break;
                     
                 case LevelUpStatType.Health:
                     player.health += stat.value;
                     player.maxHealth += stat.value;
-                    Debug.Log($"Max Health increased from {player.maxHealth - stat.value} to {player.maxHealth}");
+                    if (debugMode) Debug.Log($"Max Health increased from {player.maxHealth - stat.value} to {player.maxHealth}");
                     break;
                     
                 case LevelUpStatType.CastSpeed:
                     player.castSpeed += stat.value;
-                    Debug.Log($"Cast Speed increased from {player.castSpeed - stat.value} to {player.castSpeed}");
+                    if (debugMode) Debug.Log($"Cast Speed increased from {player.castSpeed - stat.value} to {player.castSpeed}");
                     break;
                     
                 case LevelUpStatType.CastStrength:
                     player.castStrength += stat.value;
-                    Debug.Log($"Cast Strength increased from {player.castStrength- stat.value} to {player.castStrength}");
+                    if (debugMode) Debug.Log($"Cast Strength increased from {player.castStrength- stat.value} to {player.castStrength}");
                     break;
                     
                 case LevelUpStatType.SpellLevel:
@@ -59,7 +59,7 @@ public class StatGenerator : Stats
                         {
                             Spell.UpgradeSpell(stat.LevelUpSpellLevelBonus.spell);
                         }
-                        Debug.Log($"Spell Bonus of {stat.LevelUpSpellLevelBonus.spell} increased by {stat.LevelUpSpellLevelBonus}");
+                        if (debugMode) Debug.Log($"Spell Bonus of {stat.LevelUpSpellLevelBonus.spell} increased by {stat.LevelUpSpellLevelBonus}");
                     }
                     break;
             }
