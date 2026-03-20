@@ -3416,8 +3416,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.size
-      value: 28
+      value: 29
       objectReference: {fileID: 0}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: cdb4d161f4d0aa74986a61f14b4f3cb8, type: 3}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[18].clip
       value: 
@@ -3499,6 +3503,18 @@ PrefabInstance:
       value: PORTALTRANSITION
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[28].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e60bd1d8d0d22a4a8c1377d984905a3, type: 3}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[28].name
+      value: DIE
+      objectReference: {fileID: 0}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[18].pitch
       value: 1
       objectReference: {fileID: 0}
@@ -3536,6 +3552,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[27].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[28].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
@@ -3579,6 +3599,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[28].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[18].oneShot
       value: 1
       objectReference: {fileID: 0}
@@ -3616,6 +3640,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[27].oneShot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[28].oneShot
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
@@ -3659,6 +3687,10 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[28].fadeInTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[18].fadeOutTime
       value: 0.1
       objectReference: {fileID: 0}
@@ -3696,6 +3728,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[27].fadeOutTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[28].fadeOutTime
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 181165280225506580, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}

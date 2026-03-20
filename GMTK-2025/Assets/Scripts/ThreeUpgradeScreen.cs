@@ -187,6 +187,8 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     public void SlotTwo()
     {
+        audioManager.Play("UIInteraction" + UnityEngine.Random.Range(1, 3));
+        audioManager.Play("DIE");
         switch (upgradeStatType)
         {
             case StatIncreaseType.Health:
