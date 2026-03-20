@@ -14,11 +14,15 @@ public class GameManager : MonoBehaviour
     public bool isInSafeArea = false; // Flag to check if the player is in a safe area
     public bool levelComplete = false;
     public bool loopComplete = false;
+    public bool waitingForPortalReturn = false;
+    private bool bossHasDied = false;
     public int loopsCompleted;
     public int wavesCompleted;
     public TextMeshProUGUI loopsAmountCompleted;
     public TextMeshProUGUI enemiesRemaining;
-    public GameObject bossPrefab; // Reference to the boss prefab
+    public GameObject bossPrefab;
+    public GameObject portalObject;
+    public MapGenerator mapGenerator;
 
     [Header("Spell Allocation")]
     // Reference for Upgrade Screen & Slot Allocation
@@ -29,20 +33,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite lightSprite;
     [SerializeField] private Sprite darkSprite;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public bool playerInSafeArea = false;
+
     void Awake()
     {
         player = FindFirstObjectByType<PlayerMovement>();
         uIManager = FindFirstObjectByType<UIManager>();
         if (player == null)
-        {
             Debug.LogError("PlayerMovement not found in the scene.");
-        }
 
         if (!isInSafeArea)
-        {
             enemySpawner = FindFirstObjectByType<EnemySpawner>();
-        }
 
     }
     void Start()
@@ -53,46 +54,55 @@ public class GameManager : MonoBehaviour
             FindAnyObjectByType<InteractableLoopBar>();
             uIManager.SetBetaGameplay();
         }
+        if (portalObject != null)
+            portalObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         loopsAmountCompleted.text = loopsCompleted.ToString() + " Loops";
+        Debug.Log($"Waves completed: {wavesCompleted} | waveCleared: {enemySpawner != null && enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0} | isInSafeArea: {isInSafeArea} | bossAlive: {bossAlive} | bossHasDied: {bossHasDied}");
+
         if (levelComplete)
         {
-            levelComplete = false; // Reset level complete flag
-            // SetExperience(player.experience); // Save player's experience when level is complete
+            levelComplete = false;
         }
-        else if (enemySpawner != null)
+        else if (enemySpawner != null && !waitingForPortalReturn)
         {
             enemiesRemaining.text = enemySpawner.currentEnemies.ToString();
-            if (enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0 && !isInSafeArea && !bossAlive)
+
+            bool waveCleared = enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0;
+
+            if (waveCleared && !isInSafeArea && !bossAlive)
             {
-                levelComplete = true; // Set level complete when all enemies are defeated
-                isInSafeArea = true; // Switch to safe area when all enemies are defeated
-                wavesCompleted++;
-
-                if (wavesCompleted % 4 == 0)
+                if (bossHasDied)
                 {
-                    loopComplete = true;
-                    loopsCompleted++;
+                    OpenPortal();
+                }
+                else
+                {
+                    levelComplete = true;
+                    isInSafeArea = true;
+                    wavesCompleted++;
 
+                    if (wavesCompleted % 4 == 0)
+                    {
+                        loopComplete = true;
+                        loopsCompleted++;
+                    }
                 }
             }
         }
+
         if (player == null)
-        {
             ResetGame();
-        }
     }
 
     public void TrySpawnBoss()
     {
         if (loopsCompleted * 4 + 3 == wavesCompleted)
         {
-            // Spawn a boss enemy
-            bossAlive = true;   
+            bossAlive = true;
             Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
         }
     }
@@ -126,24 +136,65 @@ public class GameManager : MonoBehaviour
     {
         enemySpawner.SetSpawningPaused(value);
     }
+    public void OnBossDied()
+    {
+        bossAlive = false;
+        bossHasDied = true;
+    }
 
-    // void SetExperience(float experience) // Only sets experience and saves it
-    // {
-    //     if (gameSettings != null)
-    //     {
-    //         gameSettings.gameSettingsInfo.currentPlayerAttributes.experience = experience;
-    //     }
-    // }
+    private void OpenPortal()
+    {
+        // Count the wave and loop here for the boss wave
+        wavesCompleted++;
+        if (wavesCompleted % 4 == 0)
+        {
+            loopComplete = true;
+            loopsCompleted++;
+        }
+
+        levelComplete = true;
+        isInSafeArea = true;       // Safe area is true while waiting for portal return
+        waitingForPortalReturn = true;
+        bossHasDied = false;
+
+        if (portalObject != null)
+            portalObject.SetActive(true);
+
+        if (enemySpawner != null)
+        {
+            enemySpawner.SetSpawningPaused(true);
+            Debug.Log("Enemy spawning paused.");
+        }
+
+        Debug.Log("Portal opened! Waiting for player to return...");
+    }
+
+    public void OnPlayerReturnedFromPortal()
+    {
+        //mapGenerator.Generate();
+
+        playerInSafeArea = false;
+
+        waitingForPortalReturn = false;
+        isInSafeArea = false;
+
+        if (portalObject != null)
+            portalObject.SetActive(false);
+
+        if (enemySpawner != null)
+        {
+            enemySpawner.SetSpawningPaused(false);
+            enemySpawner.Restart();
+        }
+    }
 
     public void ToggleSafeArea(bool isInSafeArea)
     {
-        this.isInSafeArea = isInSafeArea; // Set the safe area flag
+        this.isInSafeArea = isInSafeArea;
     }
 
     void ResetGame()
     {
         SceneManager.LoadScene("MainScene");
     }
-
-
 }

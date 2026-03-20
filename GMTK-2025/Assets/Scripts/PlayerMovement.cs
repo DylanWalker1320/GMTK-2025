@@ -133,10 +133,9 @@ public class PlayerMovement : MonoBehaviour
 
         StartCoroutine(HitEffect(Color.red, 0.5f));
         audioManager.Play("PlayerHurt");
-        Debug.Log("Player took " + damageAmount + " damage");
 
         // Spawn damage number
-        SpawnDamageNumber(damageAmount);
+        SpawnDamageNumber(damageAmount, Color.red);
 
         invincibilityTimer = invincibilityFrames;
         health -= damageAmount;
@@ -147,6 +146,16 @@ public class PlayerMovement : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void Heal(float healAmount)
+    {
+        health = Mathf.Min(health + healAmount, maxHealth);
+        UpdateUI();
+
+        SpawnDamageNumber(healAmount, Color.green);
+
+        //StartCoroutine(HitEffect(Color.green, 0.5f));
     }
 
     private IEnumerator HitEffect(Color hitColor, float duration)
@@ -168,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
         playerSprite.color = originalColor;
     }
 
-    private void SpawnDamageNumber(float damageAmount)
+    private void SpawnDamageNumber(float damageAmount, Color color)
     {
         if (damageNumberPrefab == null) return;
 
@@ -199,9 +208,9 @@ public class PlayerMovement : MonoBehaviour
         {
             damageNumber.SetDamageAmount(damageAmount);
 
-            float interpolate = Mathf.Clamp01(damageAmount / maxHealth); // Adjust 100f to your max expected damage
-            Color gradientColor = Color.Lerp(new Color(128, 0, 0), Color.red, interpolate); // marooon to red, interpolates between using t
-            damageNumber.SetColor(gradientColor);
+            // float interpolate = Mathf.Clamp01(damageAmount / maxHealth); // Adjust 100f to your max expected damage
+            // Color gradientColor = Color.Lerp(new Color(128, 0, 0), Color.red, interpolate); // marooon to red, interpolates between using t
+            damageNumber.SetColor(color);
         }
     }
 
