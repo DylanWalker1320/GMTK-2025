@@ -42,6 +42,7 @@ public class Boss : Enemy
 
     public override void TakeDamage(float damage)
     {
+        audioManager.Play("EnemyHurt");
         // Handle boss taking damage
         stats.health -= damage;
         // Spawn damage number
@@ -66,7 +67,6 @@ public class Boss : Enemy
 
     void Die()
     {
-        audioManager.Play("EnemyHurt");
         // Handle boss death (e.g., play death animation, drop loot)
         Debug.Log("Boss defeated!");
         if (deathEffect != null)
