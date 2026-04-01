@@ -32,6 +32,7 @@ public class Sound
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private bool debugMode;
+    [SerializeField] private float maxPitch;
     public Sound[] sounds;
 
     // Start is called before the first frame update
@@ -58,6 +59,21 @@ public class AudioManager : MonoBehaviour
     void DebuggerLogs(string log)
     {
         Debug.Log(log);
+    }
+
+    public void SetPitch(string name, float pitch)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) return;
+        if (s.pitch > maxPitch) return;
+        s.source.pitch = pitch;
+    }
+
+    public void IncreasePitch(string name, float amount)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) return;
+        s.source.pitch += amount;
     }
 
     // Consider adding random pitch change for variety

@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     public float nextLevelExperience = 50f;
     public float newExperiencePerLevel;
     public float experiencePerLevelMultiplier;
+    private bool isGainingExperience = false;
+    private float experiencePitchTimer = 0f;
+    [SerializeField] private float experiencePitchChangeInterval = 0.5f;
     // public float experiencePerSoul = 1f; // could be used as a stat modifier where players gain more experience per soul collected
     [Header("UI Elements")]
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
@@ -49,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         reticle = FindFirstObjectByType<Reticle>().GetComponent<Transform>();
         health = maxHealth;
+        experiencePitchTimer = experiencePitchChangeInterval;
     }
 
     void Start()
@@ -68,6 +72,17 @@ public class PlayerMovement : MonoBehaviour
             // Dash
             rb.AddForce(movement * dashStrength, ForceMode2D.Impulse);
         }
+
+        if(isGainingExperience)
+        {
+            experiencePitchTimer -= Time.deltaTime;
+            if(experiencePitchTimer <= 0f)
+            {
+                isGainingExperience = false;
+            }
+        }
+
+
 
     }
 
@@ -111,8 +126,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void GainExperience()
     {
+        if(!isGainingExperience)
+        {
+            audioManager.Play("ExperienceParticle");
+            audioManager.SetPitch("ExperienceParticle", 1f); // Reset pitch after interval
+            isGainingExperience = true;
+        }
+        else
+        {
+            audioManager.Play("ExperienceParticle");
+            audioManager.IncreasePitch("ExperienceParticle", 0.01f); // Increase pitch for experience gain sound
+        }
+        experiencePitchTimer = experiencePitchChangeInterval; // Reset timer
+        
+
         experience += 1;
         souls += 1;
+
         if (experience >= nextLevelExperience)
         {
             level++;
