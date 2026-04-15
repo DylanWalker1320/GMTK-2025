@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 1
-  damage: 40
+  damage: 20
   speed: 0
   spellType1: 1
   spellType2: 0

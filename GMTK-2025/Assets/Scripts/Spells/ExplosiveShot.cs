@@ -1,17 +1,22 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ExplosiveShot : Spell
 {
     [Header("Explosive Shot Properties")]
     [SerializeField] private float explosionSize = 1f; // Size multiplier of the explosion
-    [SerializeField] private float explosionDuration = 1f; // Duration for the explosion visual to fade out
+    [SerializeField] private float explosionDuration = 5f; // Duration for the explosion visual to fade out
+    [SerializeField] private float explosionDamageTickRate = 1f; // How often the explosion applies damage to enemies within its radius
     [Header("Upgrade Scaling")]
     [SerializeField] private float explosionDamageUpgrade = 2f; // Damage increase per upgrade
     [SerializeField] private float explosionSizeUpgrade = 0.5f;
     [SerializeField] private float explosionDurationUpgrade = 0.2f; // Duration increase per upgrade
+    [SerializeField] private float explosionDamageTickRateUpgrade = -0.1f;
     private Animator animator;
     private bool isExploding = false;
+    private float damageTickTimer = 0f;
+    private List<Enemy> enemiesInRange = new List<Enemy>();
     void Start()
     {
         // Initialize the spell properties
@@ -25,8 +30,23 @@ public class ExplosiveShot : Spell
         AddUpgrade(); // Apply upgrades to the spell
     }
 
+    void Update()
+    {
+        if (isExploding)
+        {
+            damageTickTimer += Time.deltaTime;
+            if (damageTickTimer >= explosionDamageTickRate)
+            {
+                damageTickTimer = 0f; // Reset the timer
+                DoDamage(); // Apply damage to enemies in range at the specified tick rate
+            }
+        }
+    }
+
     void Explode()
     {
+        if (isExploding) return; // Prevent multiple explosions
+
         rb.linearVelocity = Vector2.zero; // Stop the spell's movement
         CircleCollider2D collider = GetComponent<CircleCollider2D>();
         if (collider != null)
@@ -36,6 +56,7 @@ public class ExplosiveShot : Spell
 
         animator.SetBool("Exploded", true); // Trigger the explosion animation
         isExploding = true;
+        Debug.Log("Expiring in " + explosionDuration + " seconds");
         Destroy(gameObject, explosionDuration); // Destroy the spell after a certain time
     }
 
@@ -51,7 +72,10 @@ public class ExplosiveShot : Spell
                     Explode();
                 }
 
-                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2));
+                if (!enemiesInRange.Contains(enemy))
+                {
+                    enemiesInRange.Add(enemy);
+                }
             }
         }
         else if (collision.gameObject.CompareTag("Obstacles") || collision.gameObject.CompareTag("Walls"))
@@ -60,6 +84,30 @@ public class ExplosiveShot : Spell
             {
                 Explode();
             }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy != null && enemiesInRange.Contains(enemy))
+            {
+                enemiesInRange.Remove(enemy); // Remove the enemy from the list when it exits the explosion radius
+            }
+        }
+    }
+
+    void DoDamage()
+    {
+        List<Enemy> enemiesToDamage = new List<Enemy>(enemiesInRange); // Create a copy of the list to avoid modification issues during iteration
+
+        enemiesToDamage.RemoveAll(enemy => enemy == null); // Remove any null entries from the list
+
+        foreach (Enemy enemy in enemiesToDamage)
+        {
+            enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2));
         }
     }
 
@@ -74,6 +122,7 @@ public class ExplosiveShot : Spell
         int spellLevel = GetSpellLevel(Spells.ExplosiveShot);
         damage += explosionDamageUpgrade * spellLevel;
         explosionSize += explosionSizeUpgrade * spellLevel;
-        explosionDuration += explosionDurationUpgrade * spellLevel; 
+        explosionDuration += explosionDurationUpgrade * spellLevel;
+        explosionDamageTickRate += explosionDamageTickRateUpgrade * spellLevel;
     }
 }

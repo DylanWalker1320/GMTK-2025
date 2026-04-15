@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
         }
         if (portalObject != null)
             portalObject.SetActive(false);
+
+        enemiesRemaining.text = $"{enemySpawner.maxWavePopulation - enemySpawner.currentEnemies} / {enemySpawner.maxWavePopulation}";
     }
 
     void Update()
@@ -70,7 +72,6 @@ public class GameManager : MonoBehaviour
         }
         else if (enemySpawner != null && !waitingForPortalReturn)
         {
-            enemiesRemaining.text = enemySpawner.currentEnemies.ToString();
 
             bool waveCleared = enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0;
 
@@ -97,6 +98,21 @@ public class GameManager : MonoBehaviour
 
         if (player == null)
             ResetGame();
+    }
+
+    public void UpdateEnemiesRemaining()
+    {
+        enemiesRemaining.text = $"{enemySpawner.mobsKilled} / {enemySpawner.lastMaxWavePopulation}";
+    }
+
+    public void EnemyKilled()
+    {
+        if (enemySpawner != null)
+        {
+            enemySpawner.mobsKilled++;
+            enemySpawner.currentEnemies--;
+            UpdateEnemiesRemaining();
+        }
     }
 
     public void TrySpawnBoss()

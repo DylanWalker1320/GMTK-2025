@@ -133,6 +133,9 @@ MonoBehaviour:
   maxHitSlowPercent: 1
   damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
   damageNumberSpawnRadius: 1
+  healthScalar: 0.6
+  damageScalar: 0.05
+  speedScalar: 0.05
   stats:
     health: 30
     damage: 10

@@ -64,7 +64,6 @@ public class Portal : MonoBehaviour
                 gameManager.playerInSafeArea = true;
         }
 
-        Debug.Log($"Player distance from statue: {distance}, proximity threshold: {proximityDistance}, player in range: {playerInRange}");
         // Player just left range
         if (distance > proximityDistance)
         {

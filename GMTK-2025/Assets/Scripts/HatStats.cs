@@ -31,7 +31,7 @@ Hat Stat Ranges by Rarity:
 Speed:         |   2    |    4     |   6    |   8    |     10    | // Unfinshed, check the speed values post-nerf later
 Health:        |  5-15  |   5-25   | 10-30  | 20-40  |   30-50   |
 Cast Speed:    |  0.05  |   0.1    |  0.15  |  0.2   |    0.25   | // This is in %, so Legendary gives 25% cast speed increase
-Cast Strength: |  0.05  |   0.1    |  0.2   |  0.3   |    0.4    | // This is in %, so Legendary gives 40% cast strength increase
+Cast Strength: |   0    |   0.05   |  0.1   |  0.15  |    0.2    | // This is in %, so Legendary gives 20% cast strength increase
 Spell Level:   |  N/A   |    1     |  1-2   |  1-2   |    1-3    |
 
 Accurate as of Dec 18, 2025
@@ -295,11 +295,11 @@ public static class HatStatDefinitions
             },
             StatType.CastStrength => rarity switch
             {
-                Rarity.Common =>    Random.Range(0.01f, 0.05f),
-                Rarity.Uncommon =>  Random.Range(0.06f, 0.10f),
-                Rarity.Rare =>      Random.Range(0.11f, 0.20f),
-                Rarity.Epic =>      Random.Range(0.21f, 0.30f),
-                Rarity.Legendary => Random.Range(0.31f, 0.40f),
+                Rarity.Common =>    Random.Range(0.01f, 0.04f),
+                Rarity.Uncommon =>  Random.Range(0.05f, 0.8f),
+                Rarity.Rare =>      Random.Range(0.9f, 0.12f),
+                Rarity.Epic =>      Random.Range(0.13f, 0.16f),
+                Rarity.Legendary => Random.Range(0.17f, 0.20f),
                 _ => 0.05f
             },
             StatType.SpellLevel => rarity switch

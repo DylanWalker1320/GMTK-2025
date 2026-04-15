@@ -4,7 +4,6 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class DarkKnight : Boss
 {
-
     private Vector2 movement;
     private GameObject target;
     private Rigidbody2D rb;
@@ -17,6 +16,11 @@ public class DarkKnight : Boss
         target = GameObject.FindGameObjectWithTag("Player");
         sprite = GetComponent<SpriteRenderer>();
         slamEffect = GetComponentInChildren<Animator>();
+
+        // Scale stats based on waves completed
+        stats.health *= (1f + 0.5f * gameManager.loopsCompleted);
+        stats.damage *= (1f + 0.1f * gameManager.loopsCompleted);
+        // stats.speed *= (1f + 0.0f * gameManager.loopsCompleted); // No speed scaling for the boss
     }
 
     void FixedUpdate()

@@ -17,6 +17,9 @@ public class SimpleEnemy : Enemy
     [SerializeField] private float maxHitSlowPercent = 0.2f; // 20% slow at max
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around enemy to spawn damage numbers
+    [SerializeField] private float healthScalar = 1f; // Base health scaler, can be adjusted for different enemy types
+    [SerializeField] private float damageScalar = 1f; // Base damage scaler, can be adjusted for different enemy types
+    [SerializeField] private float speedScalar = 1f; // Base speed scaler,
 
 
     public EnemyStats stats;
@@ -32,7 +35,6 @@ public class SimpleEnemy : Enemy
     {
         gameManager = FindFirstObjectByType<GameManager>();
         audioManager = FindFirstObjectByType<AudioManager>();
-        enemySpawner = FindFirstObjectByType<EnemySpawner>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         propertyBlock = new MaterialPropertyBlock();
@@ -67,14 +69,9 @@ public class SimpleEnemy : Enemy
 
     void InitStats()
     {
-        // health *= gameManager.loopsCompleted + 1;
-        // damage = damage * gameManager.loopsCompleted / 1.5f;
-        // maxSpeed += gameManager.loopsCompleted;
-
-        //                                   v Scaling factor
-        stats.health = stats.health * (1f + 0.75f * gameManager.loopsCompleted);
-        stats.damage = stats.damage * (1f + 0.15f * gameManager.loopsCompleted);
-        stats.speed = stats.speed * (1f + 0.25f * gameManager.loopsCompleted);
+        stats.health = stats.health * (1f + healthScalar * gameManager.wavesCompleted);
+        stats.damage = stats.damage * (1f + damageScalar * gameManager.wavesCompleted);
+        stats.speed  = stats.speed  * (1f + speedScalar  * gameManager.wavesCompleted);
 
         agent.speed = stats.speed;
         agent.acceleration = stats.speed * 2f;
@@ -149,9 +146,6 @@ public class SimpleEnemy : Enemy
         stats.health -= damage;
         if (stats.health <= 0f && isDead == false)
         {
-            enemySpawner.currentEnemies--; // Debugging: Decrease enemy count in spawner
-            isDead = true;
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
             Die();
         }
 
@@ -201,6 +195,9 @@ public class SimpleEnemy : Enemy
 
     void Die() 
     {
+        isDead = true;
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        gameManager.EnemyKilled();
         Destroy(gameObject);
     }
 }
