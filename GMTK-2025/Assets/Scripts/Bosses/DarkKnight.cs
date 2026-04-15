@@ -6,7 +6,6 @@ public class DarkKnight : Boss
 {
     private Vector2 movement;
     private GameObject target;
-    private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private Animator slamEffect;
 

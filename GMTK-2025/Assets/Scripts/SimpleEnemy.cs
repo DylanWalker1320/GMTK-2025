@@ -5,7 +5,6 @@ using UnityEngine.AI;
 public class SimpleEnemy : Enemy
 {
     public string targetTag = "Player";
-    private Rigidbody2D rb;
     private Transform target;
     private bool touchingTarget = false;
     private SpriteRenderer spriteRenderer;
@@ -118,6 +117,16 @@ public class SimpleEnemy : Enemy
             spriteRenderer.GetPropertyBlock(propertyBlock);
             propertyBlock.SetColor(ColorProperty, new Color(1, 1, 1, 0));
             spriteRenderer.SetPropertyBlock(propertyBlock);
+        }
+
+        // Apply force cooldown
+        if (!applyForceReady)
+        {
+            applyForceTimer -= Time.fixedDeltaTime;
+            if (applyForceTimer <= 0f)
+            {
+                applyForceReady = true;
+            }
         }
     }
 
