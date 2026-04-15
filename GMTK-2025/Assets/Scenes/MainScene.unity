@@ -4579,12 +4579,12 @@ MonoBehaviour:
   areaPerObstacle: 150
   playerSafeRadius: 5
   numSamples: 20
-  baseRadius: 20
+  baseRadius: 30
   radiusVariation: 6
   noiseScale: 0.5
   smoothness: 6
   extraTileChance: 20
-  wallThickness: 3
+  wallThickness: 15
   debugMode: 0
 --- !u!1 &1097593647
 GameObject:
@@ -12300,7 +12300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12671,7 +12671,7 @@ PrefabInstance:
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[0]'
       value: 
-      objectReference: {fileID: -6862345958128778274, guid: 48b799befc000a14182a86c1984e5373, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[1]'
       value: 
