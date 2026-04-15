@@ -3598,7 +3598,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 569f36a6773977c4ca07fff498892170, type: 3}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[6].name
-      value: Ghost Flame
+      value: Ghostflame
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[7].clip
@@ -3846,7 +3846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[6].volume
-      value: 0.118
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[13].volume
