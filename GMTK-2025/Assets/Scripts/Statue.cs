@@ -18,6 +18,7 @@ public class Statue : MonoBehaviour
     private bool isTyping = false;
     private bool playerInRange = false;
     private bool hasTriggered = false;
+    private bool hasPurchased = false;
     private string soulColourPrefix = "<color=#6BFFCB>";
     private string soulColourSuffix = "</color>";
     private char soulPrefixSymbol = '▒';
@@ -39,6 +40,17 @@ public class Statue : MonoBehaviour
         {
             statue.price = statue.basePrice;
             statue.UpdatePrice();
+        }
+    }
+
+    public static void TogglePurchaseAvailability(bool purchaseCondition)
+    {
+        foreach (Statue statue in FindObjectsByType<Statue>(FindObjectsSortMode.None))
+        {
+            if (statue.statueType == StatueType.Stat)
+            {
+                statue.hasPurchased = purchaseCondition;
+            }
         }
     }
 
@@ -78,6 +90,8 @@ public class Statue : MonoBehaviour
         if (playerInRange && Input.GetKeyDown(interactKey))
         {
             if (uiManager.isInUI) return; // Prevent interaction if already in a UI
+
+            if(hasPurchased && statueType == StatueType.Stat) return; // Prevent multiple interactions without leaving range
 
             playerSouls = player.GetComponent<PlayerMovement>()?.souls ?? 0; // Get player's current souls
             if (playerSouls >= price)

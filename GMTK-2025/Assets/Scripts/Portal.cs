@@ -30,6 +30,7 @@ public class Portal : MonoBehaviour
         if (isReturnPortal && gameManager != null)
             gameManager.OnPlayerReturnedFromPortal();
         else if (gameManager != null)
+            Statue.TogglePurchaseAvailability(false);
             gameManager.playerInSafeArea = true;
     }
 }

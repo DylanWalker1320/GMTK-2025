@@ -18,8 +18,7 @@ public class LevelUpUI : MonoBehaviour
 {
     private PlayerMovement player;
     private StatGenerator statGenerator;
-    [SerializeField] private float rerollCost;
-    [SerializeField] private float rerollCostMultiplier;
+    [SerializeField] private int rerollCost = 1;
     [SerializeField] private TextMeshProUGUI rerollText;
     public StatPanel[] panels = new StatPanel[3];
     public UnityEvent unityEvent;
@@ -90,6 +89,8 @@ public class LevelUpUI : MonoBehaviour
             TurnButtonOff(0);
             player.souls -= panels[0].soulCost;
             statGenerator.ApplyStats(0);
+            Statue.TogglePurchaseAvailability(true);
+            Exit();
             
         }
         
@@ -102,6 +103,8 @@ public class LevelUpUI : MonoBehaviour
             TurnButtonOff(1);
             player.souls -= panels[1].soulCost;
             statGenerator.ApplyStats(1);
+            Statue.TogglePurchaseAvailability(true);
+            Exit();
         }    
     }
 
@@ -112,6 +115,8 @@ public class LevelUpUI : MonoBehaviour
             TurnButtonOff(2);
             player.souls -= panels[2].soulCost;
             statGenerator.ApplyStats(2);
+            Statue.TogglePurchaseAvailability(true);
+            Exit();
         }     
     }
 
@@ -124,13 +129,11 @@ public class LevelUpUI : MonoBehaviour
     
     public void Reroll()
     {
-        if(player.souls - rerollCost >= 0)
+        if(rerollCost > 0)
         {
-            player.souls -= (int) rerollCost;
-            rerollCost = Mathf.Round(rerollCost * rerollCostMultiplier);
+            rerollCost -= 1;
             player.UpdateUI();
             InitializeLevelUpUI();
-            
         }
     }
 
