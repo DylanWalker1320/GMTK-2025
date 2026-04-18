@@ -40,6 +40,11 @@ public class StatGenerator : Stats
                     player.maxHealth += stat.value;
                     if (debugMode) Debug.Log($"Max Health increased from {player.maxHealth - stat.value} to {player.maxHealth}");
                     break;
+
+                case LevelUpStatType.DashStrength:
+                    player.dashStrength += stat.value;
+                    if (debugMode) Debug.Log($"Dash Strength increased from {player.dashStrength - stat.value} to {player.dashStrength}");
+                    break;
                     
                 case LevelUpStatType.CastSpeed:
                     player.castSpeed += stat.value;

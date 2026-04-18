@@ -54,6 +54,9 @@ public class TooltipThreeUpgrades : Tooltip
                 case ThreeUpgradeScreen.StatIncreaseType.CastStrength:
                     message = $"<u><color=yellow>Cast Strength Increase</color></u>\n\n{Mathf.Round(FindAnyObjectByType<PlayerMovement>().castStrength * 100.00f) * 0.01f} -> <color=yellow>{Mathf.Round((FindAnyObjectByType<PlayerMovement>().castStrength + threeUpgradeScreenReference.castStrengthUpgradeIncrease) * 100.00f) * 0.01f}</color>\n";
                     break;
+                case ThreeUpgradeScreen.StatIncreaseType.DashStrength:
+                    message = $"<u><color=yellow>Dash Strength Increase</color></u>\n\n{Mathf.Round(FindAnyObjectByType<PlayerMovement>().dashStrength * 100.00f) * 0.01f} -> <color=yellow>{Mathf.Round((FindAnyObjectByType<PlayerMovement>().dashStrength + threeUpgradeScreenReference.dashStrengthUpgradeIncrease) * 100.00f) * 0.01f}</color>\n";
+                    break;
                 default:
                     Debug.LogError("Invalid upgrade index for stats.");
                     break;

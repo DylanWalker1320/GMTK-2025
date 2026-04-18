@@ -11,6 +11,7 @@ public class PlayerStatTracker : MonoBehaviour
         statsText.text = "Max Health: " + player.maxHealth.ToString() + 
                         "\nSpeed: " + player.maxSpeed.ToString() +
                         "\nIFrames: " + player.invincibilityFrames.ToString() + 
+                        "\nDash Strength: " + player.dashStrength.ToString() +
                         "\nCast Strength: " + (Mathf.Round(player.castStrength * 100.00f) * 0.01f).ToString() + 
                         "\nCast Speed: " + (Mathf.Round(player.castSpeed * 100.00f) * 0.01f).ToString();
     }

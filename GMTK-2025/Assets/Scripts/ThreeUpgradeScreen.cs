@@ -59,6 +59,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
     public int iFramesUpgradeIncrease;
     public float castSpeedUpgradeIncrease;
     public float castStrengthUpgradeIncrease;
+    public float dashStrengthUpgradeIncrease;
 
     [Header("Upgrade Index")]
 
@@ -78,7 +79,8 @@ public class ThreeUpgradeScreen : MonoBehaviour
         Speed = 1,
         IFrames = 2,
         CastSpeed = 3,
-        CastStrength = 4
+        CastStrength = 4,
+        DashStrength = 5
     }
     public enum SpriteType
     {
@@ -126,6 +128,9 @@ public class ThreeUpgradeScreen : MonoBehaviour
                 break;
             case StatIncreaseType.CastStrength:
                 upgradeTextTwo.text = "Cast Strength + " + 100 * castStrengthUpgradeIncrease + "%";
+                break;
+            case StatIncreaseType.DashStrength:
+                upgradeTextTwo.text = "Dash Strength + " + dashStrengthUpgradeIncrease;
                 break;
             default:
                 Debug.LogError("Invalid upgrade index for stats.");
@@ -211,6 +216,9 @@ public class ThreeUpgradeScreen : MonoBehaviour
                 break;
             case StatIncreaseType.CastStrength:
                 player.castStrength += castStrengthUpgradeIncrease; // Upgrade cast strength
+                break;
+            case StatIncreaseType.DashStrength:
+                player.dashStrength += dashStrengthUpgradeIncrease; // Upgrade dash strength
                 break;
             default:
                 Debug.LogError("Invalid upgrade index for stats.");

@@ -57,6 +57,9 @@ public class TooltipLevelUp : Tooltip
                 case LevelUpStatType.Health:
                     message += $"Health: {player.maxHealth} -> <color={messageColor}>{player.maxHealth + stat.value}</color>\n";
                     break;
+                case LevelUpStatType.DashStrength:
+                    message += $"Dash Strength: {Mathf.Round(player.dashStrength * 100.00f) * 0.01f} -> <color={messageColor}>{Mathf.Round((player.dashStrength + stat.value) * 100.00f) * 0.01f}</color>\n";
+                    break;
                 case LevelUpStatType.CastSpeed:
                     message += $"Cast Speed: {Mathf.Round(player.castSpeed * 100.00f) * 0.01f} -> <color={messageColor}>{Mathf.Round((player.castSpeed + stat.value) * 100.00f) * 0.01f}</color>\n";
                     break;

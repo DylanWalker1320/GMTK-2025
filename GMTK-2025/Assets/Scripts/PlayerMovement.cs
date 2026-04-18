@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float castStrength;
     public float health;
     public int invincibilityFrames = 1; // Invincibility frames after taking damage
-    [SerializeField] private float dashStrength = 10f; // Strength of the dash
+    public float dashStrength; // Strength of the dash
     [Header("Currency")]
     public int souls;
     [Header("Experience")]
