@@ -28,6 +28,14 @@ public class LevelUpUI : MonoBehaviour
         player = FindAnyObjectByType<PlayerMovement>();
         statGenerator = FindAnyObjectByType<StatGenerator>();
     }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Exit();
+        }
+    }
     
     
     public void InitializeLevelUpUI()

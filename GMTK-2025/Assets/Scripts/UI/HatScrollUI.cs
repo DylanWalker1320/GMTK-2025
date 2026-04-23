@@ -24,7 +24,7 @@ public class HatScrollUI : MonoBehaviour
 
     void Update()
     {
-        if (hatPrizeUI.activeSelf && Input.GetKeyDown(KeyCode.Mouse0)) // Apply Hat Stats after clicking off prize menu
+        if (hatPrizeUI.activeSelf && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Escape))) // Apply Hat Stats after clicking off prize menu
         {
             scrollUI.GetComponent<HatScroll>().ApplyPrizeHatStats();
             FindAnyObjectByType<UIManager>().updateStatTrackerUI();
@@ -36,7 +36,7 @@ public class HatScrollUI : MonoBehaviour
             ToggleScrollUI();
             ToggleHatPrize(scrollUI.GetComponent<HatScroll>().GetTargetHatData());
         }
-        if(scrollUI.activeSelf && Input.GetKeyDown(KeyCode.Mouse0) && scrollUI.GetComponent<HatScroll>().GetIsScrolling())
+        if(scrollUI.activeSelf && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Escape)) && scrollUI.GetComponent<HatScroll>().GetIsScrolling())
         {
             scrollUI.GetComponent<HatScroll>()._hasScrolled = false;
             ToggleScrollUI();

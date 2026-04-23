@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private bool debugMode;
     [Header("UI Panels")]
     public GameObject upgradeUI;
-    public GameObject levelUpUI;
+    public GameObject levelUpUI; // TODO: now stat shop ui, rename later
     public GameObject scrollUI;
     public GameObject barAllocationUI;
     public GameObject statTrackerUI;
@@ -88,7 +88,7 @@ public class UIManager : MonoBehaviour
     {
         if (!gameManager) return;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && levelUpUI.activeSelf == false && scrollUI.activeSelf == false) // Don't allow pause if we're in the middle of leveling up or rolling for hats
         {
 
             if (currentMenu == Menu.None) // Only allow pause if in game
