@@ -5,21 +5,12 @@ using System.Collections;
 public class DarkKnight : Boss
 {
     private Vector2 movement;
-    private GameObject target;
-    private SpriteRenderer sprite;
     private Animator slamEffect;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player");
-        sprite = GetComponent<SpriteRenderer>();
         slamEffect = GetComponentInChildren<Animator>();
-
-        // Scale stats based on waves completed
-        stats.health *= (1f + 0.5f * gameManager.loopsCompleted);
-        stats.damage *= (1f + 0.1f * gameManager.loopsCompleted);
-        // stats.speed *= (1f + 0.0f * gameManager.loopsCompleted); // No speed scaling for the boss
+        Init();
     }
 
     void FixedUpdate()
@@ -35,7 +26,6 @@ public class DarkKnight : Boss
         }
         else
         {
-            // Implement attack logic here
             Attack();
             attackCooldownTimer = attackCooldown;
         }
@@ -65,31 +55,6 @@ public class DarkKnight : Boss
     {
         yield return new WaitForSeconds(attackCooldown);
         animator.SetBool("CanAttack", true);
-    }
-
-    public override void TakeDamage(float damage)
-    {
-        base.TakeDamage(damage);
-        StartCoroutine(HitEffect(Color.red, 1f));
-    }
-
-    private IEnumerator HitEffect(Color hitColor, float duration)
-    {
-        float elapsed = 0f;
-        Color originalColor = Color.white;
-
-        // Fast fade to hit color
-        sprite.color = hitColor;
-
-        // Lerp back to original color over the duration
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            sprite.color = Color.Lerp(hitColor, originalColor, elapsed / duration);
-            yield return null; // Wait for the next frame
-        }
-
-        sprite.color = originalColor;
     }
 
     void OnTriggerEnter2D(Collider2D other)
