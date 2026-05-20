@@ -3,16 +3,15 @@ using UnityEngine;
 
 public class HermitCrab : Enemy
 {
-    public bool isShooting = false;
-    public bool isWalking = false;
-    public Vector2 walkTarget;
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private GameObject targetMarker;
     [SerializeField] private float shootCooldown = 2f;
     [SerializeField] private float minShootDistance = 2f;
     [SerializeField] private float maxShootDistance = 10f;
-    public float distanceToTarget;
-    public static EnemySpawner enemySpawner;
+    private bool isShooting = false;
+    private bool isWalking = false;
+    private Vector2 walkTarget;
+    private float distanceToTarget;
+    private static EnemySpawner enemySpawner;
 
     void Start()
     {

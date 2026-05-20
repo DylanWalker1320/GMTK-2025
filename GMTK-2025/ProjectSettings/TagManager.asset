@@ -67,6 +67,9 @@ TagManager:
   - name: Player
     uniqueID: 657184637
     locked: 0
+  - name: Projectiles
+    uniqueID: 2573317093
+    locked: 0
   - name: UI
     uniqueID: 2656564817
     locked: 0

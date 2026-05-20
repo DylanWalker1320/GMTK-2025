@@ -82,11 +82,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7689925873365378556, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.831
+      value: 0.805
       objectReference: {fileID: 0}
     - target: {fileID: 7689925873365378556, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.073
+      value: -0.068
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
@@ -128,12 +128,7 @@ MonoBehaviour:
     speed: 2
   applyForceCooldown: 0.75
   applyForceReady: 1
-  isShooting: 0
-  isWalking: 0
-  walkTarget: {x: 0, y: 0}
-  projectilePrefab: {fileID: 0}
-  targetMarker: {fileID: 0}
+  projectilePrefab: {fileID: 8192162858285028509, guid: cdf04d1418e763948a90d1030f8bd0f7, type: 3}
   shootCooldown: 2
   minShootDistance: 6
   maxShootDistance: 10
-  distanceToTarget: 0
