@@ -108,7 +108,7 @@ public class Statue : MonoBehaviour
                         uiManager.SetActiveScrollUI();
                         break;
                     case StatueType.Stat:
-                        uiManager.SetActiveLevelUpUI();
+                        uiManager.SetActiveStatShopUI();
                         break;
                 }
 

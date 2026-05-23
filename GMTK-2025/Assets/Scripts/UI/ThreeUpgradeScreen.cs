@@ -232,7 +232,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
         FindAnyObjectByType<AudioManager>().Play("UIInteraction" + UnityEngine.Random.Range(1, 3));
         DisableUpgradeScreen(false);
         // Send to spell allocation UI
-        uiManager.SetActiveBarAllocUI();
+        uiManager.SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellCombination);
     }
 
     private void DisableUpgradeScreen(bool unityEventInvoke = true)

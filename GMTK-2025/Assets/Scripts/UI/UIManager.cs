@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private bool debugMode;
     [Header("UI Panels")]
     public GameObject upgradeUI;
-    public GameObject levelUpUI; // TODO: now stat shop ui, rename later
+    public GameObject statShopUI; // TODO: now stat shop ui, rename later
     public GameObject scrollUI;
     public GameObject barAllocationUI;
     public GameObject statTrackerUI;
@@ -19,7 +19,6 @@ public class UIManager : MonoBehaviour
     public GameObject startMenu;
     public GameObject settingsMenu;
     public GameObject tutorialMenu;
-    // TODO: Add Level UP UI & Potentially Hat Roll UI
     [Header("Slides")]
     public GameObject Slide1;
     public GameObject Slide2;
@@ -88,7 +87,7 @@ public class UIManager : MonoBehaviour
     {
         if (!gameManager) return;
 
-        if (Input.GetKeyDown(KeyCode.Escape) && levelUpUI.activeSelf == false && scrollUI.activeSelf == false) // Don't allow pause if we're in the middle of leveling up or rolling for hats
+        if (Input.GetKeyDown(KeyCode.Escape) && statShopUI.activeSelf == false && scrollUI.activeSelf == false) // Don't allow pause if we're in the middle of leveling up or rolling for hats
         {
 
             if (currentMenu == Menu.None) // Only allow pause if in game
@@ -125,11 +124,30 @@ public class UIManager : MonoBehaviour
             }
         }
         
-        else if (Input.GetKeyDown(KeyCode.Tab))
+        else if (Input.GetKeyDown(KeyCode.Q))
         {
             if((currentMenu == Menu.GameMenu || currentMenu == Menu.None) && scrollUI.activeSelf == false)
             {
                 spellBookUI.SetActive(!spellBookUI.activeSelf);
+            }
+        }
+        // TODO: another conditonal statement to trigger Spell Swap UI and pause time. Can only be triggered during gameplay. Goal is to reuse Spell Bar Allocation UI for this, enum checking will handle logic for whether we're swapping or allocating along its display. 
+        // If pressed again, should exit out of the UI and unpause time. To be called in UIManager
+
+        else if (Input.GetKeyDown(KeyCode.Tab) && statShopUI.activeSelf == false && scrollUI.activeSelf == false && upgradeUI.activeSelf == false && barAllocationUI.activeSelf == false)
+        {
+            if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
+            {
+                Time.timeScale = 0;
+                SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellSwap); // Opens the spell swap UI, which reuses the bar allocation UI
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && statShopUI.activeSelf == false && scrollUI.activeSelf == false && barAllocationUI.activeSelf == true && FindFirstObjectByType<InteractableLoopBar>().loopBarType == InteractableLoopBar.LoopBarType.SpellSwap)
+        {
+            if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
+            {
+                Time.timeScale = 1;
+                SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellSwap); // Closes the spell swap UI, which reuses the bar allocation UI
             }
         }
 
@@ -351,16 +369,16 @@ public class UIManager : MonoBehaviour
         barAllocationUI.SetActive(false);
     }
 
-    public void SetActiveLevelUpUI()
+    public void SetActiveStatShopUI()
     {
         if (isInUI) return; // Prevent opening if already in a UI
         isInUI = true;
-        levelUpUI.SetActive(!levelUpUI.activeSelf);
+        statShopUI.SetActive(!statShopUI.activeSelf);
         upgradeUI.SetActive(false);
         barAllocationUI.SetActive(false);
 
         Time.timeScale = 0;
-        levelUpUI.GetComponent<LevelUpUI>().InitializeLevelUpUI();
+        statShopUI.GetComponent<LevelUpUI>().InitializeStatShopUI();
     }
 
     public void SetActiveScrollUI()
@@ -375,15 +393,20 @@ public class UIManager : MonoBehaviour
         barAllocationUI.SetActive(false);
     }
 
-    public void SetActiveBarAllocUI()
+    public void SetActiveBarAllocUI(InteractableLoopBar.LoopBarType loopBarType)
     {
-        // No check here because it is only called from the level up UI, so we want to allow it to open even if we're already in a UI
         barAllocationUI.SetActive(!barAllocationUI.activeSelf);
-        spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
         upgradeUI.SetActive(false);
+
+
         if (barAllocationUI.activeSelf != false)
         {
+            FindFirstObjectByType<InteractableLoopBar>().loopBarType = loopBarType;
             FindFirstObjectByType<InteractableLoopBar>().OnCall();
+        }
+        else
+        {
+            TooltipManager._instance.HideTooltip();
         }
     }
 
@@ -393,7 +416,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         currentMenu = Menu.None;
         upgradeUI.SetActive(false);
-        levelUpUI.SetActive(false);
+        statShopUI.SetActive(false);
         barAllocationUI.SetActive(false);
         scrollUI.SetActive(false);
         

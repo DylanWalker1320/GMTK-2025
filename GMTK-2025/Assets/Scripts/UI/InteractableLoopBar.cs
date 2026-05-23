@@ -9,13 +9,36 @@ public class InteractableLoopBar : MonoBehaviour
     private GameManager gameManager;
     private int startingSpellCounter;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
-    public Spell[] spellArray = new Spell[8]; 
+    public Spell[] spellArray = new Spell[8];
+    public LoopBarType loopBarType;
+    public SwapState swapState;
     [SerializeField] private TextMeshProUGUI[] typeText = new TextMeshProUGUI[8];
     [SerializeField] private Image spellImage;
     [SerializeField] private Spell[] spellReplacements = new Spell[4];
 
     [SerializeField] private UnityEvent unityEvent;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    [SerializeField] int spellToSwapOneIndex;
+    [SerializeField] int spellToSwapTwoIndex;
+
+    [SerializeField] private Sprite emptySlotSprite; // Sprite for empty inventory slots
+    private Spell spellToSwapOne;
+    private Spell spellToSwapTwo;
+
+
+    //TODO: Create an enum class for interactable loop bar type: Spell Swap, SpellCombination. Use enums to determine whether the slots switch or replace/combine the spell
+
+    public enum LoopBarType
+    {
+        SpellSwap,
+        SpellCombination
+    }
+
+    public enum SwapState
+    {
+        None,
+        FirstSelected
+    }
 
     void Awake()
     {
@@ -23,12 +46,12 @@ public class InteractableLoopBar : MonoBehaviour
         loopbarInventory = FindFirstObjectByType<Inventory>();
         startingSpellCounter = gameManager.betaSpellCounter;
     }
+
     public void BetaLoop()
     {
+        loopBarType = LoopBarType.SpellCombination;
         gameManager.ChangeSpellAllocation();
         OnCall();
-
-        FindAnyObjectByType<UIManager>().spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
 
         startingSpellCounter--;
         if(startingSpellCounter <= 0)
@@ -40,17 +63,18 @@ public class InteractableLoopBar : MonoBehaviour
     {
         spellImage.sprite = gameManager.spellImage;
         spellArray = loopbarInventory.spellArray; //pointer for actual spell array
-        GetSpellSprites();
+        UpdateSpellSprites();
         GetTypes();
+        FindAnyObjectByType<UIManager>().spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
     }
-    private void GetSpellSprites()
+    private void UpdateSpellSprites()
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             if (spellArray[i] == null)
             {
-                //Debug.Log("Spell is null, skipping check.");
-                continue; // Skip if either spell is null
+                
+                inventorySlots[i].sprite = emptySlotSprite;
             }
             else
             {
@@ -66,64 +90,130 @@ public class InteractableLoopBar : MonoBehaviour
             if (spellArray[i] != null)
             {
                 switch (spellArray[i].spellType1)
-                    {
-                        case Spell.SpellType.Fire:
-                            typeText[i].text = "Fire";
-                            typeText[i].color = Color.red;
-                            break;
-                        case Spell.SpellType.Water:
-                            typeText[i].text = "Water";
-                            typeText[i].color = Color.blue;
-                            break;
-                        case Spell.SpellType.Lightning:
-                            typeText[i].text = "Lightning";
-                            typeText[i].color = Color.yellow;
-                            break;
-                        case Spell.SpellType.Dark:
-                            typeText[i].text = "Dark";
-                            typeText[i].color = Color.gray;
-                            break;
-                        default:
-                            typeText[i].text = "Empty";
-                            break;
+                {
+                    case Spell.SpellType.Fire:
+                        typeText[i].text = "Fire";
+                        typeText[i].color = Color.red;
+                        break;
+                    case Spell.SpellType.Water:
+                        typeText[i].text = "Water";
+                        typeText[i].color = Color.blue;
+                        break;
+                    case Spell.SpellType.Lightning:
+                        typeText[i].text = "Lightning";
+                        typeText[i].color = Color.yellow;
+                        break;
+                    case Spell.SpellType.Dark:
+                        typeText[i].text = "Dark";
+                        typeText[i].color = Color.gray;
+                        break;
+                    default:
+                        typeText[i].text = "Empty";
+                        break;
 
-                    }   
+                }   
+            }
+            
+            else
+            {
+                typeText[i].text = "";
             }
         }
     }
     // Button Functions
     public void SlotOne()
     {
-        SelectSpellReplacement(0);
+        SpellBarTypeCheck(0);
     }
     public void SlotTwo()
     {
-        SelectSpellReplacement(1);
+        SpellBarTypeCheck(1);
     }
     public void SlotThree()
     {
-        SelectSpellReplacement(2);
+        SpellBarTypeCheck(2);
     }
     public void SlotFour()
     {
-        SelectSpellReplacement(3);
+        SpellBarTypeCheck(3);
     }
     public void SlotFive()
     {
-        SelectSpellReplacement(4);
+        SpellBarTypeCheck(4);
     }
     public void SlotSix()
     {
-        SelectSpellReplacement(5);
+        SpellBarTypeCheck(5);
     }
     public void SlotSeven()
     {
-        SelectSpellReplacement(6);
+        SpellBarTypeCheck(6);
     }
     public void SlotEight()
     {
-        SelectSpellReplacement(7);
+        SpellBarTypeCheck(7);
+    }
 
+    void SpellBarTypeCheck(int index)
+    {
+        switch (loopBarType)
+        {
+            case LoopBarType.SpellSwap:
+                // Call Spell Swap Function
+                SpellSwapEvaluator(index);
+                break;
+            case LoopBarType.SpellCombination:
+                // Call Spell Combination Function
+                SelectSpellReplacement(index);
+                break;
+            default:
+                break;
+        }
+    }
+
+    void SpellSwapEvaluator(int index)
+    {
+        
+        if(spellToSwapOne == null && swapState == SwapState.None) // first click, spell isnt empty
+        {
+            spellToSwapOneIndex = index;
+            spellToSwapOne = SpellCombinationNullEvaluator(index);
+            swapState = SwapState.FirstSelected;
+        }
+        else if (spellToSwapTwo == null && swapState == SwapState.FirstSelected) // second click, spell isnt empty, swap happens
+        {
+            spellToSwapTwoIndex = index;
+            spellToSwapTwo = SpellCombinationNullEvaluator(index);
+
+            SwapSlots(spellToSwapOneIndex, spellToSwapTwoIndex);
+
+            spellToSwapOne = null;
+            spellToSwapTwo = null;
+            swapState = SwapState.None;
+
+            OnCall(); // Refreshes the UI to show the swapped spells
+        }
+    }
+
+    Spell SpellCombinationNullEvaluator(int index) // SpellSwapEvaluator Wrapper
+    {
+        if(spellArray[index] == null)
+        {
+            return null;
+        }
+        else
+        {
+            return spellArray[index];
+        }
+    }
+
+    public void SwapSlots(int indexOne, int indexTwo)
+    {
+        spellArray[indexOne] = spellToSwapTwo;
+        spellArray[indexTwo] = spellToSwapOne;
+
+        UpdateSpellSprites();
+        loopbarInventory.UpdateSpellSprites(); // Refreshes the inventory's spell sprites to reflect the swapped spells
     }
 
     void SelectSpellReplacement(int index)
@@ -138,7 +228,7 @@ public class InteractableLoopBar : MonoBehaviour
 
         if (!isSingle)
         {
-            GetSpellSprites();
+            loopbarInventory.UpdateSpellSprites();
         }
 
 

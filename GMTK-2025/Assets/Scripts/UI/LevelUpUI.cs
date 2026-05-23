@@ -14,7 +14,7 @@ public class StatPanel
     public RawImage boxSprite;
 }
 
-public class LevelUpUI : MonoBehaviour
+public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
 {
     private PlayerMovement player;
     private StatGenerator statGenerator;
@@ -38,7 +38,7 @@ public class LevelUpUI : MonoBehaviour
     }
     
     
-    public void InitializeLevelUpUI()
+    public void InitializeStatShopUI()
     {
         for(int i = 0; i < 3; i++)
         {
@@ -141,7 +141,7 @@ public class LevelUpUI : MonoBehaviour
         {
             rerollCost -= 1;
             player.UpdateUI();
-            InitializeLevelUpUI();
+            InitializeStatShopUI();
         }
     }
 

@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public Spell[] spellArray = new Spell[8]; // Holds Spell Prefabs
     [SerializeField] private float maxTimeBetweenSpells;
+    [SerializeField] private Sprite emptySlotSprite; // Sprite for empty inventory slots
     public Spell chosenSpell;
     private float timeBetweenSpells; // Time between casting spells
     public bool isCasting = false; // casting current spell
@@ -31,7 +32,7 @@ public class Inventory : MonoBehaviour
     }
     private void Start()
     {
-        GetSpellSprites(); // Get the spell sprites for the inventory slots
+        UpdateSpellSprites(); // Get the spell sprites for the inventory slots
     }
     private void Update()
     {
@@ -75,14 +76,13 @@ public class Inventory : MonoBehaviour
         isCasting = false; // Reset casting flag after casting
     }
 
-    public void GetSpellSprites()
+    public void UpdateSpellSprites()
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             if (spellArray[i] == null)
             {
-                // Debug.Log("Spell is null, skipping check.");
-                continue; // Skip if either spell is null
+                inventorySlots[i].sprite = emptySlotSprite; // Set to empty slot sprite if no spell is assigned
             }
             else
             {
@@ -100,7 +100,7 @@ public class Inventory : MonoBehaviour
             isSingle = true;
             spellArray[index] = comboSpell; // Assign the combination spell to the current slot
             inventorySlots[index].sprite = comboSpell.spellSprite;
-            GetSpellSprites();
+            UpdateSpellSprites();
         }
         else
         {
