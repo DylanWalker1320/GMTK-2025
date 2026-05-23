@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
         movement = movement.normalized;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && uiManager.isInUI == false)
         {
             // Dash
             rb.AddForce(movement * dashStrength, ForceMode2D.Impulse);

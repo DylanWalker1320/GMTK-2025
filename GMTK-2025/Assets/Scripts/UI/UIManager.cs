@@ -401,11 +401,13 @@ public class UIManager : MonoBehaviour
 
         if (barAllocationUI.activeSelf != false)
         {
+            isInUI = true;
             FindFirstObjectByType<InteractableLoopBar>().loopBarType = loopBarType;
             FindFirstObjectByType<InteractableLoopBar>().OnCall();
         }
         else
         {
+            isInUI = false;
             TooltipManager._instance.HideTooltip();
         }
     }
