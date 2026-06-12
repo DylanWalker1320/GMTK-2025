@@ -100,6 +100,7 @@ public class UIManager : MonoBehaviour
             else if (currentMenu == Menu.GameMenu)
             {
                 pauseMenu.SetActive(true);
+                pauseMenu.GetComponent<Animator>().SetTrigger("BeginPauseMenu");
                 lastMenu = currentMenu;
                 currentMenu = Menu.PauseMenu;
             }
