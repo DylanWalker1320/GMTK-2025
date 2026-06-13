@@ -93,13 +93,16 @@ public class UIManager : MonoBehaviour
             if (currentMenu == Menu.None) // Only allow pause if in game
             {
                 pauseMenu.SetActive(true);
+                FindAnyObjectByType<AudioManager>().Play("OpenPauseMenu");
+                pauseMenu.GetComponent<Animator>().SetTrigger("BeginPauseMenu");
                 lastMenu = currentMenu;
                 currentMenu = Menu.PauseMenu;
                 Time.timeScale = 0;
             }
-            else if (currentMenu == Menu.GameMenu)
+            else if (currentMenu == Menu.GameMenu) // look into this it might be useless ngl
             {
                 pauseMenu.SetActive(true);
+                FindAnyObjectByType<AudioManager>().Play("OpenPauseMenu");
                 pauseMenu.GetComponent<Animator>().SetTrigger("BeginPauseMenu");
                 lastMenu = currentMenu;
                 currentMenu = Menu.PauseMenu;
