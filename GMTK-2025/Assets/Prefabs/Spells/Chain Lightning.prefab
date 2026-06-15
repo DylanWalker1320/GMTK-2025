@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5220609102773159089}
   - component: {fileID: 787266561512865477}
   - component: {fileID: -7064469638007357661}
+  - component: {fileID: 3495553042140378373}
   m_Layer: 6
   m_Name: Chain Lightning
   m_TagString: Spell
@@ -201,3 +202,58 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &3495553042140378373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136817257210570753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.608
+  m_Color: {r: 0, g: 0.9716981, b: 0.67771566, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 0.38
+  m_LightVolumeEnabled: 1
+  m_ApplyToSortingLayers: 000000005579e7d207acaf0a5dd5ad64b5e0063047b4e62b7dd72b278dc37f7051f6579e
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.848
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0.0060499907, y: -0.014100015, z: 0}
+    m_Extent: {x: 1.98765, y: 1.4951, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.8
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -1.1832228, y: -0.7104425, z: 0}
+  - {x: -0.15603203, y: -0.0017349832, z: 0}
+  - {x: 1.1949418, y: -0.37393582, z: 0}
+  - {x: 1.0319085, y: 0.2517873, z: 0}
+  - {x: 0.6859297, y: 0.6808204, z: 0}
+  - {x: -0.00036242604, y: 0.59993726, z: 0}
+  - {x: -0.702734, y: 0.11626026, z: 0}

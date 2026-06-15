@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7322540521018696333}
   - component: {fileID: -8624675068488886725}
   - component: {fileID: 8032753475744321029}
+  - component: {fileID: 1878648220206953115}
   m_Layer: 6
   m_Name: StormStrike
   m_TagString: Spell
@@ -83,6 +84,61 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1878648220206953115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768451218565828388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.589
+  m_Color: {r: 1, g: 0.75357646, b: 0, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeIntensity: 0.87
+  m_LightVolumeEnabled: 1
+  m_ApplyToSortingLayers: 000000005579e7d207acaf0a5dd5ad64b5e0063047b4e62b7dd72b278dc37f7051f6579e
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.848
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: -0.01880002, y: 0.2399, z: 0}
+    m_Extent: {x: 2.2257, y: 3.0746999, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 1.85
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.1778109, y: 0.02887538, z: 0}
+  - {x: -0.26724806, y: -0.9558916, z: 0}
+  - {x: 0.013945289, y: -0.9856619, z: 0}
+  - {x: 0.35833156, y: 0.4798362, z: 0}
+  - {x: 0.25630334, y: 1.4656422, z: 0}
+  - {x: -0.1120601, y: 1.3154254, z: 0}
+  - {x: -0.39400452, y: 0.42414555, z: 0}
 --- !u!1 &4309588299091508637
 GameObject:
   m_ObjectHideFlags: 0
