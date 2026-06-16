@@ -14,6 +14,7 @@ public class BlackFlash : Spell
         Init();
         OrientSpell();
         AddUpgrade();
+        DestroySpell();
     }
 
 
@@ -39,6 +40,6 @@ public class BlackFlash : Spell
 
     public void DestroySpell()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, destroyTime);
     }
 }
