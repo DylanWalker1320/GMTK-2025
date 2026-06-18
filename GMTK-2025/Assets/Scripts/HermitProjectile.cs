@@ -27,16 +27,14 @@ public class HermitProjectile : MonoBehaviour
         startPosition = transform.position;
         Instantiate(targetMarkerPrefab, targetPosition, Quaternion.identity);
 
-        // Debug Code
         targetPosition = GameObject.FindWithTag("Player").transform.position;
 
         _totalDist = Vector2.Distance(startPosition, targetPosition);
         _duration = _totalDist * speedPerUnit;
 
-        // In parabola space: x1=0, y1=0 (start), x2=totalDist, y2=endHeight
-        // We treat height as a separate axis from the top-down XZ plane
+        // In parabola space: x1 = 0, y1 = 0 (start), x2 = totalDist, y2 = endHeight
         _startHeight = 0f;
-        _endHeight = 0f;  // both endpoints at ground level; peak is purely k above
+        _endHeight = 0f;  // both endpoints at ground level
 
         float y1 = _startHeight;
         float y2 = _endHeight;
@@ -67,27 +65,18 @@ public class HermitProjectile : MonoBehaviour
         // Visual height from parabola
         float height = _a * Mathf.Pow(parabolaX - _h, 2f) + _v;
 
-        // Apply: XY is top-down position, Z is visual height (or use a child sprite offset)
+        // Apply: XY is top-down position
         transform.position = new Vector3(worldPos.x, worldPos.y, 0f);
         ApplyVisualHeight(height);
 
         if (_t >= 1f) OnArrival();
     }
 
-    /// <summary>
-    /// In a top-down game, "height" is usually faked by offsetting the sprite
-    /// upward and scaling a shadow. Adjust this to match your rendering setup.
-    /// </summary>
     private void ApplyVisualHeight(float height)
     {
-        // Option A: offset the visual child object upward in screen space
-        // (attach your sprite/mesh to a child GameObject)
+        // Offset the visual child object upward in screen space
         if (visual != null)
             visual.localPosition = new Vector3(0f, height, 0f);
-
-        // Option B: if you have no child and just want to shift the whole object
-        // (only works if your camera handles the Y axis as height)
-        // transform.position += new Vector3(0f, height, 0f);
     }
 
     private void OnArrival()
