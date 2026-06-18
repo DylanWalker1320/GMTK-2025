@@ -247,5 +247,6 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0}
   visual: {fileID: 7904719386334404129}
   targetMarkerPrefab: {fileID: 6769135323596802873, guid: fd7bb7691b730204a91300081d053376, type: 3}
+  groundEffectPrefab: {fileID: 6642551081973798444, guid: 3f456c97bb5654948bac553a31f372a8, type: 3}
   peakOffset: 5
   speedPerUnit: 0.5

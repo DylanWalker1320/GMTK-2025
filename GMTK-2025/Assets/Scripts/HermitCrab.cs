@@ -81,9 +81,8 @@ public class HermitCrab : Enemy
         while (isShooting)
         {
             // Spawn projectile
-            // GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            // Vector2 shootDirection = (target.position - transform.position).normalized;
-            // projectile.GetComponent<Projectile>().Initialize(shootDirection, stats.damage);
+            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            projectile.GetComponent<HermitProjectile>().Initialize(stats.damage);
 
             // audioManager.Play("HermitCrabShoot");
             Debug.Log("HermitCrab shoots!");

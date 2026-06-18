@@ -6,8 +6,12 @@ public class HermitProjectile : MonoBehaviour
     [SerializeField] private Vector2 targetPosition;
     [SerializeField] private Transform visual;  // Assign your sprite/mesh here
     [SerializeField] private GameObject targetMarkerPrefab;
+    [SerializeField] private GameObject groundEffectPrefab;
     [SerializeField] private float peakOffset = 2f;      // k: units above the higher endpoint
     [SerializeField] private float speedPerUnit = 1f;    // seconds per unit of distance
+
+    private GameObject targetMarkerInstance;
+    private float damage;
 
     private float _t = 0f;
     private float _duration;
@@ -22,10 +26,16 @@ public class HermitProjectile : MonoBehaviour
     private float _startHeight; // world height of start (always 0 in your case, but kept for generality)
     private float _endHeight;   // world height of target relative to start
 
+    // Used for external initialization (e.g. setting damage)
+    public void Initialize(float damage)
+    {
+        this.damage = damage;
+    }
+
     void Start()
     {
         startPosition = transform.position;
-        Instantiate(targetMarkerPrefab, targetPosition, Quaternion.identity);
+        targetMarkerInstance = Instantiate(targetMarkerPrefab, targetPosition, Quaternion.identity);
 
         targetPosition = GameObject.FindWithTag("Player").transform.position;
 
@@ -82,6 +92,10 @@ public class HermitProjectile : MonoBehaviour
     private void OnArrival()
     {
         // Destroy, trigger impact, etc.
+        GameObject groundEffect = Instantiate(groundEffectPrefab, targetPosition, Quaternion.identity);
+        groundEffect.GetComponentInChildren<HermitGroundEffect>().Initialize(damage);
+
+        Destroy(targetMarkerInstance);
         Destroy(gameObject);
     }
 }
