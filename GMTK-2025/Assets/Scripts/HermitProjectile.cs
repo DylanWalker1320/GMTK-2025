@@ -27,20 +27,20 @@ public class HermitProjectile : MonoBehaviour
     private float _endHeight;   // world height of target relative to start
 
     // Used for external initialization (e.g. setting damage)
-    public void Initialize(float damage)
+    public void Initialize(float damage, float shotSpeed)
     {
         this.damage = damage;
+        this.speedPerUnit = shotSpeed;
     }
 
     void Start()
     {
         startPosition = transform.position;
+        targetPosition = GameObject.FindWithTag("Player").transform.position;
         targetMarkerInstance = Instantiate(targetMarkerPrefab, targetPosition, Quaternion.identity);
 
-        targetPosition = GameObject.FindWithTag("Player").transform.position;
-
         _totalDist = Vector2.Distance(startPosition, targetPosition);
-        _duration = _totalDist * speedPerUnit;
+        _duration = _totalDist / speedPerUnit;
 
         // In parabola space: x1 = 0, y1 = 0 (start), x2 = totalDist, y2 = endHeight
         _startHeight = 0f;

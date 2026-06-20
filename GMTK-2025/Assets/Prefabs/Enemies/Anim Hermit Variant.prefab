@@ -124,11 +124,13 @@ MonoBehaviour:
   speedScalar: 0.05
   stats:
     health: 20
-    damage: 15
+    damage: 1
     speed: 2
   applyForceCooldown: 0.75
   applyForceReady: 1
   projectilePrefab: {fileID: 8192162858285028509, guid: cdf04d1418e763948a90d1030f8bd0f7, type: 3}
-  shootCooldown: 2
+  shootCooldown: 5
   minShootDistance: 6
   maxShootDistance: 10
+  shotSpeed: 1
+  isShooting: 0

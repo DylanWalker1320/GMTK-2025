@@ -7,7 +7,8 @@ public class HermitCrab : Enemy
     [SerializeField] private float shootCooldown = 2f;
     [SerializeField] private float minShootDistance = 2f;
     [SerializeField] private float maxShootDistance = 10f;
-    private bool isShooting = false;
+    [SerializeField] private float shotSpeed = 1f;
+    public bool isShooting = false;
     private bool isWalking = false;
     private Vector2 walkTarget;
     private float distanceToTarget;
@@ -30,29 +31,20 @@ public class HermitCrab : Enemy
         distanceToTarget = Vector2.Distance(transform.position, target.position);
         bool inShootingRange = distanceToTarget < maxShootDistance && distanceToTarget > minShootDistance;
 
-        if (inShootingRange && !isShooting)
+        spriteRenderer.flipX = (target.position - transform.position).x > 0;
+
+        if (inShootingRange && !isShooting && !isWalking)
         {
             // Interrupt walk and start shooting
             StopAllCoroutines();
             isWalking = false;
-            isShooting = true;
-            spriteRenderer.flipX = (target.position - transform.position).x > 0;
-            StartCoroutine(Shoot());
+            Shoot();
         }
-        else if (!inShootingRange && !isShooting && !isWalking)
+        else if (!inShootingRange && !isWalking)
         {
             // Find a new valid walk target and move
             walkTarget = GetWalkTarget();
             StartCoroutine(Walk());
-        }
-        else if (isShooting)
-        {
-            spriteRenderer.flipX = (target.position - transform.position).x > 0;
-
-            if (!inShootingRange)
-            {
-                isShooting = false; // Shoot() coroutine will exit on next iteration
-            }
         }
     }
 
@@ -76,19 +68,15 @@ public class HermitCrab : Enemy
         return transform.position;
     }
 
-    private IEnumerator Shoot()
+    private void Shoot()
     {
-        while (isShooting)
-        {
-            // Spawn projectile
-            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            projectile.GetComponent<HermitProjectile>().Initialize(stats.damage);
+        StartCoroutine(HandleShotCooldown());
 
-            // audioManager.Play("HermitCrabShoot");
-            Debug.Log("HermitCrab shoots!");
+        // audioManager.Play("HermitCrabShoot");
 
-            yield return new WaitForSeconds(shootCooldown);
-        }
+        // Spawn projectile
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        projectile.GetComponent<HermitProjectile>().Initialize(stats.damage, shotSpeed);
     }
 
     private IEnumerator Walk()
@@ -99,6 +87,13 @@ public class HermitCrab : Enemy
             yield return null;
         }
         isWalking = false;
+    }
+
+    private IEnumerator HandleShotCooldown()
+    {
+        isShooting = true;
+        yield return new WaitForSeconds(shootCooldown);
+        isShooting = false;
     }
 
     private void OnDrawGizmosSelected()
