@@ -124,7 +124,7 @@ MonoBehaviour:
   speedScalar: 0.05
   stats:
     health: 20
-    damage: 1
+    damage: 15
     speed: 2
   applyForceCooldown: 0.75
   applyForceReady: 1
@@ -132,5 +132,5 @@ MonoBehaviour:
   shootCooldown: 5
   minShootDistance: 6
   maxShootDistance: 10
-  shotSpeed: 1
+  shotSpeed: 2
   isShooting: 0
