@@ -180,7 +180,7 @@ abstract public class Enemy : MonoBehaviour
         Canvas canvas = damageNumberObj.GetComponent<Canvas>();
         if (canvas != null)
         {
-            canvas.sortingLayerName = "UI";
+            canvas.sortingLayerName = "DamageNumber";
         }
         
         DamageNumber damageNumber = damageNumberObj.GetComponent<DamageNumber>();
