@@ -16369,6 +16369,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -438
       objectReference: {fileID: 0}
+    - target: {fileID: 5214114791967392908, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: 'combinationSpellPrefabs.Array.data[11]'
+      value: 
+      objectReference: {fileID: 777844439737192209, guid: 58ad3089a129d93489cd87c8f90c6a0e, type: 3}
+    - target: {fileID: 5214114791967392908, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: 'combinationSpellPrefabs.Array.data[14]'
+      value: 
+      objectReference: {fileID: 777844439737192209, guid: 58ad3089a129d93489cd87c8f90c6a0e, type: 3}
     - target: {fileID: 5217965017415013103, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_Camera
       value: 
@@ -17294,6 +17302,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8361702094726123437, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: 'combinationSpellPrefabs.Array.data[11]'
+      value: 
+      objectReference: {fileID: 777844439737192209, guid: 58ad3089a129d93489cd87c8f90c6a0e, type: 3}
+    - target: {fileID: 8361702094726123437, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: 'combinationSpellPrefabs.Array.data[14]'
+      value: 
+      objectReference: {fileID: 777844439737192209, guid: 58ad3089a129d93489cd87c8f90c6a0e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

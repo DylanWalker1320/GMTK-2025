@@ -258,9 +258,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6127114074526336401}
   - component: {fileID: 787266561512865477}
-  - component: {fileID: 7372561124393179762}
   - component: {fileID: 1338854578446140491}
   - component: {fileID: 5548924223492510753}
+  - component: {fileID: 777844439737192209}
   m_Layer: 6
   m_Name: Black Flash
   m_TagString: Spell
@@ -311,28 +311,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7372561124393179762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136817257210570753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18d93b55a6f5a1 4eafb9148d1486481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyTime: 0.7
-  damage: 75
-  speed: 0
-  spellType1: 3
-  spellType2: 2
-  markupColor: '#800000ff'
-  spellSprite: {fileID: 1875631905663805349, guid: 0ab5bf3359fa07e49a4882bc05415df3, type: 3}
-  range: 1
-  rangeUpgrade: 0.2
-  damageUpgrade: 15
 --- !u!198 &1338854578446140491
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5133,3 +5111,25 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &777844439737192209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136817257210570753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18d93b55a6f5a14eafb9148d1486481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 5
+  damage: 2
+  speed: 0
+  spellType1: 3
+  spellType2: 0
+  markupColor: 
+  spellSprite: {fileID: 0}
+  range: 0
+  rangeUpgrade: 0.5
+  damageUpgrade: 2
