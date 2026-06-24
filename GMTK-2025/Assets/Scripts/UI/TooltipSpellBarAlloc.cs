@@ -76,7 +76,34 @@ public class TooltipSpellBarAlloc : Tooltip
         }
         else
         {
-            message = $"<color={spellBoxMarkupText}>{GetSpellBoxName()}</color> + <color={chosenSpellMarkupText}>{spellBarReference.GetChosenSpell().spellType1}</color>\n-> <color={FindFinalSpellCombinationText().markupColor}>{FindFinalSpellCombinationText().name}</color>";   
+            if (spellBarReference == null)
+            {
+                Debug.Log("TooltipSpellBarAlloc: spellBarReference is null.");
+                return;
+            }
+
+            Spell chosenSpell = spellBarReference.GetChosenSpell();
+            if (chosenSpell == null)
+            {
+                Debug.Log("TooltipSpellBarAlloc: chosenSpell is null.");
+                return;
+            }
+
+            Spell selectedSpell = spellBarReference.spellArray[spellBoxIndex];
+            if (selectedSpell == null)
+            {
+                Debug.Log("TooltipSpellBarAlloc: selectedSpell is null.");
+                return;
+            }
+
+            Spell finalSpellCombination = FindFinalSpellCombinationText();
+            if (finalSpellCombination == null)
+            {
+                Debug.Log("TooltipSpellBarAlloc: finalSpellCombination is null.");
+                return;
+            }
+
+            message = $"<color={spellBoxMarkupText}>{GetSpellBoxName()}</color> + <color={chosenSpellMarkupText}>{chosenSpell.spellType1}</color>\n-> <color={finalSpellCombination.markupColor}>{finalSpellCombination.name}</color>";   
         }        
     }
 
