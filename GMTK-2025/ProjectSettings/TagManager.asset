@@ -69,6 +69,8 @@ TagManager:
     locked: 0
   - name: DamageNumber
     uniqueID: 1887421325
+  - name: Projectiles
+    uniqueID: 2573317093
     locked: 0
   - name: UI
     uniqueID: 2656564817

@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 3
-  damage: 20
+  damage: 15
   speed: 5
   spellType1: 1
   spellType2: 3

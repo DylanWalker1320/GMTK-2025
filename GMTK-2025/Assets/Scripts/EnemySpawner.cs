@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private float spawnMargin = 2f;
     public int maxWavePopulation = 10;
-    private int lastMaxWavePopulation = 10;
+    public int lastMaxWavePopulation = 10;
     private float timer;
     private Camera mainCam;
 
@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Debug Info")]
     public int currentEnemies = 0;
+    public int mobsKilled = 0;
 
     private bool spawningPaused = false; // Paused while player is in refresh room
     private GameManager gameManager;
@@ -59,8 +60,11 @@ public class EnemySpawner : MonoBehaviour
     {
         gameManager.ToggleSafeArea(false);
         maxWavePopulation = Mathf.RoundToInt(lastMaxWavePopulation * 1.1f);
+        spawnInterval = Mathf.Max(0.2f, spawnInterval * 0.9f); // Decrease spawn interval by 10%, but not below 0.2s
         lastMaxWavePopulation = maxWavePopulation;
         spawningPaused = false; // Ensure spawning resumes on restart
+        mobsKilled = 0;
+        gameManager.UpdateEnemiesRemaining();
     }
 
     void Update()

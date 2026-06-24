@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 2
-  damage: 7
+  damage: 5
   speed: 10
   spellType1: 0
   spellType2: 2
@@ -138,7 +138,7 @@ MonoBehaviour:
   groundEffectCooldown: 0.5
   groundEffectPrefab: {fileID: 7136817257210570753, guid: 5b89aad288e2a7446bfbd5cb190366de, type: 3}
   groundEffectFrequencyUpgrade: 0.05
-  damageUpgrade: 3
+  damageUpgrade: 2
   groundTilemap: {fileID: 0}
 --- !u!50 &787266561512865477
 Rigidbody2D:

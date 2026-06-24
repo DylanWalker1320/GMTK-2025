@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: stats.health
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: applyForceCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

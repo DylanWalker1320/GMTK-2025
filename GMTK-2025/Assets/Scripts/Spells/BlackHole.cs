@@ -62,8 +62,7 @@ public class BlackHole : Spell
             {
                 // Apply a force towards the black hole
                 Vector2 direction = (transform.position - collider.transform.position).normalized;
-                //Debug.DrawLine(transform.position, collider.transform.position, Color.green, 2f);
-                collider.GetComponent<Rigidbody2D>().AddForce(direction * pullStrength);
+                collider.GetComponent<Enemy>().ApplyForce(direction * pullStrength);
             }
         }
     }

@@ -171,10 +171,10 @@ public class HatGenerator : MonoBehaviour
         components.color = hatData.rarity switch
         {   //                                   minHue     maxHue minSat maxSat minVal maxVal
             Rarity.Common =>    Random.ColorHSV(0f,        0f,        0.5f, 0f, 0f,    1f), // Hue: 0 - 0, saturation: 0% to 0%, Value: 50% to 100%        -> Shades of grey
-            Rarity.Uncommon =>  Random.ColorHSV(90f/360f,  150f/360f, 0.5f, 1f, 0.75f, 1f), // Hue: 90 - 150, Saturation: 50% to 100%, Value: 75% to 100%  -> Shades of green 
-            Rarity.Rare =>      Random.ColorHSV(200f/360f, 260f/360f, 0.5f, 1f, 0.75f, 1f), // Hue: 200 - 260, Saturation: 50% to 100%, Value: 75% to 100% -> Shades of blue
-            Rarity.Epic =>      Random.ColorHSV(280f/360f, 310f/360f, 0.5f, 1f, 0.75f, 1f), // Hue: 280 - 310, Saturation: 50% to 100%, Value: 75% to 100% -> Shades of purple - fuscia
-            Rarity.Legendary => Random.ColorHSV(30f/360f,  60f/360f,  0.5f, 1f, 0.75f, 1f), // Hue: 20 - 40, Saturation: 50% to 100%, Value: 75% to 100%   -> Shades of orange - yellow
+            Rarity.Uncommon =>  Random.ColorHSV(90f/360f,  150f/360f, 0.6f, 1f, 0.75f, 1f), // Hue: 90 - 150, Saturation: 50% to 100%, Value: 75% to 100%  -> Shades of green 
+            Rarity.Rare =>      Random.ColorHSV(200f/360f, 260f/360f, 0.7f, 1f, 0.75f, 1f), // Hue: 200 - 260, Saturation: 50% to 100%, Value: 75% to 100% -> Shades of blue
+            Rarity.Epic =>      Random.ColorHSV(280f/360f, 310f/360f, 0.8f, 1f, 0.75f, 1f), // Hue: 280 - 310, Saturation: 50% to 100%, Value: 75% to 100% -> Shades of purple - fuscia
+            Rarity.Legendary => Random.ColorHSV(30f/360f,  60f/360f,  0.9f, 1f, 0.75f, 1f), // Hue: 20 - 40, Saturation: 50% to 100%, Value: 75% to 100%   -> Shades of orange - yellow
             _ => Color.white
         };
 
