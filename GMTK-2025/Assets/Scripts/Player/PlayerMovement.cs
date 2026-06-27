@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private AudioManager audioManager;
     private UIManager uiManager;
     private float invincibilityTimer = 0f; // Timer for invincibility frames
+    public bool blackDashActive = false; // Flag to check if Black Dash is active
 
 
     void Awake()
@@ -70,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && uiManager.isInUI == false)
         {
             // Dash
-            rb.AddForce(movement * dashStrength, ForceMode2D.Impulse);
+            ApplyForce(movement * dashStrength);
         }
 
         if(isGainingExperience)
@@ -81,9 +82,11 @@ public class PlayerMovement : MonoBehaviour
                 isGainingExperience = false;
             }
         }
+    }
 
-
-
+    public void ApplyForce(Vector2 force)
+    {
+        rb.AddForce(force, ForceMode2D.Impulse);
     }
 
     void FixedUpdate()
@@ -243,6 +246,16 @@ public class PlayerMovement : MonoBehaviour
             // float interpolate = Mathf.Clamp01(damageAmount / maxHealth); // Adjust 100f to your max expected damage
             // Color gradientColor = Color.Lerp(new Color(128, 0, 0), Color.red, interpolate); // marooon to red, interpolates between using t
             damageNumber.SetColor(color);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") && blackDashActive)
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy.ApplyForce((enemy.transform.position - transform.position).normalized * BlackFlash.staticForce / 2); // Apply force away from player
+            enemy.TakeDamage(BlackFlash.staticDamage); // Deal damage to the enemy
         }
     }
 

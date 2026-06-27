@@ -5124,12 +5124,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 5
-  damage: 2
+  damage: 15
   speed: 0
   spellType1: 3
   spellType2: 0
   markupColor: 
-  spellSprite: {fileID: 0}
-  range: 0
-  rangeUpgrade: 0.5
+  spellSprite: {fileID: 1875631905663805349, guid: 0ab5bf3359fa07e49a4882bc05415df3, type: 3}
+  force: 50
   damageUpgrade: 2
+  forceUpgrade: 1
