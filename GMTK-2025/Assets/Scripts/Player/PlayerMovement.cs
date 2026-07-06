@@ -84,20 +84,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void SetBlackDashActive()
+    public void SetBlackDashActive(bool active = true)
     {
-        blackDashActive = true;
-        StartCoroutine(ResetBlackDash());
-    }
-
-    private IEnumerator ResetBlackDash()
-    {
-        while (rb.linearVelocity.magnitude > maxSpeed) // While the dash is active (i.e., player is moving faster than max speed), wait
-        {
-            yield return null;
-        }
-
-        blackDashActive = false;
+        blackDashActive = active;
     }
 
     public void ApplyForce(Vector2 force)
@@ -271,7 +260,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemy.ApplyForce((enemy.transform.position - transform.position).normalized * BlackFlash.staticForce / 2); // Apply force away from player
-            enemy.TakeDamage(BlackFlash.staticDamage); // Deal damage to the enemy
+            enemy.TakeDamage(BlackFlash.staticDamage, true); // Deal damage to the enemy
         }
     }
 

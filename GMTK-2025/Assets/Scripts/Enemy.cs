@@ -38,6 +38,7 @@ abstract public class Enemy : MonoBehaviour
     protected static readonly int ColorProperty = Shader.PropertyToID("_Color");
     protected MaterialPropertyBlock propertyBlock;
     protected bool isDead = false;
+    protected bool blackFlashImmune = false; // Flag to check if the enemy has been recently hit by Black Flash and is immune to its effects for a short duration
 
     // Force cooldown
     [SerializeField] protected float applyForceCooldown = 1f; // Cooldown for applying force, to prevent physics issues
@@ -89,20 +90,13 @@ abstract public class Enemy : MonoBehaviour
         target = closestTarget;
     }
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, bool isBlackFlash = false)
     {
-        
         hitFlashTimer = hitFlashDuration;
         StartCoroutine(HitFlash(Color.red, hitFlashDuration));
         audioManager.Play("EnemyHurt");
         // Spawn damage number
         SpawnDamageNumber(damage);
-
-        stats.health -= damage;
-        if (stats.health <= 0f && isDead == false)
-        {
-            Die();
-        }
 
         // Knockback
         if (target != null)
@@ -110,6 +104,26 @@ abstract public class Enemy : MonoBehaviour
             Vector2 knockbackDirection = (transform.position - target.position).normalized;
             rb.AddForce(knockbackDirection * 5f, ForceMode2D.Impulse);
         }
+
+        if (isBlackFlash)
+        {
+            if (blackFlashImmune) return; // If the enemy is currently immune to Black Flash, ignore the damage and effects
+
+            blackFlashImmune = true;
+            Invoke("ResetBlackFlashImmunity", 1f); // Reset immunity after 1 second
+        }
+
+        stats.health -= damage;
+        if (stats.health <= 0f && isDead == false)
+        {
+            Die();
+        }
+    }
+
+    private IEnumerator ResetBlackFlashImmunity()
+    {
+        yield return new WaitForSeconds(1f); // Wait for 1 second
+        blackFlashImmune = false;
     }
 
     private IEnumerator HitFlash(Color hitColor, float duration)
