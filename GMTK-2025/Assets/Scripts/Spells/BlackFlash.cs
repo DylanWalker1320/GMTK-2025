@@ -68,6 +68,7 @@ public class BlackFlash : Spell
             if (playerMovement != null)
             {
                 playerMovement.ApplyForce((transform.position - player.transform.position).normalized * force);
+                playerMovement.SetBlackDashActive();
             }
         }
 

@@ -84,6 +84,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void SetBlackDashActive()
+    {
+        blackDashActive = true;
+        StartCoroutine(ResetBlackDash());
+    }
+
+    private IEnumerator ResetBlackDash()
+    {
+        while (rb.linearVelocity.magnitude > maxSpeed) // While the dash is active (i.e., player is moving faster than max speed), wait
+        {
+            yield return null;
+        }
+
+        blackDashActive = false;
+    }
+
     public void ApplyForce(Vector2 force)
     {
         rb.AddForce(force, ForceMode2D.Impulse);
@@ -161,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        if (invincibilityTimer > 0f) return; // Ignore damage if invincibility frames are active
+        if (invincibilityTimer > 0f || blackDashActive) return; // Ignore damage if invincibility frames are active or are dashing
         damageAmount = Mathf.Round(damageAmount);
 
         CinemachineShake.Instance.ShakeCamera(3f, .1f);
