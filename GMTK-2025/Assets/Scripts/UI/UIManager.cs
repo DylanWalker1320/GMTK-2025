@@ -344,7 +344,7 @@ public class UIManager : MonoBehaviour
 
         // // Stop the game time
         // Time.timeScale = 0;
-        SceneManager.LoadScene("MainScene"); // Rework this section, but this'll serve for now long term
+        SceneManager.LoadScene("MainMenu");
     }
 
 
