@@ -70,7 +70,7 @@ public abstract class Spell : MonoBehaviour
     protected Rigidbody2D rb;
     protected Vector3 mousePos;
     protected Camera mainCam;
-
+    protected Vector3 direction;
     protected void Init()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -90,7 +90,7 @@ public abstract class Spell : MonoBehaviour
     protected void OrientSpell()
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePos - transform.position;
+        direction = mousePos - transform.position;
         Vector3 rotation = transform.position - mousePos;
         rb.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(direction.x, direction.y).normalized * speed; //normalized so that ball stays at a constant speed no matter how far mouse is from player
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg; //make a degree float
