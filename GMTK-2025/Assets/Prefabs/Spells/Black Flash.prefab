@@ -130,21 +130,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 5
-  damage: 2
+  damage: 10
   speed: 5
   spellType1: 3
   spellType2: 0
   markupColor: 
   spellSprite: {fileID: 2754711423621825340, guid: f668e2b70fd108b45b515da9baa534dd, type: 3}
-  range: 10
+  throwRange: 8
   rotationsPerMinute: 200
-  rangeUpgrade: 0.5
-  damageUpgrade: 2
+  aoeEffectPrefab: {fileID: 1734808920257133925, guid: d0011362b3eab2d48bbd2cb739796668, type: 3}
+  aoeRadius: 2
+  throwRangeUpgrade: 2
+  radiusUpgrade: 1
+  damageUpgrade: 3
   currentPhase: 0
   targetPosition: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
-  aoeDuration: 1
-  aoeTimer: 0
 --- !u!58 &4442433634009164166
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -175,7 +176,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
