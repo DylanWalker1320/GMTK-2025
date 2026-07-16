@@ -2457,7 +2457,7 @@ MonoBehaviour:
   player: {fileID: 8037631174228268739}
   canvas: {fileID: 1539542831}
   statueType: 1
-  basePrice: 100
+  basePrice: 0
   price: 0
   priceIncreaseRate: 1.5
   textSpeed: 0.05
@@ -14383,7 +14383,7 @@ MonoBehaviour:
   player: {fileID: 8037631174228268739}
   canvas: {fileID: 496156657}
   statueType: 0
-  basePrice: 100
+  basePrice: 0
   price: 0
   priceIncreaseRate: 2
   textSpeed: 0.05
