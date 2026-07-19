@@ -6,11 +6,14 @@ public class DarkKnight : Boss
 {
     private Vector2 movement;
     private Animator slamEffect;
+    public float attackRange = 1.5f; // Range for the slam attack
 
     void Start()
     {
-        slamEffect = GetComponentInChildren<Animator>();
         Init();
+
+        slamEffect = GetComponentInChildren<Animator>();
+        animator.SetBool("CanAttack", true);
     }
 
     void FixedUpdate()
@@ -38,9 +41,6 @@ public class DarkKnight : Boss
             int randomAttack = Random.Range(0, 2);
             animator.SetInteger("Attack", randomAttack);
         }
-
-        StartCoroutine(AttackCooldown());
-        animator.SetBool("CanAttack", false);
     }
 
     public void SlamAttack()
@@ -48,6 +48,28 @@ public class DarkKnight : Boss
         if (slamEffect != null)
         {
             slamEffect.Play("DarkKnight-SlamEffect");
+        }
+    }
+
+    public void StartAttack()
+    {
+        animator.SetBool("CanAttack", false);
+    }
+
+    public void DoneAttack()
+    {
+        StartCoroutine(AttackCooldown());
+    }
+
+    public void DamageNearbyPlayer()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange);
+        foreach (Collider2D player in hits)
+        {
+            if (player.CompareTag("Player"))
+            {
+                player.GetComponent<PlayerMovement>().TakeDamage(stats.damage);
+            }
         }
     }
 
@@ -63,5 +85,5 @@ public class DarkKnight : Boss
         {
             other.GetComponent<PlayerMovement>().TakeDamage(stats.damage);
         }
-    }   
+    }
 }

@@ -20,7 +20,7 @@ public class Saving : MonoBehaviour
         public float maxSpeed;
         public float health;
         public float maxHealth;
-        public int invincibilityFrames;
+        public float invincibilityFrames;
         public float experience;
         public float castStrength;
         public float castSpeed;

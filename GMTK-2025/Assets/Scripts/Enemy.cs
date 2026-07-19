@@ -51,6 +51,7 @@ abstract public class Enemy : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         propertyBlock = new MaterialPropertyBlock();
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
 
         // Initialize the property block so the hit flash shader starts transparent
         spriteRenderer.GetPropertyBlock(propertyBlock);

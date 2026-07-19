@@ -307,15 +307,19 @@ MonoBehaviour:
   maxSpeed: 5
   maxHealth: 100
   castSpeed: 1
-  castStrength: 500
+  castStrength: 1
   health: 100
-  invincibilityFrames: 1
-  damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
-  damageNumberSpawnRadius: 1
-  reticle: {fileID: 9107015927092616253}
+  invincibilityFrames: 0.5
+  dashStrength: 20
   souls: 0
   experience: 0
   nextLevelExperience: 50
+  newExperiencePerLevel: 25
+  experiencePerLevelMultiplier: 1.1
+  experiencePitchChangeInterval: 0.5
+  damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
+  damageNumberSpawnRadius: 1
+  reticle: {fileID: 9107015927092616253}
   updateHealthUI:
     m_PersistentCalls:
       m_Calls:
@@ -332,9 +336,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   movement: {x: 0, y: 0}
-  dashStrength: 10
   animator: {fileID: 6884119854195356885}
   shadowAnimator: {fileID: 3558499192824329904}
+  facingRight: 0
 --- !u!114 &4141528789785202606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,7 +861,7 @@ GameObject:
   - component: {fileID: 2542501424577940001}
   - component: {fileID: 1786391400712773029}
   m_Layer: 5
-  m_Name: Health Bar
+  m_Name: Player UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1481,15 +1485,16 @@ MonoBehaviour:
   - {fileID: 2531910250580135936}
   - {fileID: 5393194688436126868}
   spellArray:
-  - {fileID: 4428596358828484310, guid: 531f204abae2b9f4cbf32f12e29bfc60, type: 3}
-  - {fileID: 4428596358828484310, guid: 531f204abae2b9f4cbf32f12e29bfc60, type: 3}
-  - {fileID: 1762012647336251035, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
-  - {fileID: 4428596358828484310, guid: 531f204abae2b9f4cbf32f12e29bfc60, type: 3}
-  - {fileID: 7372561124393179762, guid: 58ad3089a129d93489cd87c8f90c6a0e, type: 3}
-  - {fileID: 5220609102773159089, guid: 87f3501ffa98bff418f5b93312659c8d, type: 3}
+  - {fileID: 777844439737192209, guid: 58ad3089a129d93489cd87c8f90c6a0e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 6813655516327199667, guid: 4bb26d09d3a2bc842bb79b63d0cb72a9, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   maxTimeBetweenSpells: 0.5
+  emptySlotSprite: {fileID: 21300000, guid: e81c0be407ef86e41836f45a3f988f10, type: 3}
   chosenSpell: {fileID: 0}
   isCasting: 0
   currentSpellIndex: 0
@@ -1517,11 +1522,12 @@ MonoBehaviour:
   - {fileID: 7813642107417153058, guid: 925502c2be928b2448393d0096fd5d5f, type: 3}
   - {fileID: 5220609102773159089, guid: 87f3501ffa98bff418f5b93312659c8d, type: 3}
   - {fileID: 9006808484228454809, guid: 0a2bb8ac59c320f4389ffca358c80bc4, type: 3}
-  - {fileID: 7372561124393179762, guid: 58ad3089a129d93489cd87c8f90c6a0e, type: 3}
+  - {fileID: 777844439737192209, guid: 58ad3089a129d93489cd87c8f90c6a0e, type: 3}
   - {fileID: 1762012647336251035, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
   - {fileID: 4428596358828484310, guid: 531f204abae2b9f4cbf32f12e29bfc60, type: 3}
-  - {fileID: 7372561124393179762, guid: 58ad3089a129d93489cd87c8f90c6a0e, type: 3}
+  - {fileID: 777844439737192209, guid: 58ad3089a129d93489cd87c8f90c6a0e, type: 3}
   - {fileID: -6862345958128778274, guid: 48b799befc000a14182a86c1984e5373, type: 3}
+  debugMode: 0
 --- !u!1 &4722872230839427337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,6 +2693,30 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 551384267470797963}
+    - target: {fileID: 8984296768586843158, guid: b162f9343ace1b0499c5d0af5388847f, type: 3}
+      propertyPath: hatTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984296768586843158, guid: b162f9343ace1b0499c5d0af5388847f, type: 3}
+      propertyPath: hatPatterns.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984296768586843158, guid: b162f9343ace1b0499c5d0af5388847f, type: 3}
+      propertyPath: 'hatTypes.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5393404064177421762, guid: f8cdbbe8df2f5204286e093096908e7b, type: 3}
+    - target: {fileID: 8984296768586843158, guid: b162f9343ace1b0499c5d0af5388847f, type: 3}
+      propertyPath: 'hatPatterns.Array.data[0]'
+      value: 
+      objectReference: {fileID: -1268108505, guid: e3e1f6c65e105684098bb95b66e9cc96, type: 3}
+    - target: {fileID: 8984296768586843158, guid: b162f9343ace1b0499c5d0af5388847f, type: 3}
+      propertyPath: 'hatPatterns.Array.data[1]'
+      value: 
+      objectReference: {fileID: -6900932305330110033, guid: f882b582665b18a49b6a1674d054bbd3, type: 3}
+    - target: {fileID: 8984296768586843158, guid: b162f9343ace1b0499c5d0af5388847f, type: 3}
+      propertyPath: 'hatPatterns.Array.data[2]'
+      value: 
+      objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
