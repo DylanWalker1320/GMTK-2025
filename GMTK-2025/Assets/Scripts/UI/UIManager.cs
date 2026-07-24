@@ -19,6 +19,9 @@ public class UIManager : MonoBehaviour
     public GameObject startMenu;
     public GameObject settingsMenu;
     public GameObject tutorialMenu;
+    [Header("UI Animations")]
+    public float animationDuration = 0.50f; // Duration of UI animations
+    public GameObject transitionUI;
     [Header("Slides")]
     public GameObject Slide1;
     public GameObject Slide2;

@@ -22,6 +22,7 @@ public class Portal : MonoBehaviour
     private bool isTyping = false;
     private bool playerInRange = false;
     private bool hasTriggered = false;
+    private bool isTransitioning = false;
 
     void Start()
     {
@@ -51,17 +52,25 @@ public class Portal : MonoBehaviour
         if (playerInRange && Input.GetKeyDown(interactKey))
         {
             if (uiManager.isInUI) return; // Prevent interaction if already in a UI
+            
+            isTransitioning = true;
+            Time.timeScale = 0f;
+            uiManager.transitionUI.SetActive(true);
+            uiManager.transitionUI.GetComponent<Animator>().SetTrigger("TransitionBegin");
+        }
 
-            FindAnyObjectByType<AudioManager>().Play("PORTALTRANSITION");
-
-            camera.OnTargetObjectWarped(player.transform, location.position - player.transform.position);
-            player.transform.position = location.position;
-
-            // If this is the return portal, tell GameManager the player is back
-            if (isReturnPortal && gameManager != null)
-                gameManager.OnPlayerReturnedFromPortal();
-            else if (gameManager != null)
-                gameManager.playerInSafeArea = true;
+        if(isTransitioning)
+        {
+            uiManager.animationDuration -= Time.unscaledDeltaTime;
+            Debug.Log(uiManager.animationDuration);
+            if(uiManager.animationDuration <= 0f)
+            {
+                Debug.Log("Transition complete, teleporting player.");
+                Time.timeScale = 1f;
+                LevelTransition();
+                isTransitioning = false;
+                uiManager.animationDuration = 0.50f; // Reset the animation duration for future transitions
+            }
         }
 
         // Player just left range
@@ -73,6 +82,20 @@ public class Portal : MonoBehaviour
 
             StopAllCoroutines();
         }
+    }
+
+    void LevelTransition()
+    {
+        FindAnyObjectByType<AudioManager>().Play("PORTALTRANSITION");
+
+        camera.OnTargetObjectWarped(player.transform, location.position - player.transform.position);
+        player.transform.position = location.position;
+
+        // If this is the return portal, tell GameManager the player is back
+        if (isReturnPortal && gameManager != null)
+            gameManager.OnPlayerReturnedFromPortal();
+        else if (gameManager != null)
+            gameManager.playerInSafeArea = true;
     }
 
     void TypeDialogue(string line)
