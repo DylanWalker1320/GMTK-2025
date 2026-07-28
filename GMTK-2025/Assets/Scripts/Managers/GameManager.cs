@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateEnemiesRemaining()
     {
-        enemiesRemaining.text = $"{enemySpawner.mobsKilled} / {enemySpawner.lastMaxWavePopulation}";
+        enemiesRemaining.text = $"{enemySpawner.mobsKilled}\n /\n {enemySpawner.lastMaxWavePopulation}";
     }
 
     public void EnemyKilled()

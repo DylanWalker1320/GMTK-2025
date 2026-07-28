@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
+using System.Collections;
 
 public class ThreeUpgradeScreen : MonoBehaviour
 {
@@ -48,9 +49,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI upgradeTextOne; 
     [SerializeField] private TextMeshProUGUI upgradeTextTwo; 
     [SerializeField] private TextMeshProUGUI upgradeTextThree; 
-    [SerializeField] private Animator boxOneAnimator;
-    [SerializeField] private Animator boxTwoAnimator;
-    [SerializeField] private Animator boxThreeAnimator;
+    private Animator animator;
 
     [Header("Upgrade Increases")]
     public float healAmount;
@@ -97,6 +96,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
         uiManager = FindFirstObjectByType<UIManager>();
         audioManager = FindAnyObjectByType<AudioManager>();
+        animator = GetComponent<Animator>();
     }
 
     public void UpdateDisplays()
@@ -237,9 +237,17 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     private void DisableUpgradeScreen(bool unityEventInvoke = true)
     {
+        StartCoroutine(DisableUpgradeScreenCoroutine(unityEventInvoke));
+    }
+
+    IEnumerator DisableUpgradeScreenCoroutine(bool unityEventInvoke = true)
+    {
         TooltipManager._instance.HideTooltip();
         if(unityEventInvoke)
         {
+            animator.SetTrigger("ExitThreeUpgradeScreen");
+            yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+            yield return new WaitWhile(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
             unityEvent.Invoke();   
         }
     }
