@@ -65,7 +65,6 @@ public class InteractableLoopBar : MonoBehaviour
         spellArray = loopbarInventory.spellArray; //pointer for actual spell array
         UpdateSpellSprites();
         GetTypes();
-        FindAnyObjectByType<UIManager>().spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
     }
     private void UpdateSpellSprites()
     {
@@ -245,7 +244,7 @@ public class InteractableLoopBar : MonoBehaviour
     public void TransitionToGameplayMode()
     {
         TooltipManager._instance.HideTooltip();
-        unityEvent.Invoke(); // Gameplay Mode
+        FindFirstObjectByType<UIManager>().SetActiveBarAllocUI(loopBarType);
     }
 
     public Spell GetChosenSpell()

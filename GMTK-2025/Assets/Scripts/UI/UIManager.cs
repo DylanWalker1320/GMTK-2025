@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -138,14 +139,11 @@ public class UIManager : MonoBehaviour
                 spellBookUI.SetActive(!spellBookUI.activeSelf);
             }
         }
-        // TODO: another conditonal statement to trigger Spell Swap UI and pause time. Can only be triggered during gameplay. Goal is to reuse Spell Bar Allocation UI for this, enum checking will handle logic for whether we're swapping or allocating along its display. 
-        // If pressed again, should exit out of the UI and unpause time. To be called in UIManager
 
         else if (Input.GetKeyDown(KeyCode.Tab) && statShopUI.activeSelf == false && scrollUI.activeSelf == false && upgradeUI.activeSelf == false && barAllocationUI.activeSelf == false)
         {
             if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
             {
-                Time.timeScale = 0;
                 SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellSwap); // Opens the spell swap UI, which reuses the bar allocation UI
             }
         }
@@ -153,7 +151,6 @@ public class UIManager : MonoBehaviour
         {
             if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
             {
-                Time.timeScale = 1;
                 SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellSwap); // Closes the spell swap UI, which reuses the bar allocation UI
             }
         }
@@ -402,22 +399,29 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveBarAllocUI(InteractableLoopBar.LoopBarType loopBarType)
     {
-        barAllocationUI.SetActive(!barAllocationUI.activeSelf);
-        upgradeUI.SetActive(false);
 
-
-        if (barAllocationUI.activeSelf != false)
+        if (barAllocationUI.activeSelf == false)
         {
-            isInUI = true;
-            FindFirstObjectByType<InteractableLoopBar>().loopBarType = loopBarType;
-            FindFirstObjectByType<InteractableLoopBar>().OnCall();
+            EnableSpellBarAllocationUI(loopBarType);
         }
         else
         {
             isInUI = false;
-            TooltipManager._instance.HideTooltip();
+            DisableSpellBarAllocationUI(loopBarType);
         }
     }
+
+    private void DisableSpellBarAllocationUI (InteractableLoopBar.LoopBarType loopBarType)
+    {
+        StartCoroutine(DisableSpellBarAllocationUICoroutine(loopBarType));
+    }
+
+    private void EnableSpellBarAllocationUI (InteractableLoopBar.LoopBarType loopBarType)
+    {
+        StartCoroutine(EnableSpellBarAllocationUICoroutine(loopBarType));
+    }
+
+
 
     public void GameplayMode() // Invoked as Unity Event
     {
@@ -436,5 +440,38 @@ public class UIManager : MonoBehaviour
         isLevelingUp = false;
         gameManager.SetEnemyPause(false);
         Debug.LogWarning("GameplayMode invoked");
+    }
+
+
+    IEnumerator DisableSpellBarAllocationUICoroutine(InteractableLoopBar.LoopBarType loopBarType)
+    {
+        TooltipManager._instance.HideTooltip();
+        spellbarAllocationAnimator.SetTrigger("ExitSpellAllocation");
+        upgradeUI.SetActive(false);
+        yield return new WaitUntil(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+        yield return new WaitWhile(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+        if(loopBarType == InteractableLoopBar.LoopBarType.SpellSwap)
+        {
+            Time.timeScale = 1;
+            barAllocationUI.SetActive(false);
+            isInUI = false;
+        }
+        else if(loopBarType == InteractableLoopBar.LoopBarType.SpellCombination)
+        {
+            GameplayMode();
+        }
+    }
+    IEnumerator EnableSpellBarAllocationUICoroutine(InteractableLoopBar.LoopBarType loopBarType)
+    {
+        TooltipManager._instance.HideTooltip();
+        Time.timeScale = 0;
+        barAllocationUI.SetActive(true);
+        spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
+        yield return new WaitUntil(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+        yield return new WaitWhile(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+        isInUI = true;
+        FindFirstObjectByType<InteractableLoopBar>().loopBarType = loopBarType;
+        FindFirstObjectByType<InteractableLoopBar>().OnCall();
+
     }
 }
