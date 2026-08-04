@@ -360,7 +360,7 @@ public class UIManager : MonoBehaviour
 
         FindAnyObjectByType<Inventory>().WipeInventory();
 
-        barAllocationUI.SetActive(true);
+        SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellCombination);
         FindAnyObjectByType<InteractableLoopBar>().BetaLoop(); // needs above to be active in the first place
     }
 
@@ -447,6 +447,7 @@ public class UIManager : MonoBehaviour
     {
         TooltipManager._instance.HideTooltip();
         spellbarAllocationAnimator.SetTrigger("ExitSpellAllocation");
+        FindFirstObjectByType<InteractableLoopBar>().OnCall();
         upgradeUI.SetActive(false);
         yield return new WaitUntil(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitWhile(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
@@ -467,11 +468,11 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
         barAllocationUI.SetActive(true);
         spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
+        FindFirstObjectByType<InteractableLoopBar>().OnCall();
         yield return new WaitUntil(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitWhile(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         isInUI = true;
         FindFirstObjectByType<InteractableLoopBar>().loopBarType = loopBarType;
-        FindFirstObjectByType<InteractableLoopBar>().OnCall();
 
     }
 }
