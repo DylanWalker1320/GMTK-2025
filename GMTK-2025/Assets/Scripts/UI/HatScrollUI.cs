@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using System.Collections;
 
 public class HatScrollUI : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class HatScrollUI : MonoBehaviour
         {
             scrollUI.GetComponent<HatScroll>().ApplyPrizeHatStats();
             FindAnyObjectByType<UIManager>().updateStatTrackerUI();
-            unityEvent.Invoke();
+            DisableHatPrizeUI();
         }
         if(scrollUI.GetComponent<HatScroll>()._speed == 0 && scrollUI.GetComponent<HatScroll>()._hasScrolled == true) // Click
         {
@@ -39,6 +40,7 @@ public class HatScrollUI : MonoBehaviour
         if(scrollUI.activeSelf && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Escape)) && scrollUI.GetComponent<HatScroll>().GetIsScrolling())
         {
             scrollUI.GetComponent<HatScroll>()._hasScrolled = false;
+            GetComponent<Animator>().SetTrigger("HatRollPrize");
             ToggleScrollUI();
             ToggleHatPrize(scrollUI.GetComponent<HatScroll>().GetTargetHatData());
         }
@@ -70,6 +72,7 @@ public class HatScrollUI : MonoBehaviour
             hatObject = hatGenerator.GenerateHatWithStats(hatData);
             hatObject.transform.SetParent(HatSpriteImage.transform);
             hatObject.transform.localPosition = Vector3.zero;
+            hatObject.transform.localScale = HatSpriteImage.transform.localScale;
             hatObject.GetComponent<HatComponentManager>().DisableShadow();
 
             hatNameText.text = hatData.hatName;
@@ -104,5 +107,18 @@ public class HatScrollUI : MonoBehaviour
             Destroy(hatObject);
             hatObject = null;
         }
+    }
+
+    private void DisableHatPrizeUI()
+    {
+        StartCoroutine(WaitForAnimationToFinish());
+    }
+
+    IEnumerator WaitForAnimationToFinish()
+    {
+        GetComponent<Animator>().SetTrigger("ExitHatRoll");
+        yield return new WaitUntil(() => GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
+        yield return new WaitWhile(() => GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+        unityEvent.Invoke();
     }
 }
