@@ -94,7 +94,6 @@ public class HatScrollUI : MonoBehaviour
             HatSpriteImage.color = rarityColor;
             
         }
-        hatPrizeUI.SetActive(!hatPrizeUI.activeSelf);
         audioManager.Play("NewHatGet!");
     }
 
