@@ -10,9 +10,12 @@ public class HatScrollUI : MonoBehaviour
     [SerializeField] private GameObject scrollButton;
     [SerializeField] private GameObject hatPrizeUI;
     [SerializeField] private TextMeshProUGUI hatRarityText;
+    [SerializeField] private TextMeshProUGUI hatRarityShade;
     [SerializeField] private TextMeshProUGUI hatNameText;
+    [SerializeField] private TextMeshProUGUI hatNameShade;
     [SerializeField] private Image HatSpriteImage;
     [SerializeField] private TextMeshProUGUI[] hatStatsTexts;
+    [SerializeField] private TextMeshProUGUI[] hatStatShades;
     [SerializeField] private UnityEvent unityEvent;
     
     [Header("Prize Visuals")]
@@ -79,17 +82,21 @@ public class HatScrollUI : MonoBehaviour
             ConvertHatPrizeSpriteToUI(hatData);
 
             hatNameText.text = hatData.hatName;
+            hatNameShade.text = hatData.hatName;
             hatRarityText.text = hatData.rarity.ToString();
+            hatRarityShade.text = hatData.rarity.ToString();
             for (int i = 0; i < hatStatsTexts.Length; i++)
             {
                 if (i < hatData.stats.Count)
                 {
                     hatStatsTexts[i].text = hatData.stats[i].ToString();
+                    hatStatShades[i].text = hatData.stats[i].ToString();
                     hatStatsTexts[i].color = HatColors.GetStatTypeColor(hatData.stats[i].type);
                 }
                 else
                 {
                     hatStatsTexts[i].text = "";
+                    hatStatShades[i].text = "";
                 }
             }
 
