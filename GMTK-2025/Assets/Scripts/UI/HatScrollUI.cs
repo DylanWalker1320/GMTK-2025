@@ -14,9 +14,16 @@ public class HatScrollUI : MonoBehaviour
     [SerializeField] private Image HatSpriteImage;
     [SerializeField] private TextMeshProUGUI[] hatStatsTexts;
     [SerializeField] private UnityEvent unityEvent;
+    
+    [Header("Prize Visuals")]
+    [SerializeField] private GameObject prizeHatFront;
+    [SerializeField] private GameObject prizeHatBack;
+    [SerializeField] private GameObject prizeHatOutline;
+
+    // Misc
     private HatGenerator hatGenerator;
     private AudioManager audioManager;
-    private static GameObject hatObject;
+    [SerializeField] private static GameObject hatObject;
 
     void Awake()
     {
@@ -69,11 +76,7 @@ public class HatScrollUI : MonoBehaviour
             if (hatGenerator == null)
                 hatGenerator = FindFirstObjectByType<HatGenerator>();
             
-            hatObject = hatGenerator.GenerateHatWithStats(hatData);
-            hatObject.transform.SetParent(HatSpriteImage.transform);
-            hatObject.transform.localPosition = Vector3.zero;
-            hatObject.transform.localScale = HatSpriteImage.transform.localScale;
-            hatObject.GetComponent<HatComponentManager>().DisableShadow();
+            ConvertHatPrizeSpriteToUI(hatData);
 
             hatNameText.text = hatData.hatName;
             hatRarityText.text = hatData.rarity.ToString();
@@ -112,6 +115,16 @@ public class HatScrollUI : MonoBehaviour
     private void DisableHatPrizeUI()
     {
         StartCoroutine(WaitForAnimationToFinish());
+    }
+
+    private void ConvertHatPrizeSpriteToUI(GeneratedHat hatData)
+    {
+        hatObject = hatGenerator.GenerateHatWithStats(hatData);
+        prizeHatFront.GetComponent<Image>().sprite = hatObject.GetComponent<HatComponentManager>().front.GetComponent<SpriteRenderer>().sprite;
+        prizeHatFront.GetComponent<Image>().color = hatData.components.color;
+        prizeHatBack.GetComponent<Image>().sprite = hatObject.GetComponent<HatComponentManager>().back.GetComponent<SpriteRenderer>().sprite;
+        prizeHatOutline.GetComponent<Image>().sprite = hatObject.GetComponent<HatComponentManager>().outline.GetComponent<SpriteRenderer>().sprite;
+        hatObject.GetComponent<HatComponentManager>().DisableShadow();
     }
 
     IEnumerator WaitForAnimationToFinish()
