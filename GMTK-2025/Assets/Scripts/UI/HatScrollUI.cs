@@ -18,10 +18,25 @@ public class HatScrollUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] hatStatShades;
     [SerializeField] private UnityEvent unityEvent;
     
-    [Header("Prize Visuals")]
+    [Header("Prize Hat Visuals")]
     [SerializeField] private GameObject prizeHatFront;
     [SerializeField] private GameObject prizeHatBack;
     [SerializeField] private GameObject prizeHatOutline;
+    [Header("Prize UI Color Visuals")]
+    private Color originalPrizeBackgroundColor;
+    private Color originalPrizeAccentColor;
+    [SerializeField] private Color commonColor;
+    [SerializeField] private Color commonAccentColor;
+    [SerializeField] private Color unCommonColor;
+    [SerializeField] private Color unCommonAccentColor;
+    [SerializeField] private Color rareColor;
+    [SerializeField] private Color rareAccentColor;
+    [SerializeField] private Color epicColor;
+    [SerializeField] private Color epicAccentColor;
+    [SerializeField] private Color legendaryColor;
+    [SerializeField] private Color legendaryAccentColor;
+    [SerializeField] private Image mainPrizeBackGround;
+    [SerializeField] private Image mainPrizeAccent;
 
     // Misc
     private HatGenerator hatGenerator;
@@ -31,6 +46,8 @@ public class HatScrollUI : MonoBehaviour
     void Awake()
     {
         audioManager = FindAnyObjectByType<AudioManager>();
+        originalPrizeBackgroundColor = mainPrizeBackGround.color;
+        originalPrizeAccentColor = mainPrizeAccent.color;
     }
 
     void Update()
@@ -105,6 +122,8 @@ public class HatScrollUI : MonoBehaviour
             hatNameText.color = rarityColor;
             hatRarityText.color = rarityColor;
             HatSpriteImage.color = rarityColor;
+            DeterminePrizeUIColors(hatData.rarity.ToString());
+
             
         }
         audioManager.Play("NewHatGet!");
@@ -134,11 +153,43 @@ public class HatScrollUI : MonoBehaviour
         hatObject.GetComponent<HatComponentManager>().DisableShadow();
     }
 
+    private void DeterminePrizeUIColors(string rarity)
+    {
+        switch(rarity)
+        {
+            case "Common":
+                mainPrizeBackGround.color = commonColor;
+                mainPrizeAccent.color = commonAccentColor;
+                break;
+            case "Uncommon":
+                mainPrizeBackGround.color = unCommonColor;
+                mainPrizeAccent.color = unCommonAccentColor;
+                break;
+            case "Rare":
+                mainPrizeBackGround.color = rareColor;
+                mainPrizeAccent.color = rareAccentColor;
+                break;
+            case "Epic":
+                mainPrizeBackGround.color = epicColor;
+                mainPrizeAccent.color = epicAccentColor;
+                break;
+            case "Legendary":
+                mainPrizeBackGround.color = legendaryColor;
+                mainPrizeAccent.color = legendaryAccentColor;
+                break;
+            default:
+                mainPrizeBackGround.color = originalPrizeBackgroundColor;
+                mainPrizeAccent.color = originalPrizeAccentColor;
+                break;
+        }
+    }
+
     IEnumerator WaitForAnimationToFinish()
     {
         GetComponent<Animator>().SetTrigger("ExitHatRoll");
         yield return new WaitUntil(() => GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
         yield return new WaitWhile(() => GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+        DeterminePrizeUIColors("Default");
         unityEvent.Invoke();
     }
 }
