@@ -22,6 +22,7 @@ public class HatScrollUI : MonoBehaviour
     [SerializeField] private GameObject prizeHatFront;
     [SerializeField] private GameObject prizeHatBack;
     [SerializeField] private GameObject prizeHatOutline;
+    [SerializeField] private ParticleSystem prizeHatParticles;
     [Header("Prize UI Color Visuals")]
     private Color originalPrizeBackgroundColor;
     private Color originalPrizeAccentColor;
@@ -54,6 +55,7 @@ public class HatScrollUI : MonoBehaviour
     {
         if (hatPrizeUI.activeSelf && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Escape))) // Apply Hat Stats after clicking off prize menu
         {
+            prizeHatParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             scrollUI.GetComponent<HatScroll>().ApplyPrizeHatStats();
             FindAnyObjectByType<UIManager>().updateStatTrackerUI();
             DisableHatPrizeUI();
@@ -126,6 +128,7 @@ public class HatScrollUI : MonoBehaviour
 
             
         }
+        prizeHatParticles.Play();
         audioManager.Play("NewHatGet!");
     }
 
@@ -187,7 +190,7 @@ public class HatScrollUI : MonoBehaviour
     IEnumerator WaitForAnimationToFinish()
     {
         GetComponent<Animator>().SetTrigger("ExitHatRoll");
-        yield return new WaitUntil(() => GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
+        yield return new WaitUntil(() => GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitWhile(() => GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         DeterminePrizeUIColors("Default");
         unityEvent.Invoke();
