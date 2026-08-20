@@ -65,11 +65,11 @@ public class LevelUpStatDist // Needs Renaming. Class for individual stat contai
     {
         return type switch
         {
-            LevelUpStatType.CastSpeed => $"+{value * 100:F0}% Cast Speed",
-            LevelUpStatType.CastStrength => $"+{value * 100:F0}% Cast Strength",
-            LevelUpStatType.DashStrength => $"+{value} Dash Strength",
+            LevelUpStatType.CastSpeed => $"+{Mathf.Round(value * 100.00f) * 0.01f}% Cast Speed",
+            LevelUpStatType.CastStrength => $"+{Mathf.Round(value * 100.00f) * 0.01f}% Cast Strength",
+            LevelUpStatType.DashStrength => $"+{Mathf.Round(value * 100.00f) * 0.01f} Dash Strength",
             LevelUpStatType.SpellLevel => LevelUpSpellLevelBonus != null ? LevelUpSpellLevelBonus.ToString() : $"+{value} Spell Level",
-            LevelUpStatType.Speed => $"+{value} Speed",
+            LevelUpStatType.Speed => $"+ {value} Speed",
             LevelUpStatType.Health => $"+{value} Health",
             _ => $"{type}: {value}"
         };        
