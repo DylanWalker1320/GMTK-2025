@@ -7,8 +7,8 @@ public class DarkKnight : Boss
 {
     private Vector2 movement;
     private Animator slamEffect;
-    [SerializeField] private float attackRange = 10f;
-    [SerializeField] private float dashForce = 15;
+    [SerializeField] private float attackRange;
+    [SerializeField] private float dashForce;
     [SerializeField] private GameObject projectilePrefab; 
 
     private List<GameObject> activeProjectiles = new List<GameObject>();
