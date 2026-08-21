@@ -639,7 +639,7 @@ Transform:
   m_GameObject: {fileID: 97321682}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 33.5, z: 0}
   m_LocalScale: {x: 5.2104363, y: 2.4115877, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1012,7 +1012,7 @@ Transform:
   m_GameObject: {fileID: 320146713}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 33.5, z: 0}
   m_LocalScale: {x: 7.808639, y: 3.155625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2529,7 +2529,7 @@ Transform:
   m_GameObject: {fileID: 474046574}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.73, y: 50.3, z: 0}
+  m_LocalPosition: {x: -4.73, y: 83.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3118,7 +3118,7 @@ Transform:
   m_GameObject: {fileID: 690548280}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 33.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6082,7 +6082,7 @@ Transform:
   m_GameObject: {fileID: 811777067}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.35, y: 44.41, z: 0}
+  m_LocalPosition: {x: 1.35, y: 77.91, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6937,7 +6937,7 @@ Transform:
   m_GameObject: {fileID: 1038592377}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 33.5, z: 0}
   m_LocalScale: {x: 6.4128447, y: 2.6428359, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8022,7 +8022,7 @@ Transform:
   m_GameObject: {fileID: 1354210213}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 33.5, z: 0}
   m_LocalScale: {x: 7.027775, y: 3.155625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8458,7 +8458,7 @@ Transform:
   m_GameObject: {fileID: 1527335450}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 33.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14455,7 +14455,7 @@ Transform:
   m_GameObject: {fileID: 1709214472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.81, y: 50.26, z: 0}
+  m_LocalPosition: {x: 8.81, y: 83.759995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14543,7 +14543,7 @@ Transform:
   m_GameObject: {fileID: 1767255910}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 33.5, z: 0}
   m_LocalScale: {x: 9.385031, y: 3.7125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15383,7 +15383,7 @@ Transform:
   m_GameObject: {fileID: 2124633659}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 33.5, z: 0}
   m_LocalScale: {x: 8.798467, y: 3.155625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16882,7 +16882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16902,20 +16902,20 @@ PrefabInstance:
       objectReference: {fileID: 1341329492}
     - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: maxWavePopulation
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: enemyPrefabs.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 4174751936452664056, guid: b18a9491e4d308c499a886bef3b9b9c6, type: 3}
+      objectReference: {fileID: 8571327851501329694, guid: b9c5d53c0065b964b8ca06aaac5e8cb4, type: 3}
     - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[1]'
       value: 
-      objectReference: {fileID: 8571327851501329694, guid: b9c5d53c0065b964b8ca06aaac5e8cb4, type: 3}
+      objectReference: {fileID: 187907396752597633, guid: 1fc97226ca40ad041852a1ca36f9afe6, type: 3}
     - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[2]'
       value: 
@@ -17154,8 +17154,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7286244027160393282, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: m_Creator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: spellArray.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: 'spellArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: 'spellArray.Array.data[3]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: 'spellArray.Array.data[4]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855282279253663214, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7855282279253663214, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}

@@ -102,8 +102,29 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.5
+    functionName: SpawnProjectile
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6666667
+    functionName: SpawnProjectile
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.6666667
     functionName: DamageNearbyPlayer
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.8333333
+    functionName: SpawnProjectile
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -117,6 +138,13 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1
+    functionName: SpawnProjectile
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1
     functionName: DamageNearbyPlayer
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -124,7 +152,21 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1.1666666
+    functionName: SpawnProjectile
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1666666
     functionName: DamageNearbyPlayer
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.3333334
+    functionName: SpawnProjectile
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -131,8 +131,9 @@ MonoBehaviour:
   applyForceReady: 1
   attackCooldown: 1
   phaseChangeHealth: 0
-  attackCooldownTimer: 0
   attackRange: 1.5
+  dashForce: 10
+  projectilePrefab: {fileID: 8534847031313595462, guid: 5cf17c1d7b01b1e4b886cd6a988e139d, type: 3}
 --- !u!70 &5428939389781789354
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
