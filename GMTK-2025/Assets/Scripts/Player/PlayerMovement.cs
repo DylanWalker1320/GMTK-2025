@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float castSpeed;
     public float castStrength;
     public float health;
-    public int invincibilityFrames = 1; // Invincibility frames after taking damage
+    public float invincibilityFrames = 1; // Invincibility frames after taking damage
     public float dashStrength; // Strength of the dash
     [Header("Currency")]
     public int souls;
@@ -158,7 +158,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        if (invincibilityTimer > 0f) return; // Ignore damage if invincibility frames are active
+        if (invincibilityTimer > 0f) {
+            return; // Ignore damage if invincibility frames are active
+        }
+
         damageAmount = Mathf.Round(damageAmount);
 
         CinemachineShake.Instance.ShakeCamera(3f, .1f);

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3899324961360819649
+--- !u!1001 &7176666749485367848
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,32 +9,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4207720235258383604, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_Height
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4207720235258383604, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_Radius
-      value: 0.71
+      value: 1.1576815
       objectReference: {fileID: 0}
     - target: {fileID: -4207720235258383604, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_BaseOffset
-      value: 0.83
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: -4207720235258383604, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_AutoBraking
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1364326250625347675, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 133d120ec2aba1e4fa903e6368a4a2ef, type: 2}
+    - target: {fileID: -4207720235258383604, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_WalkableMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -4207720235258383604, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1692101421253645388, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5182502521168407127, guid: db467bd0da55be74eac4257df4dae5ee, type: 3}
+      objectReference: {fileID: -2793842201916679373, guid: e17c8bd1712a4c24ba10ee9df8e58133, type: 3}
     - target: {fileID: 2604552391653781361, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.49
+      value: 10.95
       objectReference: {fileID: 0}
     - target: {fileID: 2604552391653781361, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.98
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2604552391653781361, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -70,75 +78,96 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3784918887274043200, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_Name
-      value: Anim Hermit Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784918887274043200, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: DarkKnight Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5110408933142241525, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 4816984e1baac034e87145887414af88, type: 2}
-    - target: {fileID: 7058653469878246422, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 2078958839771736112, guid: 714c4ec4975633a45b0e90c9ec48fbbf, type: 3}
-    - target: {fileID: 7378894498098931806, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7689925873365378556, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.805
-      objectReference: {fileID: 0}
-    - target: {fileID: 7689925873365378556, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.068
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: efc0182f244521349b27d0fc1f8bd796, type: 2}
     m_RemovedComponents:
     - {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 7907789145732432508, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 7378894498098931806, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3784918887274043200, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       insertIndex: 3
-      addedObject: {fileID: 7102016583135797166}
+      addedObject: {fileID: 5715502635837432334}
+    - targetCorrespondingSourceObject: {fileID: 3784918887274043200, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 5428939389781789354}
   m_SourcePrefab: {fileID: 100100000, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
---- !u!1 &187907396752597633 stripped
+--- !u!1 &6277489900791797096 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3784918887274043200, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
-  m_PrefabInstance: {fileID: 3899324961360819649}
+  m_PrefabInstance: {fileID: 7176666749485367848}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7102016583135797166
+--- !u!114 &5715502635837432334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187907396752597633}
+  m_GameObject: {fileID: 6277489900791797096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bae865619eb033840a6e443a0a378675, type: 3}
+  m_Script: {fileID: 11500000, guid: 02d5a09dbda4eb449ae7095c7d42279e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
   deathEffect: {fileID: 8720471837675972744, guid: ed081c54d46bc0e49a232f77143ce028, type: 3}
-  maxHitSlowPercent: 1
+  maxHitSlowPercent: 0.2
   damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
   damageNumberSpawnRadius: 1
-  healthScalar: 0.6
-  damageScalar: 0.05
-  speedScalar: 0.05
+  healthScalar: 1
+  damageScalar: 1
+  speedScalar: 1
   stats:
-    health: 20
-    damage: 15
+    health: 1500
+    damage: 20
     speed: 2
-  applyForceCooldown: 0.75
+  applyForceCooldown: 1
   applyForceReady: 1
-  projectilePrefab: {fileID: 8192162858285028509, guid: cdf04d1418e763948a90d1030f8bd0f7, type: 3}
-  shootCooldown: 5
-  minShootDistance: 6
-  maxShootDistance: 10
-  shotSpeed: 2
-  isShooting: 0
+  attackCooldown: 1
+  phaseChangeHealth: 0
+  attackRange: 3.8
+  dashForce: 40
+  projectilePrefab: {fileID: 8534847031313595462, guid: 5cf17c1d7b01b1e4b886cd6a988e139d, type: 3}
+--- !u!70 &5428939389781789354
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6277489900791797096}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.9697323, y: -0.07346439}
+  m_Size: {x: 2.315363, y: 6.6258802}
+  m_Direction: 0

@@ -7,8 +7,8 @@ public class Statue : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject canvas;
     [SerializeField] private StatueType statueType;
-    [SerializeField] private float basePrice;
-    [SerializeField] private float price;
+    [SerializeField] private int basePrice;
+    [SerializeField] private int price;
     [SerializeField] private float priceIncreaseRate;
     [SerializeField] private float textSpeed = 0.05f;
     [SerializeField] private float proximityDistance = 3f;
@@ -96,11 +96,11 @@ public class Statue : MonoBehaviour
             playerSouls = player.GetComponent<PlayerMovement>()?.souls ?? 0; // Get player's current souls
             if (playerSouls >= price)
             {
-                playerSouls -= (int)price; // Deduct souls from player
+                playerSouls -= price; // Deduct souls from player
                 PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
                 playerMovement.souls = playerSouls; // Update player's soul count
                 playerMovement.UpdateUI(); // Update UI to reflect new soul count
-                price *= priceIncreaseRate; // Increase price for next purchase
+                price = price + (int)(price * priceIncreaseRate); // Increase price for next purchase
 
                 switch (statueType)
                 {

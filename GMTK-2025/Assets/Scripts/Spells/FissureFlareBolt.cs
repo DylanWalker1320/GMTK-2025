@@ -17,7 +17,7 @@ public class FissureFlareBolt : Spell
     [Header("Ground Detection")]
     [SerializeField] private Tilemap groundTilemap; // Reference to the ground tilemap
 
-    private Vector2 direction;
+    private Vector2 boltDirection;
     private Vector2 perpendicular;
     private float timeAlive = 0f;
     private Func<float, float> waveFunction;
@@ -41,8 +41,8 @@ public class FissureFlareBolt : Spell
 
     public void SetDirection(Vector2 dir)
     {
-        direction = dir.normalized;
-        perpendicular = new Vector2(-direction.y, direction.x);
+        boltDirection = dir.normalized;
+        perpendicular = new Vector2(-boltDirection.y, boltDirection.x);
         waveFunction = UnityEngine.Random.value > 0.5f ? Mathf.Sin : Mathf.Cos;
     }
 
@@ -51,7 +51,7 @@ public class FissureFlareBolt : Spell
         timeAlive += Time.deltaTime;
 
         // Forward progress along straight path
-        Vector3 forward = direction * speed * timeAlive;
+        Vector3 forward = boltDirection * speed * timeAlive;
         //Debug.DrawRay(transform.position, forward, Color.green);
 
         // Perpendicular wave offset
