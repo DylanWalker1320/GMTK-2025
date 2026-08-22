@@ -175,8 +175,9 @@ public class GameManager : MonoBehaviour
         bossHasDied = false;
 
         if (portalObject != null)
+        {
             portalObject.SetActive(true);
-
+        }
         if (enemySpawner != null)
         {
             enemySpawner.SetSpawningPaused(true);

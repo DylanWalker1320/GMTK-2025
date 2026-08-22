@@ -22,7 +22,6 @@ public class Portal : MonoBehaviour
     private bool isTyping = false;
     private bool playerInRange = false;
     private bool hasTriggered = false;
-    private bool isTransitioning = false;
 
     void Start()
     {
@@ -53,24 +52,7 @@ public class Portal : MonoBehaviour
         {
             if (uiManager.isInUI) return; // Prevent interaction if already in a UI
             
-            isTransitioning = true;
-            Time.timeScale = 0f;
-            uiManager.transitionUI.SetActive(true);
-            uiManager.transitionUI.GetComponent<Animator>().SetTrigger("TransitionBegin");
-        }
-
-        if(isTransitioning)
-        {
-            uiManager.animationDuration -= Time.unscaledDeltaTime;
-            Debug.Log(uiManager.animationDuration);
-            if(uiManager.animationDuration <= 0f)
-            {
-                Debug.Log("Transition complete, teleporting player.");
-                Time.timeScale = 1f;
-                LevelTransition();
-                isTransitioning = false;
-                uiManager.animationDuration = 0.50f; // Reset the animation duration for future transitions
-            }
+            ToggleTransitionUI();
         }
 
         // Player just left range
@@ -84,7 +66,7 @@ public class Portal : MonoBehaviour
         }
     }
 
-    void LevelTransition()
+    public void LevelTransition()
     {
         FindAnyObjectByType<AudioManager>().Play("PORTALTRANSITION");
 
@@ -103,6 +85,11 @@ public class Portal : MonoBehaviour
         if (isTyping) StopAllCoroutines();
 
         StartCoroutine(TypeDialogueRoutine(line));
+    }
+
+    void ToggleTransitionUI()
+    {
+        StartCoroutine(EnableTransitionUICoroutine());
     }
 
     IEnumerator TypeDialogueRoutine(string line)
@@ -128,5 +115,16 @@ public class Portal : MonoBehaviour
         //     gameManager.playerInSafeArea = true;
         
         isTyping = false;
+    }
+
+    IEnumerator EnableTransitionUICoroutine()
+    {
+        Time.timeScale = 0f;
+        uiManager.transitionUIAnimator.SetTrigger("TransitionBegin");
+        yield return new WaitUntil(() => uiManager.transitionUIAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.5f);
+        yield return new WaitWhile(() => uiManager.transitionUIAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.5f);
+        LevelTransition();
+        Time.timeScale = 1f;
+        
     }
 }

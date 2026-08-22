@@ -16,13 +16,11 @@ public class UIManager : MonoBehaviour
     public GameObject barAllocationUI;
     public GameObject statTrackerUI;
     public GameObject spellBookUI;
+    public GameObject transitionUI;
     public GameObject pauseMenu;
     public GameObject startMenu;
     public GameObject settingsMenu;
     public GameObject tutorialMenu;
-    [Header("UI Animations")]
-    public float animationDuration = 0.50f; // Duration of UI animations
-    public GameObject transitionUI;
     [Header("Slides")]
     public GameObject Slide1;
     public GameObject Slide2;
@@ -43,6 +41,7 @@ public class UIManager : MonoBehaviour
     [Header("UI State Management")]
     private bool isLevelingUp;
     public Animator spellbarAllocationAnimator;
+    public Animator transitionUIAnimator;
     [SerializeField] private Animator upgradeUIAnimator;
     // [SerializeField] private Animator spellUpgradeAnimator;
     public UnityEvent onShopFinish;
