@@ -59,7 +59,6 @@ public class Portal : MonoBehaviour
         // Player just left range
         if (distance > proximityDistance)
         {
-            Debug.Log($"Player left portal range: {distance} > {proximityDistance}");
             hasTriggered = false;
             canvas.SetActive(false);
             dialogueText.text = string.Empty;

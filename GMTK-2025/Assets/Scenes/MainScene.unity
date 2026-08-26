@@ -2262,7 +2262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   location: {fileID: 304370297}
   isReturnPortal: 0
-  canvas: {fileID: 269389022}
+  canvas: {fileID: 634457116}
   textSpeed: 0.05
   proximityDistance: 3
   interactKey: 101
@@ -14386,7 +14386,7 @@ MonoBehaviour:
   isReturnPortal: 1
   canvas: {fileID: 269389022}
   textSpeed: 0.05
-  proximityDistance: 2
+  proximityDistance: 3
   interactKey: 101
   dialogueLine: Press 'E' to leave
   dialogueText: {fileID: 962987387}
