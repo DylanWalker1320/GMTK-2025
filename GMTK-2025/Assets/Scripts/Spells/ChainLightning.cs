@@ -29,8 +29,8 @@ public class ChainLightning : Spell
 
     private void FindClosestEnemy(Vector2 position, float radius, int maxColliders = 50)
     {
-        Collider2D[] hitColliders = new Collider2D[maxColliders];
-        int colliderCount = Physics2D.OverlapCircleNonAlloc(position, radius, hitColliders);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(position, radius, LayerMask.GetMask("Enemy"));
+        int colliderCount = hitColliders.Length;
 
         bool enemyFound = false;
 
@@ -85,5 +85,6 @@ public class ChainLightning : Spell
         int spellLevel = GetSpellLevel(Spells.ChainLightning);
         damage += damageUpgrade * spellLevel; // Increase the damage
         chains += (int)(chainsUpgrade * spellLevel); // Increase the number of chains
+        searchRadius += searchRadiusUpgrade * spellLevel; // Increase the search radius
     }
 }

@@ -222,6 +222,7 @@ public static class LevelUpStatDefinitions
                 StatRarity.Rare =>      Random.Range(2f, 3f),
                 StatRarity.Epic =>      Random.Range(3f, 5f),
                 StatRarity.Legendary => Random.Range(6f, 8f),
+                _ => 0.5f
             },
             LevelUpStatType.CastSpeed => StatRarity switch
             {

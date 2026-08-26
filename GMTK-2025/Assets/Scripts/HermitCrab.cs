@@ -12,15 +12,11 @@ public class HermitCrab : Enemy
     private bool isWalking = false;
     private Vector2 walkTarget;
     private float distanceToTarget;
-    private static EnemySpawner enemySpawner;
 
     void Start()
     {
         Init();
         
-        if (enemySpawner == null)
-            enemySpawner = FindFirstObjectByType<EnemySpawner>();
-
         walkTarget = GetWalkTarget();
     }
 
@@ -64,7 +60,6 @@ public class HermitCrab : Enemy
                 return hit.position;
         }
 
-        Debug.LogWarning("HermitCrab: Failed to find valid walk target, defaulting to current position");
         return transform.position;
     }
 

@@ -20,8 +20,8 @@ public class Lightning : Spell
 
     private void FindClosestEnemy(Vector2 position, float radius, int maxColliders = 50)
     {
-        Collider2D[] hitColliders = new Collider2D[maxColliders];
-        int colliderCount = Physics2D.OverlapCircleNonAlloc(position, radius, hitColliders);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(position, radius, LayerMask.GetMask("Enemy"));
+        int colliderCount = hitColliders.Length;
 
         bool enemyFound = false;
 

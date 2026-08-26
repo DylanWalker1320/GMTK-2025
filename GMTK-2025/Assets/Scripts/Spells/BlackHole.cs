@@ -9,7 +9,6 @@ public class BlackHole : Spell
     [SerializeField] private float pullStrength = 10f; // Strength of the pull effect
     [SerializeField] private float pullRadius = 5f; // Radius of the pull effect
     [SerializeField] private float pullInterval = 0.2f; // Interval for pulling enemies towards the black hole
-    [SerializeField] private float damageInterval = 0.5f; // Interval between passive damage ticks
     [SerializeField] private float size = 1f; // Size of the black hole
 
     [Header("Upgrade Scaling")]
@@ -19,7 +18,6 @@ public class BlackHole : Spell
 
     private float damageCooldown = 0.5f; // Cooldown for passive damage
     private float cooldownTimer = 0f; // Timer for cooldown
-    private float pullCooldown = 0.5f; // Cooldown for pull effect
     private float pullTimer = 0f; // Timer for pull effect
     private bool isPulling = false;
 

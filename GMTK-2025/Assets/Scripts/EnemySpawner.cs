@@ -25,8 +25,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Debug Info")]
     public int currentEnemies = 0;
     public int mobsKilled = 0;
-
-    private bool spawningPaused = false; // Paused while player is in refresh room
+    public bool spawningPaused = false; // Paused while player is in refresh room
     private GameManager gameManager;
 
     void Awake()
@@ -77,6 +76,8 @@ public class EnemySpawner : MonoBehaviour
         // Don't spawn if paused, wave is exhausted, or player is missing
         if (spawningPaused || timer > 0f || maxWavePopulation <= 0 || player == null)
             return;
+
+        Debug.Log($"EnemySpawner: Spawning enemy. CurrentEnemies: {currentEnemies}, MaxWavePopulation: {maxWavePopulation}");
 
         SpawnEnemy();
         timer = spawnInterval;

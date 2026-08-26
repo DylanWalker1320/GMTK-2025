@@ -12,7 +12,6 @@ public class PoisonBall : Spell
     [Header("Upgrade Scaling")]
     [SerializeField] private float damageUpgrade = 1f; // Damage increase per upgrade
     [SerializeField] private float poisonSpawnIntervalUpgrade = 0.1f; // Interval decrease per upgrade
-    [SerializeField] private float finalPuddleScaleUpgrade = 0.5f; // Scale increase per upgrade
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

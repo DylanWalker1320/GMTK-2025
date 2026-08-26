@@ -56,7 +56,6 @@ public class ExplosiveShot : Spell
 
         animator.SetBool("Exploded", true); // Trigger the explosion animation
         isExploding = true;
-        Debug.Log("Expiring in " + explosionDuration + " seconds");
         Destroy(gameObject, explosionDuration); // Destroy the spell after a certain time
     }
 
