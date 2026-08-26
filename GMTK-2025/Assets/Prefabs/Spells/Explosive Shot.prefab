@@ -136,12 +136,11 @@ MonoBehaviour:
   markupColor: red
   spellSprite: {fileID: -69659240620583599, guid: 8da2211e6cae1ea44bf4e65101a1ad96, type: 3}
   explosionSize: 1
-  explosionDuration: 5
-  explosionDamageTickRate: 1
-  explosionDamageUpgrade: 1
+  explosionDuration: 1
+  explosionDamageTickRate: 0.3
+  explosionDamageUpgrade: 0.5
   explosionSizeUpgrade: 0.5
   explosionDurationUpgrade: 0.1
-  explosionDamageTickRateUpgrade: -0.1
 --- !u!50 &1165334991673011861
 Rigidbody2D:
   serializedVersion: 5

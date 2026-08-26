@@ -38924,7 +38924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: betaMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: debugMode
@@ -39049,12 +39049,16 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: castSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: facingRight
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: castStrength
-      value: 10000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: dashStrength
@@ -39135,7 +39139,7 @@ PrefabInstance:
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8918959968255975233, guid: 26d3cae4b1f554b40a4ff0681a823aa4, type: 3}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[3]'
       value: 
