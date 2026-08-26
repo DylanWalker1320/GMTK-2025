@@ -64,18 +64,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         loopsAmountCompleted.text = loopsCompleted.ToString() + " Loops";
-        if (debugMode) Debug.Log($"Waves completed: {wavesCompleted} | waveCleared: {enemySpawner != null && enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0} | isInSafeArea: {isInSafeArea} | bossAlive: {bossAlive} | bossHasDied: {bossHasDied}");
+        if (debugMode) Debug.Log($"Waves completed: {wavesCompleted} | isInSafeArea: {isInSafeArea} | bossAlive: {bossAlive} | bossHasDied: {bossHasDied}");
 
         if (levelComplete)
         {
             levelComplete = false;
         }
-        else if (enemySpawner != null && !waitingForPortalReturn)
+        else if (enemySpawner != null && !waitingForPortalReturn && !bossAlive)
         {
-
             bool waveCleared = enemySpawner.maxWavePopulation <= 0 && enemySpawner.currentEnemies <= 0;
 
-            if (waveCleared && !isInSafeArea && !bossAlive)
+            if (waveCleared && !isInSafeArea)
             {
                 if (bossHasDied)
                 {
@@ -83,14 +82,17 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    levelComplete = true;
-                    isInSafeArea = true;
                     wavesCompleted++;
 
-                    if (wavesCompleted % 4 == 0)
+                    if (wavesCompleted >= 4)
                     {
-                        loopComplete = true;
-                        loopsCompleted++;
+                        // 4 normal waves done this loop -> boss wave, no safe area in between
+                        TrySpawnBoss();
+                    }
+                    else
+                    {
+                        levelComplete = true;
+                        isInSafeArea = true;
                     }
                 }
             }
@@ -100,6 +102,54 @@ public class GameManager : MonoBehaviour
             ResetGame();
     }
 
+    // Called by the main canvas' UIManager's "On Shop Finish" event
+    public void OnShopFinished()
+    {
+        if (wavesCompleted >= 4 && !bossHasDied)
+        {
+            TrySpawnBoss();
+        }
+        else
+        {
+            enemySpawner.Restart();
+        }
+    }
+
+    public void TrySpawnBoss()
+    {
+        if (bossAlive || waitingForPortalReturn) return;
+        if (wavesCompleted < 4) return; // not time for the boss yet
+        if (enemySpawner != null && (enemySpawner.maxWavePopulation > 0 || enemySpawner.currentEnemies > 0))
+            return; // regular enemies still active
+
+        bossAlive = true;
+        SetEnemyPause(true);
+        enemySpawner.maxWavePopulation = 0; // boss wave = boss only
+        Instantiate(bossPrefab, enemySpawner.GetValidSpawnPosition(), Quaternion.identity);
+    }
+
+    private void OpenPortal()
+    {
+        loopComplete = true;
+        loopsCompleted++;
+        wavesCompleted = 0; // reset counter for the next loop
+
+        levelComplete = true;
+        isInSafeArea = true;
+        waitingForPortalReturn = true;
+        bossHasDied = false;
+
+        if (portalObject != null)
+            portalObject.SetActive(true);
+
+        if (enemySpawner != null)
+        {
+            enemySpawner.SetSpawningPaused(true);
+            if (debugMode) Debug.Log("Enemy spawning paused.");
+        }
+
+        if (debugMode) Debug.Log("Portal opened! Waiting for player to return...");
+    }
     public void UpdateEnemiesRemaining()
     {
         enemiesRemaining.text = $"{enemySpawner.mobsKilled}\n /\n {enemySpawner.lastMaxWavePopulation}";
@@ -112,15 +162,6 @@ public class GameManager : MonoBehaviour
             enemySpawner.mobsKilled++;
             enemySpawner.currentEnemies--;
             UpdateEnemiesRemaining();
-        }
-    }
-
-    public void TrySpawnBoss()
-    {
-        if (loopsCompleted * 4 + 3 == wavesCompleted)
-        {
-            bossAlive = true;
-            Instantiate(bossPrefab, enemySpawner.GetValidSpawnPosition(), Quaternion.identity);
         }
     }
 
@@ -157,34 +198,6 @@ public class GameManager : MonoBehaviour
     {
         bossAlive = false;
         bossHasDied = true;
-    }
-
-    private void OpenPortal()
-    {
-        // Count the wave and loop here for the boss wave
-        wavesCompleted++;
-        if (wavesCompleted % 4 == 0)
-        {
-            loopComplete = true;
-            loopsCompleted++;
-        }
-
-        levelComplete = true;
-        isInSafeArea = true;       // Safe area is true while waiting for portal return
-        waitingForPortalReturn = true;
-        bossHasDied = false;
-
-        if (portalObject != null)
-        {
-            portalObject.SetActive(true);
-        }
-        if (enemySpawner != null)
-        {
-            enemySpawner.SetSpawningPaused(true);
-            if (debugMode) Debug.Log("Enemy spawning paused.");
-        }
-
-        if (debugMode) Debug.Log("Portal opened! Waiting for player to return...");
     }
 
     public void OnPlayerReturnedFromPortal()

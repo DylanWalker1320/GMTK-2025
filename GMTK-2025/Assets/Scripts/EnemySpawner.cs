@@ -77,8 +77,6 @@ public class EnemySpawner : MonoBehaviour
         if (spawningPaused || timer > 0f || maxWavePopulation <= 0 || player == null)
             return;
 
-        Debug.Log($"EnemySpawner: Spawning enemy. CurrentEnemies: {currentEnemies}, MaxWavePopulation: {maxWavePopulation}");
-
         SpawnEnemy();
         timer = spawnInterval;
     }
