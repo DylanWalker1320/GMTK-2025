@@ -21,7 +21,6 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
     [SerializeField] private int rerollCost = 1;
     [SerializeField] private TextMeshProUGUI rerollText;
     public StatPanel[] panels = new StatPanel[3];
-    public UnityEvent unityEvent;
 
     public void Awake()
     {
@@ -130,15 +129,14 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
 
     public void Exit()
     {
-        Time.timeScale = 1;
-        TooltipManager._instance.HideTooltip();
-        unityEvent.Invoke();
+        FindAnyObjectByType<UIManager>().SetActiveStatShopUI("ExitStatShop");
     }
     
     public void Reroll()
     {
         if(rerollCost > 0)
         {
+            FindAnyObjectByType<UIManager>().SetActiveStatShopUI("RerollStats");
             rerollCost -= 1;
             player.UpdateUI();
             InitializeStatShopUI();

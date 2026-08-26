@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     public GameObject barAllocationUI;
     public GameObject statTrackerUI;
     public GameObject spellBookUI;
-    public GameObject transitionUI;
+    // transition UI utilised in portal.cs
     public GameObject pauseMenu;
     public GameObject startMenu;
     public GameObject settingsMenu;
@@ -42,7 +42,9 @@ public class UIManager : MonoBehaviour
     private bool isLevelingUp;
     public Animator spellbarAllocationAnimator;
     public Animator transitionUIAnimator;
+    [SerializeField] private Animator statShopAnimator;
     [SerializeField] private Animator upgradeUIAnimator;
+    [SerializeField] private ParticleSystem backgroundParticles;
     // [SerializeField] private Animator spellUpgradeAnimator;
     public UnityEvent onShopFinish;
 
@@ -372,16 +374,27 @@ public class UIManager : MonoBehaviour
         barAllocationUI.SetActive(false);
     }
 
-    public void SetActiveStatShopUI()
+    public void SetActiveStatShopUI(string transitionType = "None")
     {
-        if (isInUI) return; // Prevent opening if already in a UI
         isInUI = true;
-        statShopUI.SetActive(!statShopUI.activeSelf);
-        upgradeUI.SetActive(false);
-        barAllocationUI.SetActive(false);
-
-        Time.timeScale = 0;
-        statShopUI.GetComponent<LevelUpUI>().InitializeStatShopUI();
+        switch (transitionType)
+        {
+            case "RerollStats":
+                StartCoroutine(TransitionStatShopUI(transitionType));
+                break;
+            case "ExitStatShop":
+                StartCoroutine(TransitionStatShopUI(transitionType));
+                backgroundParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                TooltipManager._instance.HideTooltip();
+                isInUI = false;
+                break;
+            default:
+                Time.timeScale = 0;
+                statShopUI.SetActive(!statShopUI.activeSelf);
+                backgroundParticles.Play();
+                statShopUI.GetComponent<LevelUpUI>().InitializeStatShopUI();
+                break;
+        }
     }
 
     public void SetActiveScrollUI()
@@ -473,5 +486,17 @@ public class UIManager : MonoBehaviour
         isInUI = true;
         FindFirstObjectByType<InteractableLoopBar>().loopBarType = loopBarType;
 
+    }
+
+    IEnumerator TransitionStatShopUI(string transitionType)
+    {
+        statShopAnimator.SetTrigger(transitionType);
+        yield return new WaitUntil(() => statShopAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+        yield return new WaitWhile(() => statShopAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+        if(transitionType == "ExitStatShop")
+        {
+            statShopUI.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 }

@@ -206,6 +206,7 @@ public class GameManager : MonoBehaviour
             enemySpawner.SetSpawningPaused(false);
             enemySpawner.Restart();
         }
+        Statue.TogglePurchaseAvailability(false);
     }
 
     public void ToggleSafeArea(bool isInSafeArea)
