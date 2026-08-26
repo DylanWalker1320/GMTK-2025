@@ -299,6 +299,7 @@ public class MapGenerator : MonoBehaviour
 
                 // === INSTANTIATE FIRST to get accurate bounds ===
                 GameObject obstacle = Instantiate(prefab, finalPos, Quaternion.identity, transform);
+                obstacle.name = $"{prefab.name}_Obstacle_#{i + 1}";
 
                 // === Get ACTUAL radius from instantiated object ===
                 float obstacleRadius = 0.5f; // Fallback
@@ -311,7 +312,7 @@ public class MapGenerator : MonoBehaviour
                     obstacleRadius = Mathf.Max(bounds.extents.x, bounds.extents.y);
                     
                     if (debugMode)
-                        Debug.Log($"{debugPrefixObstacle} Actual obstacle radius: {obstacleRadius:F2} (bounds: {bounds.extents})");
+                        Debug.Log($"{debugPrefixObstacle} {obstacle.name}: Actual obstacle radius: {obstacleRadius:F2} (bounds: {bounds.extents})");
                 }
                 else
                 {
@@ -323,7 +324,7 @@ public class MapGenerator : MonoBehaviour
                         obstacleRadius = Mathf.Max(bounds.extents.x, bounds.extents.y);
                         
                         if (debugMode)
-                            Debug.Log($"{debugPrefixObstacle} Using renderer radius: {obstacleRadius:F2}");
+                            Debug.Log($"{debugPrefixObstacle} {obstacle.name}: Using renderer radius: {obstacleRadius:F2}");
                     }
                 }
 
@@ -338,7 +339,7 @@ public class MapGenerator : MonoBehaviour
                     {
                         tooCloseToOtherObstacles = true;
                         if (debugMode)
-                            Debug.Log($"{debugPrefixObstacle} Too close to existing obstacle at {placedPos} (distance: {distance:F2}, minRequired: {minDistance:F2})");
+                            Debug.Log($"{debugPrefixObstacle} {obstacle.name}: Too close to existing obstacle at {placedPos} (distance: {distance:F2}, minRequired: {minDistance:F2})");
                         break;
                     }
                 }
@@ -369,7 +370,7 @@ public class MapGenerator : MonoBehaviour
                             {
                                 tooCloseToWall = true;
                                 if (debugMode)
-                                    Debug.Log($"{debugPrefixObstacle} Too close to wall at {checkCell} (distance: {distance:F2}, minRequired: {minWallDistance:F2})");
+                                    Debug.Log($"{debugPrefixObstacle} {obstacle.name}: Too close to wall at {checkCell} (distance: {distance:F2}, minRequired: {minWallDistance:F2})");
                                 break;
                             }
                         }
@@ -384,7 +385,7 @@ public class MapGenerator : MonoBehaviour
                 {
                     tooCloseToWall = true;
                     if (debugMode)
-                        Debug.Log($"{debugPrefixObstacle} Too close to player spawn at (0,0) (distance: {distanceToPlayer:F2}, minRequired: {playerSafeRadius:F2})");
+                        Debug.Log($"{debugPrefixObstacle} {obstacle.name}: Too close to player spawn at (0,0) (distance: {distanceToPlayer:F2}, minRequired: {playerSafeRadius:F2})");
                 }
 
                 if (tooCloseToWall)
@@ -399,7 +400,7 @@ public class MapGenerator : MonoBehaviour
                 placed = true;
                 
                 if (debugMode)
-                    Debug.Log($"{debugPrefixObstacle} Successfully placed obstacle #{i + 1} at {finalPos} with radius {obstacleRadius:F2}.");
+                    Debug.Log($"{debugPrefixObstacle} {obstacle.name}: Successfully placed obstacle #{i + 1} at {finalPos} with radius {obstacleRadius:F2}.");
 
                 break;
             }

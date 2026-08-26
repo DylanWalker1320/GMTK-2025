@@ -15802,7 +15802,7 @@ Transform:
   m_GameObject: {fileID: 1039548004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -147.90721, y: -73.73521, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15849,10 +15849,10 @@ MonoBehaviour:
   baseNumObstacles: 5
   numObstacleRange: 3
   obstaclePlacementAttempts: 20
-  obstaclePadding: 2
+  obstaclePadding: 3
   overrideNumObstaclesByArea: 1
   areaPerObstacle: 150
-  playerSafeRadius: 5
+  playerSafeRadius: 8
   numSamples: 20
   baseRadius: 30
   radiusVariation: 6
@@ -15860,7 +15860,7 @@ MonoBehaviour:
   smoothness: 6
   extraTileChance: 20
   wallThickness: 15
-  debugMode: 0
+  debugMode: 1
 --- !u!224 &1055860098 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1705434868178900364, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
@@ -38815,7 +38815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -39028,6 +39028,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 551384267470797963, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1769593737532478244, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -39050,7 +39054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: castSpeed
-      value: 3
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: facingRight
@@ -39086,11 +39090,11 @@ PrefabInstance:
       objectReference: {fileID: 2060055942}
     - target: {fileID: 5899014060824136620, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -147.90721
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5899014060824136620, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -73.73521
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5899014060824136620, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39139,7 +39143,7 @@ PrefabInstance:
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 8918959968255975233, guid: 26d3cae4b1f554b40a4ff0681a823aa4, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[3]'
       value: 
@@ -39232,11 +39236,11 @@ PrefabInstance:
       objectReference: {fileID: 6115567023371614320}
     - target: {fileID: 8032358891677295499, guid: 5371d2fa3b432b8449c9cfac60e7fed9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -147.90721
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8032358891677295499, guid: 5371d2fa3b432b8449c9cfac60e7fed9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -73.73521
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8032358891677295499, guid: 5371d2fa3b432b8449c9cfac60e7fed9, type: 3}
       propertyPath: m_LocalPosition.z
