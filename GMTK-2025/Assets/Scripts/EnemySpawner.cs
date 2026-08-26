@@ -25,8 +25,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Debug Info")]
     public int currentEnemies = 0;
     public int mobsKilled = 0;
-
-    private bool spawningPaused = false; // Paused while player is in refresh room
+    public bool spawningPaused = false; // Paused while player is in refresh room
     private GameManager gameManager;
 
     void Awake()

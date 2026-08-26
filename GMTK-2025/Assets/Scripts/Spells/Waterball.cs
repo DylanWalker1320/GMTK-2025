@@ -31,7 +31,7 @@ public class Waterball : Spell
     void AddUpgrade()
     {
         int spellLevel = GetSpellLevel(Spells.Waterball);
-        damage += spellLevel; // Increase the damage based on the spell level
-        speed += spellLevel * 0.5f;
+        damage += damageUpgrade * spellLevel; // Increase the damage based on the spell level
+        speed += speedUpgrade * spellLevel * 0.5f;
     }
 }

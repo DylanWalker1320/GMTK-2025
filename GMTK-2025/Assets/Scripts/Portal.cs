@@ -8,7 +8,7 @@ public class Portal : MonoBehaviour
     public Transform location = null;
     [SerializeField] private bool isReturnPortal = false; // Enable on the portal that brings the player to the main area
 
-    private static CinemachineFollow camera;
+    private static CinemachineFollow ccamera;
     private GameManager gameManager;
 
     [SerializeField] private GameObject canvas;
@@ -17,16 +17,16 @@ public class Portal : MonoBehaviour
     [SerializeField] private KeyCode interactKey = KeyCode.E;
     [SerializeField] private string dialogueLine;    
     [SerializeField]private TextMeshProUGUI dialogueText;
-    private UIManager uiManager;
-    private GameObject player;
-    private bool isTyping = false;
-    private bool playerInRange = false;
-    private bool hasTriggered = false;
+    public UIManager uiManager;
+    public GameObject player;
+    public bool isTyping = false;
+    public bool playerInRange = false;
+    public bool hasTriggered = false;
 
     void Start()
     {
-        if (camera == null)
-            camera = GameObject.FindGameObjectWithTag("MainCamera").transform.parent.gameObject.GetComponent<CinemachineFollow>();
+        if (ccamera == null)
+            ccamera = GameObject.FindGameObjectWithTag("MainCamera").transform.parent.gameObject.GetComponent<CinemachineFollow>();
 
         gameManager = FindFirstObjectByType<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -44,6 +44,7 @@ public class Portal : MonoBehaviour
         if (playerInRange && !hasTriggered)
         {
             TypeDialogue(dialogueLine);
+            canvas.SetActive(true);
             hasTriggered = true;
         }
 
@@ -70,7 +71,7 @@ public class Portal : MonoBehaviour
     {
         FindAnyObjectByType<AudioManager>().Play("PORTALTRANSITION");
 
-        camera.OnTargetObjectWarped(player.transform, location.position - player.transform.position);
+        ccamera.OnTargetObjectWarped(player.transform, location.position - player.transform.position);
         player.transform.position = location.position;
 
         // If this is the return portal, tell GameManager the player is back
@@ -104,7 +105,7 @@ public class Portal : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
         }
 
-        // camera.OnTargetObjectWarped(other.transform, location.position - other.transform.position);
+        // ccamera.OnTargetObjectWarped(other.transform, location.position - other.transform.position);
         // other.transform.position = location.position;
 
         // // If this is the return portal, tell GameManager the player is back

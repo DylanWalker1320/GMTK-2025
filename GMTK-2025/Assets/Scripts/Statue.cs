@@ -36,7 +36,7 @@ public class Statue : MonoBehaviour
 
     public static void ResetPrices()
     {
-        foreach (Statue statue in FindObjectsOfType<Statue>())
+        foreach (Statue statue in FindObjectsByType<Statue>(FindObjectsSortMode.None))
         {
             statue.price = statue.basePrice;
             statue.UpdatePrice();

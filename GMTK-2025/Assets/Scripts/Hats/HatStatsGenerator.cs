@@ -34,7 +34,7 @@ public static class HatStatsGenerator
             statWeightsByRarity[rarityKvp.Key] = wl;
         }
 
-        hatGenerator = Object.FindObjectOfType<HatGenerator>();
+        hatGenerator = Object.FindFirstObjectByType<HatGenerator>();
         if (hatGenerator == null) Debug.LogError("HatStatsGenerator: No HatGenerator found in the scene.");
 
         isInitialized = true;
