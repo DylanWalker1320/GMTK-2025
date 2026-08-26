@@ -46,7 +46,7 @@ public class TooltipThreeUpgrades : Tooltip
                     message = $"<u><color=yellow>Speed Increase</color></u>\n\n{FindAnyObjectByType<PlayerMovement>().maxSpeed} -> <color=yellow>{FindAnyObjectByType<PlayerMovement>().maxSpeed + threeUpgradeScreenReference.speedUpgradeIncrease}</color>\n";
                     break;
                 case ThreeUpgradeScreen.StatIncreaseType.IFrames:
-                    message = $"<u><color=yellow>Invicibility Frames Increase</color></u>\n\n{FindAnyObjectByType<PlayerMovement>().invincibilityFrames} -> <color=yellow>{FindAnyObjectByType<PlayerMovement>().invincibilityFrames + threeUpgradeScreenReference.iFramesUpgradeIncrease}</color>\n";
+                    message = $"<u><color=yellow>Invincibility Frames Increase</color></u>\n\n{FindAnyObjectByType<PlayerMovement>().invincibilityFrames} -> <color=yellow>{FindAnyObjectByType<PlayerMovement>().invincibilityFrames + threeUpgradeScreenReference.iFramesUpgradeIncrease}</color>\n";
                     break;
                 case ThreeUpgradeScreen.StatIncreaseType.CastSpeed:
                     message = $"<u><color=yellow>Cast Speed Increase</color></u>\n\n{Mathf.Round(FindAnyObjectByType<PlayerMovement>().castSpeed * 100.00f) * 0.01f} -> <color=yellow>{Mathf.Round((FindAnyObjectByType<PlayerMovement>().castSpeed + threeUpgradeScreenReference.castSpeedUpgradeIncrease) * 100.00f) * 0.01f}</color>\n";

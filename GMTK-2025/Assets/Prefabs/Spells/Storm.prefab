@@ -108,7 +108,7 @@ MonoBehaviour:
   spellType1: 2
   spellType2: 2
   markupColor: orange
-  spellSprite: {fileID: 3406445712956845340, guid: a1e0fc0c06d6b49459112028a3b066ce, type: 3}
+  spellSprite: {fileID: 6400001756064385641, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   outerRadius: 2
   innerRadius: 1
   minNumStrikes: 5

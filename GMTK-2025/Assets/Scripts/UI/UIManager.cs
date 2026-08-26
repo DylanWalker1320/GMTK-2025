@@ -8,7 +8,6 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     private GameManager gameManager;
-    [SerializeField] private bool debugMode;
     [Header("UI Panels")]
     public GameObject upgradeUI;
     public GameObject statShopUI; // TODO: now stat shop ui, rename later
@@ -74,18 +73,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        if(debugMode)
-        {
-            startMenu.SetActive(false);
-            currentMenu = Menu.None;
-            Time.timeScale = 1;
-        }
-        else
-        {
-            startMenu.SetActive(true);
-            Time.timeScale = 0;
-            currentMenu = Menu.StartMenu;
-        }
+        currentMenu = Menu.None;
     }
 
     void Update()
@@ -358,9 +346,8 @@ public class UIManager : MonoBehaviour
     public void SetBetaGameplay()
     {
         Time.timeScale = 0;
-
+        gameManager.isInSafeArea = true;
         FindAnyObjectByType<Inventory>().WipeInventory();
-
         SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellCombination);
         FindAnyObjectByType<InteractableLoopBar>().BetaLoop(); // needs above to be active in the first place
     }

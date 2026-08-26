@@ -56,7 +56,7 @@ MonoBehaviour:
   spellType1: 3
   spellType2: 0
   markupColor: '#add8e6ff'
-  spellSprite: {fileID: 1463400881537363154, guid: b58ea23dd7600a4439181ec1e9e0e04d, type: 3}
+  spellSprite: {fileID: -9169290178953746890, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   scaleSpeed: 0.3
   damageUpgrade: 15
   scaleSpeedUpgrade: 0.1

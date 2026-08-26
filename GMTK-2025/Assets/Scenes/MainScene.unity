@@ -2394,7 +2394,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 8519755
+    rgba: 679608395
   m_fontColor: {r: 0.29411766, g: 0, b: 0.50980395, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 0
@@ -17282,7 +17282,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292260863
+    rgba: 1524020223
   m_fontColor: {r: 1, g: 0.7028302, b: 0.8403441, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 0
@@ -31834,7 +31834,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 7733503
+    rgba: 1517682943
   m_fontColor: {r: 1, g: 0, b: 0.4627451, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 0
@@ -33554,7 +33554,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294607815
+    rgba: 687506375
   m_fontColor: {r: 0.77987903, g: 0.51370597, b: 0.9811321, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 0
@@ -35770,6 +35770,22 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: darkSprite
+      value: 
+      objectReference: {fileID: -6901146580128281535, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
+    - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: fireSprite
+      value: 
+      objectReference: {fileID: -1193137594065180063, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
+    - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: lightSprite
+      value: 
+      objectReference: {fileID: 5092564655706136840, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
+    - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: waterSprite
+      value: 
+      objectReference: {fileID: 2509732029256048619, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
+    - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: speedUpgradeIncrease
       value: 10
       objectReference: {fileID: 0}
@@ -36645,15 +36661,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4234462351152899925, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.17
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 4234462351152899925, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_LocalScale.y
-      value: -0.17
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 4234462351152899925, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_LocalScale.z
-      value: -0.17
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 4234462351152899925, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37237,7 +37253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5426611615716575750, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5503958050424394288, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_text
@@ -38815,7 +38831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -38924,7 +38940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: betaMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: debugMode
@@ -38937,19 +38953,19 @@ PrefabInstance:
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: darkSprite
       value: 
-      objectReference: {fileID: -6445553664378459986, guid: 9bcb0ac9674693f4b819319a57f71903, type: 3}
+      objectReference: {fileID: -6901146580128281535, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: fireSprite
       value: 
-      objectReference: {fileID: 8085263413554396990, guid: ed16f4f0a68e6fb4c93024c543a684f0, type: 3}
+      objectReference: {fileID: -1193137594065180063, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: lightSprite
       value: 
-      objectReference: {fileID: -3601967389504423346, guid: a6596b75f98aa9548aca5fc406d59069, type: 3}
+      objectReference: {fileID: 5092564655706136840, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: waterSprite
       value: 
-      objectReference: {fileID: -3813937242844364471, guid: c59abc8d46c9afe418e52d4f8e4a2dcc, type: 3}
+      objectReference: {fileID: 2509732029256048619, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: mapGenerator
       value: 
@@ -39054,7 +39070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: castSpeed
-      value: 0.01
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: facingRight

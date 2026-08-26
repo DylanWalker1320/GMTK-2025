@@ -134,7 +134,7 @@ MonoBehaviour:
   spellType1: 0
   spellType2: 0
   markupColor: red
-  spellSprite: {fileID: -69659240620583599, guid: 8da2211e6cae1ea44bf4e65101a1ad96, type: 3}
+  spellSprite: {fileID: 1197888758363656553, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   explosionSize: 1
   explosionDuration: 1
   explosionDamageTickRate: 0.3

@@ -301,7 +301,7 @@ MonoBehaviour:
   spellType1: 1
   spellType2: 1
   markupColor: '#000080ff'
-  spellSprite: {fileID: -6179780737336541088, guid: 4d07166559c3fbf4492077a1fa28ba92, type: 3}
+  spellSprite: {fileID: 3374306435037262831, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   visuals: {fileID: 4197480274875293710}
   damageUpgrade: 15
   speedUpgrade: 0.5

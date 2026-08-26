@@ -109,7 +109,7 @@ MonoBehaviour:
   spellType1: 0
   spellType2: 2
   markupColor: '#a52a2aff'
-  spellSprite: {fileID: 2857225077214164437, guid: c06cd410af118864ea816c1de0e2fe6c, type: 3}
+  spellSprite: {fileID: 5364457908428196824, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   numberOfBolts: 3
   boltSpreadAngle: 10
   boltSpreadRange: 5

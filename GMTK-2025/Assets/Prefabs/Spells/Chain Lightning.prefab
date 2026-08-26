@@ -132,7 +132,7 @@ MonoBehaviour:
   spellType1: 2
   spellType2: 1
   markupColor: grey
-  spellSprite: {fileID: -6371365488196154562, guid: 6937d95c21caa514db02ef75fcda9d53, type: 3}
+  spellSprite: {fileID: 5822160017538938013, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   searchRadius: 5
   chains: 3
   minChainDamage: 0.5

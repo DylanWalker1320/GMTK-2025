@@ -132,7 +132,7 @@ MonoBehaviour:
   spellType1: 2
   spellType2: 4
   markupColor: yellow
-  spellSprite: {fileID: 1452822719542193163, guid: a6596b75f98aa9548aca5fc406d59069, type: 3}
+  spellSprite: {fileID: 5092564655706136840, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   searchRadius: 5
   speedUpgrade: 1
   damageUpgrade: 15

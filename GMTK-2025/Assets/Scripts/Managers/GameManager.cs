@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
         if(betaMode)
         {
             SetEnemyPause(true);
-            FindAnyObjectByType<InteractableLoopBar>();
             uIManager.SetBetaGameplay();
         }
         if (portalObject != null)

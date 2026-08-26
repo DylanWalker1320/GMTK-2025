@@ -55,12 +55,11 @@ MonoBehaviour:
   spellType1: 3
   spellType2: 3
   markupColor: purple
-  spellSprite: {fileID: -7147511759425736148, guid: afb1d1c22eed02d478d76429996766d8, type: 3}
+  spellSprite: {fileID: 1004431073769736939, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   pullDelay: 2
   pullStrength: 5
   pullRadius: 5
   pullInterval: 0.5
-  damageInterval: 0.5
   size: 1
   damageUpgrade: 5
   pullStrengthUpgrade: 1

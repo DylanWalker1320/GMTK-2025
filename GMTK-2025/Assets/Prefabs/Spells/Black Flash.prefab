@@ -135,7 +135,7 @@ MonoBehaviour:
   spellType1: 3
   spellType2: 0
   markupColor: 
-  spellSprite: {fileID: 2754711423621825340, guid: f668e2b70fd108b45b515da9baa534dd, type: 3}
+  spellSprite: {fileID: 4901514770738379596, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   throwRange: 8
   rotationsPerMinute: 200
   aoeEffectPrefab: {fileID: 1734808920257133925, guid: d0011362b3eab2d48bbd2cb739796668, type: 3}
@@ -143,9 +143,6 @@ MonoBehaviour:
   throwRangeUpgrade: 2
   radiusUpgrade: 1
   damageUpgrade: 3
-  currentPhase: 0
-  targetPosition: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
 --- !u!58 &4442433634009164166
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -56,6 +56,7 @@ public class InteractableLoopBar : MonoBehaviour
         startingSpellCounter--;
         if(startingSpellCounter <= 0)
         {
+            gameManager.isInSafeArea = false;
             gameManager.betaMode = false;
         }
     }
