@@ -1749,6 +1749,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1337070947}
     m_Modifications:
+    - target: {fileID: 198836826563459759, guid: eda578c1c7f27574ab22223d104feb14, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1588345562700510080, guid: eda578c1c7f27574ab22223d104feb14, type: 3}
       propertyPath: m_Name
       value: Rock (1)
@@ -38376,7 +38380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: betaMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: debugMode
@@ -38595,35 +38599,35 @@ PrefabInstance:
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 5220609102773159089, guid: 87f3501ffa98bff418f5b93312659c8d, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[1]'
       value: 
-      objectReference: {fileID: 1762012647336251035, guid: 72f2ab3534d89554ab2f60118152cd5d, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[2]'
       value: 
-      objectReference: {fileID: 4428596358828484310, guid: 531f204abae2b9f4cbf32f12e29bfc60, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[3]'
       value: 
-      objectReference: {fileID: 7813642107417153058, guid: 925502c2be928b2448393d0096fd5d5f, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[4]'
       value: 
-      objectReference: {fileID: 959439198531040717, guid: c3ea4262f39ac37468a3cdf31df84a73, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[5]'
       value: 
-      objectReference: {fileID: 8918959968255975233, guid: 26d3cae4b1f554b40a4ff0681a823aa4, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[6]'
       value: 
-      objectReference: {fileID: 777844439737192209, guid: 58ad3089a129d93489cd87c8f90c6a0e, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[7]'
       value: 
-      objectReference: {fileID: 7813642107417153058, guid: 925502c2be928b2448393d0096fd5d5f, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7855282279253663214, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: m_IsActive
       value: 0
