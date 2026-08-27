@@ -11,7 +11,6 @@ public class Storm : Spell
     [SerializeField] private GameObject strikePrefab; // Prefab for the lightning strike effect
     [Header("Upgrade Scaling")]
     [SerializeField] private float numStrikesUpgrade = 0.5f; // Number of strikes increase per upgrade
-    [SerializeField] private float radiusUpgrade = 0.5f; // Radius increase per upgrade
 
     void Start()
     {
@@ -45,6 +44,5 @@ public class Storm : Spell
         int spellLevel = GetSpellLevel(Spells.Storm);
         minNumStrikes += Mathf.RoundToInt(numStrikesUpgrade * spellLevel); // Increase the minimum number of strikes
         maxNumStrikes += Mathf.RoundToInt(numStrikesUpgrade * spellLevel); // Increase the maximum number of strikes
-        outerRadius += radiusUpgrade * spellLevel; // Increase the outer radius
     }
 }

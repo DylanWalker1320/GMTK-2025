@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 0ab5bf3359fa07e49a4882bc05415df3
+guid: ebe9b1332291c624fac6de50b0cdca91
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3376400908108732793
-    second: black flash sheet_0
+      213: 7701794694397544580
+    second: black_flash_sheet_0
   - first:
-      213: 1875631905663805349
-    second: black flash sheet_1
-  - first:
-      213: 3600964643959344707
-    second: black flash sheet_2
+      213: -5569131306033409276
+    second: black_flash_sheet_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 750
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,10 +75,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: black flash sheet_0
+      name: black_flash_sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2835
-        height: 2835
+        x: 591
+        y: 568
+        width: 1819
+        height: 1780
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7866fd4534d9421d0800000000000000
-      internalID: -3376400908108732793
+      spriteID: 488cd8cf77542ea60800000000000000
+      internalID: 7701794694397544580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black flash sheet_1
+      name: black_flash_sheet_1
       rect:
         serializedVersion: 2
-        x: 2835
-        y: 0
-        width: 2835
-        height: 2835
+        x: 3286
+        y: 200
+        width: 2120
+        height: 2527
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,30 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5a7ea7ad745970a10800000000000000
-      internalID: 1875631905663805349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: black flash sheet_2
-      rect:
-        serializedVersion: 2
-        x: 5670
-        y: 0
-        width: 2835
-        height: 2835
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 34e00f3d34239f130800000000000000
-      internalID: 3600964643959344707
+      spriteID: 4031f5c659876b2b0800000000000000
+      internalID: -5569131306033409276
       vertices: []
       indices: 
       edges: []
@@ -188,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1f5f7b6b54153424b92820090f7b837d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      black flash sheet_0: -3376400908108732793
-      black flash sheet_1: 1875631905663805349
-      black flash sheet_2: 3600964643959344707
+      black_flash_sheet_0: 7701794694397544580
+      black_flash_sheet_1: -5569131306033409276
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

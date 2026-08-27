@@ -18,8 +18,6 @@ public class StormStrike : Spell
 
         AddUpgrade(); // Apply upgrades to the spell
         transform.localScale = new Vector3(size, size, 1f); // Set the scale of the spell
-
-        Destroy(gameObject, destroyTime);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -40,5 +38,10 @@ public class StormStrike : Spell
         damage += damageUpgrade * spellLevel; // Increase the damage
         speed += speedUpgrade * spellLevel; // Increase the speed
         size += sizeUpgrade * spellLevel; // Increase the size
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }

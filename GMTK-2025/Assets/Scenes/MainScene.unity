@@ -38940,7 +38940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: betaMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8345952623997513725, guid: 60b89602d55196a418964efd649d7765, type: 3}
       propertyPath: debugMode
@@ -39159,7 +39159,7 @@ PrefabInstance:
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9006808484228454809, guid: 0a2bb8ac59c320f4389ffca358c80bc4, type: 3}
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[3]'
       value: 
@@ -39167,7 +39167,7 @@ PrefabInstance:
     - target: {fileID: 7542657154439658888, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: 'spellArray.Array.data[4]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9006808484228454809, guid: 0a2bb8ac59c320f4389ffca358c80bc4, type: 3}
     - target: {fileID: 7855282279253663214, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: m_IsActive
       value: 0
