@@ -120,9 +120,9 @@ MonoBehaviour:
   maxHitSlowPercent: 0.2
   damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
   damageNumberSpawnRadius: 1
-  healthScalar: 1
-  damageScalar: 1
-  speedScalar: 1
+  healthScalar: 0.1
+  damageScalar: 0.05
+  speedScalar: 0.05
   stats:
     health: 1500
     damage: 20
@@ -130,9 +130,9 @@ MonoBehaviour:
   applyForceCooldown: 1
   applyForceReady: 1
   attackCooldown: 1
-  phaseChangeHealth: 0
   attackRange: 3.8
   dashForce: 40
+  spawnAttackGracePeriod: 5
   projectilePrefab: {fileID: 8534847031313595462, guid: 5cf17c1d7b01b1e4b886cd6a988e139d, type: 3}
 --- !u!70 &5428939389781789354
 CapsuleCollider2D:
