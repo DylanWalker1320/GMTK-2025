@@ -47,11 +47,11 @@ public class HatScroll : MonoBehaviour
         {
             counter++;
             cell.Setup();
-            if (counter == 49)
+            if (counter == 32)
             {
                 targetHatObject = cell.GetHatObject();
                 targetHatData = cell.GetHatData();
-                if (debugMode) Debug.Log("Target Hat Set to Cell 39 with Rarity: " + targetHatData);
+                if (debugMode) Debug.Log("Target Hat Set to Cell 32 with Rarity: " + targetHatData);
             }
         }
     }
