@@ -134,7 +134,7 @@ MonoBehaviour:
   speed: 5
   spellType1: 3
   spellType2: 0
-  markupColor: 
+  markupColor: '#542DA2'
   spellSprite: {fileID: 4901514770738379596, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   throwRange: 8
   rotationsPerMinute: 200
