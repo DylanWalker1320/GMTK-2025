@@ -105,7 +105,7 @@ public class InteractableLoopBar : MonoBehaviour
                         break;
                     case Spell.SpellType.Dark:
                         typeText[i].text = "Dark";
-                        typeText[i].color = Color.gray;
+                        typeText[i].color = Color.magenta;
                         break;
                     default:
                         typeText[i].text = "Empty";

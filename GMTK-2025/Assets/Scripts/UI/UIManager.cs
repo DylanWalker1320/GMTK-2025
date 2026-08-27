@@ -467,12 +467,12 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
         barAllocationUI.SetActive(true);
         spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
-        FindFirstObjectByType<InteractableLoopBar>().OnCall();
+        InteractableLoopBar loopBar = FindFirstObjectByType<InteractableLoopBar>();
+        loopBar.loopBarType = loopBarType;
+        loopBar.OnCall();
         yield return new WaitUntil(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitWhile(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         isInUI = true;
-        FindFirstObjectByType<InteractableLoopBar>().loopBarType = loopBarType;
-
     }
 
     IEnumerator TransitionStatShopUI(string transitionType)

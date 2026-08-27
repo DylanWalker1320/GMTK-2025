@@ -248,7 +248,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
             animator.SetTrigger("ExitThreeUpgradeScreen");
             yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
             yield return new WaitWhile(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
-            unityEvent.Invoke();   
+            unityEvent.Invoke();
         }
     }
     
