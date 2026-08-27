@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 787266561512865477}
   - component: {fileID: 777844439737192209}
   - component: {fileID: 4442433634009164166}
+  - component: {fileID: 4154557282255671990}
   m_Layer: 6
   m_Name: Black Flash
   m_TagString: Spell
@@ -139,7 +140,7 @@ MonoBehaviour:
   throwRange: 8
   rotationsPerMinute: 200
   aoeEffectPrefab: {fileID: 1734808920257133925, guid: d0011362b3eab2d48bbd2cb739796668, type: 3}
-  aoeRadius: 2
+  aoeRadius: 1.25
   throwRangeUpgrade: 2
   radiusUpgrade: 1
   damageUpgrade: 3
@@ -179,3 +180,65 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.6
+--- !u!114 &4154557282255671990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136817257210570753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.564
+  m_Color: {r: 0.16145472, g: 0.06323426, b: 0.46226418, a: 1}
+  m_Intensity: 1.65
+  m_LightVolumeIntensity: 1.07
+  m_LightVolumeEnabled: 1
+  m_ApplyToSortingLayers: 47b4e62b7dd72b2707acaf0a5579e7d2
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 0
+  m_ShadowIntensity: 0.694
+  m_ShadowSoftness: 0.388
+  m_ShadowSoftnessFalloffIntensity: 0.336
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.808
+  m_LocalBounds:
+    m_Center: {x: 0.015950024, y: 0.1214, z: 0}
+    m_Extent: {x: 1.52385, y: 1.4025, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.65
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.505702, y: -0.6325045, z: 0}
+  - {x: -0.35969892, y: -0.33665553, z: 0}
+  - {x: -0.104212224, y: -0.3649241, z: 0}
+  - {x: 0.3511305, y: -0.534137, z: 0}
+  - {x: 0.71279895, y: -0.3619883, z: 0}
+  - {x: 0.8903481, y: -0.07517819, z: 0}
+  - {x: 0.8209542, y: 0.5, z: 0}
+  - {x: 0.47211063, y: 0.87392855, z: 0}
+  - {x: 0.36274025, y: 0.76438427, z: 0}
+  - {x: 0.41649193, y: 0.34382194, z: 0}
+  - {x: 0.06678355, y: 0.4335388, z: 0}
+  - {x: -0.31562215, y: 0.8004678, z: 0}
+  - {x: -0.8578279, y: 0.20480308, z: 0}
+  - {x: -0.7690532, y: -0.5122222, z: 0}
