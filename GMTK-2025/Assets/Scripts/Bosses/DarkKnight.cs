@@ -9,10 +9,13 @@ public class DarkKnight : Boss
     private Animator slamEffect;
     [SerializeField] private float attackRange;
     [SerializeField] private float dashForce;
+    [SerializeField] private float spawnAttackGracePeriod = 5f; // Time after spwan before the boss can attack (Seconds)
     [SerializeField] private GameObject projectilePrefab; 
 
+    private bool attackGracePeriodActive = true;
     private List<GameObject> activeProjectiles = new List<GameObject>();
     private float spriteOffset = 0.75f;
+
 
     void Start()
     {
@@ -20,6 +23,15 @@ public class DarkKnight : Boss
 
         slamEffect = GetComponentInChildren<Animator>();
         animator.SetBool("CanAttack", true);
+
+        // Start the grace period timer
+        StartCoroutine(GracePeriod());
+    }
+
+    private IEnumerator GracePeriod()
+    {
+        yield return new WaitForSeconds(spawnAttackGracePeriod);
+        attackGracePeriodActive = false;
     }
 
     void FixedUpdate()
@@ -42,6 +54,8 @@ public class DarkKnight : Boss
 
     void Attack()
     {
+        if (attackGracePeriodActive) {return;}
+
         if (target != null)
         {
             int randomAttack = Random.Range(0, 2);

@@ -1,0 +1,390 @@
+fileFormatVersion: 2
+guid: 5da5a9c421d0e06489a237d39ce76ec6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5920132785155489211
+    second: storm_sheet_0
+  - first:
+      213: 2804376821261303521
+    second: storm_sheet_1
+  - first:
+      213: -9184626660939242047
+    second: storm_sheet_2
+  - first:
+      213: 4400664976189347952
+    second: storm_sheet_3
+  - first:
+      213: 6779276035256345
+    second: storm_sheet_4
+  - first:
+      213: 9059820494271334059
+    second: storm_sheet_5
+  - first:
+      213: 8113357244189480807
+    second: storm_sheet_6
+  - first:
+      213: -9006293705329598329
+    second: storm_sheet_7
+  - first:
+      213: -8611279935921402275
+    second: storm_sheet_8
+  - first:
+      213: -875762293461443232
+    second: storm_sheet_9
+  - first:
+      213: -4130799304487028137
+    second: storm_sheet_10
+  - first:
+      213: -4836842884857955239
+    second: storm_sheet_11
+  - first:
+      213: -2824134060388210388
+    second: storm_sheet_12
+  - first:
+      213: 5325288624629039443
+    second: storm_sheet_13
+  - first:
+      213: -8381801394523525381
+    second: storm_sheet_14
+  - first:
+      213: -5194898617447594268
+    second: storm_sheet_15
+  - first:
+      213: -9201177943425436221
+    second: storm_sheet_16
+  - first:
+      213: -3999367783637396895
+    second: storm_sheet_17
+  - first:
+      213: 4719000664274040891
+    second: storm_sheet_18
+  - first:
+      213: 6917524277773447342
+    second: storm_sheet_19
+  - first:
+      213: -5853155435464204596
+    second: storm_sheet_20
+  - first:
+      213: 8479776038169866958
+    second: storm_sheet_21
+  - first:
+      213: -3088109604342398791
+    second: storm_sheet_22
+  - first:
+      213: -280623471971785309
+    second: storm_sheet_23
+  - first:
+      213: 2169249314865629552
+    second: storm_sheet_24
+  - first:
+      213: -4621119245103182203
+    second: storm_sheet_25
+  - first:
+      213: 2904491946987532221
+    second: storm_sheet_26
+  - first:
+      213: 880645487710348829
+    second: storm_sheet_27
+  - first:
+      213: -511031468628644853
+    second: storm_sheet_28
+  - first:
+      213: 7252537256551306448
+    second: storm_sheet_29
+  - first:
+      213: -9076738122022730493
+    second: storm_sheet_30
+  - first:
+      213: -5766968263061018351
+    second: storm_sheet_31
+  - first:
+      213: 642059440585105403
+    second: storm_sheet_32
+  - first:
+      213: 3267372895965200518
+    second: storm_sheet_33
+  - first:
+      213: -6404594586075832756
+    second: storm_sheet_34
+  - first:
+      213: -1466362251852945071
+    second: storm_sheet_35
+  - first:
+      213: 4167753267560182223
+    second: storm_sheet_36
+  - first:
+      213: 7411912747296504248
+    second: storm_sheet_37
+  - first:
+      213: 9089049791612416744
+    second: storm_sheet_38
+  - first:
+      213: -8764834209193597714
+    second: storm_sheet_39
+  - first:
+      213: -228556159606808019
+    second: storm_sheet_40
+  - first:
+      213: -6750019646923808966
+    second: storm_sheet_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: storm_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 2145
+        width: 548
+        height: 377
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 542c9ad199677dda0800000000000000
+      internalID: -5920132785155489211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 3546
+        y: 1806
+        width: 1808
+        height: 950
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ee7e975cd52be620800000000000000
+      internalID: 2804376821261303521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 6409
+        y: 140
+        width: 1809
+        height: 2503
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c56220d6b6a98080800000000000000
+      internalID: -9184626660939242047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 8821
+        y: 4
+        width: 2886
+        height: 2778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078d449ea7d421d30800000000000000
+      internalID: 4400664976189347952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storm_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 13298
+        y: 2026
+        width: 540
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0446d551d89ea04b9e46d7cd5753a66
+      internalID: -8611279935921402275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0dade31eb3d7a3b48abd984a96cb36a7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      storm_sheet_0: -5920132785155489211
+      storm_sheet_1: 2804376821261303521
+      storm_sheet_10: -1345436399
+      storm_sheet_11: -1496306059
+      storm_sheet_12: 1143023305
+      storm_sheet_13: -1640634236
+      storm_sheet_14: -8381801394523525381
+      storm_sheet_15: -5194898617447594268
+      storm_sheet_16: -9201177943425436221
+      storm_sheet_17: -3999367783637396895
+      storm_sheet_18: 4719000664274040891
+      storm_sheet_19: 6917524277773447342
+      storm_sheet_2: -9184626660939242047
+      storm_sheet_20: 505352038
+      storm_sheet_21: 8479776038169866958
+      storm_sheet_22: -561413296
+      storm_sheet_23: -2142988509
+      storm_sheet_3: 4400664976189347952
+      storm_sheet_4: 6779276035256345
+      storm_sheet_5: 166275489
+      storm_sheet_6: 331869696
+      storm_sheet_7: -292658662
+      storm_sheet_8: -8611279935921402275
+      storm_sheet_9: 1784351515
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

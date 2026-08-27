@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3406445712956845340, guid: a1e0fc0c06d6b49459112028a3b066ce, type: 3}
+  m_Sprite: {fileID: -9184626660939242047, guid: 5da5a9c421d0e06489a237d39ce76ec6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.7988617, y: 1.5986668}
+  m_Size: {x: 1.8099029, y: 2.503}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -109,10 +109,10 @@ MonoBehaviour:
   spellType2: 2
   markupColor: orange
   spellSprite: {fileID: 6400001756064385641, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
-  outerRadius: 2
-  innerRadius: 1
-  minNumStrikes: 5
-  maxNumStrikes: 7
+  outerRadius: 3
+  innerRadius: 2
+  minNumStrikes: 3
+  maxNumStrikes: 4
   strikePrefab: {fileID: 1768451218565828388, guid: 4f0b221d62d5a894688263d35bcb4b87, type: 3}
   numStrikesUpgrade: 0.5
   radiusUpgrade: 0.5
