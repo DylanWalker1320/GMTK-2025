@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -63,16 +64,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement = movement.normalized;
-
-        if (Input.GetKeyDown(KeyCode.Space) && uiManager.isInUI == false)
-        {
-            // Dash
-            rb.AddForce(movement * dashStrength, ForceMode2D.Impulse);
-        }
-
         if(isGainingExperience)
         {
             experiencePitchTimer -= Time.deltaTime;
@@ -81,8 +72,6 @@ public class PlayerMovement : MonoBehaviour
                 isGainingExperience = false;
             }
         }
-
-
 
     }
 
@@ -121,6 +110,21 @@ public class PlayerMovement : MonoBehaviour
         {
             playerSprite.flipX = false;
             facingRight = false;
+        }
+    }
+
+    private void OnMove(InputValue value)
+    {
+        movement = value.Get<Vector2>();
+        movement = movement.normalized;
+    }
+
+    private void OnDash(InputValue value)
+    {
+        if (value.isPressed && uiManager.isInUI == false)
+        {
+            // Dash
+            rb.AddForce(movement * dashStrength, ForceMode2D.Impulse);
         }
     }
 

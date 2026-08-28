@@ -37324,6 +37324,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: swap
+      value: 
+      objectReference: {fileID: -7165244676691422410, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
+    - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: escape
+      value: 
+      objectReference: {fileID: 6397630658208045840, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
+    - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: scrollUI
       value: 
       objectReference: {fileID: 1623962048301412912}
@@ -37331,6 +37339,14 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 4532549143446556873}
+    - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: spellbook
+      value: 
+      objectReference: {fileID: -7179033179736005669, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
+    - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: statTrack
+      value: 
+      objectReference: {fileID: -8399945690597160520, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
     - target: {fileID: 7146313590158813708, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: statShopUI
       value: 
@@ -38501,6 +38517,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: dash
+      value: 
+      objectReference: {fileID: -8695412193735320864, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: move
+      value: 
+      objectReference: {fileID: 6235433614790266283, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: souls
       value: 0
       objectReference: {fileID: 0}
@@ -38525,9 +38549,25 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: dashActionReference
+      value: 
+      objectReference: {fileID: -8695412193735320864, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: nextLevelExperience
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: swapActionReference
+      value: 
+      objectReference: {fileID: -7165244676691422410, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: inputActionReference
+      value: 
+      objectReference: {fileID: 6235433614790266283, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: escapeActionReference
+      value: 
+      objectReference: {fileID: 6397630658208045840, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: newExperiencePerLevel
       value: 25
@@ -38536,6 +38576,14 @@ PrefabInstance:
       propertyPath: experienceMultiplierGain
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: spellbookActionReference
+      value: 
+      objectReference: {fileID: -7179033179736005669, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: statTrackActionReference
+      value: 
+      objectReference: {fileID: -8399945690597160520, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: experiencePerLevelMultiplier
       value: 1.1
@@ -38636,7 +38684,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 7855282279253663214, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 551384267470797963, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8037631174228268750}
   m_SourcePrefab: {fileID: 100100000, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
 --- !u!114 &8037631174228268738 stripped
 MonoBehaviour:
@@ -38654,6 +38705,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 551384267470797963, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
   m_PrefabInstance: {fileID: 8037631174228268737}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8037631174228268750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8037631174228268739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &8874673492270361602
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 using System.Collections;
 using TMPro;
 
@@ -43,6 +44,12 @@ public class UIManager : MonoBehaviour
     public Animator transitionUIAnimator;
     [SerializeField] private Animator statShopAnimator;
     [SerializeField] private Animator upgradeUIAnimator;
+    [Header("Input Management")]
+    [SerializeField] private InputActionReference swap; // Reference to the input action for spell swapping
+    [SerializeField] private InputActionReference statTrack; // Reference to the input action for enabling stat tracker
+    [SerializeField] private InputActionReference spellbook; // Reference to the input action for spellbook
+    [SerializeField] private InputActionReference escape; // Reference to the input action for escape menu
+    [Header("Miscellaneous")]
     [SerializeField] private ParticleSystem backgroundParticles;
     // [SerializeField] private Animator spellUpgradeAnimator;
     public UnityEvent onShopFinish;
@@ -80,7 +87,7 @@ public class UIManager : MonoBehaviour
     {
         if (!gameManager) return;
 
-        if (Input.GetKeyDown(KeyCode.Escape) && statShopUI.activeSelf == false && scrollUI.activeSelf == false) // Don't allow pause if we're in the middle of leveling up or rolling for hats
+        if (OnEscapePressed() && statShopUI.activeSelf == false && scrollUI.activeSelf == false) // Don't allow pause if we're in the middle of leveling up or rolling for hats
         {
 
             if (currentMenu == Menu.None) // Only allow pause if in game
@@ -112,7 +119,7 @@ public class UIManager : MonoBehaviour
                 currentMenu = Menu.GameMenu;
             }
         }
-        else if(Input.GetKeyDown(KeyCode.C))
+        else if(OnStatTrackPressed())
         {
             statTrackerUI.SetActive(!statTrackerUI.activeSelf);
             if(statTrackerUI.activeSelf)
@@ -120,8 +127,8 @@ public class UIManager : MonoBehaviour
                 updateStatTrackerUI(); // panel needs to update with current data once player toggles
             }
         }
-        
-        else if (Input.GetKeyDown(KeyCode.Q))
+
+        else if (OnSpellbookPressed())
         {
             if((currentMenu == Menu.GameMenu || currentMenu == Menu.None) && scrollUI.activeSelf == false)
             {
@@ -129,14 +136,14 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        else if (Input.GetKeyDown(KeyCode.Tab) && statShopUI.activeSelf == false && scrollUI.activeSelf == false && upgradeUI.activeSelf == false && barAllocationUI.activeSelf == false)
+        else if (OnSwapPressed() && statShopUI.activeSelf == false && scrollUI.activeSelf == false && upgradeUI.activeSelf == false && barAllocationUI.activeSelf == false)
         {
             if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
             {
                 SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellSwap); // Opens the spell swap UI, which reuses the bar allocation UI
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && statShopUI.activeSelf == false && scrollUI.activeSelf == false && barAllocationUI.activeSelf == true && FindFirstObjectByType<InteractableLoopBar>().loopBarType == InteractableLoopBar.LoopBarType.SpellSwap)
+        else if (OnSwapPressed() && statShopUI.activeSelf == false && scrollUI.activeSelf == false && barAllocationUI.activeSelf == true && FindFirstObjectByType<InteractableLoopBar>().loopBarType == InteractableLoopBar.LoopBarType.SpellSwap)
         {
             if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
             {
@@ -420,8 +427,6 @@ public class UIManager : MonoBehaviour
         StartCoroutine(EnableSpellBarAllocationUICoroutine(loopBarType));
     }
 
-
-
     public void GameplayMode() // Invoked as Unity Event
     {
         isInUI = false;
@@ -439,6 +444,42 @@ public class UIManager : MonoBehaviour
         isLevelingUp = false;
         gameManager.SetEnemyPause(false);
         Debug.LogWarning("GameplayMode invoked");
+    }
+
+    private bool OnSwapPressed()
+    {
+        if (swap.action.triggered)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private bool OnSpellbookPressed()
+    {
+        if (spellbook.action.triggered)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private bool OnStatTrackPressed()
+    {
+        if (statTrack.action.triggered)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private bool OnEscapePressed()
+    {
+        if (escape.action.triggered)
+        {
+            return true;
+        }
+        return false;
     }
 
 
