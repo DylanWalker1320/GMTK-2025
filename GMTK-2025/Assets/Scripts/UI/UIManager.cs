@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using System.Collections;
 using TMPro;
 
@@ -44,11 +45,17 @@ public class UIManager : MonoBehaviour
     public Animator transitionUIAnimator;
     [SerializeField] private Animator statShopAnimator;
     [SerializeField] private Animator upgradeUIAnimator;
-    [Header("Input Management")]
+    [Header("Hotkey Input Management")]
     [SerializeField] private InputActionReference swap; // Reference to the input action for spell swapping
     [SerializeField] private InputActionReference statTrack; // Reference to the input action for enabling stat tracker
     [SerializeField] private InputActionReference spellbook; // Reference to the input action for spellbook
     [SerializeField] private InputActionReference escape; // Reference to the input action for escape menu
+    [Header("First Selected Menu Management")]
+    [SerializeField] private GameObject threeUpgradesFirst;
+    [SerializeField] private GameObject spellBarAllocationFirst;
+    [SerializeField] private GameObject statShopFirst;
+    [SerializeField] private GameObject hatScrollFirst;
+    [SerializeField] private GameObject pauseMenuFirst;
     [Header("Miscellaneous")]
     [SerializeField] private ParticleSystem backgroundParticles;
     // [SerializeField] private Animator spellUpgradeAnimator;
@@ -81,6 +88,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         currentMenu = Menu.None;
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     void Update()
@@ -95,6 +103,7 @@ public class UIManager : MonoBehaviour
                 pauseMenu.SetActive(true);
                 FindAnyObjectByType<AudioManager>().Play("OpenPauseMenu");
                 pauseMenu.GetComponent<Animator>().SetTrigger("BeginPauseMenu");
+                EventSystem.current.SetSelectedGameObject(pauseMenuFirst);
                 lastMenu = currentMenu;
                 currentMenu = Menu.PauseMenu;
                 Time.timeScale = 0;
@@ -104,18 +113,21 @@ public class UIManager : MonoBehaviour
                 pauseMenu.SetActive(true);
                 FindAnyObjectByType<AudioManager>().Play("OpenPauseMenu");
                 pauseMenu.GetComponent<Animator>().SetTrigger("BeginPauseMenu");
+                EventSystem.current.SetSelectedGameObject(pauseMenuFirst);
                 lastMenu = currentMenu;
                 currentMenu = Menu.PauseMenu;
             }
             else if (currentMenu == Menu.PauseMenu && lastMenu == Menu.None)
             {
                 pauseMenu.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(null);
                 currentMenu = Menu.None;
                 Time.timeScale = 1;
             }
             else if(currentMenu == Menu.PauseMenu && lastMenu == Menu.GameMenu)
             {
                 pauseMenu.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(null);
                 currentMenu = Menu.GameMenu;
             }
         }
@@ -365,6 +377,7 @@ public class UIManager : MonoBehaviour
         isInUI = true;
         upgradeUI.SetActive(!upgradeUI.activeSelf);
         upgradeUIAnimator.SetTrigger("BeginThreeUpgrades");
+        EventSystem.current.SetSelectedGameObject(threeUpgradesFirst);
         barAllocationUI.SetActive(false);
     }
 
@@ -394,11 +407,22 @@ public class UIManager : MonoBehaviour
     public void SetActiveScrollUI()
     {
         if (isInUI) return; // Prevent opening if already in a UI
+        Time.timeScale = 0;
         isInUI = true;
-        Time.timeScale = 0;        
         isLevelingUp = true;
-        scrollUI.SetActive(!scrollUI.activeSelf);
+        
+        if (scrollUI.activeSelf == false)
+        {
+            scrollUI.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(hatScrollFirst);
+        }
+        else
+        {
+            scrollUI.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
+        }
         scrollUI.GetComponent<HatScrollUI>().ToggleScrollUI(newInitialization: true);
+
         upgradeUI.SetActive(false);
         barAllocationUI.SetActive(false);
     }
@@ -436,6 +460,7 @@ public class UIManager : MonoBehaviour
         statShopUI.SetActive(false);
         barAllocationUI.SetActive(false);
         scrollUI.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
         
         if (!isLevelingUp && !gameManager.waitingForPortalReturn)
         {
@@ -495,6 +520,7 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 1;
             barAllocationUI.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
             isInUI = false;
         }
         else if(loopBarType == InteractableLoopBar.LoopBarType.SpellCombination)
@@ -513,6 +539,8 @@ public class UIManager : MonoBehaviour
         loopBar.OnCall();
         yield return new WaitUntil(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitWhile(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+        EventSystem.current.SetSelectedGameObject(spellBarAllocationFirst);
+        Debug.Log(EventSystem.current.currentSelectedGameObject);
         isInUI = true;
     }
 
@@ -521,10 +549,15 @@ public class UIManager : MonoBehaviour
         statShopAnimator.SetTrigger(transitionType);
         yield return new WaitUntil(() => statShopAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitWhile(() => statShopAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
-        if(transitionType == "ExitStatShop")
+        if (transitionType == "ExitStatShop")
         {
+            EventSystem.current.SetSelectedGameObject(null);
             statShopUI.SetActive(false);
             Time.timeScale = 1;
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(statShopFirst);
         }
     }
 }
