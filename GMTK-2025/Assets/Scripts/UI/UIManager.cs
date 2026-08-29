@@ -46,6 +46,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Animator statShopAnimator;
     [SerializeField] private Animator upgradeUIAnimator;
     [Header("Hotkey Input Management")]
+    [SerializeField] private InputActionReference select;
     [SerializeField] private InputActionReference swap; // Reference to the input action for spell swapping
     [SerializeField] private InputActionReference statTrack; // Reference to the input action for enabling stat tracker
     [SerializeField] private InputActionReference spellbook; // Reference to the input action for spellbook
@@ -398,6 +399,7 @@ public class UIManager : MonoBehaviour
             default:
                 Time.timeScale = 0;
                 statShopUI.SetActive(!statShopUI.activeSelf);
+                EventSystem.current.SetSelectedGameObject(statShopFirst);
                 backgroundParticles.Play();
                 statShopUI.GetComponent<LevelUpUI>().InitializeStatShopUI();
                 break;
@@ -540,7 +542,6 @@ public class UIManager : MonoBehaviour
         yield return new WaitUntil(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitWhile(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         EventSystem.current.SetSelectedGameObject(spellBarAllocationFirst);
-        Debug.Log(EventSystem.current.currentSelectedGameObject);
         isInUI = true;
     }
 
@@ -551,13 +552,8 @@ public class UIManager : MonoBehaviour
         yield return new WaitWhile(() => statShopAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         if (transitionType == "ExitStatShop")
         {
-            EventSystem.current.SetSelectedGameObject(null);
             statShopUI.SetActive(false);
             Time.timeScale = 1;
-        }
-        else
-        {
-            EventSystem.current.SetSelectedGameObject(statShopFirst);
         }
     }
 }

@@ -48,8 +48,8 @@ public class Portal : MonoBehaviour
             hasTriggered = true;
         }
 
-        // Interact trigger
-        if (playerInRange && Input.GetKeyDown(interactKey))
+        // Interact trigger (replace in future with new input system)
+        if (playerInRange && (Input.GetKeyDown(interactKey) || Input.GetKeyDown(KeyCode.JoystickButton1)))
         {
             if (uiManager.isInUI) return; // Prevent interaction if already in a UI
             
