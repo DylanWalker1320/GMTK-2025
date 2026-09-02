@@ -34791,7 +34791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 585541060261963803, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: tooltipOffset.x
-      value: -2.5
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 585541060261963803, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: tooltipOffset.y
@@ -37436,7 +37436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5714315169172122396, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: tooltipOffset.x
-      value: -2.5
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 5714315169172122396, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: tooltipOffset.y
@@ -38156,7 +38156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7717180674288177831, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: tooltipOffset.x
-      value: -2.5
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 7717180674288177831, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: tooltipOffset.y
