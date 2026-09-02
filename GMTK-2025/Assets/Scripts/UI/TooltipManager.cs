@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class TooltipManager : MonoBehaviour
@@ -30,9 +31,13 @@ public class TooltipManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 worldSpacePosition = camera.ScreenToWorldPoint(Input.mousePosition);
-        worldSpacePosition.z = 0;
-        transform.position = worldSpacePosition;
+        if ((PlayerMovement._playerInput.currentControlScheme == "Keyboard") && Mouse.current != null)
+        {
+
+            Vector3 worldSpacePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+            worldSpacePosition.z = 0;
+            transform.position = worldSpacePosition;
+        }
     }
 
     public void SetAndShowTooltip(string message)
@@ -47,6 +52,11 @@ public class TooltipManager : MonoBehaviour
         gameObject.SetActive(false);
         tooltipText.text = string.Empty;
     }
-
+    
+    // Controller Only Function
+    public void UpdateTooltipPosition(Vector3 newPosition)
+    {
+        transform.position = newPosition;
+    }
 
 }

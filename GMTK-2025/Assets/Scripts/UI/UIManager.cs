@@ -399,9 +399,9 @@ public class UIManager : MonoBehaviour
             default:
                 Time.timeScale = 0;
                 statShopUI.SetActive(!statShopUI.activeSelf);
-                EventSystem.current.SetSelectedGameObject(statShopFirst);
                 backgroundParticles.Play();
                 statShopUI.GetComponent<LevelUpUI>().InitializeStatShopUI();
+                EventSystem.current.SetSelectedGameObject(statShopFirst);
                 break;
         }
     }
@@ -458,6 +458,7 @@ public class UIManager : MonoBehaviour
         isInUI = false;
         Time.timeScale = 1;
         currentMenu = Menu.None;
+        TooltipManager._instance.HideTooltip();
         upgradeUI.SetActive(false);
         statShopUI.SetActive(false);
         barAllocationUI.SetActive(false);

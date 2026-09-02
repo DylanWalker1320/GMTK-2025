@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Animator shadowAnimator;
     public bool facingRight = true;
+    public static PlayerInput _playerInput;
     private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
     private Rigidbody2D rb;
     private AudioManager audioManager;
@@ -47,6 +48,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        if(_playerInput != null && _playerInput != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _playerInput = GetComponent<PlayerInput>();
+        }
+
         playerSprite = GetComponent<SpriteRenderer>();
         audioManager = FindFirstObjectByType<AudioManager>();
         uiManager = FindFirstObjectByType<UIManager>();
@@ -146,6 +156,9 @@ public class PlayerMovement : MonoBehaviour
 
         experience += 1;
         souls += 1;
+
+        SpawnSoulNumber();
+
 
         if (experience >= nextLevelExperience)
         {
@@ -250,6 +263,42 @@ public class PlayerMovement : MonoBehaviour
             // float interpolate = Mathf.Clamp01(damageAmount / maxHealth); // Adjust 100f to your max expected damage
             // Color gradientColor = Color.Lerp(new Color(128, 0, 0), Color.red, interpolate); // marooon to red, interpolates between using t
             damageNumber.SetColor(color);
+        }
+    }
+
+    private void SpawnSoulNumber()
+    {
+        if (damageNumberPrefab == null) return; // reusing damage number object
+
+        // Generate random position around the player in a circle
+        float randomAngle = Random.Range(0f, 360f);
+        float randomRadius = Random.Range(0.5f, damageNumberSpawnRadius);
+
+        Vector3 spawnOffset = new Vector3(
+            Mathf.Cos(randomAngle * Mathf.Deg2Rad) * randomRadius,
+            Mathf.Sin(randomAngle * Mathf.Deg2Rad) * randomRadius,
+            0f
+        );
+
+        Vector3 spawnPosition = transform.position + spawnOffset;
+
+        // Instantiate the damage number
+        GameObject damageNumberObj = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.identity);
+        
+        // Set the sorting layer to UI to ensure it renders on top
+        Canvas canvas = damageNumberObj.GetComponent<Canvas>();
+        if (canvas != null)
+        {
+            canvas.sortingLayerName = "DamageNumber";
+        }
+        
+        DamageNumber damageNumber = damageNumberObj.GetComponent<DamageNumber>();
+        if (damageNumber != null)
+        {
+            damageNumber.SetDamageAmount(souls); // Display experience gained
+
+            Color gradientColor = Color.Lerp(new Color(0, 0.7173f, 1), new Color(0, 1, 0.6822f), Mathf.Clamp01(experience / nextLevelExperience)); //interpolates via exp left to next level
+            damageNumber.SetColor(gradientColor);
         }
     }
 

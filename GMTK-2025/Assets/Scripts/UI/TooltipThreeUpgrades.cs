@@ -7,6 +7,7 @@ public class TooltipThreeUpgrades : Tooltip
     [SerializeField] private bool isHealType;
     [SerializeField] private bool isStatType;
     [SerializeField] private bool isSpellType;
+    [SerializeField] private Vector2 tooltipOffset;
     public override void OnMouseDown()
     {
         TooltipManager._instance.SetAndShowTooltip(message);
@@ -24,6 +25,18 @@ public class TooltipThreeUpgrades : Tooltip
     }
 
     public override void OnPointerExit(PointerEventData pointerEventData)
+    {
+        TooltipManager._instance.HideTooltip();
+    }
+
+    public override void OnSelect(BaseEventData baseEventData)
+    {
+        DesignateMessageType();
+        TooltipManager._instance.UpdateTooltipPosition(transform.position + (Vector3)tooltipOffset);
+        TooltipManager._instance.SetAndShowTooltip(message);
+    }
+
+    public override void OnDeselect(BaseEventData baseEventData)
     {
         TooltipManager._instance.HideTooltip();
     }

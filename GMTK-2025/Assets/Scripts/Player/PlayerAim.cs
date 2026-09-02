@@ -23,8 +23,9 @@ public class Reticle : MonoBehaviour
 
         // Gamepad Aiming
 
-        if (Gamepad.current != null)
+        if (Gamepad.current != null && PlayerMovement._playerInput.currentControlScheme == "Controller")
         {
+            Cursor.lockState = CursorLockMode.Locked;
             Vector2 stickInput = Gamepad.current.rightStick.ReadValue();
             if (stickInput.magnitude > 0.2f)
             {
@@ -35,8 +36,10 @@ public class Reticle : MonoBehaviour
 
 
         // Mouse Aiming
-        if (!gamepadIsAiming && Mouse.current != null)
+        else if (!gamepadIsAiming && Mouse.current != null && PlayerMovement._playerInput.currentControlScheme == "Keyboard")
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
             mousePos = mainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             mousePos.z = transform.parent.position.z;
             Vector3 aim = mousePos - transform.parent.position; // rotation

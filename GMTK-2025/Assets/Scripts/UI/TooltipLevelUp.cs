@@ -42,6 +42,21 @@ public class TooltipLevelUp : Tooltip
         TooltipManager._instance.HideTooltip();
     }
 
+    public override void OnSelect(BaseEventData baseEventData)
+    {
+        if(levelUpUI.panels[panelIndex].button.interactable)
+        {
+            CreateStatChangeMessage();
+            TooltipManager._instance.SetAndShowTooltip(message);
+            TooltipManager._instance.UpdateTooltipPosition(transform.position);        
+        }
+    }
+
+    public override void OnDeselect(BaseEventData baseEventData)
+    {
+        TooltipManager._instance.HideTooltip();
+    }
+
 
     private void CreateStatChangeMessage()
     {

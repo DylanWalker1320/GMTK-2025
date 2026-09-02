@@ -34,6 +34,19 @@ public class TooltipSpellBarAlloc : Tooltip
         TooltipManager._instance.HideTooltip();
     }
 
+    public override void OnSelect(BaseEventData baseEventData)
+    {
+        SetElementalTextColours();
+        AssignMessage();
+        TooltipManager._instance.UpdateTooltipPosition(transform.position);
+        TooltipManager._instance.SetAndShowTooltip(message);
+    }
+
+    public override void OnDeselect(BaseEventData baseEventData)
+    {
+        TooltipManager._instance.HideTooltip();
+    }
+
     private void SetElementalTextColours()
     {
         // Sets first two markup text colors based on spell types
