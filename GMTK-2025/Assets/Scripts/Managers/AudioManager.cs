@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using System;
@@ -32,15 +31,13 @@ public class Sound
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private bool debugMode;
+    [SerializeField] private AudioMixer audioSettings;
     [SerializeField] private float maxPitch;
     public Sound[] sounds;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Play("Main Theme");
-    }
-    
+    private const string MUSIC_VOLUME_PARAM = "MUSIC";
+    private const string SFX_VOLUME_PARAM = "SFX";
+
     void Awake()
     {
         foreach(Sound s in sounds)
@@ -55,6 +52,13 @@ public class AudioManager : MonoBehaviour
         }
         
     }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Play("MainTheme");
+    }
+    
 
     void DebuggerLogs(string log)
     {
@@ -146,6 +150,10 @@ public class AudioManager : MonoBehaviour
         if (s == null) return;
         StartCoroutine(FadeOut(s, fadeTime));
     }
+
+    // Music Volume Adjustment Function
+
+    // SFX Volume Adjustment Function
     
     private IEnumerator FadeIn(Sound sound, float fadeTime)
     {
