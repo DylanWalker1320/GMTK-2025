@@ -33,10 +33,19 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private bool debugMode;
     [SerializeField] private AudioMixer audioSettings;
     [SerializeField] private float maxPitch;
+    [SerializeField] private Music startingMusic;
     public Sound[] sounds;
 
     private const string MUSIC_VOLUME_PARAM = "MUSIC";
     private const string SFX_VOLUME_PARAM = "SFX";
+
+    private enum Music
+    {
+        MainTheme,
+        MainThemeLoop,
+        MainMenuTheme,
+        RestAreaTheme
+    }
 
     void Awake()
     {
@@ -56,7 +65,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Play("MainTheme");
+        Play(startingMusic.ToString());
     }
     
 

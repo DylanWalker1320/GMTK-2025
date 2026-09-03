@@ -76,7 +76,6 @@ MonoBehaviour:
   damageText: {fileID: 4150844009727393757}
   lifetime: 0.5
   fadeStartTime: 0.3
-  moveSpeed: 1
   moveDistance: 1
 --- !u!1 &8879511879742253564
 GameObject:
@@ -145,8 +144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43df1d8de9d775a45b70676d1e1b50f6, type: 2}
-  m_sharedMaterial: {fileID: 3109162997549058106, guid: 43df1d8de9d775a45b70676d1e1b50f6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 920710e54b7225e47a6f5fd405a00f74, type: 2}
+  m_sharedMaterial: {fileID: -2781287008343985393, guid: 920710e54b7225e47a6f5fd405a00f74, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -170,8 +169,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.75
-  m_fontSizeBase: 0.75
+  m_fontSize: 0.4
+  m_fontSizeBase: 0.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

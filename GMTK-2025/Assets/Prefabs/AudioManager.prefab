@@ -44,35 +44,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc186ad59dd59f498f1c12b35ca2f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 0
+  audioSettings: {fileID: 24100000, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+  maxPitch: 2
+  startingMusic: 0
   sounds:
-  - name: Main Theme
-    clip: {fileID: 8300000, guid: bcb334c0c97676f40a1c1e743a2cd1c3, type: 3}
-    volume: 0.03
+  - name: MainTheme
+    clip: {fileID: 8300000, guid: b5b20f63e78811a499ae76e12d49ec68, type: 3}
+    volume: 0.05
     pitch: 1
     loop: 1
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 1
     fadeInTime: 4
     useFadeOut: 1
     fadeOutTime: 4
     source: {fileID: 0}
-  - name: Boss Theme
+  - name: MainThemeLoop
+    clip: {fileID: 8300000, guid: b2d8483ca9a907f459ba7af0e99cfaf4, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 1
+    oneShot: 0
+    mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 1
+    fadeInTime: 4
+    useFadeOut: 1
+    fadeOutTime: 4
+    source: {fileID: 0}
+  - name: MainMenuTheme
+    clip: {fileID: 8300000, guid: da857068400cc4c44a5cc17a7ffa64c7, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 1
+    oneShot: 0
+    mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: RestAreaTheme
+    clip: {fileID: 8300000, guid: 0535c6c8640c61545be20f594828a5fc, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 1
+    oneShot: 0
+    mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: BossTheme
     clip: {fileID: 8300000, guid: 2c5ebc0f218f9b74d881f053b3b90255, type: 3}
     volume: 0.05
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 1
     fadeInTime: 2
     useFadeOut: 1
     fadeOutTime: 2
+    source: {fileID: 0}
+  - name: Explosive Shot
+    clip: {fileID: 8300000, guid: 99a7846b9652a1f4e84a58db4a9b8f97, type: 3}
+    volume: 0.103
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
     source: {fileID: 0}
   - name: Poison Puddle
     clip: {fileID: 8300000, guid: b8beee5d07aef5547b1ce4cd6ccdcdc8, type: 3}
     volume: 0.019
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
@@ -83,18 +138,8 @@ MonoBehaviour:
     volume: 0.019
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Fireball
-    clip: {fileID: 8300000, guid: 99a7846b9652a1f4e84a58db4a9b8f97, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
@@ -105,18 +150,20 @@ MonoBehaviour:
     volume: 0.019
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
     fadeOutTime: 0.1
     source: {fileID: 0}
-  - name: Ghost Flame
+  - name: Ghostflame
     clip: {fileID: 8300000, guid: 569f36a6773977c4ca07fff498892170, type: 3}
-    volume: 0.019
+    volume: 0.1
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
@@ -127,7 +174,8 @@ MonoBehaviour:
     volume: 0.019
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
@@ -138,7 +186,8 @@ MonoBehaviour:
     volume: 0.019
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
@@ -149,7 +198,8 @@ MonoBehaviour:
     volume: 0.019
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
@@ -160,7 +210,8 @@ MonoBehaviour:
     volume: 0.019
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
@@ -171,18 +222,8 @@ MonoBehaviour:
     volume: 0.019
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Fissure Flare
-    clip: {fileID: 8300000, guid: 4dc529f0a19864a40bbdcf6ea4a3c47c, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
@@ -193,51 +234,212 @@ MonoBehaviour:
     volume: 0.019
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Lightning
-    clip: {fileID: 8300000, guid: 4dc529f0a19864a40bbdcf6ea4a3c47c, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    mixer: {fileID: 0}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Waterball
-    clip: {fileID: 8300000, guid: 4dc529f0a19864a40bbdcf6ea4a3c47c, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
     fadeOutTime: 0.1
     source: {fileID: 0}
   - name: Fireball
-    clip: {fileID: 8300000, guid: fc4d00da174dd89469db4a728502e8ec, type: 3}
-    volume: 0.019
+    clip: {fileID: 8300000, guid: 77f98274ba1fe894c9af19ad2bf30125, type: 3}
+    volume: 0.075
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Lightning
+    clip: {fileID: 8300000, guid: 4a7d121318cf3e64a8e4ec27d1a7ef21, type: 3}
+    volume: 0.075
+    pitch: 1
+    loop: 0
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Waterball
+    clip: {fileID: 8300000, guid: 0e79268c58ac11149a26d0d0fe978604, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
     fadeOutTime: 0.1
     source: {fileID: 0}
   - name: Dark
-    clip: {fileID: 8300000, guid: fc4d00da174dd89469db4a728502e8ec, type: 3}
-    volume: 0.019
+    clip: {fileID: 8300000, guid: b36d863e697c5c64098d505c67fdb451, type: 3}
+    volume: 0.1
     pitch: 1
     loop: 0
-    mixer: {fileID: 0}
+    oneShot: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: 71d93dad8d2ae5c428987141956c25ec, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: EnemyHurt
+    clip: {fileID: 8300000, guid: 8d30eccedadb55149a71d20c96574c3b, type: 3}
+    volume: 0.6
+    pitch: 1.75
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 1
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: HealOption
+    clip: {fileID: 8300000, guid: d84356543f9f81c4ab842a9802a21425, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: NewHatGet!
+    clip: {fileID: 8300000, guid: a4a2f6d78c29e6741aca1f5a5a2ad968, type: 3}
+    volume: 0.9
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: LevelUp!
+    clip: {fileID: 8300000, guid: aeb6ae667b1b0af4ab7dab762433141e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: HealPond
+    clip: {fileID: 8300000, guid: 8f79cc0f10c2054418c5cbc06d64ecee, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: UIInteraction1
+    clip: {fileID: 8300000, guid: c2d57d2401a35634f86d3decd9cf0f11, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: UIInteraction2
+    clip: {fileID: 8300000, guid: 654c92748c51ec841a3f79dec556c69c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: UICONFIRM
+    clip: {fileID: 8300000, guid: 6fb69cf0c0026664bb8d33b1e2d851eb, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: PORTALTRANSITION
+    clip: {fileID: 8300000, guid: 2017f5128fc38ff45965b1ce4cb686e1, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: DIE
+    clip: {fileID: 8300000, guid: 4e60bd1d8d0d22a4a8c1377d984905a3, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: ExperienceParticle
+    clip: {fileID: 8300000, guid: 76200f73e93262b4fa6a81be12bed37e, type: 3}
+    volume: 0.708
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: OpenPauseMenu
+    clip: {fileID: 8300000, guid: 75ed61be498f54144b709fd10d06d0c8, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    oneShot: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
