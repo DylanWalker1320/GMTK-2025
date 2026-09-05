@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private bool debugMode;
     [SerializeField] private AudioMixer audioSettings;
     [SerializeField] private float maxPitch;
-    [SerializeField] private Music startingMusic;
+    [SerializeField] private Music currentMusic;
     public Sound[] sounds;
 
     private const string MUSIC_VOLUME_PARAM = "MUSIC";
@@ -65,7 +65,11 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Play(startingMusic.ToString());
+        Play(currentMusic.ToString());
+        if(currentMusic == Music.MainTheme)
+        {
+            PlayOnSchedule(Music.MainThemeLoop.ToString(), 114.2f); // length of main theme before loop starts
+        }
     }
     
 
@@ -112,6 +116,19 @@ public class AudioManager : MonoBehaviour
         if(debugMode)
         {
             DebuggerLogs("Playing " + name);
+        }
+    }
+
+    public void PlayOnSchedule(string name, float delay)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) return;
+
+        s.source.PlayScheduled(AudioSettings.dspTime + delay);
+
+        if (debugMode)
+        {
+            DebuggerLogs("Scheduled " + name + " to play in " + delay + " seconds.");
         }
     }
 

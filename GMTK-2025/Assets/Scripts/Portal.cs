@@ -10,6 +10,7 @@ public class Portal : MonoBehaviour
 
     private static CinemachineFollow ccamera;
     private GameManager gameManager;
+    private AudioManager audioManager;
 
     [SerializeField] private GameObject canvas;
     [SerializeField] private float textSpeed = 0.05f;
@@ -29,6 +30,7 @@ public class Portal : MonoBehaviour
             ccamera = GameObject.FindGameObjectWithTag("MainCamera").transform.parent.gameObject.GetComponent<CinemachineFollow>();
 
         gameManager = FindFirstObjectByType<GameManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         uiManager = FindFirstObjectByType<UIManager>();
     }
@@ -69,16 +71,25 @@ public class Portal : MonoBehaviour
 
     public void LevelTransition()
     {
-        FindAnyObjectByType<AudioManager>().Play("PORTALTRANSITION");
+        audioManager.Play("PORTALTRANSITION");
 
         ccamera.OnTargetObjectWarped(player.transform, location.position - player.transform.position);
         player.transform.position = location.position;
 
         // If this is the return portal, tell GameManager the player is back
         if (isReturnPortal && gameManager != null)
+        {
+            audioManager.StopLoop("RestAreaTheme");
+            audioManager.Play("MainThemeLoop");
             gameManager.OnPlayerReturnedFromPortal();
+        }
         else if (gameManager != null)
+        {
+            audioManager.StopLoop("MainThemeLoop");
+            audioManager.StopLoop("MainTheme");
+            audioManager.Play("RestAreaTheme");
             gameManager.playerInSafeArea = true;
+        }
     }
 
     void TypeDialogue(string line)
