@@ -50,31 +50,31 @@ MonoBehaviour:
   startingMusic: 0
   sounds:
   - name: MainTheme
-    clip: {fileID: 8300000, guid: b5b20f63e78811a499ae76e12d49ec68, type: 3}
+    clip: {fileID: 8300000, guid: edceee9f320eefc4d95df4a0301a848a, type: 3}
     volume: 0.05
     pitch: 1
     loop: 1
     oneShot: 0
     mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 1
+    useFadeIn: 0
     fadeInTime: 4
-    useFadeOut: 1
-    fadeOutTime: 4
+    useFadeOut: 0
+    fadeOutTime: 0.1
     source: {fileID: 0}
   - name: MainThemeLoop
-    clip: {fileID: 8300000, guid: b2d8483ca9a907f459ba7af0e99cfaf4, type: 3}
+    clip: {fileID: 8300000, guid: 8dc485c0a77e4da469b36d63cafe8ce4, type: 3}
     volume: 0.05
     pitch: 1
     loop: 1
     oneShot: 0
     mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 1
-    fadeInTime: 4
-    useFadeOut: 1
-    fadeOutTime: 4
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
     source: {fileID: 0}
   - name: MainMenuTheme
-    clip: {fileID: 8300000, guid: da857068400cc4c44a5cc17a7ffa64c7, type: 3}
+    clip: {fileID: 8300000, guid: 31c4ecad7cd5efc479f71e126af50d2f, type: 3}
     volume: 0.6
     pitch: 1
     loop: 1
@@ -86,7 +86,7 @@ MonoBehaviour:
     fadeOutTime: 0.1
     source: {fileID: 0}
   - name: RestAreaTheme
-    clip: {fileID: 8300000, guid: 0535c6c8640c61545be20f594828a5fc, type: 3}
+    clip: {fileID: 8300000, guid: 93f3a441b36a846458c7f6da14d1b3ab, type: 3}
     volume: 0.6
     pitch: 1
     loop: 1

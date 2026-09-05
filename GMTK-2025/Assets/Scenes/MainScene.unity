@@ -13655,30 +13655,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
-      propertyPath: sounds.Array.data[0].useFadeIn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
-      propertyPath: sounds.Array.data[0].useFadeOut
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
-      propertyPath: sounds.Array.data[1].fadeInTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
-      propertyPath: sounds.Array.data[1].useFadeOut
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
-      propertyPath: sounds.Array.data[0].fadeOutTime
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
-      propertyPath: sounds.Array.data[1].fadeOutTime
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 181165280225506580, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9906432
