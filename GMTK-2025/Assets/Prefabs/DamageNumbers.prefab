@@ -77,6 +77,9 @@ MonoBehaviour:
   lifetime: 0.5
   fadeStartTime: 0.3
   moveDistance: 1
+  damageSizeDivisor: 100
+  minFontSize: 0.4
+  maxFontSize: 0.6
 --- !u!1 &8879511879742253564
 GameObject:
   m_ObjectHideFlags: 0

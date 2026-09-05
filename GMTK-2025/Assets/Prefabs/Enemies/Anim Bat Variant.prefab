@@ -141,6 +141,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 5302599508581642603, guid: 22e54bb968feada4b9daa861a565d6e3, type: 3}
+    - target: {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: applyForceCooldown
       value: 0.25
       objectReference: {fileID: 0}
@@ -148,6 +152,10 @@ PrefabInstance:
       propertyPath: damageNumberPrefab
       value: 
       objectReference: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
+    - target: {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: dropExperienceParticles
+      value: 
+      objectReference: {fileID: 8720471837675972744, guid: ed081c54d46bc0e49a232f77143ce028, type: 3}
     - target: {fileID: 7907789145732432508, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_Radius
       value: 0.8

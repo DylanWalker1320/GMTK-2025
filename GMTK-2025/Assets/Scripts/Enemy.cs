@@ -23,7 +23,8 @@ abstract public class Enemy : MonoBehaviour
     protected Animator animator;
     protected UnityEngine.AI.NavMeshAgent agent;
     protected Vector2 direction;
-    [SerializeField] protected ParticleSystem deathEffect;
+    [SerializeField] protected ParticleSystem dropExperienceParticles;
+    [SerializeField] protected ParticleSystem deathParticles;
     [SerializeField] protected float maxHitSlowPercent = 0.2f; // 20% slow at max
     [SerializeField] protected GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] protected float damageNumberSpawnRadius = 1f; // Radius around enemy to spawn damage numbers
@@ -188,6 +189,7 @@ abstract public class Enemy : MonoBehaviour
         if (damageNumber != null)
         {
             damageNumber.SetDamageAmount(damageAmount);
+            damageNumber.SetDamageObjectSize(damageAmount);
             float t = Mathf.Clamp01(damageAmount / 100f); // Adjust 100f to your max expected damage
             Color gradientColor = Color.Lerp(Color.yellow, new Color(1f, 0.5f, 0f), t); // yellow to orange, interpolates between using t
             damageNumber.SetColor(gradientColor);
@@ -197,7 +199,8 @@ abstract public class Enemy : MonoBehaviour
     protected void Die()
     {
         isDead = true;
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Instantiate(dropExperienceParticles, transform.position, Quaternion.identity);
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
         gameManager.EnemyKilled();
         Destroy(gameObject);
     }

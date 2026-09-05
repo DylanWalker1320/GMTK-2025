@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
-  deathEffect: {fileID: 8720471837675972744, guid: ed081c54d46bc0e49a232f77143ce028, type: 3}
+  dropExperienceParticles: {fileID: 8720471837675972744, guid: 3d720d57cd35cab49bc7597374a2fc06, type: 3}
+  deathParticles: {fileID: 5302599508581642603, guid: 22e54bb968feada4b9daa861a565d6e3, type: 3}
   maxHitSlowPercent: 0.2
   damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
   damageNumberSpawnRadius: 1

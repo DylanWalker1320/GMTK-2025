@@ -17,7 +17,8 @@ public class Boss : Enemy
     new protected void Die()
     {
         isDead = true;
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Instantiate(dropExperienceParticles, transform.position, Quaternion.identity);
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
         gameManager.EnemyKilled();
         gameManager.OnBossDied();
         Destroy(gameObject);

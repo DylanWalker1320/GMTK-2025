@@ -55,6 +55,9 @@ TagManager:
   - name: Obstacles
     uniqueID: 179284999
     locked: 0
+  - name: Blood
+    uniqueID: 967483791
+    locked: 0
   - name: Spell
     uniqueID: 1689113949
     locked: 0
