@@ -66,6 +66,7 @@ public abstract class Spell : MonoBehaviour
     public SpellType spellType1;
     public SpellType spellType2;
     public string markupColor;
+    public Color damageColor;
     [SerializeField] public Sprite spellSprite; // Sprite for the spell
     protected Rigidbody2D rb;
     protected Vector3 mousePos;

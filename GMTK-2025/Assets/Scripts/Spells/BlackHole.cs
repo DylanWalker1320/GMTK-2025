@@ -71,7 +71,7 @@ public class BlackHole : Spell
         {
             if (cooldownTimer <= 0f)
             {
-                collision.GetComponent<Enemy>().TakeDamage(CalculateDamage(damage, spellType1, spellType2));
+                collision.GetComponent<Enemy>().TakeDamage(CalculateDamage(damage, spellType1, spellType2), damageColor);
                 cooldownTimer = damageCooldown;
             }
             else

@@ -62,7 +62,7 @@ public class ChainLightning : Spell
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2) * Mathf.Lerp(1f, minChainDamage, (float)(maxChains - chains) / maxChains));
+                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2) * Mathf.Lerp(1f, minChainDamage, (float)(maxChains - chains) / maxChains), damageColor);
 
                 if (chains - 1 > 0)
                 {

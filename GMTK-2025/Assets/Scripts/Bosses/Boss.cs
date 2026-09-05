@@ -24,7 +24,7 @@ public class Boss : Enemy
         Destroy(gameObject);
     }
     
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, Color hitParticle = default)
     {
         hitFlashTimer = hitFlashDuration;
         StartCoroutine(HitFlash(Color.red, hitFlashDuration));

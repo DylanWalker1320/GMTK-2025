@@ -39,7 +39,7 @@ public class PoisonBall : Spell
         if (collisionObject.CompareTag("Enemy"))
         {
             // If the fireball collides with an enemy, deal damage
-            collisionObject.GetComponent<Enemy>().TakeDamage(CalculateDamage(damage, spellType1, spellType2));
+            collisionObject.GetComponent<Enemy>().TakeDamage(CalculateDamage(damage, spellType1, spellType2), damageColor);
             GameObject puddle = GameObject.Instantiate(poisonPuddlePrefab, transform.position, Quaternion.identity);
             puddle.transform.localScale = new Vector3(puddle.transform.localScale.x * finalPuddleScale, puddle.transform.localScale.y * finalPuddleScale, 1f);
             Destroy(gameObject); // Destroy the poison ball after dealing damage

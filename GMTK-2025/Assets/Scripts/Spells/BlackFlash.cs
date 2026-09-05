@@ -71,7 +71,7 @@ public class BlackFlash : Spell
                         Enemy enemy = collider.GetComponent<Enemy>();
                         if (enemy != null)
                         {
-                            enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2) * 1.25f); // Apply 25% more damage for AOE effect
+                            enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2) * 1.25f, damageColor); // Apply 25% more damage for AOE effect
                         }
                     }
                 }

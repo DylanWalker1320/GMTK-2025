@@ -55,6 +55,7 @@ MonoBehaviour:
   spellType1: 3
   spellType2: 3
   markupColor: purple
+  damageColor: {r: 0.7374989, g: 0.3254717, b: 1, a: 1}
   spellSprite: {fileID: 1004431073769736939, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   pullDelay: 2
   pullStrength: 5
@@ -4857,7 +4858,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1689113949
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -5019,7 +5020,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1689113949
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -7147511759425736148, guid: afb1d1c22eed02d478d76429996766d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1689113949
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 2678532488670500709, guid: 1eb14dacbc8f5764eb1e5ad24cdd974c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
@@ -248,6 +248,7 @@ MonoBehaviour:
   spellType1: 1
   spellType2: 0
   markupColor: '#c0c0c0ff'
+  damageColor: {r: 0.72156864, g: 0.87058824, b: 1, a: 1}
   spellSprite: {fileID: -6855915950899877494, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   knockbackForce: 1
   damageCooldown: 0.5
@@ -5047,7 +5048,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1689113949
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0

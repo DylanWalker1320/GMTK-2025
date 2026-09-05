@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1689113949
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 2857225077214164437, guid: c06cd410af118864ea816c1de0e2fe6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -109,6 +109,7 @@ MonoBehaviour:
   spellType1: 0
   spellType2: 2
   markupColor: '#a52a2aff'
+  damageColor: {r: 1, g: 0.039215688, b: 0, a: 1}
   spellSprite: {fileID: 5364457908428196824, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   numberOfBolts: 3
   boltSpreadAngle: 10

@@ -92,7 +92,7 @@ abstract public class Enemy : MonoBehaviour
         target = closestTarget;
     }
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, Color hitParticleColor = default)
     {
         
         hitFlashTimer = hitFlashDuration;
@@ -102,6 +102,8 @@ abstract public class Enemy : MonoBehaviour
 
         // Spawn damage objects
         SpawnDamageNumber(damage);
+        var main = hitParticles.main;
+        main.startColor = hitParticleColor;
         Instantiate(hitParticles, transform.position, Quaternion.identity);
 
         stats.health -= damage;

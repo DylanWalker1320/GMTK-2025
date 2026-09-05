@@ -34,7 +34,7 @@ public class SteamVent : Spell
             {
                 if (damageCooldownTimer <= 0f)
                 {
-                    enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2));
+                    enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2), damageColor);
                     damageCooldownTimer = damageCooldown;
                 }
 

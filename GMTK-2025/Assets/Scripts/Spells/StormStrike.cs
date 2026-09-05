@@ -27,7 +27,7 @@ public class StormStrike : Spell
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2)); // Deal damage to the enemy
+                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2), damageColor); // Deal damage to the enemy
             }
         }
     }

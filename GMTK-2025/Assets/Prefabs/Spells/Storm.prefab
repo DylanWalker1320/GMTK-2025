@@ -108,6 +108,7 @@ MonoBehaviour:
   spellType1: 2
   spellType2: 2
   markupColor: orange
+  damageColor: {r: 1, g: 0.7791244, b: 0, a: 1}
   spellSprite: {fileID: 6400001756064385641, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   outerRadius: 3
   innerRadius: 2
@@ -115,7 +116,6 @@ MonoBehaviour:
   maxNumStrikes: 4
   strikePrefab: {fileID: 1768451218565828388, guid: 4f0b221d62d5a894688263d35bcb4b87, type: 3}
   numStrikesUpgrade: 0.5
-  radiusUpgrade: 0.5
 --- !u!50 &787266561512865477
 Rigidbody2D:
   serializedVersion: 5

@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1689113949
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -9184626660939242047, guid: 5da5a9c421d0e06489a237d39ce76ec6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -110,6 +110,7 @@ MonoBehaviour:
   spellType1: 2
   spellType2: 2
   markupColor: N/A
+  damageColor: {r: 1, g: 0.7529412, b: 0, a: 1}
   spellSprite: {fileID: 0}
   damageUpgrade: 15
   speedUpgrade: 0.5

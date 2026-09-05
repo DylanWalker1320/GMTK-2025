@@ -19,7 +19,7 @@ public class Waterball : Spell
         if (collisionObject.CompareTag("Enemy"))
         {
             // If the waterball collides with an enemy, deal damage
-            collisionObject.GetComponent<Enemy>().TakeDamage(CalculateDamage(damage, spellType1, spellType2));
+            collisionObject.GetComponent<Enemy>().TakeDamage(CalculateDamage(damage, spellType1, spellType2), damageColor);
             Destroy(gameObject); // Destroy the waterball after dealing damage
         }
         else if (collisionObject.CompareTag("Obstacles") || collisionObject.CompareTag("Walls"))

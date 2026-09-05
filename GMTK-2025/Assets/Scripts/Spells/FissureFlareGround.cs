@@ -19,7 +19,7 @@ public class FissureFlareGround : Spell
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage); // Apply damage to the enemy
+                enemy.TakeDamage(damage, damageColor); // Apply damage to the enemy
             }
         }
     }

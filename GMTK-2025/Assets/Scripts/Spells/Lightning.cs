@@ -55,7 +55,7 @@ public class Lightning : Spell
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2));
+                enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2), damageColor);
                 Destroy(gameObject);
             }
         }

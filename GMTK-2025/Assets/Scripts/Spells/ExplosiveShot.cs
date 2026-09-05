@@ -107,7 +107,7 @@ public class ExplosiveShot : Spell
 
         foreach (Enemy enemy in enemiesToDamage)
         {
-            enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2));
+            enemy.TakeDamage(CalculateDamage(damage, spellType1, spellType2), damageColor);
         }
     }
 
