@@ -23,6 +23,7 @@ abstract public class Enemy : MonoBehaviour
     protected Animator animator;
     protected UnityEngine.AI.NavMeshAgent agent;
     protected Vector2 direction;
+    [SerializeField] protected ParticleSystem hitParticles;
     [SerializeField] protected ParticleSystem dropExperienceParticles;
     [SerializeField] protected ParticleSystem deathParticles;
     [SerializeField] protected float maxHitSlowPercent = 0.2f; // 20% slow at max
@@ -97,8 +98,11 @@ abstract public class Enemy : MonoBehaviour
         hitFlashTimer = hitFlashDuration;
         StartCoroutine(HitFlash(Color.red, hitFlashDuration));
         audioManager.Play("EnemyHurt");
-        // Spawn damage number
+
+
+        // Spawn damage objects
         SpawnDamageNumber(damage);
+        Instantiate(hitParticles, transform.position, Quaternion.identity);
 
         stats.health -= damage;
         if (stats.health <= 0f && isDead == false)

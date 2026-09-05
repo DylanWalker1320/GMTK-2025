@@ -393,7 +393,6 @@ public class UIManager : MonoBehaviour
             case "ExitStatShop":
                 StartCoroutine(TransitionStatShopUI(transitionType));
                 backgroundParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-                TooltipManager._instance.HideTooltip();
                 isInUI = false;
                 break;
             default:

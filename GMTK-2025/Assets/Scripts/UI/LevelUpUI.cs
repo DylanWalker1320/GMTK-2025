@@ -129,6 +129,7 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
 
     public void Exit()
     {
+        TooltipManager._instance.HideTooltip();
         FindAnyObjectByType<UIManager>().SetActiveStatShopUI("ExitStatShop");
     }
     

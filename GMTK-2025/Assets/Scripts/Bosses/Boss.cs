@@ -29,8 +29,11 @@ public class Boss : Enemy
         hitFlashTimer = hitFlashDuration;
         StartCoroutine(HitFlash(Color.red, hitFlashDuration));
         audioManager.Play("EnemyHurt");
-        // Spawn damage number
+
+
+        // Spawn damage objects
         SpawnDamageNumber(damage);
+        Instantiate(hitParticles, transform.position, Quaternion.identity);
 
         stats.health -= damage;
         if (stats.health <= 0f && isDead == false)
