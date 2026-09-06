@@ -4022,7 +4022,7 @@ MonoBehaviour:
   player: {fileID: 8037631174228268739}
   canvas: {fileID: 1539542831}
   statueType: 1
-  basePrice: 0
+  basePrice: 25
   price: 0
   priceIncreaseRate: 1.5
   textSpeed: 0.05
@@ -30693,7 +30693,7 @@ MonoBehaviour:
   player: {fileID: 8037631174228268739}
   canvas: {fileID: 496156657}
   statueType: 0
-  basePrice: 0
+  basePrice: 100
   price: 0
   priceIncreaseRate: 2
   textSpeed: 0.05
@@ -31784,7 +31784,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 490.7}
+  m_AnchoredPosition: {x: 0, y: 472}
   m_SizeDelta: {x: 545, y: 57.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1859276123
