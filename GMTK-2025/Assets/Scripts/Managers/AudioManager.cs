@@ -12,8 +12,10 @@ public class Sound
     public float volume = 1f;
     [Range(0.1f, 3f)]
     public float pitch = 1f;
+    public Vector2 minMaxPitchRange = new Vector2(0.9f, 1.1f);
     public bool loop = false;
     public bool oneShot = false;
+    public bool randomizePitch = false;
     public AudioMixerGroup mixer;
     
     [Header("Fade Settings")]
@@ -98,6 +100,11 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null) return;
+
+        if (s.randomizePitch)
+        {
+            s.source.pitch = RandomizePitch(name, s.minMaxPitchRange.x, s.minMaxPitchRange.y); // Random pitch between min and max
+        }
         
         if (s.useFadeIn)
         {
@@ -175,6 +182,14 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null) return;
         StartCoroutine(FadeOut(s, fadeTime));
+    }
+
+    private float RandomizePitch(string name, float minPitch, float maxPitch)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) return 1f; // Return default pitch if sound not found
+        s.source.pitch = UnityEngine.Random.Range(minPitch, maxPitch);
+        return s.source.pitch;
     }
 
     // Music Volume Adjustment Function

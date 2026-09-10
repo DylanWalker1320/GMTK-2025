@@ -7,6 +7,7 @@ public class InteractableLoopBar : MonoBehaviour
 {
     private Inventory loopbarInventory;
     private GameManager gameManager;
+    private AudioManager audioManager;
     private int startingSpellCounter;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public Spell[] spellArray = new Spell[8];
@@ -14,6 +15,7 @@ public class InteractableLoopBar : MonoBehaviour
     public SwapState swapState;
     [SerializeField] private TextMeshProUGUI[] typeText = new TextMeshProUGUI[8];
     [SerializeField] private Image spellImage;
+    [SerializeField] private Sprite swapSprite;
     [SerializeField] private Spell[] spellReplacements = new Spell[4];
 
     [SerializeField] private UnityEvent unityEvent;
@@ -25,9 +27,7 @@ public class InteractableLoopBar : MonoBehaviour
     private Spell spellToSwapOne;
     private Spell spellToSwapTwo;
 
-
-    //TODO: Create an enum class for interactable loop bar type: Spell Swap, SpellCombination. Use enums to determine whether the slots switch or replace/combine the spell
-
+    // enums to determine whether the slots switch or replace/combine the spell
     public enum LoopBarType
     {
         SpellSwap,
@@ -43,6 +43,7 @@ public class InteractableLoopBar : MonoBehaviour
     void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         loopbarInventory = FindFirstObjectByType<Inventory>();
         startingSpellCounter = gameManager.betaSpellCounter;
     }
@@ -62,7 +63,15 @@ public class InteractableLoopBar : MonoBehaviour
     }
     public void OnCall()
     {
-        spellImage.sprite = gameManager.spellImage;
+        if(loopBarType == LoopBarType.SpellCombination)
+        {
+            spellImage.sprite = gameManager.spellImage;
+        }
+        else
+        {
+            spellImage.sprite = swapSprite;
+        }
+        
         spellArray = loopbarInventory.spellArray; //pointer for actual spell array
         UpdateSpellSprites();
         GetTypes();
@@ -173,7 +182,8 @@ public class InteractableLoopBar : MonoBehaviour
 
     void SpellSwapEvaluator(int index)
     {
-        
+        audioManager.Play("SWAPSPELLBARSLOT");
+
         if(spellToSwapOne == null && swapState == SwapState.None) // first click, spell isnt empty
         {
             spellToSwapOneIndex = index;
@@ -228,11 +238,11 @@ public class InteractableLoopBar : MonoBehaviour
         if (!isSingle) // if the spell was combined, update the inventory's spell sprites to reflect the new combination | also why the heck does single mean combination spell lmao
         {
             loopbarInventory.UpdateSpellSprites();
-            FindAnyObjectByType<AudioManager>().Play("NEWSPELLINSERT");
+            audioManager.Play("NEWSPELLINSERT");
         }
         else
         {
-            FindAnyObjectByType<AudioManager>().Play("NEWCOMBOSPELLINSERT");
+            audioManager.Play("NEWCOMBOSPELLINSERT");
         }
 
 
