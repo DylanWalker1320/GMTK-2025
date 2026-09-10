@@ -218,7 +218,6 @@ public class InteractableLoopBar : MonoBehaviour
 
     void SelectSpellReplacement(int index)
     {
-        FindAnyObjectByType<AudioManager>().Play("UICONFIRM");
 
 
         bool isSingle;
@@ -226,9 +225,14 @@ public class InteractableLoopBar : MonoBehaviour
         loopbarInventory.chosenSpell = GetChosenSpell();
         isSingle = loopbarInventory.CheckNewElementSelection(index);
 
-        if (!isSingle)
+        if (!isSingle) // if the spell was combined, update the inventory's spell sprites to reflect the new combination | also why the heck does single mean combination spell lmao
         {
             loopbarInventory.UpdateSpellSprites();
+            FindAnyObjectByType<AudioManager>().Play("NEWSPELLINSERT");
+        }
+        else
+        {
+            FindAnyObjectByType<AudioManager>().Play("NEWCOMBOSPELLINSERT");
         }
 
 

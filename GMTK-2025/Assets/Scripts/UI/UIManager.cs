@@ -123,12 +123,14 @@ public class UIManager : MonoBehaviour
                 pauseMenu.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(null);
                 currentMenu = Menu.None;
+                FindAnyObjectByType<AudioManager>().Play("UICANCEL");
                 Time.timeScale = 1;
             }
             else if(currentMenu == Menu.PauseMenu && lastMenu == Menu.GameMenu)
             {
                 pauseMenu.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(null);
+                FindAnyObjectByType<AudioManager>().Play("UICANCEL");
                 currentMenu = Menu.GameMenu;
             }
         }
@@ -153,6 +155,7 @@ public class UIManager : MonoBehaviour
         {
             if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
             {
+                FindAnyObjectByType<AudioManager>().Play("OPENSPELLBARALLOC");
                 SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellSwap); // Opens the spell swap UI, which reuses the bar allocation UI
             }
         }
@@ -160,6 +163,7 @@ public class UIManager : MonoBehaviour
         {
             if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
             {
+                FindAnyObjectByType<AudioManager>().Play("UICANCEL");
                 SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellSwap); // Closes the spell swap UI, which reuses the bar allocation UI
             }
         }
@@ -520,7 +524,7 @@ public class UIManager : MonoBehaviour
         yield return new WaitWhile(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         if(loopBarType == InteractableLoopBar.LoopBarType.SpellSwap)
         {
-            Time.timeScale = 1;
+            Time.timeScale = 1;            
             barAllocationUI.SetActive(false);
             EventSystem.current.SetSelectedGameObject(null);
             isInUI = false;
