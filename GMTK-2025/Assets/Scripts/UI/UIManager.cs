@@ -155,7 +155,6 @@ public class UIManager : MonoBehaviour
         {
             if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
             {
-                FindAnyObjectByType<AudioManager>().Play("OPENSPELLBARALLOC");
                 SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellSwap); // Opens the spell swap UI, which reuses the bar allocation UI
             }
         }
@@ -383,6 +382,7 @@ public class UIManager : MonoBehaviour
         upgradeUI.SetActive(!upgradeUI.activeSelf);
         upgradeUIAnimator.SetTrigger("BeginThreeUpgrades");
         EventSystem.current.SetSelectedGameObject(threeUpgradesFirst);
+        FindAnyObjectByType<AudioManager>().Play("WAVECOMPLETE");
         barAllocationUI.SetActive(false);
     }
 
@@ -437,6 +437,7 @@ public class UIManager : MonoBehaviour
 
         if (barAllocationUI.activeSelf == false)
         {
+            FindAnyObjectByType<AudioManager>().Play("OPENSPELLBARALLOC");
             EnableSpellBarAllocationUI(loopBarType);
         }
         else

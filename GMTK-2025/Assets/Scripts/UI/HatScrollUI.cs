@@ -66,6 +66,7 @@ public class HatScrollUI : MonoBehaviour
         // Full Cycle
         if(scrollUI.GetComponent<HatScroll>()._speed == 0 && scrollUI.GetComponent<HatScroll>()._hasScrolled == true)
         {
+            audioManager.StopLoop("HATROLL");
             ToggleScrollUI();
             ToggleHatPrize(scrollUI.GetComponent<HatScroll>().GetTargetHatData());
         }
@@ -73,6 +74,7 @@ public class HatScrollUI : MonoBehaviour
         // Click Mid-Scroll (Clunky due to polling enacted by interacting with the button press), patched with speed var band-aid solution
         if(scrollUI.activeSelf && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1) && scrollUI.GetComponent<HatScroll>()._speed < 4) && scrollUI.GetComponent<HatScroll>().GetIsScrolling())
         {
+            audioManager.StopLoop("HATROLL");
             GetComponent<Animator>().SetTrigger("HatRollPrize");
             ToggleScrollUI();
             ToggleHatPrize(scrollUI.GetComponent<HatScroll>().GetTargetHatData());

@@ -31,6 +31,7 @@ public class HatScroll : MonoBehaviour
         if (_isScrolling)
             return;
         FindFirstObjectByType<UIManager>().scrollUI.GetComponent<Animator>().SetTrigger("HatRollRolling");
+        FindFirstObjectByType<AudioManager>().Play("HATROLL");
         _speed = Random.Range(4, 5);
         _hasInteracted = true;
         _isScrolling = true;
