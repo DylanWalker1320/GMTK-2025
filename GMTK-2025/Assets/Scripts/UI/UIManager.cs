@@ -10,6 +10,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     private GameManager gameManager;
+    private AudioManager audioManager;
     [Header("UI Panels")]
     public GameObject upgradeUI;
     public GameObject statShopUI; // TODO: now stat shop ui, rename later
@@ -80,6 +81,7 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         if (gameManager == null)
         {
             Debug.LogError("GameManager not found in the scene.");
@@ -102,7 +104,7 @@ public class UIManager : MonoBehaviour
             if (currentMenu == Menu.None) // Only allow pause if in game
             {
                 pauseMenu.SetActive(true);
-                FindAnyObjectByType<AudioManager>().Play("OpenPauseMenu");
+                audioManager.Play("OpenPauseMenu");
                 pauseMenu.GetComponent<Animator>().SetTrigger("BeginPauseMenu");
                 EventSystem.current.SetSelectedGameObject(pauseMenuFirst);
                 lastMenu = currentMenu;
@@ -112,7 +114,7 @@ public class UIManager : MonoBehaviour
             else if (currentMenu == Menu.GameMenu) // look into this it might be useless ngl
             {
                 pauseMenu.SetActive(true);
-                FindAnyObjectByType<AudioManager>().Play("OpenPauseMenu");
+                audioManager.Play("OpenPauseMenu");
                 pauseMenu.GetComponent<Animator>().SetTrigger("BeginPauseMenu");
                 EventSystem.current.SetSelectedGameObject(pauseMenuFirst);
                 lastMenu = currentMenu;
@@ -123,14 +125,14 @@ public class UIManager : MonoBehaviour
                 pauseMenu.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(null);
                 currentMenu = Menu.None;
-                FindAnyObjectByType<AudioManager>().Play("UICANCEL");
+                audioManager.Play("UICANCEL");
                 Time.timeScale = 1;
             }
             else if(currentMenu == Menu.PauseMenu && lastMenu == Menu.GameMenu)
             {
                 pauseMenu.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(null);
-                FindAnyObjectByType<AudioManager>().Play("UICANCEL");
+                audioManager.Play("UICANCEL");
                 currentMenu = Menu.GameMenu;
             }
         }
@@ -162,7 +164,7 @@ public class UIManager : MonoBehaviour
         {
             if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
             {
-                FindAnyObjectByType<AudioManager>().Play("UICANCEL");
+                audioManager.Play("UICANCEL");
                 SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellSwap); // Closes the spell swap UI, which reuses the bar allocation UI
             }
         }
@@ -382,7 +384,7 @@ public class UIManager : MonoBehaviour
         upgradeUI.SetActive(!upgradeUI.activeSelf);
         upgradeUIAnimator.SetTrigger("BeginThreeUpgrades");
         EventSystem.current.SetSelectedGameObject(threeUpgradesFirst);
-        FindAnyObjectByType<AudioManager>().Play("WAVECOMPLETE");
+        audioManager.Play("WAVECOMPLETE");
         barAllocationUI.SetActive(false);
     }
 
@@ -402,6 +404,7 @@ public class UIManager : MonoBehaviour
             default:
                 Time.timeScale = 0;
                 statShopUI.SetActive(!statShopUI.activeSelf);
+                audioManager.Play("OPENSTATSHOP");
                 backgroundParticles.Play();
                 statShopUI.GetComponent<LevelUpUI>().InitializeStatShopUI();
                 EventSystem.current.SetSelectedGameObject(statShopFirst);
@@ -437,7 +440,7 @@ public class UIManager : MonoBehaviour
 
         if (barAllocationUI.activeSelf == false)
         {
-            FindAnyObjectByType<AudioManager>().Play("OPENSPELLBARALLOC");
+            audioManager.Play("OPENSPELLBARALLOC");
             EnableSpellBarAllocationUI(loopBarType);
         }
         else

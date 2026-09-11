@@ -83,6 +83,7 @@ public class Statue : MonoBehaviour
         if (playerInRange && !hasTriggered)
         {
             TypeDialogue(dialogueLine);
+            FindAnyObjectByType<AudioManager>().Play("DISPLAYMESSAGE");
             hasTriggered = true;
         }
 
@@ -128,6 +129,7 @@ public class Statue : MonoBehaviour
             hasTriggered = false;
             canvas.SetActive(false);
             dialogueText.text = string.Empty;
+            FindAnyObjectByType<AudioManager>().StopLoop("DISPLAYMESSAGE");
 
             StopAllCoroutines();
         }

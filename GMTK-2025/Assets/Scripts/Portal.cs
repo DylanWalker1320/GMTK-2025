@@ -45,6 +45,7 @@ public class Portal : MonoBehaviour
         // Player just entered range
         if (playerInRange && !hasTriggered)
         {
+            audioManager.Play("DISPLAYMESSAGEPORTAL");
             TypeDialogue(dialogueLine);
             canvas.SetActive(true);
             hasTriggered = true;
@@ -64,7 +65,7 @@ public class Portal : MonoBehaviour
             hasTriggered = false;
             canvas.SetActive(false);
             dialogueText.text = string.Empty;
-
+            audioManager.StopLoop("DISPLAYMESSAGEPORTAL");
             StopAllCoroutines();
         }
     }
