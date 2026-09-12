@@ -116,12 +116,20 @@ public class Hat : MonoBehaviour
                     player.maxHealth += stat.value;
                     break;
 
+                case StatType.DashStrength:
+                    player.dashStrength += 20 * stat.value / 100f; // Convert percentage to decimal, multiply by 20 because 20 is the base dash strength
+                    break;
+
+                case StatType.DashCooldown:
+                    player.dashCooldown = Mathf.Max(0.1f, player.dashCooldown - stat.value / 100f); // Ensure cooldown doesn't go below 0.1 seconds
+                    break;
+
                 case StatType.CastSpeed:
-                    player.castSpeed += stat.value;
+                    player.castSpeed += stat.value / 100f; // Convert percentage to decimal
                     break;
 
                 case StatType.CastStrength:
-                    player.castStrength += stat.value;
+                    player.castStrength += stat.value / 100f;
                     break;
 
                 case StatType.SpellLevel:
