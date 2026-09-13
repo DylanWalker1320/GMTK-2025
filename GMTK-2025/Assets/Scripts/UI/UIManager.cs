@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     private AudioManager audioManager;
     [Header("UI Panels")]
     public GameObject upgradeUI;
-    public GameObject statShopUI; // TODO: now stat shop ui, rename later
+    public GameObject statShopUI;
     public GameObject scrollUI;
     public GameObject barAllocationUI;
     public GameObject statTrackerUI;
@@ -29,8 +29,10 @@ public class UIManager : MonoBehaviour
     public GameObject Slide3;
     public GameObject Slide4;
     [Header("Health Bar")]
-    public Slider healthBar;
-    public TextMeshProUGUI healthBarText;
+    [SerializeField] private Slider healthBar;
+    [SerializeField] private TextMeshProUGUI healthBarText;
+    [SerializeField] private Slider trailingHealthbar;
+    [SerializeField] private int trailingHealthbarDelay; // Delay in seconds before the trailing health bar starts to decrease
     [Header("Experience Bar")]
     public Slider experienceBar;
     public TextMeshProUGUI experienceBarText;
@@ -175,6 +177,11 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 0;
             SetActiveUpgradeUI();
             upgradeUI.GetComponent<ThreeUpgradeScreen>().UpdateDisplays();
+        }
+
+        if(trailingHealthbar.value > healthBar.value)
+        {
+            trailingHealthbar.value = Mathf.Lerp(a: trailingHealthbar.value, b: healthBar.value, t: Time.deltaTime * trailingHealthbarDelay);
         }
     }
 
