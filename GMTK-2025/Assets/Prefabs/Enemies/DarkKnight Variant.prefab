@@ -84,6 +84,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: efc0182f244521349b27d0fc1f8bd796, type: 2}
+    - target: {fileID: 6908859130774064076, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1638402479
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876796404085655565, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.021
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876796404085655565, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.78
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
     - {fileID: 7907789145732432508, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
@@ -98,6 +110,28 @@ PrefabInstance:
       insertIndex: 5
       addedObject: {fileID: 5428939389781789354}
   m_SourcePrefab: {fileID: 100100000, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+--- !u!114 &2308310513758072436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4868497077689625692, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+  m_PrefabInstance: {fileID: 7176666749485367848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6012553958716056220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3524143238901227700, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+  m_PrefabInstance: {fileID: 7176666749485367848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6277489900791797096 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3784918887274043200, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
@@ -131,6 +165,9 @@ MonoBehaviour:
     speed: 2
   applyForceCooldown: 1
   applyForceReady: 1
+  healthBar: {fileID: 2308310513758072436}
+  trailingHealthBar: {fileID: 6012553958716056220}
+  trailingHealthBarSpeed: 5
   attackCooldown: 1
   attackRange: 3.8
   dashForce: 40

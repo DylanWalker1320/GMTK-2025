@@ -11,6 +11,14 @@ public class SimpleEnemy : Enemy
         Init();
     }
 
+    void Update()
+    {
+        if(trailingHealthBar.value > healthBar.value)
+        {
+            trailingHealthBar.value = Mathf.Lerp(trailingHealthBar.value, healthBar.value, trailingHealthBarSpeed * Time.deltaTime);
+        }
+    }
+
     void FixedUpdate()
     {
         if (target == null) return;

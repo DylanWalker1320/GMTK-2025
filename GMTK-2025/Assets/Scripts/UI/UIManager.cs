@@ -187,7 +187,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateHealthUI(float health, float maxHealth)
     {
-        healthBar.value = health / maxHealth * 100;
+        healthBar.value = health / maxHealth * 100; // slider max value is 100
         healthBarText.text = $"{health} / {maxHealth}";
     }
 

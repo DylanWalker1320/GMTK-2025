@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: m_AutoBraking
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 347076166983918116, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 347076166983918116, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1364326250625347675, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_Controller
       value: 
@@ -80,6 +88,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4816984e1baac034e87145887414af88, type: 2}
+    - target: {fileID: 5331825285522583662, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331825285522583662, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908859130774064076, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1638402479
+      objectReference: {fileID: 0}
     - target: {fileID: 7058653469878246422, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -95,6 +115,14 @@ PrefabInstance:
     - target: {fileID: 7689925873365378556, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876796404085655565, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876796404085655565, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.04
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
@@ -138,9 +166,34 @@ MonoBehaviour:
     speed: 2
   applyForceCooldown: 0.75
   applyForceReady: 1
+  healthBar: {fileID: 8470513510190553501}
+  trailingHealthBar: {fileID: 501424573581153653}
+  trailingHealthBarSpeed: 5
   projectilePrefab: {fileID: 8192162858285028509, guid: cdf04d1418e763948a90d1030f8bd0f7, type: 3}
   shootCooldown: 5
   minShootDistance: 6
   maxShootDistance: 10
   shotSpeed: 2
   isShooting: 0
+--- !u!114 &501424573581153653 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3524143238901227700, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+  m_PrefabInstance: {fileID: 3899324961360819649}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8470513510190553501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4868497077689625692, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+  m_PrefabInstance: {fileID: 3899324961360819649}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

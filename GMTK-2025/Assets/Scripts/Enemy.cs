@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -8,6 +9,7 @@ abstract public class Enemy : MonoBehaviour
     [System.Serializable]
     public struct EnemyStats
     {
+        public float maxHealth;
         public float health;
         public float damage;
         public float speed;
@@ -45,6 +47,12 @@ abstract public class Enemy : MonoBehaviour
     [SerializeField] protected float applyForceCooldown = 1f; // Cooldown for applying force, to prevent physics issues
     public bool applyForceReady = true; // Flag to check if applying force is ready
 
+    // Health Bar
+    [Header("Health Bar UI")]
+    public Slider healthBar;
+    public Slider trailingHealthBar;
+    [SerializeField] protected float trailingHealthBarSpeed = 5f; // Speed at which the trailing health bar catches up
+
     protected virtual void Init()
     {
         gameManager = FindFirstObjectByType<GameManager>();
@@ -67,6 +75,8 @@ abstract public class Enemy : MonoBehaviour
         stats.health = stats.health * (1f + healthScalar * gameManager.wavesCompleted);
         stats.damage = stats.damage * (1f + damageScalar * gameManager.wavesCompleted);
         stats.speed  = stats.speed  * (1f + speedScalar  * gameManager.wavesCompleted);
+
+        stats.maxHealth = stats.health; // Set max health to the initial health value
 
         agent.speed = stats.speed;
         agent.acceleration = stats.speed * 2f;
@@ -110,6 +120,12 @@ abstract public class Enemy : MonoBehaviour
         if (stats.health <= 0f && isDead == false)
         {
             Die();
+        }
+
+        // Update health bar UI
+        if (healthBar != null)
+        {
+            healthBar.value = stats.health / stats.maxHealth; // slider max value is 1
         }
 
         // Knockback
