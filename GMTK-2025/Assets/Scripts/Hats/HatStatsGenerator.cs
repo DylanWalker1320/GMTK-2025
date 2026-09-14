@@ -40,6 +40,12 @@ public static class HatStatsGenerator
         isInitialized = true;
     }
 
+    public static Rarity GenerateRarity()
+    {
+        EnsureInitialized();
+        return rarityWeights.Next();
+    }
+
     public static GeneratedHat GenerateHatStats(string hatName = "Hat")
     {
         EnsureInitialized();

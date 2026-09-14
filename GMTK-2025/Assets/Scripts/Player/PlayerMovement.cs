@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
     [SerializeField] private Slider dashBar;
+    public ParticleSystemForceField xpParticleSystem; // Particle system for soul collection effect
     public Transform reticle; // Reference to the reticle script for aiming
     public UnityEvent<float, float> updateHealthUI;
     [Header("Movement/Animation")]

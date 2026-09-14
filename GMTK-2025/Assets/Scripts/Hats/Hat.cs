@@ -15,22 +15,31 @@ public class Hat : MonoBehaviour
     public static readonly float initialYOffset = 0.52f;
     private static GameObject player;
     private bool isFirstHat => hatNumber == 0;
-    private Rigidbody2D playerRb;
+    private static Rigidbody2D playerRb;
     private HatComponentManager spriteLayerUpdater;
     public GameObject hatVisuals;
     public GameObject hatShadow;
 
+    // Base Stats
+    private static float baseDashStrength = -1; // Initialize to -1 to indicate it hasn't been set yet
+    private static float baseXpPullRange = -1;
+
+    private bool isInitialized = false;
+
     void Start()
     {
+        Debug.Log("Hat Start: Initializing sprite layer updater");
         spriteLayerUpdater = GetComponent<HatComponentManager>();
         spriteLayerUpdater.ApplyComponents(hatData.components);
         spriteLayerUpdater.UpdateSpriteLayers();
     }
 
-    void Update()
+    void Initialize ()
     {
-        if (playerHat) // Could be replaced with a return, left as an if for posterity
-        {     
+        if (isInitialized) return;
+
+        if (playerHat)
+        {
             if (player == null)
             {
                 player = GameObject.FindGameObjectWithTag("Player");
@@ -40,6 +49,26 @@ public class Hat : MonoBehaviour
             {
                 playerRb = player.GetComponent<Rigidbody2D>();
             }
+
+            if (baseDashStrength == -1)
+            {
+                baseDashStrength = player.GetComponent<PlayerMovement>().dashStrength;
+            }
+
+            if (baseXpPullRange == -1)
+            {
+                baseXpPullRange = player.GetComponent<PlayerMovement>().xpParticleSystem.endRange;
+            }
+        }
+
+        isInitialized = true;
+    }
+
+    void Update()
+    {
+        if (playerHat) // Could be replaced with a return, left as an if for posterity
+        {     
+            Initialize(); // Ensure initialization is done before accessing player vars
 
             // Get the speed of the player
             float playerSpeed = playerRb.linearVelocity.magnitude;
@@ -116,8 +145,12 @@ public class Hat : MonoBehaviour
                     player.maxHealth += stat.value;
                     break;
 
+                case StatType.XpPullRange:
+                    player.xpParticleSystem.endRange += baseXpPullRange * stat.value / 100f;
+                    break;
+
                 case StatType.DashStrength:
-                    player.dashStrength += 20 * stat.value / 100f; // Convert percentage to decimal, multiply by 20 because 20 is the base dash strength
+                    player.dashStrength += baseDashStrength * stat.value / 100f;
                     break;
 
                 case StatType.DashCooldown:
@@ -125,7 +158,7 @@ public class Hat : MonoBehaviour
                     break;
 
                 case StatType.CastSpeed:
-                    player.castSpeed += stat.value / 100f; // Convert percentage to decimal
+                    player.castSpeed += stat.value / 100f;
                     break;
 
                 case StatType.CastStrength:

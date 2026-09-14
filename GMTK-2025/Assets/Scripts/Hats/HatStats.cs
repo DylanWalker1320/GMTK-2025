@@ -53,6 +53,7 @@ public enum StatType
 {
     Speed,
     Health,
+    XpPullRange,
     CastSpeed,
     CastStrength,
     SpellLevel,
@@ -76,6 +77,7 @@ public class HatColors
     {
         { StatType.Speed,        ColorUtility.TryParseHtmlString("#fff201", out Color speedColor) ? speedColor : Color.yellow },
         { StatType.Health,       ColorUtility.TryParseHtmlString("#00FF00", out Color healthColor) ? healthColor : Color.green },
+        { StatType.XpPullRange,  ColorUtility.TryParseHtmlString("#c3ff00", out Color xpPullRangeColor) ? xpPullRangeColor : Color.green },
         { StatType.CastSpeed,    ColorUtility.TryParseHtmlString("#3c3cff", out Color castSpeedColor) ? castSpeedColor : Color.blue },
         { StatType.CastStrength, ColorUtility.TryParseHtmlString("#ff0000", out Color castStrengthColor) ? castStrengthColor : Color.red },
         { StatType.SpellLevel,   ColorUtility.TryParseHtmlString("#ff2ed5", out Color spellLevelColor) ? spellLevelColor : Color.magenta },
@@ -142,6 +144,7 @@ public class HatStat
             StatType.SpellLevel => spellBonus != null ? spellBonus.ToString() : $"+{value} Spell Level",
             StatType.Speed => $"+{value} Speed",
             StatType.Health => $"+{value} Health",
+            StatType.XpPullRange => $"+{value}% Xp Pull Range",
             StatType.DashStrength => $"+{value}% Dash Strength",
             StatType.DashCooldown => $"-{value}% Dash Cooldown",
             _ => $"{type}: {value}"
@@ -222,61 +225,66 @@ public static class HatStatDefinitions
             // Stats are ordered by their relative strength. Weight is distributed roughly as a normal curve centred on a middle stat for that rarity tier.
             Rarity.Common, new Dictionary<StatType, int>
             {
-                { StatType.Speed,        36 },
-                { StatType.Health,       29 },
-                { StatType.DashStrength, 17 },
-                { StatType.DashCooldown, 8  },
-                { StatType.CastSpeed,    4  },
-                { StatType.CastStrength, 3  },
-                { StatType.SpellLevel,   3  }
+                { StatType.Speed,         35 },
+                { StatType.Health,        28 },
+                { StatType.XpPullRange,   16 },
+                { StatType.DashStrength,  8  },
+                { StatType.DashCooldown,  4  },
+                { StatType.CastSpeed,     3  },
+                { StatType.CastStrength,  3  },
+                { StatType.SpellLevel,    3  }
             }
         },
         { 
             Rarity.Uncommon, new Dictionary<StatType, int>
             {
-                { StatType.Speed,        17 },
-                { StatType.Health,       25 },
-                { StatType.DashStrength, 25 },
-                { StatType.DashCooldown, 17 },
-                { StatType.CastSpeed,    9  },
-                { StatType.CastStrength, 4  },
-                { StatType.SpellLevel,   3  }
+                { StatType.Speed,         14 },
+                { StatType.Health,        23 },
+                { StatType.XpPullRange,   25 },
+                { StatType.DashStrength,  19 },
+                { StatType.DashCooldown,  10 },
+                { StatType.CastSpeed,     4  },
+                { StatType.CastStrength,  3  },
+                { StatType.SpellLevel,    2  }
             }
         },
         { 
             Rarity.Rare, new Dictionary<StatType, int>
             {
-                { StatType.Speed,        5  },
-                { StatType.Health,       12 },
-                { StatType.DashStrength, 21 },
-                { StatType.DashCooldown, 24 },
-                { StatType.CastSpeed,    21 },
-                { StatType.CastStrength, 12 },
-                { StatType.SpellLevel,   5  }
+                { StatType.Speed,         3  },
+                { StatType.Health,        8  },
+                { StatType.XpPullRange,   16 },
+                { StatType.DashStrength,  23 },
+                { StatType.DashCooldown,  23 },
+                { StatType.CastSpeed,     16 },
+                { StatType.CastStrength,  8  },
+                { StatType.SpellLevel,    3  }
             }
         },
         { 
             Rarity.Epic, new Dictionary<StatType, int>
             {
-                { StatType.Speed,        3  },
-                { StatType.Health,       4  },
-                { StatType.DashStrength, 9  },
-                { StatType.DashCooldown, 17 },
-                { StatType.CastSpeed,    25 },
-                { StatType.CastStrength, 25 },
-                { StatType.SpellLevel,   17 }
+                { StatType.Speed,         2  },
+                { StatType.Health,        3  },
+                { StatType.XpPullRange,   4  },
+                { StatType.DashStrength,  10 },
+                { StatType.DashCooldown,  19 },
+                { StatType.CastSpeed,     25 },
+                { StatType.CastStrength,  23 },
+                { StatType.SpellLevel,    14 }
             }
         },
         { 
             Rarity.Legendary, new Dictionary<StatType, int>
             {
-                { StatType.Speed,        3  },
-                { StatType.Health,       3  },
-                { StatType.DashStrength, 4  },
-                { StatType.DashCooldown, 8  },
-                { StatType.CastSpeed,    17 },
-                { StatType.CastStrength, 29 },
-                { StatType.SpellLevel,   36 }
+                { StatType.Speed,         3  },
+                { StatType.Health,        3  },
+                { StatType.XpPullRange,   3  },
+                { StatType.DashStrength,  4  },
+                { StatType.DashCooldown,  8  },
+                { StatType.CastSpeed,     16 },
+                { StatType.CastStrength,  28 },
+                { StatType.SpellLevel,    35 }
             }
         }
     };
@@ -302,6 +310,15 @@ public static class HatStatDefinitions
                 Rarity.Rare =>      Random.Range(10, 30),
                 Rarity.Epic =>      Random.Range(20, 40),
                 Rarity.Legendary => Random.Range(30, 50),
+                _ => 5
+            },
+            StatType.XpPullRange => rarity switch
+            {
+                Rarity.Common =>    Random.Range(1, 5),
+                Rarity.Uncommon =>  Random.Range(6, 10),
+                Rarity.Rare =>      Random.Range(11, 15),
+                Rarity.Epic =>      Random.Range(16, 20),
+                Rarity.Legendary => Random.Range(21, 25),
                 _ => 5
             },
             StatType.DashStrength => rarity switch

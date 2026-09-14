@@ -39830,6 +39830,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: xpParticleSystem
+      value: 
+      objectReference: {fileID: 8037631174228268740}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: dashActionReference
       value: 
       objectReference: {fileID: -8695412193735320864, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
@@ -39969,6 +39973,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8558577834029138055, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: m_Parameters.m_Shape
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558577834029138055, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: m_Parameters.m_EndRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8618421084308294301, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.8287847
@@ -40007,6 +40019,11 @@ MonoBehaviour:
 --- !u!1 &8037631174228268739 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 551384267470797963, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+  m_PrefabInstance: {fileID: 8037631174228268737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!330 &8037631174228268740 stripped
+ParticleSystemForceField:
+  m_CorrespondingSourceObject: {fileID: 8558577834029138055, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
   m_PrefabInstance: {fileID: 8037631174228268737}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8037631174228268750
