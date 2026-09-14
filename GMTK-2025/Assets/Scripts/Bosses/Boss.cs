@@ -14,6 +14,14 @@ public class Boss : Enemy
         Init();
     }
 
+    void Update()
+    {
+        if(trailingHealthBar.value > healthBar.value)
+        {
+            trailingHealthBar.value = Mathf.Lerp(trailingHealthBar.value, healthBar.value, trailingHealthBarSpeed * Time.deltaTime);
+        }
+    }
+
     new protected void Die()
     {
         isDead = true;
@@ -39,6 +47,12 @@ public class Boss : Enemy
         if (stats.health <= 0f && isDead == false)
         {
             Die();
+        }
+
+        // Update health bar UI
+        if (healthBar != null)
+        {
+            healthBar.value = stats.health / stats.maxHealth; // slider max value is 1
         }
 
         // Knockback
