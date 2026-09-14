@@ -21,6 +21,11 @@ public class PlayerMovement : MonoBehaviour
     public float dashCooldown;
     private bool canDash = true;
 
+    [Header("Base Stats")]
+
+    public static float baseDashStrength = -1; // Initialize to -1 to indicate it hasn't been set yet
+    public static float baseXpPullRange = -1;
+
     [Header("Currency")]
     public int souls;
 
@@ -64,6 +69,9 @@ public class PlayerMovement : MonoBehaviour
         {
             _playerInput = GetComponent<PlayerInput>();
         }
+
+        if (baseDashStrength < 0) baseDashStrength = dashStrength; // Set base dash strength if not already set
+        if (baseXpPullRange < 0) baseXpPullRange = xpParticleSystem.endRange; // Set base XP pull range if not already set
 
         playerSprite = GetComponent<SpriteRenderer>();
         audioManager = FindFirstObjectByType<AudioManager>();
@@ -142,7 +150,6 @@ public class PlayerMovement : MonoBehaviour
         if (!canDash) { return; }
 
         canDash = false;
-        Debug.Log("Dash input received, canDash: " + canDash);
         StartCoroutine(DashCooldown());
 
         if (value.isPressed && uiManager.isInUI == false)
@@ -163,7 +170,6 @@ public class PlayerMovement : MonoBehaviour
         }
     
         canDash = true;
-        Debug.Log("Dash cooldown finished, canDash: " + canDash);
     }
 
     public void GainExperience()

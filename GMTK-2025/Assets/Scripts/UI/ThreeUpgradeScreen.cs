@@ -55,10 +55,12 @@ public class ThreeUpgradeScreen : MonoBehaviour
     public float healAmount;
     public int healthUpgradeIncrease;
     public int speedUpgradeIncrease;
+    public int xpPullRangeUpgradeIncrease;
+    public int dashCooldownUpgradeIncrease;
+    public int dashStrengthUpgradeIncrease;
     public int iFramesUpgradeIncrease;
     public float castSpeedUpgradeIncrease;
     public float castStrengthUpgradeIncrease;
-    public float dashStrengthUpgradeIncrease;
 
     [Header("Upgrade Index")]
 
@@ -74,19 +76,21 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     public enum StatIncreaseType
     {
-        Health = 0,
-        Speed = 1,
-        IFrames = 2,
-        CastSpeed = 3,
-        CastStrength = 4,
-        DashStrength = 5
+        Health,
+        Speed,
+        IFrames,
+        CastSpeed,
+        CastStrength,
+        XpPullRange,
+        DashCooldown,
+        DashStrength
     }
     public enum SpriteType
     {
-        Fire = 0,
-        Water = 1,
-        Lightning = 2,
-        Dark = 3
+        Fire,
+        Water,
+        Lightning,
+        Dark,
     }
 
 
@@ -101,7 +105,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     public void UpdateDisplays()
     {
-        upgradeTextOne.text = "Heal " + healAmount + " HP";
+        upgradeTextOne.text = $"Heal {healAmount} HP";
 
         upgradeStatType = (StatIncreaseType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(StatIncreaseType)).Length); // Change this according to the number of stats in the enum class
         UpdateStatDisplay();
@@ -115,22 +119,28 @@ public class ThreeUpgradeScreen : MonoBehaviour
         switch (upgradeStatType)
         {
             case StatIncreaseType.Health:
-                upgradeTextTwo.text = "Health +" + healthUpgradeIncrease;
+                upgradeTextTwo.text = $"Health +{healthUpgradeIncrease}";
                 break;
             case StatIncreaseType.Speed:
-                upgradeTextTwo.text = "Speed +" + speedUpgradeIncrease;
+                upgradeTextTwo.text = $"Speed +{speedUpgradeIncrease}";
                 break;
             case StatIncreaseType.IFrames:
-                upgradeTextTwo.text = "IFrames +" + iFramesUpgradeIncrease;
+                upgradeTextTwo.text = $"IFrames +{iFramesUpgradeIncrease}";
                 break;
             case StatIncreaseType.CastSpeed:
-                upgradeTextTwo.text = "Cast Speed +" + castSpeedUpgradeIncrease;
+                upgradeTextTwo.text = $"Cast Speed +{100 * castSpeedUpgradeIncrease}%";
                 break;
             case StatIncreaseType.CastStrength:
-                upgradeTextTwo.text = "Cast Strength + " + 100 * castStrengthUpgradeIncrease + "%";
+                upgradeTextTwo.text = $"Cast Strength +{100 * castStrengthUpgradeIncrease}%";
                 break;
             case StatIncreaseType.DashStrength:
-                upgradeTextTwo.text = "Dash Strength + " + dashStrengthUpgradeIncrease;
+                upgradeTextTwo.text = $"Dash Strength +{dashStrengthUpgradeIncrease}";
+                break;
+            case StatIncreaseType.XpPullRange:
+                upgradeTextTwo.text = $"XP Pull Range +{xpPullRangeUpgradeIncrease}%";
+                break;
+            case StatIncreaseType.DashCooldown:
+                upgradeTextTwo.text = $"Dash Cooldown -{dashCooldownUpgradeIncrease}%";
                 break;
             default:
                 Debug.LogError("Invalid upgrade index for stats.");
@@ -218,7 +228,13 @@ public class ThreeUpgradeScreen : MonoBehaviour
                 player.castStrength += castStrengthUpgradeIncrease; // Upgrade cast strength
                 break;
             case StatIncreaseType.DashStrength:
-                player.dashStrength += dashStrengthUpgradeIncrease; // Upgrade dash strength
+                player.dashStrength += PlayerMovement.baseDashStrength * dashStrengthUpgradeIncrease / 100f;
+                break;
+            case StatIncreaseType.DashCooldown:
+                player.dashCooldown = Mathf.Max(0.1f, player.dashCooldown - dashCooldownUpgradeIncrease / 100f); // Ensure cooldown doesn't go below 0.1 seconds
+                break;
+            case StatIncreaseType.XpPullRange:
+                player.xpParticleSystem.endRange += PlayerMovement.baseXpPullRange * xpPullRangeUpgradeIncrease / 100f;
                 break;
             default:
                 Debug.LogError("Invalid upgrade index for stats.");

@@ -16,25 +16,21 @@ public class Hat : MonoBehaviour
     private static GameObject player;
     private bool isFirstHat => hatNumber == 0;
     private static Rigidbody2D playerRb;
+    private static PlayerMovement playerMovement;
     private HatComponentManager spriteLayerUpdater;
     public GameObject hatVisuals;
     public GameObject hatShadow;
-
-    // Base Stats
-    private static float baseDashStrength = -1; // Initialize to -1 to indicate it hasn't been set yet
-    private static float baseXpPullRange = -1;
 
     private bool isInitialized = false;
 
     void Start()
     {
-        Debug.Log("Hat Start: Initializing sprite layer updater");
         spriteLayerUpdater = GetComponent<HatComponentManager>();
         spriteLayerUpdater.ApplyComponents(hatData.components);
         spriteLayerUpdater.UpdateSpriteLayers();
     }
 
-    void Initialize ()
+    void InitializeVars()
     {
         if (isInitialized) return;
 
@@ -50,14 +46,9 @@ public class Hat : MonoBehaviour
                 playerRb = player.GetComponent<Rigidbody2D>();
             }
 
-            if (baseDashStrength == -1)
+            if (playerMovement == null)
             {
-                baseDashStrength = player.GetComponent<PlayerMovement>().dashStrength;
-            }
-
-            if (baseXpPullRange == -1)
-            {
-                baseXpPullRange = player.GetComponent<PlayerMovement>().xpParticleSystem.endRange;
+                playerMovement = player.GetComponent<PlayerMovement>();
             }
         }
 
@@ -68,7 +59,7 @@ public class Hat : MonoBehaviour
     {
         if (playerHat) // Could be replaced with a return, left as an if for posterity
         {     
-            Initialize(); // Ensure initialization is done before accessing player vars
+            InitializeVars(); // Ensure initialization is done before accessing player vars
 
             // Get the speed of the player
             float playerSpeed = playerRb.linearVelocity.magnitude;
@@ -90,7 +81,6 @@ public class Hat : MonoBehaviour
             }
 
             // Flip the player to face the movement direction
-            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
             hatVisuals.transform.localScale = new Vector3(playerMovement.facingRight ? -1 : 1, 1, 1);
             hatShadow.transform.localScale = new Vector3(playerMovement.facingRight ? -1 : 1, 1, 1);
         }
@@ -146,11 +136,11 @@ public class Hat : MonoBehaviour
                     break;
 
                 case StatType.XpPullRange:
-                    player.xpParticleSystem.endRange += baseXpPullRange * stat.value / 100f;
+                    player.xpParticleSystem.endRange += PlayerMovement.baseXpPullRange * stat.value / 100f;
                     break;
 
                 case StatType.DashStrength:
-                    player.dashStrength += baseDashStrength * stat.value / 100f;
+                    player.dashStrength += PlayerMovement.baseDashStrength * stat.value / 100f;
                     break;
 
                 case StatType.DashCooldown:

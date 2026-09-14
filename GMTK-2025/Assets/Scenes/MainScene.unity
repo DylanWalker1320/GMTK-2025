@@ -35991,6 +35991,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1193137594065180063, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
     - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: healAmount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: lightSprite
       value: 
       objectReference: {fileID: 5092564655706136840, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
@@ -36000,19 +36004,35 @@ PrefabInstance:
       objectReference: {fileID: 2509732029256048619, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
     - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: speedUpgradeIncrease
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: healthUpgradeIncrease
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: iFramesUpgradeIncrease
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: castSpeedUpgradeIncrease
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: xpPullRangeUpgradeIncrease
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: castStrengthUpgradeIncrease
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: dashCooldownUpgradeIncrease
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312190533460605461, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: dashStrengthUpgradeIncrease
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2317668476053584092, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -39560,6 +39580,10 @@ PrefabInstance:
       objectReference: {fileID: 1341329492}
     - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: maxWavePopulation
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
+      propertyPath: lastMaxWavePopulation
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
