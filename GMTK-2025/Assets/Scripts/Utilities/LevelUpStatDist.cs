@@ -126,7 +126,7 @@ public static class LevelUpStatDefinitions
         { StatRarity.Legendary, 3 }
     };
 
-    public static readonly Dictionary<StatRarity, int> StatSoulCost = new()
+    public static readonly Dictionary<StatRarity, int> BaseStatSoulCost = new()
     {
         { StatRarity.Common,    20 },
         { StatRarity.Uncommon,  30 },

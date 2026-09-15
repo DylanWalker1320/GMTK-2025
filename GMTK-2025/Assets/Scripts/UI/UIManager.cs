@@ -386,7 +386,7 @@ public class UIManager : MonoBehaviour
         barAllocationUI.SetActive(false);
     }
 
-    public void SetActiveStatShopUI(string transitionType = "None")
+    public void SetActiveStatShopUI(string transitionType = "None", bool firstOpen = false)
     {
         isInUI = true;
         switch (transitionType)
@@ -397,13 +397,17 @@ public class UIManager : MonoBehaviour
             case "ExitStatShop":
                 StartCoroutine(TransitionStatShopUI(transitionType));
                 backgroundParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-                isInUI = false;
                 break;
             default:
                 Time.timeScale = 0;
                 statShopUI.SetActive(!statShopUI.activeSelf);
                 backgroundParticles.Play();
-                statShopUI.GetComponent<LevelUpUI>().InitializeStatShopUI();
+
+                if (firstOpen)
+                {
+                    statShopUI.GetComponent<LevelUpUI>().InitializeStatShopUI();
+                }
+
                 EventSystem.current.SetSelectedGameObject(statShopFirst);
                 break;
         }
@@ -558,6 +562,8 @@ public class UIManager : MonoBehaviour
         {
             statShopUI.SetActive(false);
             Time.timeScale = 1;
+            TooltipManager._instance.HideTooltip();
+            isInUI = false;
         }
     }
 }

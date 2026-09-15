@@ -3603,7 +3603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press 'E' to buy a stat for <color=#6BFFCB>100 souls</color>!
+  m_text: Press 'E' to increase your stats!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 920710e54b7225e47a6f5fd405a00f74, type: 2}
   m_sharedMaterial: {fileID: -2781287008343985393, guid: 920710e54b7225e47a6f5fd405a00f74, type: 2}
@@ -4102,9 +4102,9 @@ MonoBehaviour:
   player: {fileID: 8037631174228268739}
   canvas: {fileID: 1539542831}
   statueType: 1
-  basePrice: 25
+  basePrice: 0
   price: 0
-  priceIncreaseRate: 1.5
+  priceIncreaseRate: 0
   textSpeed: 0.05
   proximityDistance: 3
   interactKey: 101
@@ -39823,7 +39823,7 @@ PrefabInstance:
       objectReference: {fileID: 6235433614790266283, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: souls
-      value: 9999999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: dashBar

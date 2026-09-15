@@ -18,40 +18,20 @@ public class Statue : MonoBehaviour
     private bool isTyping = false;
     private bool playerInRange = false;
     private bool hasTriggered = false;
-    private bool hasPurchased = false;
     private string soulColourPrefix = "<color=#6BFFCB>";
     private string soulColourSuffix = "</color>";
     private char soulPrefixSymbol = '▒';
     private char soulSuffixSymbol = '▓';
     private int playerSouls;
+    public static bool isFirstOpen = true; // Flag to check if it's the first time opening the UI PER refresh room visit (Stat shop only)
+    public static float statsBought = 0f; 
 
     [SerializeField]private TextMeshProUGUI dialogueText;
 
-    
     enum StatueType
     {
         Hat,
         Stat
-    }
-
-    public static void ResetPrices()
-    {
-        foreach (Statue statue in FindObjectsByType<Statue>(FindObjectsSortMode.None))
-        {
-            statue.price = statue.basePrice;
-            statue.UpdatePrice();
-        }
-    }
-
-    public static void TogglePurchaseAvailability(bool purchaseCondition)
-    {
-        foreach (Statue statue in FindObjectsByType<Statue>(FindObjectsSortMode.None))
-        {
-            if (statue.statueType == StatueType.Stat)
-            {
-                statue.hasPurchased = purchaseCondition;
-            }
-        }
     }
 
     void Start()
@@ -72,6 +52,11 @@ public class Statue : MonoBehaviour
         }
     }
 
+    public static void IncreaseStatsBought()
+    {
+        statsBought++;
+    }
+
     void Update()
     {
         if (player == null) return;
@@ -89,36 +74,40 @@ public class Statue : MonoBehaviour
         // Interact trigger (replace in future with new input system)
         if (playerInRange && (Input.GetKeyDown(interactKey) || Input.GetKeyDown(KeyCode.JoystickButton1)))
         {
-            if (uiManager.isInUI) return; // Prevent interaction if already in a UI
-
-            if(hasPurchased && statueType == StatueType.Stat) return; // Prevent multiple interactions without leaving range
-
-            playerSouls = player.GetComponent<PlayerMovement>()?.souls ?? 0; // Get player's current souls
-            if (playerSouls >= price)
+            if (uiManager.isInUI) 
             {
-                playerSouls -= price; // Deduct souls from player
-                PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-                playerMovement.souls = playerSouls; // Update player's soul count
-                playerMovement.UpdateUI(); // Update UI to reflect new soul count
-                price = price + (int)(price * priceIncreaseRate); // Increase price for next purchase
-
-                switch (statueType)
-                {
-                    case StatueType.Hat:
-                        uiManager.SetActiveScrollUI();
-                        break;
-                    case StatueType.Stat:
-                        uiManager.SetActiveStatShopUI();
-                        break;
-                }
-
-                UpdatePrice(); // Update the dialogue text with the new price
-
-                TypeDialogue($"Purchase successful!");
+                return; // Prevent interaction if already in a UI
             }
-            else
+
+            switch (statueType)
             {
-                TypeDialogue($"Not enough souls!");
+                case StatueType.Hat:
+                    uiManager.SetActiveScrollUI();
+
+                    playerSouls = player.GetComponent<PlayerMovement>()?.souls ?? 0; // Get player's current souls
+                    if (playerSouls >= price)
+                    {
+                        playerSouls -= price; // Deduct souls from player
+                        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+                        playerMovement.souls = playerSouls; // Update player's soul count
+                        playerMovement.UpdateUI(); // Update UI to reflect new soul count
+                        price = price + (int)(price * priceIncreaseRate); // Increase price for next purchase
+                        uiManager.SetActiveScrollUI();
+
+                        UpdatePrice(); // Update the dialogue text with the new price
+
+                        TypeDialogue($"Purchase successful!");
+                    }
+                    else
+                    {
+                        TypeDialogue($"Not enough souls!");
+                    }
+                    break;
+
+                case StatueType.Stat:
+                    uiManager.SetActiveStatShopUI("StatShop", isFirstOpen);
+                    isFirstOpen = false;
+                    break;
             }
         }
 
@@ -141,7 +130,7 @@ public class Statue : MonoBehaviour
                 dialogueLine = $"Press 'E' to buy a hat for {soulPrefixSymbol}{price} souls{soulSuffixSymbol}!";
                 break;
             case StatueType.Stat:
-                dialogueLine = $"Press 'E' to increase your stats for {soulPrefixSymbol}{price} souls{soulSuffixSymbol}!";
+                dialogueLine = $"Press 'E' to increase your stats!";
                 break;
         }
     }

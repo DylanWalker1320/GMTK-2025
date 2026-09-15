@@ -138,6 +138,8 @@ public class GameManager : MonoBehaviour
         waitingForPortalReturn = true;
         bossHasDied = false;
 
+        Statue.isFirstOpen = true; // Reset the flag for the next time the player visits the statue
+
         if (portalObject != null)
             portalObject.SetActive(true);
 
@@ -218,7 +220,6 @@ public class GameManager : MonoBehaviour
             enemySpawner.SetSpawningPaused(false);
             enemySpawner.Restart();
         }
-        Statue.TogglePurchaseAvailability(false);
     }
 
     public void ToggleSafeArea(bool isInSafeArea)
