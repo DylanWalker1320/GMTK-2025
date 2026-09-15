@@ -67,57 +67,6 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
         }
     }
 
-    // public void ApplyStats(int index)
-    // {
-    //     PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
-    //     // apply stats to player
-    //     foreach (var stat in panelStats[index].stats)
-    //     {
-    //         switch (stat.type)
-    //         {
-    //             case LevelUpStatType.Speed:
-    //                 player.maxSpeed += stat.value;
-    //                 if (debugMode) Debug.Log($"Speed increased from {player.maxSpeed - stat.value} to {player.maxSpeed}");
-    //                 break;
-                    
-    //             case LevelUpStatType.Health:
-    //                 player.health += stat.value;
-    //                 player.maxHealth += stat.value;
-    //                 if (debugMode) Debug.Log($"Max Health increased from {player.maxHealth - stat.value} to {player.maxHealth}");
-    //                 break;
-
-    //             case LevelUpStatType.DashStrength:
-    //                 player.dashStrength += stat.value;
-    //                 if (debugMode) Debug.Log($"Dash Strength increased from {player.dashStrength - stat.value} to {player.dashStrength}");
-    //                 break;
-                    
-    //             case LevelUpStatType.CastSpeed:
-    //                 player.castSpeed += stat.value;
-    //                 if (debugMode) Debug.Log($"Cast Speed increased from {player.castSpeed - stat.value} to {player.castSpeed}");
-    //                 break;
-                    
-    //             case LevelUpStatType.CastStrength:
-    //                 player.castStrength += stat.value;
-    //                 if (debugMode) Debug.Log($"Cast Strength increased from {player.castStrength- stat.value} to {player.castStrength}");
-    //                 break;
-                    
-    //             case LevelUpStatType.SpellLevel:
-    //                 if (stat.LevelUpSpellLevelBonus != null)
-    //                 {
-    //                     // Upgrade the specific spell
-    //                     for (int i = 0; i < stat.LevelUpSpellLevelBonus.levelBonus; i++)
-    //                     {
-    //                         Spell.UpgradeSpell(stat.LevelUpSpellLevelBonus.spell);
-    //                     }
-    //                     if (debugMode) Debug.Log($"Spell Bonus of {stat.LevelUpSpellLevelBonus.spell} increased by {stat.LevelUpSpellLevelBonus}");
-    //                 }
-    //                 break;
-    //         }
-    //     }
-    //     FindAnyObjectByType<UIManager>().updateStatTrackerUI();
-    //     player.UpdateUI();
-    // }
-
     private Color DetermineColor(StatRarity rarity)
     {
         switch(rarity)

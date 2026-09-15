@@ -20,7 +20,9 @@ public enum LevelUpStatType
     CastSpeed,
     CastStrength,
     SpellLevel,
-    DashStrength
+    DashCooldown,
+    DashStrength,
+    XpPullRange
 }
 
 public class LevelUpSpellLevelBonus
@@ -65,9 +67,11 @@ public class LevelUpStatDist // Needs Renaming. Class for individual stat contai
     {
         return type switch
         {
-            LevelUpStatType.CastSpeed => $"+{Mathf.Round(value * 100.00f) * 0.01f}% Cast Speed",
-            LevelUpStatType.CastStrength => $"+{Mathf.Round(value * 100.00f) * 0.01f}% Cast Strength",
-            LevelUpStatType.DashStrength => $"+{Mathf.Round(value * 100.00f) * 0.01f} Dash Strength",
+            LevelUpStatType.CastSpeed => $"+{value}% Cast Speed",
+            LevelUpStatType.CastStrength => $"+{value}% Cast Strength",
+            LevelUpStatType.DashStrength => $"+{value}% Dash Strength",
+            LevelUpStatType.DashCooldown => $"-{value}% Dash Cooldown",
+            LevelUpStatType.XpPullRange => $"+{value}% XP Pull Range",
             LevelUpStatType.SpellLevel => LevelUpSpellLevelBonus != null ? LevelUpSpellLevelBonus.ToString() : $"+{value} Spell Level",
             LevelUpStatType.Speed => $"+ {value} Speed",
             LevelUpStatType.Health => $"+{value} Health",
@@ -137,76 +141,85 @@ public static class LevelUpStatDefinitions
         { 
             StatRarity.Common, new Dictionary<LevelUpStatType, int>
             {
-                { LevelUpStatType.Speed,        25 },
-                { LevelUpStatType.Health,       25 },
-                { LevelUpStatType.DashStrength, 15 },
-                { LevelUpStatType.CastSpeed,    10 },
-                { LevelUpStatType.CastStrength, 15 },
-                { LevelUpStatType.SpellLevel,   10 },
-                
+                { LevelUpStatType.Speed,         24 },
+                { LevelUpStatType.Health,        20 },
+                { LevelUpStatType.XpPullRange,   14 },
+                { LevelUpStatType.DashStrength,  10 },
+                { LevelUpStatType.DashCooldown,  8  },
+                { LevelUpStatType.CastSpeed,     8  },
+                { LevelUpStatType.CastStrength,  8  },
+                { LevelUpStatType.SpellLevel,    8  }
             }
         },
         { 
             StatRarity.Uncommon, new Dictionary<LevelUpStatType, int>
             {
-                { LevelUpStatType.Speed,        20 },
-                { LevelUpStatType.Health,       20 },
-                { LevelUpStatType.DashStrength, 20 },
-                { LevelUpStatType.CastSpeed,    15 },
-                { LevelUpStatType.CastStrength, 15 },
-                { LevelUpStatType.SpellLevel,   10 }
+                { LevelUpStatType.Speed,         13 },
+                { LevelUpStatType.Health,        18 },
+                { LevelUpStatType.XpPullRange,   20 },
+                { LevelUpStatType.DashStrength,  16 },
+                { LevelUpStatType.DashCooldown,  11 },
+                { LevelUpStatType.CastSpeed,     8  },
+                { LevelUpStatType.CastStrength,  7  },
+                { LevelUpStatType.SpellLevel,    7  }
             }
         },
         { 
             StatRarity.Rare, new Dictionary<LevelUpStatType, int>
             {
-                { LevelUpStatType.Speed,        15 },
-                { LevelUpStatType.Health,       15 },
-                { LevelUpStatType.DashStrength, 20 },
-                { LevelUpStatType.CastSpeed,    15 },
-                { LevelUpStatType.CastStrength, 20 },
-                { LevelUpStatType.SpellLevel,   15 }
+                { LevelUpStatType.Speed,         7  },
+                { LevelUpStatType.Health,        10 },
+                { LevelUpStatType.XpPullRange,   14 },
+                { LevelUpStatType.DashStrength,  19 },
+                { LevelUpStatType.DashCooldown,  19 },
+                { LevelUpStatType.CastSpeed,     14 },
+                { LevelUpStatType.CastStrength,  10 },
+                { LevelUpStatType.SpellLevel,    7  }
             }
         },
         { 
             StatRarity.Epic, new Dictionary<LevelUpStatType, int>
             {
-                { LevelUpStatType.Speed,        10 },
-                { LevelUpStatType.Health,       10 },
-                { LevelUpStatType.DashStrength, 10 },
-                { LevelUpStatType.CastSpeed,    25 },
-                { LevelUpStatType.CastStrength, 25 },
-                { LevelUpStatType.SpellLevel,   20 }
+                { LevelUpStatType.Speed,         7  },
+                { LevelUpStatType.Health,        7  },
+                { LevelUpStatType.XpPullRange,   8  },
+                { LevelUpStatType.DashStrength,  11 },
+                { LevelUpStatType.DashCooldown,  16 },
+                { LevelUpStatType.CastSpeed,     20 },
+                { LevelUpStatType.CastStrength,  18 },
+                { LevelUpStatType.SpellLevel,    13 }
             }
         },
         { 
             StatRarity.Legendary, new Dictionary<LevelUpStatType, int>
             {
-                { LevelUpStatType.Speed,        5 },
-                { LevelUpStatType.Health,       5 },
-                { LevelUpStatType.DashStrength, 5 },
-                { LevelUpStatType.CastSpeed,    30 },
-                { LevelUpStatType.CastStrength, 25 },
-                { LevelUpStatType.SpellLevel,   30 }
+                { LevelUpStatType.Speed,         8  },
+                { LevelUpStatType.Health,        8  },
+                { LevelUpStatType.XpPullRange,   8  },
+                { LevelUpStatType.DashStrength,  8  },
+                { LevelUpStatType.DashCooldown,  10 },
+                { LevelUpStatType.CastSpeed,     14 },
+                { LevelUpStatType.CastStrength,  20 },
+                { LevelUpStatType.SpellLevel,    24 }
             }
         }
     };
 
     // Stat ranges by StatRarity and stat type
-    public static float GetStatValue(LevelUpStatType LevelUpStatType, StatRarity StatRarity)
+    public static float GetStatValue(LevelUpStatType statType, StatRarity rarity)
     {
-        return LevelUpStatType switch
+        return statType switch
         {
-            LevelUpStatType.Speed => StatRarity switch
+            LevelUpStatType.Speed => rarity switch
             {
-                StatRarity.Common =>    2f,
-                StatRarity.Uncommon =>  4f,
-                StatRarity.Rare =>      6f,
-                StatRarity.Epic =>      8f,
-                StatRarity.Legendary => 10f,
-                _ => 2f
+                StatRarity.Common =>    2,
+                StatRarity.Uncommon =>  4,
+                StatRarity.Rare =>      6,
+                StatRarity.Epic =>      8,
+                StatRarity.Legendary => 10,
+                _ => 2
             },
-            LevelUpStatType.Health => StatRarity switch
+            LevelUpStatType.Health => rarity switch
             {
                 StatRarity.Common =>    Random.Range(5, 15),
                 StatRarity.Uncommon =>  Random.Range(5, 25),
@@ -215,43 +228,61 @@ public static class LevelUpStatDefinitions
                 StatRarity.Legendary => Random.Range(30, 50),
                 _ => 5
             },
-            LevelUpStatType.DashStrength => StatRarity switch
+            LevelUpStatType.XpPullRange => rarity switch
             {
-                StatRarity.Common =>    Random.Range(0.5f, 1f),
-                StatRarity.Uncommon =>  Random.Range(1f, 2f),
-                StatRarity.Rare =>      Random.Range(2f, 3f),
-                StatRarity.Epic =>      Random.Range(3f, 5f),
-                StatRarity.Legendary => Random.Range(6f, 8f),
-                _ => 0.5f
+                StatRarity.Common =>    Random.Range(1, 5),
+                StatRarity.Uncommon =>  Random.Range(6, 10),
+                StatRarity.Rare =>      Random.Range(11, 15),
+                StatRarity.Epic =>      Random.Range(16, 20),
+                StatRarity.Legendary => Random.Range(21, 25),
+                _ => 5
             },
-            LevelUpStatType.CastSpeed => StatRarity switch
+            LevelUpStatType.DashStrength => rarity switch
             {
-                StatRarity.Common =>    Random.Range(0.01f, 0.05f),
-                StatRarity.Uncommon =>  Random.Range(0.06f, 0.10f),
-                StatRarity.Rare =>      Random.Range(0.11f, 0.15f),
-                StatRarity.Epic =>      Random.Range(0.16f, 0.20f),
-                StatRarity.Legendary => Random.Range(0.21f, 0.25f),
-                _ => 0.05f
+                StatRarity.Common =>    Random.Range(1, 5),
+                StatRarity.Uncommon =>  Random.Range(6, 10),
+                StatRarity.Rare =>      Random.Range(11, 15),
+                StatRarity.Epic =>      Random.Range(16, 20),
+                StatRarity.Legendary => Random.Range(21, 25),
+                _ => 5
             },
-            LevelUpStatType.CastStrength => StatRarity switch
+            LevelUpStatType.DashCooldown => rarity switch
             {
-                StatRarity.Common =>    Random.Range(0.01f, 0.05f),
-                StatRarity.Uncommon =>  Random.Range(0.06f, 0.10f),
-                StatRarity.Rare =>      Random.Range(0.11f, 0.20f),
-                StatRarity.Epic =>      Random.Range(0.21f, 0.30f),
-                StatRarity.Legendary => Random.Range(0.31f, 0.40f),
-                _ => 0.05f
+                StatRarity.Common =>    Random.Range(1, 2),
+                StatRarity.Uncommon =>  Random.Range(3, 4),
+                StatRarity.Rare =>      Random.Range(5, 6),
+                StatRarity.Epic =>      Random.Range(7, 8),
+                StatRarity.Legendary => Random.Range(9, 10),
+                _ => 5
             },
-            LevelUpStatType.SpellLevel => StatRarity switch
+            LevelUpStatType.CastSpeed => rarity switch
             {
-                StatRarity.Common => 1f,
-                StatRarity.Uncommon =>  1f,
-                StatRarity.Rare =>      Random.Range(1f, 2f) >= 1.5f ? 2f : 1f, // 50% chance for +2
-                StatRarity.Epic =>      Random.Range(1f, 2f) >= 1.5f ? 2f : 1f, // 50% chance for +2
-                StatRarity.Legendary => 2,
-                _ => 0f
+                StatRarity.Common =>    Random.Range(1, 5),
+                StatRarity.Uncommon =>  Random.Range(6, 10),
+                StatRarity.Rare =>      Random.Range(11, 15),
+                StatRarity.Epic =>      Random.Range(16, 20),
+                StatRarity.Legendary => Random.Range(21, 25),
+                _ => 5
             },
-            _ => 0f
+            LevelUpStatType.CastStrength => rarity switch
+            {
+                StatRarity.Common =>    Random.Range(1, 4),
+                StatRarity.Uncommon =>  Random.Range(5, 8),
+                StatRarity.Rare =>      Random.Range(9, 12),
+                StatRarity.Epic =>      Random.Range(13, 16),
+                StatRarity.Legendary => Random.Range(17, 20),
+                _ => 5
+            },
+            LevelUpStatType.SpellLevel => rarity switch
+            {
+                StatRarity.Common =>    1,
+                StatRarity.Uncommon =>  Random.Range(1f, 2f) >= 1.25f ? 2 : 1, // 25% chance for +2
+                StatRarity.Rare =>      Random.Range(1f, 2f) >= 1.5f  ? 2 : 1, // 50% chance for +2
+                StatRarity.Epic =>      Random.Range(1f, 2f) >= 1.75f ? 2 : 1, // 75% chance for +2
+                StatRarity.Legendary => Random.Range(1f, 2f) >= 1.5f  ? 2 : 3, // 50% chance for +3
+                _ => 0
+            },
+            _ => 0
         };
     }
 
