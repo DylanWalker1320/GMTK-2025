@@ -70,19 +70,19 @@ public class TooltipThreeUpgrades : Tooltip
                     message = $"<u><color=yellow>Invincibility Frames Increase</color></u>\n\n{playerMovement.invincibilityFrames} -> <color=yellow>{playerMovement.invincibilityFrames + threeUpgradeScreenReference.iFramesUpgradeIncrease}</color>\n";
                     break;
                 case ThreeUpgradeScreen.StatIncreaseType.CastSpeed:
-                    message = $"<u><color=yellow>Cast Speed Increase</color></u>\n\n{Math.Round(playerMovement.castSpeed, 2)} -> <color=yellow>{Math.Round(playerMovement.castSpeed + threeUpgradeScreenReference.castSpeedUpgradeIncrease, 2)}</color>\n";
+                    message = $"<u><color=yellow>Cast Speed Increase</color></u>\n\n{Math.Round(playerMovement.castSpeed * 100f, 2)}% -> <color=yellow>{Math.Round(playerMovement.castSpeed + threeUpgradeScreenReference.castSpeedUpgradeIncrease, 2) * 100f}%</color>\n";
                     break;
                 case ThreeUpgradeScreen.StatIncreaseType.CastStrength:
-                    message = $"<u><color=yellow>Cast Strength Increase</color></u>\n\n{Math.Round(playerMovement.castStrength, 2)} -> <color=yellow>{Math.Round(playerMovement.castStrength + threeUpgradeScreenReference.castStrengthUpgradeIncrease, 2)}</color>\n";
+                    message = $"<u><color=yellow>Cast Strength Increase</color></u>\n\n{Math.Round(playerMovement.castStrength * 100f, 2)}% -> <color=yellow>{Math.Round(playerMovement.castStrength + threeUpgradeScreenReference.castStrengthUpgradeIncrease, 2) * 100f}%</color>\n";
                     break;
                 case ThreeUpgradeScreen.StatIncreaseType.DashCooldown:
-                    message = $"<u><color=yellow>Dash Cooldown Decrease</color></u>\n\n{Math.Round(playerMovement.dashCooldown, 2)} -> <color=yellow>{Math.Round(Mathf.Max(0.1f, playerMovement.dashCooldown - threeUpgradeScreenReference.dashCooldownUpgradeIncrease / 100f), 2)}</color>\n";
+                    message = $"<u><color=yellow>Dash Cooldown Decrease</color></u>\n\n{Math.Round(playerMovement.dashCooldown, 2)} -> <color=yellow>{Math.Round(Mathf.Max(0.1f, playerMovement.dashCooldown - threeUpgradeScreenReference.dashCooldownUpgradeIncrease / 100f), 2)}</color>s\n";
                     break;
                 case ThreeUpgradeScreen.StatIncreaseType.DashStrength:
-                    message = $"<u><color=yellow>Dash Strength Increase</color></u>\n\n{Math.Round(playerMovement.dashStrength, 2)} -> <color=yellow>{Math.Round(playerMovement.dashStrength + PlayerMovement.baseDashStrength * threeUpgradeScreenReference.dashStrengthUpgradeIncrease / 100f, 2)}</color>\n";
+                    message = $"<u><color=yellow>Dash Strength Increase</color></u>\n\n{Math.Round(playerMovement.dashStrength / PlayerMovement.baseDashStrength * 100f, 2)}% -> <color=yellow>{Math.Round((playerMovement.dashStrength + PlayerMovement.baseDashStrength * threeUpgradeScreenReference.dashStrengthUpgradeIncrease / 100f) / PlayerMovement.baseDashStrength * 100f, 2)}%</color>\n";
                     break;
                 case ThreeUpgradeScreen.StatIncreaseType.XpPullRange:
-                    message = $"<u><color=yellow>XP Pull Range Increase</color></u>\n\n{Math.Round(playerMovement.xpParticleSystem.endRange, 2)} -> <color=yellow>{Math.Round(playerMovement.xpParticleSystem.endRange + PlayerMovement.baseXpPullRange * threeUpgradeScreenReference.xpPullRangeUpgradeIncrease / 100f, 2)}</color>\n";
+                    message = $"<u><color=yellow>XP Pull Range Increase</color></u>\n\n{Math.Round(playerMovement.xpParticleSystem.endRange / PlayerMovement.baseXpPullRange * 100f, 2)}% -> <color=yellow>{Math.Round((playerMovement.xpParticleSystem.endRange + PlayerMovement.baseXpPullRange * threeUpgradeScreenReference.xpPullRangeUpgradeIncrease / 100f) / PlayerMovement.baseXpPullRange * 100f, 2)}%</color>\n";
                     break;
                 default:
                     Debug.LogError("Invalid upgrade index for stats.");

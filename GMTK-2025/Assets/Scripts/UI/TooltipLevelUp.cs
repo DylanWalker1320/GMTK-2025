@@ -74,19 +74,19 @@ public class TooltipLevelUp : Tooltip
                     message += $"Health: {player.maxHealth} -> <color={messageColor}>{player.maxHealth + stat.value}</color>\n";
                     break;
                 case LevelUpStatType.DashStrength:
-                    message += $"Dash Strength: {Math.Round(player.dashStrength, 2)} -> <color={messageColor}>{Math.Round(player.dashStrength + PlayerMovement.baseDashStrength * stat.value / 100f, 2)}</color>\n";
+                    message += $"Dash Strength: {Math.Round(player.dashStrength, 2) / PlayerMovement.baseDashStrength * 100f}% -> <color={messageColor}>{Math.Round((player.dashStrength + PlayerMovement.baseDashStrength * stat.value / 100f) / PlayerMovement.baseDashStrength * 100f, 2)}%</color>\n";
                     break;
                 case LevelUpStatType.CastSpeed:
-                    message += $"Cast Speed: {Math.Round(player.castSpeed, 2)} -> <color={messageColor}>{Math.Round(player.castSpeed + stat.value / 100f, 2)}</color>\n";
+                    message += $"Cast Speed: {Math.Round(player.castSpeed, 2) * 100f}% -> <color={messageColor}>{Math.Round(player.castSpeed * 100f + stat.value, 2)}%</color>\n";
                     break;
                 case LevelUpStatType.CastStrength:
-                    message += $"Cast Strength: {Math.Round(player.castStrength, 2)} -> <color={messageColor}>{Math.Round(player.castStrength + stat.value / 100f, 2)}</color>\n";
+                    message += $"Cast Strength: {Math.Round(player.castStrength, 2) * 100f}% -> <color={messageColor}>{Math.Round(player.castStrength * 100f + stat.value, 2)}%</color>\n";
                     break;
                 case LevelUpStatType.DashCooldown:
-                    message += $"Dash Cooldown: {Math.Round(player.dashCooldown, 2)} -> <color={messageColor}>{Math.Round(Mathf.Max(0.1f, player.dashCooldown - stat.value / 100f), 2)}</color>\n";
+                    message += $"Dash Cooldown: {Math.Round(player.dashCooldown, 2)} -> <color={messageColor}>{Math.Round(Mathf.Max(0.1f, player.dashCooldown - stat.value / 100f), 2)}</color>s\n";
                     break;
                 case LevelUpStatType.XpPullRange:
-                    message += $"XP Pull Range: {Math.Round(player.xpParticleSystem.endRange, 2)} -> <color={messageColor}>{Math.Round(player.xpParticleSystem.endRange + PlayerMovement.baseXpPullRange * stat.value / 100f, 2)}</color>\n";
+                    message += $"XP Pull Range: {Math.Round(player.xpParticleSystem.endRange, 2) / PlayerMovement.baseXpPullRange * 100f}% -> <color={messageColor}>{Math.Round((player.xpParticleSystem.endRange + PlayerMovement.baseXpPullRange * stat.value / 100f) / PlayerMovement.baseXpPullRange * 100f, 2)}%</color>\n";
                     break;
                 case LevelUpStatType.SpellLevel:
                     if (stat.LevelUpSpellLevelBonus != null)
