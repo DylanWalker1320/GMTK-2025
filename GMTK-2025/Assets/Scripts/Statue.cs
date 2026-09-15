@@ -14,6 +14,7 @@ public class Statue : MonoBehaviour
     [SerializeField] private float proximityDistance = 3f;
     [SerializeField] private KeyCode interactKey = KeyCode.E;
     [SerializeField] private UIManager uiManager;
+    private AudioManager audioManager;
     private string dialogueLine;
     private bool isTyping = false;
     private bool playerInRange = false;
@@ -59,6 +60,8 @@ public class Statue : MonoBehaviour
         canvas.SetActive(false);
         price = basePrice;
 
+        audioManager = FindFirstObjectByType<AudioManager>();
+
         UpdatePrice(); // Initialize the dialogue line with the starting price
 
         if (player == null)
@@ -83,7 +86,6 @@ public class Statue : MonoBehaviour
         if (playerInRange && !hasTriggered)
         {
             TypeDialogue(dialogueLine);
-            FindAnyObjectByType<AudioManager>().Play("DISPLAYMESSAGE");
             hasTriggered = true;
         }
 
@@ -129,7 +131,6 @@ public class Statue : MonoBehaviour
             hasTriggered = false;
             canvas.SetActive(false);
             dialogueText.text = string.Empty;
-            FindAnyObjectByType<AudioManager>().StopLoop("DISPLAYMESSAGE");
 
             StopAllCoroutines();
         }
@@ -160,6 +161,7 @@ public class Statue : MonoBehaviour
         isTyping = true;
         dialogueText.text = "";
         canvas.SetActive(true);
+        audioManager.Play("DISPLAYMESSAGE");
         
         foreach (char letter in line.ToCharArray())
         {
@@ -178,6 +180,7 @@ public class Statue : MonoBehaviour
             
             yield return new WaitForSeconds(textSpeed);
         }
+        audioManager.StopLoop("DISPLAYMESSAGE");
         isTyping = false;
     }
 }
