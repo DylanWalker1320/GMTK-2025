@@ -26,6 +26,7 @@ public class Statue : MonoBehaviour
     private int playerSouls;
     public static bool isFirstOpen = true; // Flag to check if it's the first time opening the UI PER refresh room visit (Stat shop only)
     public static float statsBought = 0f; 
+    private static int hatsBought = 0;
 
     [SerializeField]private TextMeshProUGUI dialogueText;
 
@@ -85,16 +86,17 @@ public class Statue : MonoBehaviour
             switch (statueType)
             {
                 case StatueType.Hat:
-                    uiManager.SetActiveScrollUI();
-
                     playerSouls = player.GetComponent<PlayerMovement>()?.souls ?? 0; // Get player's current souls
                     if (playerSouls >= price)
                     {
-                        playerSouls -= price; // Deduct souls from player
+                        // Update player's soul count
+                        playerSouls -= price;
                         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-                        playerMovement.souls = playerSouls; // Update player's soul count
-                        playerMovement.UpdateUI(); // Update UI to reflect new soul count
-                        price = price + (int)(price * priceIncreaseRate); // Increase price for next purchase
+                        playerMovement.souls = playerSouls; 
+                        playerMovement.UpdateUI(); 
+
+                        price = (int)(5 * Mathf.Pow(hatsBought + 1, 2f) + basePrice); // Increase price for next purchase according to (5 * (hatsBought + 1)^2 + 100)
+                        hatsBought++;
                         uiManager.SetActiveScrollUI();
 
                         UpdatePrice(); // Update the dialogue text with the new price
