@@ -43,19 +43,24 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
         {
             string output = "";
             StatPanel panel = panels[i];
+            
             GeneratedStat statData = LevelUpStatsGenerator.GenerateStats("Default Stat");
+
+            // List<HatStat> stats = new List<HatStat>();
+            // stats = HatStatsGenerator.GenerateHatStats(HatStatsGenerator.GenerateRarity(), 1);
 
             statGenerator.Initialize(statData, i, true);
             
             rerollText.text = rerollCost.ToString();
             panels[i].button.interactable = true;
-            panel.soulCost = LevelUpStatDefinitions.StatSoulCost[statData.statRarity];
+            panel.soulCost = (int)(LevelUpStatDefinitions.BaseStatSoulCost[statData.statRarity] * Mathf.Pow(Statue.statsBought + 1, 1.5f));
+            Debug.Log($"Stat Rarity: {statData.statRarity}, Base Cost: {LevelUpStatDefinitions.BaseStatSoulCost[statData.statRarity]}, Stats Bought: {Statue.statsBought}, Calculated Cost: {panel.soulCost}");
             panel.costText.text = panel.soulCost.ToString();
             panel.rarityText.text = statGenerator.statData.statName; // stat name already set to rarity
             panel.boxSprite.color = DetermineColor(statData.statRarity);
             panel.rarityText.color = DetermineColor(statData.statRarity);
 
-             foreach (var stat in statGenerator.statData.stats)
+            foreach (var stat in statGenerator.statData.stats)
             {
                 output += $"{stat}\n";
             }
@@ -91,40 +96,28 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
 
     public void SlotOne()
     {
-        if(player.souls - panels[0].soulCost >= 0)
-        {
-            TurnButtonOff(0);
-            player.souls -= panels[0].soulCost;
-            statGenerator.ApplyStats(0);
-            Statue.TogglePurchaseAvailability(true);
-            Exit();
-            
-        }
-        
+        BuyStat(0);
     }
 
     public void SlotTwo()
     {
-        if(player.souls - panels[1].soulCost >= 0)
-        {
-            TurnButtonOff(1);
-            player.souls -= panels[1].soulCost;
-            statGenerator.ApplyStats(1);
-            Statue.TogglePurchaseAvailability(true);
-            Exit();
-        }    
+        BuyStat(1);
     }
 
     public void SlotThree()
     {
-        if(player.souls - panels[2].soulCost >= 0)
+        BuyStat(2);
+    }
+
+    void BuyStat(int index)
+    {
+        if(player.souls - panels[index].soulCost >= 0)
         {
-            TurnButtonOff(2);
-            player.souls -= panels[2].soulCost;
-            statGenerator.ApplyStats(2);
-            Statue.TogglePurchaseAvailability(true);
-            Exit();
-        }     
+            TurnButtonOff(index);
+            player.souls -= panels[index].soulCost;
+            statGenerator.ApplyStats(index);
+            Statue.IncreaseStatsBought();
+        }
     }
 
     public void Exit()

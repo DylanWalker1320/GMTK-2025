@@ -10,6 +10,7 @@ public class BossProjectile : MonoBehaviour
     private static GameObject player;
     
     private Rigidbody2D rb;
+    private Animator animator;
 
     private enum State
     {
@@ -21,6 +22,7 @@ public class BossProjectile : MonoBehaviour
     {
         currentState = State.Idle;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         if (player == null)
         {
@@ -46,7 +48,12 @@ public class BossProjectile : MonoBehaviour
 
         // Set direction here so it doesn't change every frame, also lets the projectile continue moving in the same direction past the target
         Vector2 direction = (target - (Vector2)transform.position).normalized; 
+        animator.SetTrigger("Tracking");
         rb.linearVelocity = direction * speed * 2; // Move faster in Tracking state
+
+        // Rotate the projectile so that the up direction points towards the target
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
 
         Destroy(gameObject, 5f);
     }

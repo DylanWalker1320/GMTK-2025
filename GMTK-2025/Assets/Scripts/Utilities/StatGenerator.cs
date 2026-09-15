@@ -40,19 +40,29 @@ public class StatGenerator : Stats
                     player.maxHealth += stat.value;
                     if (debugMode) Debug.Log($"Max Health increased from {player.maxHealth - stat.value} to {player.maxHealth}");
                     break;
+                
+                case LevelUpStatType.XpPullRange:
+                    player.xpParticleSystem.endRange += PlayerMovement.baseXpPullRange * stat.value / 100f;
+                    if (debugMode) Debug.Log($"XP Pull Range increased from {player.xpParticleSystem.endRange - PlayerMovement.baseXpPullRange * stat.value / 100f} to {player.xpParticleSystem.endRange}");
+                    break;
+                
+                case LevelUpStatType.DashCooldown:
+                    player.dashCooldown = Mathf.Max(0.1f, player.dashCooldown - stat.value / 100f); // Ensure cooldown doesn't go below 0.1 seconds
+                    if (debugMode) Debug.Log($"Dash Cooldown decreased from {player.dashCooldown + stat.value / 100f} to {player.dashCooldown}");
+                    break;
 
                 case LevelUpStatType.DashStrength:
-                    player.dashStrength += stat.value;
+                    player.dashStrength += PlayerMovement.baseDashStrength * stat.value / 100f;
                     if (debugMode) Debug.Log($"Dash Strength increased from {player.dashStrength - stat.value} to {player.dashStrength}");
                     break;
                     
                 case LevelUpStatType.CastSpeed:
-                    player.castSpeed += stat.value;
+                    player.castSpeed += stat.value / 100f;
                     if (debugMode) Debug.Log($"Cast Speed increased from {player.castSpeed - stat.value} to {player.castSpeed}");
                     break;
                     
                 case LevelUpStatType.CastStrength:
-                    player.castStrength += stat.value;
+                    player.castStrength += stat.value / 100f;
                     if (debugMode) Debug.Log($"Cast Strength increased from {player.castStrength- stat.value} to {player.castStrength}");
                     break;
                     

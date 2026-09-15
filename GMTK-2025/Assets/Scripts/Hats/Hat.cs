@@ -15,10 +15,13 @@ public class Hat : MonoBehaviour
     public static readonly float initialYOffset = 0.52f;
     private static GameObject player;
     private bool isFirstHat => hatNumber == 0;
-    private Rigidbody2D playerRb;
+    private static Rigidbody2D playerRb;
+    private static PlayerMovement playerMovement;
     private HatComponentManager spriteLayerUpdater;
     public GameObject hatVisuals;
     public GameObject hatShadow;
+
+    private bool isInitialized = false;
 
     void Start()
     {
@@ -27,10 +30,12 @@ public class Hat : MonoBehaviour
         spriteLayerUpdater.UpdateSpriteLayers();
     }
 
-    void Update()
+    void InitializeVars()
     {
-        if (playerHat) // Could be replaced with a return, left as an if for posterity
-        {     
+        if (isInitialized) return;
+
+        if (playerHat)
+        {
             if (player == null)
             {
                 player = GameObject.FindGameObjectWithTag("Player");
@@ -40,6 +45,21 @@ public class Hat : MonoBehaviour
             {
                 playerRb = player.GetComponent<Rigidbody2D>();
             }
+
+            if (playerMovement == null)
+            {
+                playerMovement = player.GetComponent<PlayerMovement>();
+            }
+        }
+
+        isInitialized = true;
+    }
+
+    void Update()
+    {
+        if (playerHat) // Could be replaced with a return, left as an if for posterity
+        {     
+            InitializeVars(); // Ensure initialization is done before accessing player vars
 
             // Get the speed of the player
             float playerSpeed = playerRb.linearVelocity.magnitude;
@@ -61,7 +81,6 @@ public class Hat : MonoBehaviour
             }
 
             // Flip the player to face the movement direction
-            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
             hatVisuals.transform.localScale = new Vector3(playerMovement.facingRight ? -1 : 1, 1, 1);
             hatShadow.transform.localScale = new Vector3(playerMovement.facingRight ? -1 : 1, 1, 1);
         }
@@ -116,12 +135,24 @@ public class Hat : MonoBehaviour
                     player.maxHealth += stat.value;
                     break;
 
+                case StatType.XpPullRange:
+                    player.xpParticleSystem.endRange += PlayerMovement.baseXpPullRange * stat.value / 100f;
+                    break;
+
+                case StatType.DashStrength:
+                    player.dashStrength += PlayerMovement.baseDashStrength * stat.value / 100f;
+                    break;
+
+                case StatType.DashCooldown:
+                    player.dashCooldown = Mathf.Max(0.1f, player.dashCooldown - stat.value / 100f); // Ensure cooldown doesn't go below 0.1 seconds
+                    break;
+
                 case StatType.CastSpeed:
-                    player.castSpeed += stat.value;
+                    player.castSpeed += stat.value / 100f;
                     break;
 
                 case StatType.CastStrength:
-                    player.castStrength += stat.value;
+                    player.castStrength += stat.value / 100f;
                     break;
 
                 case StatType.SpellLevel:

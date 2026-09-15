@@ -40,6 +40,12 @@ public static class HatStatsGenerator
         isInitialized = true;
     }
 
+    public static Rarity GenerateRarity()
+    {
+        EnsureInitialized();
+        return rarityWeights.Next();
+    }
+
     public static GeneratedHat GenerateHatStats(string hatName = "Hat")
     {
         EnsureInitialized();
@@ -72,23 +78,21 @@ public static class HatStatsGenerator
                 if (attempts > 50) break; // Prevent infinite loop
             } while (usedStats.Contains(statType));
 
-            if (!usedStats.Contains(statType))
+            // Stat is unique, add it to the list
+            usedStats.Add(statType);
+            
+            // Special handling for spell level stats
+            if (statType == StatType.SpellLevel)
             {
-                usedStats.Add(statType);
-                
-                // Special handling for spell level stats
-                if (statType == StatType.SpellLevel)
-                {
-                    int levelBonus = (int)HatStatDefinitions.GetStatValue(statType, rarity);
-                    Spell.Spells randomSpell = HatStatDefinitions.GetRandomSpell();
-                    SpellLevelBonus spellBonus = new SpellLevelBonus(randomSpell, levelBonus);
-                    stats.Add(new HatStat(StatType.SpellLevel, spellBonus));
-                }
-                else
-                {
-                    float value = HatStatDefinitions.GetStatValue(statType, rarity);
-                    stats.Add(new HatStat(statType, value));
-                }
+                int levelBonus = (int)HatStatDefinitions.GetStatValue(statType, rarity);
+                Spell.Spells randomSpell = HatStatDefinitions.GetRandomSpell();
+                SpellLevelBonus spellBonus = new SpellLevelBonus(randomSpell, levelBonus);
+                stats.Add(new HatStat(StatType.SpellLevel, spellBonus));
+            }
+            else
+            {
+                float value = HatStatDefinitions.GetStatValue(statType, rarity);
+                stats.Add(new HatStat(statType, value));
             }
         }
 

@@ -19,12 +19,14 @@ Epic: 3
 Legendary: 4
 
 Hat Stat Weighting by Rarity (%):
-               | Common | Uncommon | Rare | Epic | Legendary |
-Speed:         |   0.3  |   0.25   | 0.2  | 0.2  |    0.1    |
-Health:        |   0.3  |   0.25   | 0.2  | 0.2  |    0.1    |
-Cast Speed:    |   0.2  |   0.2    | 0.25 | 0.2  |    0.2    |
-Cast Strength: |   0.2  |   0.25   | 0.25 | 0.2  |    0.2    |
-Spell Level:   |    0   |   0.05   | 0.1  | 0.2  |    0.4    |
+                 | Common | Uncommon | Rare | Epic | Legendary |
+Speed:           |  0.36  |   0.17   | 0.05 | 0.03 |   0.03    |
+Health:          |  0.29  |   0.25   | 0.12 | 0.04 |   0.03    |
+Dash Strength:   |  0.17  |   0.25   | 0.21 | 0.09 |   0.04    |
+Dash Cooldown:   |  0.08  |   0.17   | 0.24 | 0.17 |   0.08    |
+Cast Speed:      |  0.04  |   0.09   | 0.21 | 0.25 |   0.17    |
+Cast Strength:   |  0.03  |   0.04   | 0.12 | 0.25 |   0.29    |
+Spell Level:     |  0.03  |   0.03   | 0.05 | 0.17 |   0.36    |
 
 Hat Stat Ranges by Rarity:
                | Common | Uncommon |  Rare  |  Epic  | Legendary |
@@ -51,9 +53,12 @@ public enum StatType
 {
     Speed,
     Health,
+    XpPullRange,
     CastSpeed,
     CastStrength,
-    SpellLevel
+    SpellLevel,
+    DashStrength,
+    DashCooldown
 }
 
 // ===== Data Classes =====
@@ -70,11 +75,14 @@ public class HatColors
 
     private static readonly Dictionary<StatType, Color> StatTypeColors = new()
     {
-        { StatType.Speed,    ColorUtility.TryParseHtmlString("#fff201", out Color commonColor) ? commonColor : Color.yellow },
-        { StatType.Health,  ColorUtility.TryParseHtmlString("#00FF00", out Color uncommonColor) ? uncommonColor : Color.green },
-        { StatType.CastSpeed,      ColorUtility.TryParseHtmlString("#3c3cff", out Color rareColor) ? rareColor : Color.blue },
-        { StatType.CastStrength,      ColorUtility.TryParseHtmlString("#ff0000", out Color epicColor) ? epicColor : Color.magenta },
-        { StatType.SpellLevel, ColorUtility.TryParseHtmlString("#ff2ed5", out Color legendaryColor) ? legendaryColor : new Color(1f, 0.65f, 0f) }
+        { StatType.Speed,        ColorUtility.TryParseHtmlString("#fff201", out Color speedColor) ? speedColor : Color.yellow },
+        { StatType.Health,       ColorUtility.TryParseHtmlString("#00FF00", out Color healthColor) ? healthColor : Color.green },
+        { StatType.XpPullRange,  ColorUtility.TryParseHtmlString("#c3ff00", out Color xpPullRangeColor) ? xpPullRangeColor : Color.green },
+        { StatType.CastSpeed,    ColorUtility.TryParseHtmlString("#3c3cff", out Color castSpeedColor) ? castSpeedColor : Color.blue },
+        { StatType.CastStrength, ColorUtility.TryParseHtmlString("#ff0000", out Color castStrengthColor) ? castStrengthColor : Color.red },
+        { StatType.SpellLevel,   ColorUtility.TryParseHtmlString("#ff2ed5", out Color spellLevelColor) ? spellLevelColor : Color.magenta },
+        { StatType.DashStrength, ColorUtility.TryParseHtmlString("#3ff8e2", out Color dashStrengthColor) ? dashStrengthColor : Color.cyan },
+        { StatType.DashCooldown, ColorUtility.TryParseHtmlString("#ff6f00", out Color dashCooldownColor) ? dashCooldownColor : new Color(1f, 0.43f, 0f) }
     };
 
     public static Color GetRarityColor(Rarity rarity)
@@ -131,11 +139,14 @@ public class HatStat
     {
         return type switch
         {
-            StatType.CastSpeed => $"+{value * 100:F0}% Cast Speed",
-            StatType.CastStrength => $"+{value * 100:F0}% Cast Strength",
+            StatType.CastSpeed => $"+{value}% Cast Speed",
+            StatType.CastStrength => $"+{value}% Cast Strength",
             StatType.SpellLevel => spellBonus != null ? spellBonus.ToString() : $"+{value} Spell Level",
             StatType.Speed => $"+{value} Speed",
             StatType.Health => $"+{value} Health",
+            StatType.XpPullRange => $"+{value}% Xp Pull Range",
+            StatType.DashStrength => $"+{value}% Dash Strength",
+            StatType.DashCooldown => $"-{value}% Dash Cooldown",
             _ => $"{type}: {value}"
         };
     }
@@ -211,69 +222,86 @@ public static class HatStatDefinitions
     public static readonly Dictionary<Rarity, Dictionary<StatType, int>> StatWeightsByRarity = new()
     {
         { 
+            // Stats are ordered by their relative strength. Weight is distributed roughly as a normal curve centred on a middle stat for that rarity tier.
             Rarity.Common, new Dictionary<StatType, int>
             {
-                { StatType.Speed,        30 },
-                { StatType.Health,       30 },
-                { StatType.CastSpeed,    20 },
-                { StatType.CastStrength, 20 }
+                { StatType.Speed,         35 },
+                { StatType.Health,        28 },
+                { StatType.XpPullRange,   16 },
+                { StatType.DashStrength,  8  },
+                { StatType.DashCooldown,  4  },
+                { StatType.CastSpeed,     3  },
+                { StatType.CastStrength,  3  },
+                { StatType.SpellLevel,    3  }
             }
         },
         { 
             Rarity.Uncommon, new Dictionary<StatType, int>
             {
-                { StatType.Speed,        25 },
-                { StatType.Health,       25 },
-                { StatType.CastSpeed,    20 },
-                { StatType.CastStrength, 25 },
-                { StatType.SpellLevel,   5  }
+                { StatType.Speed,         14 },
+                { StatType.Health,        23 },
+                { StatType.XpPullRange,   25 },
+                { StatType.DashStrength,  19 },
+                { StatType.DashCooldown,  10 },
+                { StatType.CastSpeed,     4  },
+                { StatType.CastStrength,  3  },
+                { StatType.SpellLevel,    2  }
             }
         },
         { 
             Rarity.Rare, new Dictionary<StatType, int>
             {
-                { StatType.Speed,        20 },
-                { StatType.Health,       20 },
-                { StatType.CastSpeed,    25 },
-                { StatType.CastStrength, 25 },
-                { StatType.SpellLevel,   10 }
+                { StatType.Speed,         3  },
+                { StatType.Health,        8  },
+                { StatType.XpPullRange,   16 },
+                { StatType.DashStrength,  23 },
+                { StatType.DashCooldown,  23 },
+                { StatType.CastSpeed,     16 },
+                { StatType.CastStrength,  8  },
+                { StatType.SpellLevel,    3  }
             }
         },
         { 
             Rarity.Epic, new Dictionary<StatType, int>
             {
-                { StatType.Speed,        20 },
-                { StatType.Health,       20 },
-                { StatType.CastSpeed,    20 },
-                { StatType.CastStrength, 20 },
-                { StatType.SpellLevel,   20 }
+                { StatType.Speed,         2  },
+                { StatType.Health,        3  },
+                { StatType.XpPullRange,   4  },
+                { StatType.DashStrength,  10 },
+                { StatType.DashCooldown,  19 },
+                { StatType.CastSpeed,     25 },
+                { StatType.CastStrength,  23 },
+                { StatType.SpellLevel,    14 }
             }
         },
         { 
             Rarity.Legendary, new Dictionary<StatType, int>
             {
-                { StatType.Speed,        10 },
-                { StatType.Health,       10 },
-                { StatType.CastSpeed,    20 },
-                { StatType.CastStrength, 20 },
-                { StatType.SpellLevel,   40 }
+                { StatType.Speed,         3  },
+                { StatType.Health,        3  },
+                { StatType.XpPullRange,   3  },
+                { StatType.DashStrength,  4  },
+                { StatType.DashCooldown,  8  },
+                { StatType.CastSpeed,     16 },
+                { StatType.CastStrength,  28 },
+                { StatType.SpellLevel,    35 }
             }
         }
     };
 
     // Stat ranges by rarity and stat type
-    public static float GetStatValue(StatType statType, Rarity rarity)
+    public static int GetStatValue(StatType statType, Rarity rarity)
     {
         return statType switch
         {
             StatType.Speed => rarity switch
             {
-                Rarity.Common =>    2f,
-                Rarity.Uncommon =>  4f,
-                Rarity.Rare =>      6f,
-                Rarity.Epic =>      8f,
-                Rarity.Legendary => 10f,
-                _ => 2f
+                Rarity.Common =>    2,
+                Rarity.Uncommon =>  4,
+                Rarity.Rare =>      6,
+                Rarity.Epic =>      8,
+                Rarity.Legendary => 10,
+                _ => 2
             },
             StatType.Health => rarity switch
             {
@@ -284,33 +312,61 @@ public static class HatStatDefinitions
                 Rarity.Legendary => Random.Range(30, 50),
                 _ => 5
             },
+            StatType.XpPullRange => rarity switch
+            {
+                Rarity.Common =>    Random.Range(1, 5),
+                Rarity.Uncommon =>  Random.Range(6, 10),
+                Rarity.Rare =>      Random.Range(11, 15),
+                Rarity.Epic =>      Random.Range(16, 20),
+                Rarity.Legendary => Random.Range(21, 25),
+                _ => 5
+            },
+            StatType.DashStrength => rarity switch
+            {
+                Rarity.Common =>    Random.Range(1, 5),
+                Rarity.Uncommon =>  Random.Range(6, 10),
+                Rarity.Rare =>      Random.Range(11, 15),
+                Rarity.Epic =>      Random.Range(16, 20),
+                Rarity.Legendary => Random.Range(21, 25),
+                _ => 5
+            },
+            StatType.DashCooldown => rarity switch
+            {
+                Rarity.Common =>    Random.Range(1, 2),
+                Rarity.Uncommon =>  Random.Range(3, 4),
+                Rarity.Rare =>      Random.Range(5, 6),
+                Rarity.Epic =>      Random.Range(7, 8),
+                Rarity.Legendary => Random.Range(9, 10),
+                _ => 5
+            },
             StatType.CastSpeed => rarity switch
             {
-                Rarity.Common =>    Random.Range(0.01f, 0.05f),
-                Rarity.Uncommon =>  Random.Range(0.06f, 0.10f),
-                Rarity.Rare =>      Random.Range(0.11f, 0.15f),
-                Rarity.Epic =>      Random.Range(0.16f, 0.20f),
-                Rarity.Legendary => Random.Range(0.21f, 0.25f),
-                _ => 0.05f
+                Rarity.Common =>    Random.Range(1, 5),
+                Rarity.Uncommon =>  Random.Range(6, 10),
+                Rarity.Rare =>      Random.Range(11, 15),
+                Rarity.Epic =>      Random.Range(16, 20),
+                Rarity.Legendary => Random.Range(21, 25),
+                _ => 5
             },
             StatType.CastStrength => rarity switch
             {
-                Rarity.Common =>    Random.Range(0.01f, 0.04f),
-                Rarity.Uncommon =>  Random.Range(0.05f, 0.8f),
-                Rarity.Rare =>      Random.Range(0.9f, 0.12f),
-                Rarity.Epic =>      Random.Range(0.13f, 0.16f),
-                Rarity.Legendary => Random.Range(0.17f, 0.20f),
-                _ => 0.05f
+                Rarity.Common =>    Random.Range(1, 4),
+                Rarity.Uncommon =>  Random.Range(5, 8),
+                Rarity.Rare =>      Random.Range(9, 12),
+                Rarity.Epic =>      Random.Range(13, 16),
+                Rarity.Legendary => Random.Range(17, 20),
+                _ => 5
             },
             StatType.SpellLevel => rarity switch
             {
-                Rarity.Uncommon =>  1f,
-                Rarity.Rare =>      Random.Range(1f, 2f) >= 1.5f ? 2f : 1f, // 50% chance for +2
-                Rarity.Epic =>      Random.Range(1f, 2f) >= 1.5f ? 2f : 1f, // 50% chance for +2
-                Rarity.Legendary => Random.Range(1, 4),                     // +1 to +3
-                _ => 0f
+                Rarity.Common =>    1,
+                Rarity.Uncommon =>  Random.Range(1f, 2f) >= 1.25f ? 2 : 1, // 25% chance for +2
+                Rarity.Rare =>      Random.Range(1f, 2f) >= 1.5f  ? 2 : 1, // 50% chance for +2
+                Rarity.Epic =>      Random.Range(1f, 2f) >= 1.75f ? 2 : 1, // 75% chance for +2
+                Rarity.Legendary => Random.Range(1f, 2f) >= 1.5f  ? 2 : 3, // 50% chance for +3
+                _ => 0
             },
-            _ => 0f
+            _ => 0
         };
     }
 

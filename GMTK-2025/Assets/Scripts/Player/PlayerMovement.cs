@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
@@ -16,9 +17,18 @@ public class PlayerMovement : MonoBehaviour
     public float castStrength;
     public float health;
     public float invincibilityFrames = 1; // Invincibility frames after taking damage
-    public float dashStrength; // Strength of the dash
+    public float dashStrength;
+    public float dashCooldown;
+    private bool canDash = true;
+
+    [Header("Base Stats")]
+
+    public static float baseDashStrength = -1; // Initialize to -1 to indicate it hasn't been set yet
+    public static float baseXpPullRange = -1;
+
     [Header("Currency")]
     public int souls;
+
     [Header("Experience")]
     public float experience;
     public float nextLevelExperience = 50f;
@@ -28,9 +38,12 @@ public class PlayerMovement : MonoBehaviour
     private float experiencePitchTimer = 0f;
     [SerializeField] private float experiencePitchChangeInterval = 0.5f;
     // public float experiencePerSoul = 1f; // could be used as a stat modifier where players gain more experience per soul collected
+
     [Header("UI Elements")]
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
+    [SerializeField] private Slider dashBar;
+    public ParticleSystemForceField xpParticleSystem; // Particle system for soul collection effect
     public Transform reticle; // Reference to the reticle script for aiming
     public UnityEvent<float, float> updateHealthUI;
     [Header("Movement/Animation")]
@@ -56,6 +69,9 @@ public class PlayerMovement : MonoBehaviour
         {
             _playerInput = GetComponent<PlayerInput>();
         }
+
+        if (baseDashStrength < 0) baseDashStrength = dashStrength; // Set base dash strength if not already set
+        if (baseXpPullRange < 0) baseXpPullRange = xpParticleSystem.endRange; // Set base XP pull range if not already set
 
         playerSprite = GetComponent<SpriteRenderer>();
         audioManager = FindFirstObjectByType<AudioManager>();
@@ -131,11 +147,29 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDash(InputValue value)
     {
+        if (!canDash) { return; }
+
+        canDash = false;
+        StartCoroutine(DashCooldown());
+
         if (value.isPressed && uiManager.isInUI == false)
         {
             // Dash
             rb.AddForce(movement * dashStrength, ForceMode2D.Impulse);
         }
+    }
+
+    private IEnumerator DashCooldown()
+    {
+        float remainingCooldown = dashCooldown;
+        while (remainingCooldown > 0f)
+        {
+            remainingCooldown = Mathf.Max(0f, remainingCooldown - Time.deltaTime);
+            dashBar.value = Mathf.Lerp(0f, 1f, (dashCooldown - remainingCooldown) / dashCooldown) * 100f;
+            yield return null;
+        }
+    
+        canDash = true;
     }
 
     public void GainExperience()
