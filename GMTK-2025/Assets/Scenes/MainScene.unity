@@ -19587,6 +19587,10 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[21].randomizePitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[31].randomizePitch
       value: 0
       objectReference: {fileID: 0}
@@ -19629,6 +19633,14 @@ PrefabInstance:
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[41].randomizePitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[21].minMaxPitchRange.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
+      propertyPath: sounds.Array.data[21].minMaxPitchRange.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 63924965181390442, guid: 129674bec06e0e44aa9f8812243dfaed, type: 3}
       propertyPath: sounds.Array.data[31].minMaxPitchRange.x
@@ -51306,10 +51318,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7755950533362319299, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6268308747139263639, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: m_Value
       value: 100
@@ -51358,6 +51366,14 @@ PrefabInstance:
       propertyPath: 'spellArray.Array.data[7]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7755950533362319299, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755950533362319299, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7855282279253663214, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -51373,10 +51389,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5260077521039991811, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       insertIndex: 1
       addedObject: {fileID: 1841757495}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 551384267470797963, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8037631174228268750}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
 --- !u!114 &8037631174228268738 stripped
 MonoBehaviour:
