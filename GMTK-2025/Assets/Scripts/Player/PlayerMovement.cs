@@ -191,8 +191,9 @@ public class PlayerMovement : MonoBehaviour
         experience += 1;
         souls += 1;
 
-        SpawnSoulNumber();
+        GameResultsTracker._instance.IncrementSoulsEarned();
 
+        SpawnSoulNumber();
 
         if (experience >= nextLevelExperience)
         {
@@ -203,6 +204,7 @@ public class PlayerMovement : MonoBehaviour
             audioManager.Play("LevelUp!");
             FindAnyObjectByType<UIManager>().SetActiveScrollUI();
         }
+        
         uiManager.UpdateExperienceUI(experience, nextLevelExperience, level, souls);
         
     }
@@ -338,6 +340,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Die()
     {
+        Time.timeScale = 0f;
+
+        // Record Information for Game Results Tracker
+        GameResultsTracker._instance.RecordFinalPlayerStats(level, (int)maxHealth, (int)maxSpeed, castStrength, castSpeed, dashStrength, xpParticleSystem.endRange);
+        GameResultsTracker._instance.ActivateResultsMenu();
+
         // Handle enemy death (e.g., play animation, destroy object)
         Destroy(gameObject);
     }
