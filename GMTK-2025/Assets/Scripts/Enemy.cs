@@ -77,9 +77,9 @@ abstract public class Enemy : MonoBehaviour
         agent.updateUpAxis = false;
         agent.updateRotation = false;
          
-        stats.health = stats.health * (1f + healthScalar * gameManager.wavesCompleted);
-        stats.damage = stats.damage * (1f + damageScalar * gameManager.wavesCompleted);
-        stats.speed  = stats.speed  * (1f + speedScalar  * gameManager.wavesCompleted);
+        stats.health = stats.health * (1f + healthScalar * (gameManager.wavesCompleted + gameManager.loopsCompleted * 4));
+        stats.damage = stats.damage * (1f + damageScalar * (gameManager.wavesCompleted + gameManager.loopsCompleted * 4));
+        stats.speed  = stats.speed  * (1f + speedScalar  * (gameManager.wavesCompleted + gameManager.loopsCompleted * 4));
 
         stats.maxHealth = stats.health; // Set max health to the initial health value
 
