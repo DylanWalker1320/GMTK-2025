@@ -1,12 +1,7 @@
-using System.Collections;
-using Microsoft.Unity.VisualStudio.Editor;
+using System.Linq;
 using UnityEngine;
 using TMPro;
-
-public class SpellEntryStats
-{
-    [SerializeField] private Image icon;
-}
+using System.Collections.Generic;
 
 public class GameResultsTracker : MonoBehaviour
 {
@@ -28,23 +23,8 @@ public class GameResultsTracker : MonoBehaviour
     [SerializeField] private float playercastSpeed = 1f;
     [SerializeField] private float playerdashStrength = 1f;
     [SerializeField] private float playerXPPullRange = 1f;
-    [Header("Spell Damage Stats")]
-    [SerializeField] private float fireBallSpellDamage = 0f;
-    [SerializeField] private float waterBallSpellDamage = 0f; 
-    [SerializeField] private float lightningDamage = 0f;
-    [SerializeField] private float darkDamage = 0f;
-    [SerializeField] private float explosiveShotDamage = 0f;
-    [SerializeField] private float steamVentDamage = 0f;
-    [SerializeField] private float fissureFlareDamage = 0f;
-    [SerializeField] private float ghostFlameDamage = 0f;
-    [SerializeField] private float waveDamage = 0f;
-    [SerializeField] private float chainLightningDamage = 0f;
-    [SerializeField] private float poisonPuddleDamage = 0f;
-    [SerializeField] private float stormDamage = 0f;
-    [SerializeField] private float blackFlashDamage = 0f;
-    [SerializeField] private float blackHoleDamage = 0f;
 
-    [Header("UI Elements")]
+    [Header("UI Elements/General")]
     [SerializeField] private GameObject resultsMenu;
     [SerializeField] private float menuTransitionTime;
     [SerializeField] TextMeshProUGUI timeSurvivedText;
@@ -53,6 +33,19 @@ public class GameResultsTracker : MonoBehaviour
     [SerializeField] TextMeshProUGUI loopsCompletedText;
     [SerializeField] TextMeshProUGUI soulsEarnedText;
     [SerializeField] TextMeshProUGUI playerStatsText;
+
+    [Header("UI Elements/Spell Damage")]
+    [SerializeField] Transform topFiveContainer;
+    [SerializeField] Transform generalSpellContainer;
+    [SerializeField] private TopDamageEntry topSpellDamageUIPrefab;
+    [SerializeField] private GameObject generalSpellDamagePrefab;
+
+    // Spell Damage Section Dictionaries
+
+    [SerializeField] private Dictionary<Spell.Spells, int> spellDamage = new();
+    [SerializeField] private Dictionary<Spell.Spells, Sprite> spellSprites = new();
+    [SerializeField] private Dictionary<Spell.Spells, Color> spellColors = new();
+
 
     private void Awake()
     {
@@ -115,6 +108,7 @@ public class GameResultsTracker : MonoBehaviour
 
     public void UpdateDisplay()
     {
+
         // Calculate Time
         int minutes = Mathf.FloorToInt(totalTimePlayed / 60f);
         int seconds = Mathf.FloorToInt(totalTimePlayed % 60f);
@@ -132,6 +126,39 @@ public class GameResultsTracker : MonoBehaviour
         
         // Results/Spell Damage
 
+            // Sort
+        List<KeyValuePair<Spell.Spells, int>> sortedSpellList = spellDamage.OrderByDescending(x => x.Value).ToList();
+        
+        int topFiveSpells = Mathf.Min(5, sortedSpellList.Count()); // Ensures there's a cap of 5 we iterate through
+        int highestDamage = sortedSpellList.Count > 0 ? sortedSpellList[0].Value : 0;
+
+        for (int i = 0; i < topFiveSpells; i++)
+        {
+            var currentSpellEntry = sortedSpellList[i];
+
+            float sliderPercentage = (float) currentSpellEntry.Value / highestDamage;
+
+            TopDamageEntry topEntry = Instantiate(topSpellDamageUIPrefab, topFiveContainer);
+            topEntry.Setup(spellSprites[currentSpellEntry.Key], currentSpellEntry.Value, sliderPercentage, spellColors[currentSpellEntry.Key], i);
+
+
+        }
+
+
+    }
+
+    public void RecordSpellDamage(Spell.Spells spell, float damage, Sprite sprite, Color color)
+    {
+        if(!spellDamage.ContainsKey(spell))
+        {
+            spellDamage.Add(spell, 0);
+
+            // If anything, we could definitely add the sprites and colors to the spellDamage dictionary but... its troublesome atm lol
+            spellSprites.Add(spell, sprite);
+            spellColors.Add(spell, color);
+        }
+
+        spellDamage[spell] += (int) damage;
     }
 
     public void IncrementSoulsEarned()

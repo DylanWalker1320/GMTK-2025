@@ -105,6 +105,7 @@ MonoBehaviour:
   destroyTime: 1
   damage: 25
   speed: 0
+  spell: 11
   spellType1: 2
   spellType2: 2
   markupColor: orange

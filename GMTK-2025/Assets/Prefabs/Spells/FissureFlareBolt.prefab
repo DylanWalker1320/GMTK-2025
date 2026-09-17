@@ -129,11 +129,12 @@ MonoBehaviour:
   destroyTime: 2
   damage: 5
   speed: 10
+  spell: 6
   spellType1: 0
   spellType2: 2
   markupColor: N/A
   damageColor: {r: 1, g: 0.039215688, b: 0, a: 1}
-  spellSprite: {fileID: 0}
+  spellSprite: {fileID: 5364457908428196824, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   waveAmplitude: 2
   waveFrequency: 5
   groundEffectCooldown: 0.5
