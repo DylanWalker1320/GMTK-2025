@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -63,6 +62,7 @@ public abstract class Spell : MonoBehaviour
     [SerializeField] protected float destroyTime = 5f;
     [SerializeField] protected float damage = 2f; // Damage dealt by the spell
     [SerializeField] protected float speed;
+    public Spells spell;
     public SpellType spellType1;
     public SpellType spellType2;
     public string markupColor;
@@ -140,6 +140,9 @@ public abstract class Spell : MonoBehaviour
         {
             damage *= spellModifiers[type2]; // Also multiply by the second type's modifier if it's different from the first
         }
+
+        GameResultsTracker._instance.RecordSpellDamage(spell, damage, spellSprite, damageColor);
+
         return damage;
     }
 }

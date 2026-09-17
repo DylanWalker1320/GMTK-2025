@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
     private PlayerMovement player; // Reference to the player movement script
     private EnemySpawner enemySpawner; // Reference to the enemy spawner script
     private UIManager uIManager;
+    [Header("Modes")]
     public bool betaMode;
     public bool debugMode;
+    [Header("State checks")]
     public int betaSpellCounter;
     public bool bossAlive = false; // Flag to check if a boss is alive
     public bool isInSafeArea = false; // Flag to check if the player is in a safe area
@@ -17,8 +19,12 @@ public class GameManager : MonoBehaviour
     public bool loopComplete = false;
     public bool waitingForPortalReturn = false;
     private bool bossHasDied = false;
+    [Header("Level Tracking")]
+    public float RunTime { get; private set; }
+    public float startTime;
     public int loopsCompleted;
     public int wavesCompleted;
+    [Header("Misc")]
     public TextMeshProUGUI loopsAmountCompleted;
     public TextMeshProUGUI enemiesRemaining;
     public GameObject bossPrefab;
@@ -62,6 +68,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        RunTime = Time.time - startTime;
+
         loopsAmountCompleted.text = loopsCompleted.ToString() + " Loops";
         if (debugMode) Debug.Log($"Waves completed: {wavesCompleted} | isInSafeArea: {isInSafeArea} | bossAlive: {bossAlive} | bossHasDied: {bossHasDied}");
 
@@ -96,9 +104,6 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
-        if (player == null)
-            ResetGame();
     }
 
     // Called by the main canvas' UIManager's "On Shop Finish" event
@@ -160,6 +165,8 @@ public class GameManager : MonoBehaviour
     {
         if (enemySpawner != null)
         {
+            GameResultsTracker._instance.IncrementEnemiesKilled();
+
             enemySpawner.mobsKilled++;
             enemySpawner.currentEnemies--;
             UpdateEnemiesRemaining();
@@ -222,12 +229,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ToggleGameTimeElapsed()
+    {
+        startTime = Time.time;
+    }
+
     public void ToggleSafeArea(bool isInSafeArea)
     {
         this.isInSafeArea = isInSafeArea;
     }
 
-    void ResetGame()
+    public void ResetGame()
     {
         betaMode = true;
         SceneManager.LoadScene("MainScene");

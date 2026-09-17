@@ -245,6 +245,7 @@ MonoBehaviour:
   destroyTime: 1
   damage: 20
   speed: 0
+  spell: 10
   spellType1: 1
   spellType2: 0
   markupColor: '#c0c0c0ff'

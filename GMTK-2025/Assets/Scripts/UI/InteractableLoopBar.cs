@@ -57,6 +57,7 @@ public class InteractableLoopBar : MonoBehaviour
         startingSpellCounter--;
         if(startingSpellCounter <= 0)
         {
+            gameManager.ToggleGameTimeElapsed();
             gameManager.isInSafeArea = false;
             gameManager.betaMode = false;
         }

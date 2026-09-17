@@ -53,6 +53,7 @@ MonoBehaviour:
   destroyTime: 5
   damage: 25
   speed: 5
+  spell: 7
   spellType1: 3
   spellType2: 0
   markupColor: '#add8e6ff'

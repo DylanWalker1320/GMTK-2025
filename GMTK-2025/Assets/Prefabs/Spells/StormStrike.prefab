@@ -107,11 +107,12 @@ MonoBehaviour:
   destroyTime: 3.5
   damage: 30
   speed: 0
+  spell: 11
   spellType1: 2
   spellType2: 2
   markupColor: N/A
   damageColor: {r: 1, g: 0.7529412, b: 0, a: 1}
-  spellSprite: {fileID: 0}
+  spellSprite: {fileID: 6400001756064385641, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   damageUpgrade: 15
   speedUpgrade: 0.5
   sizeUpgrade: 0.2

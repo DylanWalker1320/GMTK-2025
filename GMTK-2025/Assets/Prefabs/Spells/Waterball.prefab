@@ -131,6 +131,7 @@ MonoBehaviour:
   destroyTime: 5
   damage: 20
   speed: 5
+  spell: 12
   spellType1: 1
   spellType2: 4
   markupColor: blue
