@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 5
-  damage: 10
+  damage: 15
   speed: 5
   spellType1: 3
   spellType2: 0
@@ -141,10 +141,10 @@ MonoBehaviour:
   throwRange: 8
   rotationsPerMinute: 200
   aoeEffectPrefab: {fileID: 1734808920257133925, guid: d0011362b3eab2d48bbd2cb739796668, type: 3}
-  aoeRadius: 1.25
+  aoeRadius: 4.25
   throwRangeUpgrade: 2
-  radiusUpgrade: 1
-  damageUpgrade: 3
+  radiusUpgrade: 0.5
+  damageUpgrade: 5
 --- !u!58 &4442433634009164166
 CircleCollider2D:
   m_ObjectHideFlags: 0
