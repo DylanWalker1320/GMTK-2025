@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7575368524489969873}
   - component: {fileID: 1315681878832314037}
   m_Layer: 0
-  m_Name: BlackFlashAoe
+  m_Name: BlackBlade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

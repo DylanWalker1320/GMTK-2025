@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4442433634009164166}
   - component: {fileID: 4154557282255671990}
   m_Layer: 6
-  m_Name: Black Flash
+  m_Name: Black Blade
   m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   throwRange: 8
   rotationsPerMinute: 200
   aoeEffectPrefab: {fileID: 1734808920257133925, guid: d0011362b3eab2d48bbd2cb739796668, type: 3}
-  aoeRadius: 4.25
+  aoeRadius: 1.25
   throwRangeUpgrade: 2
   radiusUpgrade: 0.5
   damageUpgrade: 5
