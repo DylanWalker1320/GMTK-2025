@@ -66,9 +66,6 @@ public class TooltipThreeUpgrades : Tooltip
                 case ThreeUpgradeScreen.StatIncreaseType.Speed:
                     message = $"<u><color=yellow>Speed Increase</color></u>\n\n{playerMovement.maxSpeed} -> <color=yellow>{playerMovement.maxSpeed + threeUpgradeScreenReference.speedUpgradeIncrease}</color>\n";
                     break;
-                case ThreeUpgradeScreen.StatIncreaseType.IFrames:
-                    message = $"<u><color=yellow>Invincibility Frames Increase</color></u>\n\n{playerMovement.invincibilityFrames} -> <color=yellow>{playerMovement.invincibilityFrames + threeUpgradeScreenReference.iFramesUpgradeIncrease}</color>\n";
-                    break;
                 case ThreeUpgradeScreen.StatIncreaseType.CastSpeed:
                     message = $"<u><color=yellow>Cast Speed Increase</color></u>\n\n{Math.Round(playerMovement.castSpeed * 100f, 2)}% -> <color=yellow>{Math.Round(playerMovement.castSpeed + threeUpgradeScreenReference.castSpeedUpgradeIncrease, 2) * 100f}%</color>\n";
                     break;

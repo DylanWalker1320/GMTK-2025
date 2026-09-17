@@ -12,7 +12,6 @@ public class ThreeUpgradeScreen : MonoBehaviour
     {
         Health,
         Speed,
-        IFrames,
         CastSpeed,
         CastStrength
     }
@@ -57,7 +56,6 @@ public class ThreeUpgradeScreen : MonoBehaviour
     public int xpPullRangeUpgradeIncrease;
     public int dashCooldownUpgradeIncrease;
     public int dashStrengthUpgradeIncrease;
-    public int iFramesUpgradeIncrease;
     public float castSpeedUpgradeIncrease;
     public float castStrengthUpgradeIncrease;
 
@@ -77,7 +75,6 @@ public class ThreeUpgradeScreen : MonoBehaviour
     {
         Health,
         Speed,
-        IFrames,
         CastSpeed,
         CastStrength,
         XpPullRange,
@@ -121,9 +118,6 @@ public class ThreeUpgradeScreen : MonoBehaviour
                 break;
             case StatIncreaseType.Speed:
                 upgradeTextTwo.text = $"Speed +{speedUpgradeIncrease}";
-                break;
-            case StatIncreaseType.IFrames:
-                upgradeTextTwo.text = $"IFrames +{iFramesUpgradeIncrease}";
                 break;
             case StatIncreaseType.CastSpeed:
                 upgradeTextTwo.text = $"Cast Speed +{100 * castSpeedUpgradeIncrease}%";
@@ -214,9 +208,6 @@ public class ThreeUpgradeScreen : MonoBehaviour
             case StatIncreaseType.Speed:
                 player.moveForce += speedUpgradeIncrease; // Upgrade speed
                 player.maxSpeed += speedUpgradeIncrease;
-                break;
-            case StatIncreaseType.IFrames:
-                player.invincibilityFrames += iFramesUpgradeIncrease; // Upgrade invincibility frames
                 break;
             case StatIncreaseType.CastSpeed:
                 player.castSpeed += castSpeedUpgradeIncrease; // Upgrade cast speed
