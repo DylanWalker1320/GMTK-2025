@@ -165,6 +165,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5302599508581642603, guid: 22e54bb968feada4b9daa861a565d6e3, type: 3}
     - target: {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
+      propertyPath: enemyMarkerPrefab
+      value: 
+      objectReference: {fileID: 8519302485261268223, guid: 1977ebe7e02ae6742b268b737cde81d2, type: 3}
+    - target: {fileID: 7269256169569573615, guid: 322f95c9333a7b14eafc4e7f8573d3f3, type: 3}
       propertyPath: applyForceCooldown
       value: 0.25
       objectReference: {fileID: 0}

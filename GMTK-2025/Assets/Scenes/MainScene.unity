@@ -50972,6 +50972,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1341329492}
     - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
+      propertyPath: enemyMarkerPrefab
+      value: 
+      objectReference: {fileID: 8519302485261268223, guid: 1977ebe7e02ae6742b268b737cde81d2, type: 3}
+    - target: {fileID: 5915191730679939623, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: maxWavePopulation
       value: 10
       objectReference: {fileID: 0}
@@ -51318,6 +51322,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6130983225465483222, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6268308747139263639, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: m_Value
       value: 100
@@ -51380,6 +51388,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9107015927092616253, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107015927092616253, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

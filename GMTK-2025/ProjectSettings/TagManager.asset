@@ -12,6 +12,7 @@ TagManager:
   - Shop
   - Walls
   - Obstacles
+  - EnemyMarkers
   layers:
   - Default
   - TransparentFX

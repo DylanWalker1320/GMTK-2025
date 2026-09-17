@@ -6,7 +6,7 @@ public class Reticle : MonoBehaviour
 {
     private Vector3 mousePos;
     private Camera mainCam;
-    [SerializeField] private float reticleDistance = 1.56f;
+    [SerializeField] private float reticleDistance;
     [SerializeField] private bool gamepadIsAiming;
     public Vector3 aimDirection {get; private set;}
     // Start is called before the first frame update

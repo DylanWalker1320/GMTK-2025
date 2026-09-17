@@ -209,11 +209,13 @@ MonoBehaviour:
   deathParticles: {fileID: 5302599508581642603, guid: 22e54bb968feada4b9daa861a565d6e3, type: 3}
   maxHitSlowPercent: 1
   damageNumberPrefab: {fileID: 5017995686289404897, guid: 68606fdccf507bc41bf072f9c4c0cd28, type: 3}
+  enemyMarkerPrefab: {fileID: 8519302485261268223, guid: 1977ebe7e02ae6742b268b737cde81d2, type: 3}
   damageNumberSpawnRadius: 1
   healthScalar: 0.6
   damageScalar: 0.05
   speedScalar: 0.05
   stats:
+    maxHealth: 0
     health: 30
     damage: 10
     speed: 2

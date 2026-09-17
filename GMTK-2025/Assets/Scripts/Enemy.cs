@@ -30,6 +30,7 @@ abstract public class Enemy : MonoBehaviour
     [SerializeField] protected ParticleSystem deathParticles;
     [SerializeField] protected float maxHitSlowPercent = 0.2f; // 20% slow at max
     [SerializeField] protected GameObject damageNumberPrefab; // Prefab for damage numbers
+    [SerializeField] protected GameObject enemyMarkerPrefab; 
     [SerializeField] protected float damageNumberSpawnRadius = 1f; // Radius around enemy to spawn damage numbers
     [SerializeField] protected float healthScalar = 1f; // Base health scaler, can be adjusted for different enemy types
     [SerializeField] protected float damageScalar = 1f; // Base damage scaler, can be adjusted for different enemy types
@@ -62,6 +63,10 @@ abstract public class Enemy : MonoBehaviour
         propertyBlock = new MaterialPropertyBlock();
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+
+        GameObject marker = Instantiate(enemyMarkerPrefab);
+        marker.GetComponent<EnemyMarker>().target = this.transform;
+        marker.transform.SetParent(this.transform); // Set the marker as a child of the enemy
 
         // Initialize the property block so the hit flash shader starts transparent
         spriteRenderer.GetPropertyBlock(propertyBlock);
