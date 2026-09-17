@@ -41,6 +41,7 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
     {
         for(int i = 0; i < 3; i++)
         {
+            SetRollCost();
             string output = "";
             StatPanel panel = panels[i];
             
@@ -135,6 +136,11 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
             player.UpdateUI();
             InitializeStatShopUI();
         }
+    }
+
+    void SetRollCost()
+    {
+        rerollCost = 1;
     }
 
 }
