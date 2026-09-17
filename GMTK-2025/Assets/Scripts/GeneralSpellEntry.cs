@@ -3,38 +3,28 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TopDamageEntry : MonoBehaviour
+public class GeneralSpellEntry : MonoBehaviour
 {
     [Header("UI Properties")]
     [SerializeField] private Image spellIcon;
-    [SerializeField] private Slider damageDoneSlider;
-    [SerializeField] private Image sliderFillColor;
+    [SerializeField] private Image spellBorder;
     [SerializeField] private TextMeshProUGUI damageText;
+
     [Header("Animation Tweening Values")]
     [SerializeField] private int totalDamage;
-    [SerializeField] private float targetSliderValue;
-    [SerializeField] private float delayAnimationSpeed;
-    [SerializeField] private float animationSpeed = 5f;
+    [SerializeField] private float delayAnimationSpeed = 2f;
     [SerializeField] private int damageBuildUpNumber = 0;
+    [SerializeField] private int damageTextTime = 5;
 
-    private void Update()
-    {
-        if(damageDoneSlider.value < targetSliderValue)
-        {
-            damageDoneSlider.value = Mathf.Lerp(damageDoneSlider.value, targetSliderValue, Time.unscaledDeltaTime * delayAnimationSpeed);
-        }
-    }
 
-    public void Setup(Sprite sprite, int damage, float overallDamagePercentage, Color color, int rank)
+    public void Setup(Sprite sprite, int damage, Color color)
     {
-        spellIcon.sprite = sprite;
         totalDamage = damage;
-        sliderFillColor.color = color;
-        targetSliderValue = overallDamagePercentage;
-        delayAnimationSpeed = animationSpeed - rank; // rank 1 -> 5 - 0, rank 2 -> 5 - 1, ... , rank 5 -> 5 - 4.
+        spellIcon.sprite = sprite;
+        spellBorder.color = color;
 
         transform.position = Vector3.zero;
-        StartCoroutine(FromZeroToTotalDamageAnimation(damageBuildUpNumber, totalDamage, rank + 1));
+        StartCoroutine(FromZeroToTotalDamageAnimation(damageBuildUpNumber, totalDamage, damageTextTime));
     }
 
     // For some reason if we don't use this the text won't update properly
@@ -56,5 +46,4 @@ public class TopDamageEntry : MonoBehaviour
 
         damageText.text = end.ToString();
     }
-
 }

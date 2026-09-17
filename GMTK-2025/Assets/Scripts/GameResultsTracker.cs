@@ -10,6 +10,7 @@ public class GameResultsTracker : MonoBehaviour
     private GameManager gameManager;
 
     [Header("Game Results")]
+    [SerializeField] private float totalDamageDealt = 0f;
     [SerializeField] private float totalTimePlayed = 0f;
     [SerializeField] private int totalEnemiesKilled = 0;
     [SerializeField] private int wavesCompleted = 0;
@@ -38,7 +39,7 @@ public class GameResultsTracker : MonoBehaviour
     [SerializeField] Transform topFiveContainer;
     [SerializeField] Transform generalSpellContainer;
     [SerializeField] private TopDamageEntry topSpellDamageUIPrefab;
-    [SerializeField] private GameObject generalSpellDamagePrefab;
+    [SerializeField] private GeneralSpellEntry generalSpellDamagePrefab;
 
     // Spell Damage Section Dictionaries
 
@@ -144,6 +145,14 @@ public class GameResultsTracker : MonoBehaviour
 
         }
 
+        for (int i = topFiveSpells; i < sortedSpellList.Count(); i++ )
+        {
+            var currentSpellEntry = sortedSpellList[i];
+
+            GeneralSpellEntry generalSpellEntry = Instantiate(generalSpellDamagePrefab, generalSpellContainer);
+            generalSpellEntry.Setup(spellSprites[currentSpellEntry.Key], currentSpellEntry.Value, spellColors[currentSpellEntry.Key]);
+        }
+
 
     }
 
@@ -159,6 +168,7 @@ public class GameResultsTracker : MonoBehaviour
         }
 
         spellDamage[spell] += (int) damage;
+        totalDamageDealt += damage;
     }
 
     public void IncrementSoulsEarned()
