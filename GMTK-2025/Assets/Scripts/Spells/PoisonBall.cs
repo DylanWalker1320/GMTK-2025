@@ -12,7 +12,7 @@ public class PoisonBall : Spell
     [Header("Upgrade Scaling")]
     [SerializeField] private float damageUpgrade = 1f; // Damage increase per upgrade
     [SerializeField] private float poisonSpawnIntervalUpgrade = 0.1f; // Interval decrease per upgrade
-
+    [SerializeField] private float finalPuddleScaleUpgrade = 0.25f; // Scale increase per upgrade
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,16 +38,12 @@ public class PoisonBall : Spell
         GameObject collisionObject = other.gameObject;
         if (collisionObject.CompareTag("Enemy"))
         {
-            // If the fireball collides with an enemy, deal damage
+            // If the poison ball collides with an enemy, deal damage
             collisionObject.GetComponent<Enemy>().TakeDamage(CalculateDamage(damage, spellType1, spellType2), damageColor);
-            GameObject puddle = GameObject.Instantiate(poisonPuddlePrefab, transform.position, Quaternion.identity);
-            puddle.transform.localScale = new Vector3(puddle.transform.localScale.x * finalPuddleScale, puddle.transform.localScale.y * finalPuddleScale, 1f);
             Destroy(gameObject); // Destroy the poison ball after dealing damage
         }
         else if (collisionObject.CompareTag("Obstacles") || collisionObject.CompareTag("Walls"))
         {
-            GameObject puddle = GameObject.Instantiate(poisonPuddlePrefab, transform.position, Quaternion.identity);
-            puddle.transform.localScale = new Vector3(puddle.transform.localScale.x * finalPuddleScale, puddle.transform.localScale.y * finalPuddleScale, 1f);
             Destroy(gameObject); // Destroy the poison ball after dealing damage
         }
     }
@@ -56,10 +52,14 @@ public class PoisonBall : Spell
     {
         int spellLevel = GetSpellLevel(Spells.PoisonPuddle);
         damage += damageUpgrade * spellLevel; // Increase the damage based on upgrades
-        poisonSpawnInterval -= poisonSpawnIntervalUpgrade * spellLevel; // Decrease the spawn interval of poison puddles
-        if (poisonSpawnInterval < 0.1f) // Ensure the interval does not go below a minimum value
-        {
-            poisonSpawnInterval = 0.1f;
-        }
+        poisonSpawnInterval = Mathf.Max(0.2f, poisonSpawnInterval - poisonSpawnIntervalUpgrade * spellLevel); // Decrease the spawn interval based on upgrades
+        finalPuddleScale += finalPuddleScaleUpgrade * spellLevel; // Increase the final puddle scale based on upgrades
+    }
+
+    void OnDestroy()
+    {
+        // Spawn a final poison puddle when the poison ball is destroyed
+        GameObject puddle = GameObject.Instantiate(poisonPuddlePrefab, transform.position, Quaternion.identity);
+        puddle.transform.localScale = new Vector3(puddle.transform.localScale.x * finalPuddleScale, puddle.transform.localScale.y * finalPuddleScale, 1f);
     }
 }
