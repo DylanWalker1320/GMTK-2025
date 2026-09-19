@@ -23,11 +23,11 @@ public class ExplosiveShot : Spell
         Init(); 
         OrientSpell();
         animator = GetComponent<Animator>();
-        transform.localScale = new Vector3(explosionSize, explosionSize, 1f); // Set the scale of the spell based on explosion size
-
-        StartCoroutine(ExplodeDelay()); // Start the coroutine to handle the explosion delay
 
         AddUpgrade(); // Apply upgrades to the spell
+
+        transform.localScale = new Vector3(explosionSize, explosionSize, 1f); // Set the scale of the spell based on explosion size
+        StartCoroutine(ExplodeDelay()); // Start the coroutine to handle the explosion delay
     }
 
     void Update()
