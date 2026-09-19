@@ -65,6 +65,7 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
             {
                 output += $"{stat}\n";
             }
+            Debug.Log($"Stat Description for Panel {i}: {output}");
             panel.statDescription.text = output;
         }
     }

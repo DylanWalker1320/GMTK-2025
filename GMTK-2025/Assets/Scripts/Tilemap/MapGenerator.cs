@@ -415,6 +415,8 @@ public class MapGenerator : MonoBehaviour
     
     void OnDrawGizmos()
     {
+        if (!debugMode) return;
+
         if (placedObstacles == null) return;
         
         Gizmos.color = Color.red;
