@@ -7,6 +7,12 @@ public class SpikeTrap : MonoBehaviour
     public static int damage = 10;
     private float lastDamageTime = 0f;
     private bool canDamage => Time.time >= lastDamageTime + damageCooldown; // Returns true if its been damageCooldown seconds since last damage
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void OnTriggerStay2D(Collider2D other)
     {
@@ -17,6 +23,7 @@ public class SpikeTrap : MonoBehaviour
             {
                 player.TakeDamage(damage);
                 lastDamageTime = Time.time;
+                animator.SetTrigger("Damage");
                 StartCoroutine(WaitCooldown());
             }
         }
@@ -28,6 +35,7 @@ public class SpikeTrap : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
                 lastDamageTime = Time.time;
+                animator.SetTrigger("Damage");
                 StartCoroutine(WaitCooldown());
             }
         }
