@@ -6,6 +6,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(TrailRenderer))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Player Stats")]
@@ -43,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
     [SerializeField] private Slider dashBar;
-    public ParticleSystemForceField xpParticleSystem; // Particle system for soul collection effect
     public Transform reticle; // Reference to the reticle script for aiming
     public UnityEvent<float, float> updateHealthUI;
     [Header("Movement/Animation")]
@@ -52,7 +52,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator shadowAnimator;
     public bool facingRight = true;
     public static PlayerInput _playerInput;
-    private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for flipping
+    [Header("Effects")]
+    public ParticleSystemForceField xpParticleSystem; // Particle system for soul collection effect
+    [SerializeField] private  ParticleSystem dashParticles;
+    [SerializeField] private TrailRenderer dashTrail;
+    private SpriteRenderer playerSprite; // Reference to the player's sprite renderer for 1ipping
     private Rigidbody2D rb;
     private AudioManager audioManager;
     private UIManager uiManager;
@@ -77,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
         audioManager = FindFirstObjectByType<AudioManager>();
         uiManager = FindFirstObjectByType<UIManager>();
         rb = GetComponent<Rigidbody2D>();
+        dashTrail = GetComponent<TrailRenderer>();
         reticle = FindFirstObjectByType<Reticle>().GetComponent<Transform>();
         health = maxHealth;
         experiencePitchTimer = experiencePitchChangeInterval;
@@ -151,10 +156,15 @@ public class PlayerMovement : MonoBehaviour
 
         canDash = false;
         StartCoroutine(DashCooldown());
+        StartCoroutine(TrailEmissionCooldown());
 
         if (value.isPressed && uiManager.isInUI == false)
         {
             // Dash
+            dashTrail.emitting = true;
+            dashParticles.Play();
+            audioManager.Play("DASH");
+            CinemachineShake.Instance.ShakeCamera(0.65f + (baseDashStrength * 0.01f), .175f);
             rb.AddForce(movement * dashStrength, ForceMode2D.Impulse);
         }
     }
@@ -168,8 +178,19 @@ public class PlayerMovement : MonoBehaviour
             dashBar.value = Mathf.Lerp(0f, 1f, (dashCooldown - remainingCooldown) / dashCooldown) * 100f;
             yield return null;
         }
-    
         canDash = true;
+    }
+
+    private IEnumerator TrailEmissionCooldown()
+    {
+        float remainingTrailEmission = dashCooldown / 2;
+        while (remainingTrailEmission > 0f) // Trail Emission
+        {
+            remainingTrailEmission = Mathf.Max(0f, remainingTrailEmission - Time.deltaTime);
+            yield return null;
+        }
+        dashTrail.emitting = false;
+    
     }
 
     public void GainExperience()

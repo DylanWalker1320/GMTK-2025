@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class StatPanel
@@ -18,6 +18,7 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
 {
     private PlayerMovement player;
     private StatGenerator statGenerator;
+    [SerializeField] private Button exitButton;
     [SerializeField] private int rerollCost = 1;
     [SerializeField] private TextMeshProUGUI rerollText;
     public StatPanel[] panels = new StatPanel[3];
@@ -41,7 +42,6 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
     {
         for(int i = 0; i < 3; i++)
         {
-            SetRollCost();
             string output = "";
             StatPanel panel = panels[i];
             
@@ -98,16 +98,19 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
     public void SlotOne()
     {
         BuyStat(0);
+        CheckAvailablePanels();
     }
 
     public void SlotTwo()
     {
         BuyStat(1);
+        CheckAvailablePanels();
     }
 
     public void SlotThree()
     {
         BuyStat(2);
+        CheckAvailablePanels();
     }
 
     void BuyStat(int index)
@@ -138,9 +141,29 @@ public class LevelUpUI : MonoBehaviour // Changed to StatShopUI
         }
     }
 
-    void SetRollCost()
+    public void ResetRollCost()
     {
         rerollCost = 1;
+    }
+
+    void CheckAvailablePanels() // for controllers
+    {
+        bool shopHasFreeButton = false;
+        for(int i = 0; i < 3; i++)
+        {
+            if(panels[i].button.interactable == true)
+            {
+                shopHasFreeButton = true;
+                EventSystem.current.SetSelectedGameObject(panels[i].button.gameObject);
+            }
+        }
+
+        if(!shopHasFreeButton)
+        {
+            EventSystem.current.SetSelectedGameObject(exitButton.gameObject);
+        }
+
+
     }
 
 }

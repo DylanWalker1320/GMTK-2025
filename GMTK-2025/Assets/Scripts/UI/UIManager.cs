@@ -100,7 +100,7 @@ public class UIManager : MonoBehaviour
     {
         if (!gameManager) return;
 
-        if (OnEscapePressed() && statShopUI.activeSelf == false && scrollUI.activeSelf == false) // Don't allow pause if we're in the middle of leveling up or rolling for hats
+        if (OnEscapePressed() && !statShopUI.activeSelf && !scrollUI.activeSelf &&  !barAllocationUI.activeSelf) // Don't allow pause in stat shop, bar allocation and hat rolling
         {
 
             if (currentMenu == Menu.None) // Only allow pause if in game
@@ -415,6 +415,7 @@ public class UIManager : MonoBehaviour
 
                 if (firstOpen)
                 {
+                    statShopUI.GetComponent<LevelUpUI>().ResetRollCost();
                     statShopUI.GetComponent<LevelUpUI>().InitializeStatShopUI();
                 }
 
@@ -534,7 +535,6 @@ public class UIManager : MonoBehaviour
         TooltipManager._instance.HideTooltip();
         spellbarAllocationAnimator.SetTrigger("ExitSpellAllocation");
         FindFirstObjectByType<InteractableLoopBar>().OnCall();
-        upgradeUI.SetActive(false);
         yield return new WaitUntil(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitWhile(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         if(loopBarType == InteractableLoopBar.LoopBarType.SpellSwap)
@@ -553,6 +553,7 @@ public class UIManager : MonoBehaviour
     {
         TooltipManager._instance.HideTooltip();
         Time.timeScale = 0;
+        upgradeUI.SetActive(false);
         barAllocationUI.SetActive(true);
         spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
         InteractableLoopBar loopBar = FindFirstObjectByType<InteractableLoopBar>();
