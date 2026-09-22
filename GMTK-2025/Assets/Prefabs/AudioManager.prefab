@@ -47,14 +47,16 @@ MonoBehaviour:
   debugMode: 0
   audioSettings: {fileID: 24100000, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
   maxPitch: 2
-  startingMusic: 0
+  currentMusic: 0
   sounds:
   - name: MainTheme
     clip: {fileID: 8300000, guid: edceee9f320eefc4d95df4a0301a848a, type: 3}
-    volume: 0.075
+    volume: 0.1
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 0
+    randomizePitch: 0
     mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 4
@@ -63,22 +65,26 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MainThemeLoop
     clip: {fileID: 8300000, guid: 8dc485c0a77e4da469b36d63cafe8ce4, type: 3}
-    volume: 0.075
+    volume: 0.1
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 1
     oneShot: 0
+    randomizePitch: 0
     mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
+    useFadeOut: 1
+    fadeOutTime: 1.5
     source: {fileID: 0}
   - name: MainMenuTheme
     clip: {fileID: 8300000, guid: 31c4ecad7cd5efc479f71e126af50d2f, type: 3}
-    volume: 0.75
+    volume: 0.65
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 1
     oneShot: 0
+    randomizePitch: 0
     mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
@@ -87,166 +93,40 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: RestAreaTheme
     clip: {fileID: 8300000, guid: 93f3a441b36a846458c7f6da14d1b3ab, type: 3}
-    volume: 0.75
+    volume: 0.5
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 1
     oneShot: 0
+    randomizePitch: 0
     mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
+    useFadeOut: 1
+    fadeOutTime: 1
     source: {fileID: 0}
   - name: BossTheme
     clip: {fileID: 8300000, guid: 2c5ebc0f218f9b74d881f053b3b90255, type: 3}
     volume: 0.05
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 0
+    randomizePitch: 0
     mixer: {fileID: 7611731572071763200, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 1
     fadeInTime: 2
     useFadeOut: 1
     fadeOutTime: 2
     source: {fileID: 0}
-  - name: Explosive Shot
-    clip: {fileID: 8300000, guid: 99a7846b9652a1f4e84a58db4a9b8f97, type: 3}
-    volume: 0.103
-    pitch: 1
-    loop: 0
-    oneShot: 1
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Poison Puddle
-    clip: {fileID: 8300000, guid: b8beee5d07aef5547b1ce4cd6ccdcdc8, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    oneShot: 0
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Poison Ball
-    clip: {fileID: 8300000, guid: b8beee5d07aef5547b1ce4cd6ccdcdc8, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    oneShot: 0
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Steam Vent
-    clip: {fileID: 8300000, guid: d1e552e07568c31498306c2e6607de83, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    oneShot: 0
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Ghostflame
-    clip: {fileID: 8300000, guid: 569f36a6773977c4ca07fff498892170, type: 3}
-    volume: 0.1
-    pitch: 1
-    loop: 0
-    oneShot: 0
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Black Flash
-    clip: {fileID: 8300000, guid: 306b11b18cda572488e63123c2a20227, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    oneShot: 0
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Wave
-    clip: {fileID: 8300000, guid: 95573b52f81ed5c43a3037b9d81df091, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    oneShot: 0
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Fissure Flare
-    clip: {fileID: 8300000, guid: c99de9729e16c79419ac386def052435, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    oneShot: 0
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Storm
-    clip: {fileID: 8300000, guid: e8725d5835f2f4a4ab8018a78716c1f9, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    oneShot: 0
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Black Hole
-    clip: {fileID: 8300000, guid: ddc4a0172dd92c74995a832f66619b7f, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    oneShot: 0
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: Hit
-    clip: {fileID: 8300000, guid: fc4d00da174dd89469db4a728502e8ec, type: 3}
-    volume: 0.019
-    pitch: 1
-    loop: 0
-    oneShot: 0
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
   - name: Fireball
     clip: {fileID: 8300000, guid: 77f98274ba1fe894c9af19ad2bf30125, type: 3}
     volume: 0.075
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 0
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
@@ -257,8 +137,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 4a7d121318cf3e64a8e4ec27d1a7ef21, type: 3}
     volume: 0.075
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 0
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
@@ -269,8 +151,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0e79268c58ac11149a26d0d0fe978604, type: 3}
     volume: 0.15
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 0
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
@@ -281,8 +165,164 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b36d863e697c5c64098d505c67fdb451, type: 3}
     volume: 0.1
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 0
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Wave
+    clip: {fileID: 8300000, guid: 95573b52f81ed5c43a3037b9d81df091, type: 3}
+    volume: 0.019
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 0
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Explosive Shot
+    clip: {fileID: 8300000, guid: 99a7846b9652a1f4e84a58db4a9b8f97, type: 3}
+    volume: 0.103
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Black Hole
+    clip: {fileID: 8300000, guid: ddc4a0172dd92c74995a832f66619b7f, type: 3}
+    volume: 0.019
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 0
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Storm
+    clip: {fileID: 8300000, guid: e8725d5835f2f4a4ab8018a78716c1f9, type: 3}
+    volume: 0.019
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 0
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Fissure Flare
+    clip: {fileID: 8300000, guid: c99de9729e16c79419ac386def052435, type: 3}
+    volume: 0.019
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 0
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Steam Vent
+    clip: {fileID: 8300000, guid: d1e552e07568c31498306c2e6607de83, type: 3}
+    volume: 0.019
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 0
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Poison Puddle
+    clip: {fileID: 8300000, guid: b8beee5d07aef5547b1ce4cd6ccdcdc8, type: 3}
+    volume: 0.019
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 0
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Poison Ball
+    clip: {fileID: 8300000, guid: b8beee5d07aef5547b1ce4cd6ccdcdc8, type: 3}
+    volume: 0.019
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 0
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Ghostflame
+    clip: {fileID: 8300000, guid: 569f36a6773977c4ca07fff498892170, type: 3}
+    volume: 0.1
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 0
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Black Flash
+    clip: {fileID: 8300000, guid: 306b11b18cda572488e63123c2a20227, type: 3}
+    volume: 0.019
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 0
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: fc4d00da174dd89469db4a728502e8ec, type: 3}
+    volume: 0.019
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 0
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
@@ -293,8 +333,24 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 71d93dad8d2ae5c428987141956c25ec, type: 3}
     volume: 0.5
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: DASH
+    clip: {fileID: 8300000, guid: b9cdf5ebb7b85c24397dccef8b991f01, type: 3}
+    volume: 0.4
+    pitch: 1
+    minMaxPitchRange: {x: 1, y: 1.2}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 1
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
@@ -305,32 +361,24 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8d30eccedadb55149a71d20c96574c3b, type: 3}
     volume: 0.6
     pitch: 1.75
+    minMaxPitchRange: {x: 0.5, y: 2}
     loop: 0
     oneShot: 1
+    randomizePitch: 1
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 1
     fadeOutTime: 0.1
     source: {fileID: 0}
-  - name: HealOption
-    clip: {fileID: 8300000, guid: d84356543f9f81c4ab842a9802a21425, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    oneShot: 1
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
   - name: NewHatGet!
     clip: {fileID: 8300000, guid: a4a2f6d78c29e6741aca1f5a5a2ad968, type: 3}
     volume: 0.9
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 1
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
@@ -338,11 +386,41 @@ MonoBehaviour:
     fadeOutTime: 0.1
     source: {fileID: 0}
   - name: LevelUp!
-    clip: {fileID: 8300000, guid: aeb6ae667b1b0af4ab7dab762433141e, type: 3}
-    volume: 0.5
-    pitch: 1
+    clip: {fileID: 8300000, guid: 88b07b8e2bb7634418ae18cee62147f5, type: 3}
+    volume: 0.6
+    pitch: 1.1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: WAVECOMPLETE
+    clip: {fileID: 8300000, guid: 0360e73d1ed9aa749841f7f0f399668d, type: 3}
+    volume: 0.5
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: HEAL
+    clip: {fileID: 8300000, guid: 1143196d8ca631640a3ea0b187eb3c02, type: 3}
+    volume: 0.5
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
@@ -350,47 +428,223 @@ MonoBehaviour:
     fadeOutTime: 0.1
     source: {fileID: 0}
   - name: HealPond
-    clip: {fileID: 8300000, guid: 8f79cc0f10c2054418c5cbc06d64ecee, type: 3}
+    clip: {fileID: 8300000, guid: 310d53bcb0f36aa4d80a5615d797ad6a, type: 3}
     volume: 0.5
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 1
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
     fadeOutTime: 0.1
     source: {fileID: 0}
-  - name: UIInteraction1
-    clip: {fileID: 8300000, guid: c2d57d2401a35634f86d3decd9cf0f11, type: 3}
-    volume: 0.5
+  - name: UICANCEL
+    clip: {fileID: 8300000, guid: a5ddb6f85f0de984b8ad49e1bea0ce0f, type: 3}
+    volume: 0.68
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 1
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
     fadeOutTime: 0.1
     source: {fileID: 0}
-  - name: UIInteraction2
-    clip: {fileID: 8300000, guid: 654c92748c51ec841a3f79dec556c69c, type: 3}
-    volume: 0.5
+  - name: DISPLAYMESSAGE
+    clip: {fileID: 8300000, guid: 85d4b49b04e3a114499207d999b00dc9, type: 3}
+    volume: 0.7
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
-    oneShot: 1
+    oneShot: 0
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
     useFadeOut: 0
     fadeOutTime: 0.1
     source: {fileID: 0}
-  - name: UICONFIRM
-    clip: {fileID: 8300000, guid: 6fb69cf0c0026664bb8d33b1e2d851eb, type: 3}
-    volume: 0.5
+  - name: DISPLAYMESSAGEPORTAL
+    clip: {fileID: 8300000, guid: 85d4b49b04e3a114499207d999b00dc9, type: 3}
+    volume: 0.7
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 0
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: NEWSPELLINSERT
+    clip: {fileID: 8300000, guid: b530bc65695cbc74580bbb902343d1af, type: 3}
+    volume: 0.65
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: NEWCOMBOSPELLINSERT
+    clip: {fileID: 8300000, guid: c569003389cae434ab21a9554b858ec7, type: 3}
+    volume: 0.5
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: OPENSTATSHOP
+    clip: {fileID: 8300000, guid: def1c9daf1260ba498566e78be8a2632, type: 3}
+    volume: 0.68
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: SELECTSTATPANEL
+    clip: {fileID: 8300000, guid: e58a23690044f834387a4c1039278d72, type: 3}
+    volume: 0.4
+    pitch: 1
+    minMaxPitchRange: {x: 1, y: 1.05}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: PRESSSTATPANEL
+    clip: {fileID: 8300000, guid: a72c066285117e546ac05bbfee409e7b, type: 3}
+    volume: 0.6
+    pitch: 1.1
+    minMaxPitchRange: {x: 0, y: 0}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: OPENSPELLBARALLOC
+    clip: {fileID: 8300000, guid: b642a21c48c9c104db737a35385d8b2c, type: 3}
+    volume: 0.68
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: SELECTHOVERSPELLBARSLOT
+    clip: {fileID: 8300000, guid: 6b9a465c27c30ad49aa47e48d7f192b0, type: 3}
+    volume: 0.4
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: SWAPSPELLBARSLOT
+    clip: {fileID: 8300000, guid: c2531c1f858874743aa75e2eb9612c58, type: 3}
+    volume: 0.4
+    pitch: 1
+    minMaxPitchRange: {x: 1.225, y: 1.275}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 1
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: PRESSUPGRADEBUTTON
+    clip: {fileID: 8300000, guid: 4c69d73b488e59d4296fafc48968ea12, type: 3}
+    volume: 0.6
+    pitch: 1
+    minMaxPitchRange: {x: 0, y: 0}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: PRESSHATROLL
+    clip: {fileID: 8300000, guid: 91db5607983eda34d94b92bf8f1cfb3d, type: 3}
+    volume: 0.6
+    pitch: 1
+    minMaxPitchRange: {x: 0, y: 0}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: HATROLL
+    clip: {fileID: 8300000, guid: 5cf543fcb366fc648bf25169c55230c4, type: 3}
+    volume: 0.6
+    pitch: 1
+    minMaxPitchRange: {x: 0, y: 0}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: SELECTHOVERUPGRADEBUTTON
+    clip: {fileID: 8300000, guid: 250885965043eb340ae28f684b8dbc22, type: 3}
+    volume: 0.6
+    pitch: 1
+    minMaxPitchRange: {x: 1.525, y: 1.575}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 1
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
@@ -401,20 +655,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2017f5128fc38ff45965b1ce4cb686e1, type: 3}
     volume: 0.15
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 1
-    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
-    useFadeIn: 0
-    fadeInTime: 0.1
-    useFadeOut: 0
-    fadeOutTime: 0.1
-    source: {fileID: 0}
-  - name: DIE
-    clip: {fileID: 8300000, guid: 4e60bd1d8d0d22a4a8c1377d984905a3, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    oneShot: 1
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
@@ -425,8 +669,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 76200f73e93262b4fa6a81be12bed37e, type: 3}
     volume: 0.708
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 1
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1
@@ -437,8 +683,24 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 75ed61be498f54144b709fd10d06d0c8, type: 3}
     volume: 0.6
     pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
     loop: 0
     oneShot: 1
+    randomizePitch: 0
+    mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
+    useFadeIn: 0
+    fadeInTime: 0.1
+    useFadeOut: 0
+    fadeOutTime: 0.1
+    source: {fileID: 0}
+  - name: DIE
+    clip: {fileID: 8300000, guid: 4e60bd1d8d0d22a4a8c1377d984905a3, type: 3}
+    volume: 0.5
+    pitch: 1
+    minMaxPitchRange: {x: 0.9, y: 1.1}
+    loop: 0
+    oneShot: 1
+    randomizePitch: 0
     mixer: {fileID: -408754632934165698, guid: 1dd99528bd89dde4992bfd0b4a5f7c88, type: 2}
     useFadeIn: 0
     fadeInTime: 0.1

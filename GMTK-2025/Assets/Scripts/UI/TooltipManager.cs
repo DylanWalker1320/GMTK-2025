@@ -31,7 +31,7 @@ public class TooltipManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((PlayerMovement._playerInput.currentControlScheme == "Keyboard") && Mouse.current != null)
+        if ((PlayerMovement._playerInput.currentControlScheme == "KeyboardMouse") && Mouse.current != null)
         {
 
             Vector3 worldSpacePosition = camera.ScreenToWorldPoint(Input.mousePosition);

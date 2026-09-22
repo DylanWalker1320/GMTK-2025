@@ -36,7 +36,7 @@ public class Reticle : MonoBehaviour
 
 
         // Mouse Aiming
-        else if (!gamepadIsAiming && Mouse.current != null && PlayerMovement._playerInput.currentControlScheme == "Keyboard")
+        else if (!gamepadIsAiming && Mouse.current != null && PlayerMovement._playerInput.currentControlScheme == "KeyboardMouse")
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
