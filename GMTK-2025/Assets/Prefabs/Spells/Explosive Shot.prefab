@@ -135,7 +135,7 @@ MonoBehaviour:
   spellType1: 0
   spellType2: 0
   markupColor: red
-  damageColor: {r: 0.9245283, g: 0.30981532, b: 0, a: 1}
+  damageColor: {r: 0.9254902, g: 0.49508658, b: 0, a: 1}
   spellSprite: {fileID: 1197888758363656553, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   explosionSize: 1
   explosionDuration: 1

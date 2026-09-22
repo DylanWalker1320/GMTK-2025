@@ -135,7 +135,7 @@ MonoBehaviour:
   spellType1: 0
   spellType2: 4
   markupColor: red
-  damageColor: {r: 1, g: 0.14844322, b: 0.033018887, a: 1}
+  damageColor: {r: 0.8490566, g: 0.59812087, b: 0, a: 1}
   spellSprite: {fileID: -1193137594065180063, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
   damageUpgrade: 10
   speedUpgrade: 0.5
