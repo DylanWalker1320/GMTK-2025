@@ -27,6 +27,22 @@ public class PlayerMovement : MonoBehaviour
     public static float baseDashStrength = -1; // Initialize to -1 to indicate it hasn't been set yet
     public static float baseXpPullRange = -1;
 
+    [Header("Multipliers")]
+    public float experienceGainMultiplier;
+    public float soulGainMultiplier;
+    public float lifeStealMultiplier;
+    public float castBoostMultiplier;
+    public float speedBoostMultiplier;
+    public float dashBoostMultiplier;
+    public float dropLengthMultiplier;
+    private float baseExperienceGainMultiplier = 1;
+    private int baseSoulGainMultiplier = 1;
+    private float baseLifeStealMultiplier = 0;
+    private float baseCastBoostMultiplier = 1;
+    private float baseSpeedBoostMultiplier = 1;
+    private float baseDashBoostMultiplier = 1;
+    private float baseDropLengthMultiplier = 1;
+
     [Header("Currency")]
     public int souls;
 
@@ -40,11 +56,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float experiencePitchChangeInterval = 0.5f;
     // public float experiencePerSoul = 1f; // could be used as a stat modifier where players gain more experience per soul collected
 
+    [Header("Drop/Relic Timers")]
+    private float baseDropEffectLength = 5f;
+
     [Header("UI Elements")]
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
     [SerializeField] private Slider dashBar;
-    public Transform reticle; // Reference to the reticle script for aiming
+    public Transform reticle; // Inspector reference to the reticle script for aiming
     public UnityEvent<float, float> updateHealthUI;
     [Header("Movement/Animation")]
     public Vector2 movement;
@@ -77,14 +96,22 @@ public class PlayerMovement : MonoBehaviour
         if (baseDashStrength < 0) baseDashStrength = dashStrength; // Set base dash strength if not already set
         if (baseXpPullRange < 0) baseXpPullRange = xpParticleSystem.endRange; // Set base XP pull range if not already set
 
-        playerSprite = GetComponent<SpriteRenderer>();
         audioManager = FindFirstObjectByType<AudioManager>();
         uiManager = FindFirstObjectByType<UIManager>();
+        playerSprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         dashTrail = GetComponent<TrailRenderer>();
-        reticle = FindFirstObjectByType<Reticle>().GetComponent<Transform>();
+
         health = maxHealth;
         experiencePitchTimer = experiencePitchChangeInterval;
+
+        experienceGainMultiplier = baseExperienceGainMultiplier;
+        soulGainMultiplier = baseSoulGainMultiplier;
+        lifeStealMultiplier = baseLifeStealMultiplier;
+        castBoostMultiplier = baseCastBoostMultiplier;
+        speedBoostMultiplier = baseSpeedBoostMultiplier;
+        dashBoostMultiplier = baseDashBoostMultiplier;
+        dropLengthMultiplier = baseDropLengthMultiplier;
     }
 
     void Start()
@@ -126,9 +153,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Only add force if under max speed
-        if (rb.linearVelocity.magnitude < maxSpeed)
+        if (rb.linearVelocity.magnitude < maxSpeed * speedBoostMultiplier)
         {
-            rb.AddForce(movement * moveForce);
+            rb.AddForce(movement * moveForce * speedBoostMultiplier);
         }
 
         // Flip the player to face the movement direction
@@ -164,8 +191,8 @@ public class PlayerMovement : MonoBehaviour
             dashTrail.emitting = true;
             dashParticles.Play();
             audioManager.Play("DASH");
-            CinemachineShake.Instance.ShakeCamera(0.65f + (baseDashStrength * 0.01f), .175f);
-            rb.AddForce(movement * dashStrength, ForceMode2D.Impulse);
+            CinemachineShake.Instance.ShakeCamera(0.65f + (dashBoostMultiplier * baseDashStrength * 0.01f), .175f);
+            rb.AddForce(movement * dashStrength * dashBoostMultiplier, ForceMode2D.Impulse);
         }
     }
 
@@ -209,8 +236,8 @@ public class PlayerMovement : MonoBehaviour
         experiencePitchTimer = experiencePitchChangeInterval; // Reset timer
         
 
-        experience += 1;
-        souls += 1;
+        experience += 1 * experienceGainMultiplier;
+        souls += (int) (1 * soulGainMultiplier);
 
         GameResultsTracker._instance.IncrementSoulsEarned();
 
@@ -228,6 +255,14 @@ public class PlayerMovement : MonoBehaviour
         
         uiManager.UpdateExperienceUI(experience, nextLevelExperience, level, souls);
         
+    }
+
+    public void StealLife(float damageAmount)
+    {
+        if(lifeStealMultiplier > 0)
+        {
+            Heal(damageAmount * lifeStealMultiplier);
+        }
     }
 
     public void TakeDamage(float damageAmount)
@@ -284,6 +319,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
         playerSprite.color = originalColor;
+    }
+
+    // Utility Functions
+
+    public float GetTrueCastStrength()
+    {
+        return castStrength * castBoostMultiplier;
+    }
+
+    public float GetTrueCastSpeed()
+    {
+        return castSpeed * castBoostMultiplier;
     }
 
     private void SpawnDamageNumber(float damageAmount, Color color)
@@ -359,6 +406,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // Death and UI Function
+
     void Die()
     {
         Time.timeScale = 0f;
@@ -375,5 +424,113 @@ public class PlayerMovement : MonoBehaviour
     {
         updateHealthUI.Invoke(health, maxHealth);
         uiManager.soulsText.text = souls.ToString();
+    }
+
+    // Pick Up Behaviour Logic
+    
+    public void PickUpDrop(DroppableObject.DropType dropType, float multiplierBoost)
+    {
+        // For performance, multipliers MUST stack and shouldn't repeat asynchronous coroutines to avoid rapid garbage instancing
+        // Game design wise this is much better ^^
+        switch(dropType)
+        {
+            case DroppableObject.DropType.ExperienceBoost:
+
+                if(experienceGainMultiplier <= baseExperienceGainMultiplier)
+                {
+                    StartCoroutine(DropEffectCountdown(dropType));
+                }
+                experienceGainMultiplier *= multiplierBoost;
+                break;
+            case DroppableObject.DropType.SoulBoost:
+
+                if(soulGainMultiplier <= baseSoulGainMultiplier)
+                {
+                    StartCoroutine(DropEffectCountdown(dropType));
+                }
+                soulGainMultiplier *= multiplierBoost;
+                break;
+            case DroppableObject.DropType.LifeSteal:
+
+                if(lifeStealMultiplier <= baseLifeStealMultiplier)
+                {
+                    StartCoroutine(DropEffectCountdown(dropType));
+                }
+                lifeStealMultiplier += multiplierBoost; // lifesteal is additive here
+                break;
+            case DroppableObject.DropType.CastBoost:
+
+                if(castBoostMultiplier <= baseCastBoostMultiplier)
+                {
+                    StartCoroutine(DropEffectCountdown(dropType));
+                }
+                castBoostMultiplier *= multiplierBoost;
+                break;
+            case DroppableObject.DropType.SpeedBoost:
+
+                if(speedBoostMultiplier <= baseSpeedBoostMultiplier)
+                {
+                    StartCoroutine(DropEffectCountdown(dropType));
+                }
+                speedBoostMultiplier *= multiplierBoost;
+                break;
+            case DroppableObject.DropType.DashBoost:
+            
+                if(dashBoostMultiplier <= baseDashBoostMultiplier)
+                {
+                    StartCoroutine(DropEffectCountdown(dropType));
+                }
+                dashBoostMultiplier *= multiplierBoost;
+                break;
+            case DroppableObject.DropType.DropLength:
+
+                if(dropLengthMultiplier <= baseDropLengthMultiplier)
+                {
+                    StartCoroutine(DropEffectCountdown(dropType));
+                }
+                dropLengthMultiplier += multiplierBoost; // additive otherwise we'll have buffs lasting 5 minutes lol
+                break;
+        }
+    }
+
+    IEnumerator DropEffectCountdown(DroppableObject.DropType dropType)
+    {
+        Debug.Log("Starting countdown");
+        float elapsed = 0f;
+        float duration = baseDropEffectLength * dropLengthMultiplier; // given how DropEffectCountdown starts immediately, the duration for drop length will be max of this while other buffs can peak higher for time
+        while(elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            // visual timers here possibly?
+            yield return null;
+        }
+
+        Debug.Log("Countdown finished");
+
+        switch(dropType)
+        {
+            case DroppableObject.DropType.ExperienceBoost:
+                experienceGainMultiplier = baseExperienceGainMultiplier;
+                break;
+            case DroppableObject.DropType.SoulBoost:
+                soulGainMultiplier = baseSoulGainMultiplier;
+                break;
+            case DroppableObject.DropType.LifeSteal:
+                lifeStealMultiplier = baseLifeStealMultiplier;
+                break;
+            case DroppableObject.DropType.CastBoost:
+                castBoostMultiplier = baseCastBoostMultiplier;
+                break;
+            case DroppableObject.DropType.SpeedBoost:
+                speedBoostMultiplier = baseSpeedBoostMultiplier;
+                break;
+            case DroppableObject.DropType.DashBoost:
+                dashBoostMultiplier = baseDashBoostMultiplier;
+                break;
+            case DroppableObject.DropType.DropLength:
+                dropLengthMultiplier = baseDropLengthMultiplier;
+                break;
+        }
+
     }
 }

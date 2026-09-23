@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62824df6200c1864b8e260709f52a14a, type: 3}
+  m_Name: Normal Enemy Drop Table
+  m_EditorClassIdentifier: 
+  drops:
+  - dropObject: {fileID: 6476902735373060511, guid: 3acb20b826caccd49a082497f487ff58, type: 3}
+    probability: 0.05
+  - dropObject: {fileID: 1515133895390638798, guid: 86f6bdd4eecbc3a44b2392c975f22422, type: 3}
+    probability: 0.05
+  - dropObject: {fileID: 3424182577367628872, guid: 195d50803fda112478065d08f7d9ad1f, type: 3}
+    probability: 0.05
+  - dropObject: {fileID: 6746838653963430779, guid: 4b46228b944dd0e49b619722f251676a, type: 3}
+    probability: 0.05
+  - dropObject: {fileID: 8621096311437979971, guid: 8f2cdf8d6742788408ee69707637ca40, type: 3}
+    probability: 0.05
+  - dropObject: {fileID: 2013344544634787710, guid: a57b5edaf39a954488ea02215a3af98a, type: 3}
+    probability: 0.05
+  - dropObject: {fileID: 5246920718873812074, guid: 2a1a042318e281f409b9c6796e401c4a, type: 3}
+    probability: 0.05

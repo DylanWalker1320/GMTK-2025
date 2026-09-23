@@ -35,6 +35,7 @@ abstract public class Enemy : MonoBehaviour
     [SerializeField] protected float healthScalar = 1f; // Base health scaler, can be adjusted for different enemy types
     [SerializeField] protected float damageScalar = 1f; // Base damage scaler, can be adjusted for different enemy types
     [SerializeField] protected float speedScalar = 1f; // Base speed scaler,
+    [SerializeField] protected EnemyDropTable dropTable;
     public EnemyStats stats;
 
     // Hit flash
@@ -226,9 +227,13 @@ abstract public class Enemy : MonoBehaviour
     protected void Die()
     {
         isDead = true;
+        
+        DropManager.Instance.ProcessDrops(dropTable, transform.position);
         Instantiate(dropExperienceParticles, transform.position, Quaternion.identity);
         Instantiate(deathParticles, transform.position, Quaternion.identity);
+
         gameManager.EnemyKilled();
+        
         Destroy(gameObject);
     }
 }

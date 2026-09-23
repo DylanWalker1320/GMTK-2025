@@ -62,6 +62,9 @@ TagManager:
   - name: Spell
     uniqueID: 1689113949
     locked: 0
+  - name: Droppable
+    uniqueID: 868121729
+    locked: 0
   - name: EXP
     uniqueID: 805757109
     locked: 0

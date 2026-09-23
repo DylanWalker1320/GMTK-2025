@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
     }
     private void Update()
     {
-        timeBetweenSpells -= Time.deltaTime * player.castSpeed; // Decrease the time between spells
+        timeBetweenSpells -= Time.deltaTime * player.GetTrueCastSpeed(); // Decrease the time between spells
         if (!isCasting && !gameManager.isInSafeArea)
         {
             Cast();
@@ -56,7 +56,7 @@ public class Inventory : MonoBehaviour
         }
         if (spellArray[currentSpellIndex] != null)
         {
-            Instantiate(spellArray[currentSpellIndex], player.reticle.GetChild(0).position, Quaternion.Euler(0f, 180f, 0f));
+            Instantiate(spellArray[currentSpellIndex], player.reticle.position, Quaternion.Euler(0f, 180f, 0f));
 
             // Play sound effect based on spell name
             if (audioManager != null)
