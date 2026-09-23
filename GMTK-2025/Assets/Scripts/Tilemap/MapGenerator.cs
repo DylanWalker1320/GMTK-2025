@@ -250,6 +250,17 @@ public class MapGenerator : MonoBehaviour
 
         foreach (var w in wallCells)
         {
+            // Prevent cases where a wall tile is placed like _|-|_ because the rule tile cant handle a single wall tile on a flat surface.
+            if (!wallCells.Contains(new Vector2Int(w.x - 1, w.y)) && !wallCells.Contains(new Vector2Int(w.x + 1, w.y)) || // Horizontal case
+                !wallCells.Contains(new Vector2Int(w.x, w.y - 1)) && !wallCells.Contains(new Vector2Int(w.x, w.y + 1)))   // Vertical case
+            {
+                // Place a floor tile instead of a wall tile
+                if (debugMode) Debug.Log($"{debugPrefixWall} Wall tile at {w} is isolated. Placing a floor tile instead.");
+                floor.SetTile(new Vector3Int(w.x, w.y, 0), GetRandomFloorTile());
+                continue;
+            }
+
+
             wall.SetTile(new Vector3Int(w.x, w.y, 0), wallTile);
         }
 
