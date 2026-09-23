@@ -26,7 +26,10 @@ public class MapGenerator : MonoBehaviour
     public NavMeshSurface navMeshSurface;
 
     [Header("Obstacles")]
-    public GameObject[] obstaclePrefabs;
+    [SerializeField] private GameObject[] rockObstaclePrefabs;
+    [SerializeField] private GameObject[] holeObstaclePrefabs;
+    [SerializeField] private GameObject[] spikeObstaclePrefabs;
+
     public int baseNumObstacles = 5;
     [Tooltip("Range (+/-) around base number of obstacles")]
     public int numObstacleRange = 3;
@@ -52,7 +55,8 @@ public class MapGenerator : MonoBehaviour
     public int wallThickness = 3;
 
     [Header("Debugging")]
-    public bool debugMode = false;
+    public bool debugMode;
+    public bool spawnObstacles;
 
     private HashSet<Vector2Int> filledCells = new HashSet<Vector2Int>();
     private string debugPrefixBase = "<color=#00FF00>[MapGenerator]</color>";
@@ -255,7 +259,7 @@ public class MapGenerator : MonoBehaviour
 
     void PlaceObstacles()
     {
-        if (obstaclePrefabs == null || obstaclePrefabs.Length == 0 || filledCells.Count == 0)
+        if (filledCells.Count == 0 || !spawnObstacles)
             return;
 
         List<Vector2Int> floorCells = filledCells.ToList();
@@ -295,7 +299,29 @@ public class MapGenerator : MonoBehaviour
                 Vector3 finalPos = worldPos + offset;
 
                 // Randomly select a prefab
-                GameObject prefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
+                int prefabTypeRoll = Random.Range(0, 2);
+                GameObject prefab = null;
+                switch (prefabTypeRoll)
+                {
+                    case 0:
+                        if (rockObstaclePrefabs.Length > 0)
+                            prefab = rockObstaclePrefabs[Random.Range(0, rockObstaclePrefabs.Length)];
+                        else
+                            Debug.LogWarning($"{debugPrefixObstacle} No rock obstacle prefabs available for placement.");
+                        break;
+                    case 1:
+                        if (holeObstaclePrefabs.Length > 0)
+                            prefab = holeObstaclePrefabs[Random.Range(0, holeObstaclePrefabs.Length)];
+                        else
+                            Debug.LogWarning($"{debugPrefixObstacle} No hole obstacle prefabs available for placement.");
+                        break;
+                    case 2:
+                        if (spikeObstaclePrefabs.Length > 0)
+                            prefab = spikeObstaclePrefabs[Random.Range(0, spikeObstaclePrefabs.Length)];
+                        else
+                            Debug.LogWarning($"{debugPrefixObstacle} No spike obstacle prefabs available for placement.");
+                        break;
+                }
 
                 // === INSTANTIATE FIRST to get accurate bounds ===
                 GameObject obstacle = Instantiate(prefab, finalPos, Quaternion.identity, transform);

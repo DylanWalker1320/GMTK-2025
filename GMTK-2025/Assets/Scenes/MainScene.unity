@@ -22506,9 +22506,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e7ff386086200734a9e8001ca4b0f931, type: 2}
   - {fileID: 11400000, guid: beea906b5a0b6784c820776788b576fa, type: 2}
   navMeshSurface: {fileID: 58362942}
-  obstaclePrefabs:
+  rockObstaclePrefabs:
+  - {fileID: 5393272544919602523, guid: 73dc0438d7041354b89a833e1041ac8b, type: 3}
+  - {fileID: 943187053288491759, guid: 60540e312c39fbc48a5ce06451d025e9, type: 3}
+  - {fileID: 5814600801704535238, guid: cb3dbc48d06017a4784dc9e46355f40c, type: 3}
+  holeObstaclePrefabs:
   - {fileID: 3341681888908762737, guid: bae4706f4f25a40458c20e086acb1d21, type: 3}
-  - {fileID: 1588345562700510080, guid: eda578c1c7f27574ab22223d104feb14, type: 3}
+  spikeObstaclePrefabs:
   - {fileID: 5928778723929173206, guid: 50715c2952701d04188b6173deafedf2, type: 3}
   baseNumObstacles: 5
   numObstacleRange: 3
@@ -22525,6 +22529,7 @@ MonoBehaviour:
   extraTileChance: 20
   wallThickness: 15
   debugMode: 0
+  spawnObstacles: 0
 --- !u!224 &1055860098 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1705434868178900364, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
@@ -52493,7 +52498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_StaticEditorFlags
