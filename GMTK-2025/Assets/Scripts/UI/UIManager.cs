@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
     public GameObject Slide4;
     [Header("Health Bar")]
     [SerializeField] private Slider healthBar;
+    [SerializeField] private Image healthBarColor;
     [SerializeField] private TextMeshProUGUI healthBarText;
     [SerializeField] private Slider trailingHealthbar;
     [SerializeField] private int trailingHealthbarDelay; // Delay in seconds before the trailing health bar starts to decrease
@@ -185,10 +186,23 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdateHealthUI(float health, float maxHealth)
+    public void UpdateHealthUI(float health, float maxHealth) // referenced via unity event
     {
         healthBar.value = health / maxHealth * 100; // slider max value is 100
         healthBarText.text = $"{health} / {maxHealth}";
+
+        if(healthBar.value < 15)
+        {
+            healthBarColor.color = Color.red;
+        }
+        else if(healthBar.value < 50)
+        {
+            healthBarColor.color = Color.yellow;
+        }
+        else
+        {
+            healthBarColor.color = new Color(0, 1, 0.0745f);
+        }
     }
 
     public void UpdateExperienceUI(float currentEXP, float nextLevelEXP, int level, int souls)

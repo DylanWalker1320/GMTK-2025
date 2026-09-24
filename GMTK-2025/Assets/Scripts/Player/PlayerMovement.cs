@@ -420,7 +420,7 @@ public class PlayerMovement : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void UpdateUI()
+    public void UpdateUI() // why is this not in UIManager LMFAO
     {
         updateHealthUI.Invoke(health, maxHealth);
         uiManager.soulsText.text = souls.ToString();
