@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using System;
 using System.Collections;
 
+[RequireComponent(typeof(Animator))]
 public class ThreeUpgradeScreen : MonoBehaviour
 {
     
@@ -37,8 +38,6 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     [SerializeField] private UnityEvent unityEvent;
 
-    [Header("Upgrade List")]
-    [SerializeField] private TextMeshProUGUI upgradeListHeader; // Header for the upgrade list
 
     [Header("UI elements")]
     [SerializeField] private TextMeshProUGUI upgradeHeaderOne; // Heal
@@ -92,10 +91,10 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     void Awake()
     {
-        player = FindFirstObjectByType<PlayerMovement>();
-        gameManager = FindFirstObjectByType<GameManager>();
-        uiManager = FindFirstObjectByType<UIManager>();
         animator = GetComponent<Animator>();
+        player = FindAnyObjectByType<PlayerMovement>();
+        gameManager = FindAnyObjectByType<GameManager>();
+        uiManager = FindAnyObjectByType<UIManager>();
     }
 
     public void UpdateDisplays()

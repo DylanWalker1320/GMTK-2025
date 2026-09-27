@@ -62,7 +62,7 @@ public class HatScroll : MonoBehaviour
         hatGenerator = FindFirstObjectByType<HatGenerator>();
     }
 
-    private void Update() // With this setup, cell 39/50 will always win
+    private void Update() // With this setup, cell x/50 will always win
     {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left * 100, _speed * Time.unscaledDeltaTime * 30); // Magic number, replace 30 with a variable
 

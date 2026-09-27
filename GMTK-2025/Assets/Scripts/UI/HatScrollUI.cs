@@ -4,8 +4,10 @@ using UnityEngine.Events;
 using TMPro;
 using System.Collections;
 
+[RequireComponent(typeof(Animator))]
 public class HatScrollUI : MonoBehaviour
 {
+    private static readonly int HatRollPrizeHash = Animator.StringToHash("HatRollPrize");
     [SerializeField] private GameObject scrollUI;
     [SerializeField] private GameObject scrollButton;
     [SerializeField] private GameObject hatPrizeUI;
@@ -38,6 +40,7 @@ public class HatScrollUI : MonoBehaviour
     [SerializeField] private Color legendaryAccentColor;
     [SerializeField] private Image mainPrizeBackGround;
     [SerializeField] private Image mainPrizeAccent;
+    [SerializeField] private Animator animator;
 
     // Misc
     private HatGenerator hatGenerator;
@@ -46,9 +49,13 @@ public class HatScrollUI : MonoBehaviour
 
     void Awake()
     {
-        audioManager = FindAnyObjectByType<AudioManager>();
+        animator = GetComponent<Animator>();
         originalPrizeBackgroundColor = mainPrizeBackGround.color;
         originalPrizeAccentColor = mainPrizeAccent.color;
+    }
+    void Start()
+    {
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     void Update()
@@ -75,7 +82,7 @@ public class HatScrollUI : MonoBehaviour
         if(scrollUI.activeSelf && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1) && scrollUI.GetComponent<HatScroll>()._speed < 4) && scrollUI.GetComponent<HatScroll>().GetIsScrolling())
         {
             audioManager.StopLoop("HATROLL");
-            GetComponent<Animator>().SetTrigger("HatRollPrize");
+            animator.SetTrigger(HatRollPrizeHash);
             ToggleScrollUI();
             ToggleHatPrize(scrollUI.GetComponent<HatScroll>().GetTargetHatData());
         }

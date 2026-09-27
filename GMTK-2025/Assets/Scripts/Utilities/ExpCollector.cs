@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ParticleSystem))]
 public class ExpCollector : MonoBehaviour
 {
     [SerializeField] private float destroyTime;
@@ -13,7 +14,7 @@ public class ExpCollector : MonoBehaviour
 
     private void Start()
     {
-        player = FindFirstObjectByType<PlayerMovement>();
+        player = FindAnyObjectByType<PlayerMovement>();
         potency = GetComponent<ParticleSystem>();
         collector = GameObject.FindGameObjectWithTag("Collector").transform;
         potency.trigger.AddCollider(collector);

@@ -42,19 +42,17 @@ public class GameManager : MonoBehaviour
 
     public bool playerInSafeArea = false;
 
-    void Awake()
+    void Start()
     {
-        player = FindFirstObjectByType<PlayerMovement>();
-        uIManager = FindFirstObjectByType<UIManager>();
+        player = FindAnyObjectByType<PlayerMovement>();
+        uIManager = FindAnyObjectByType<UIManager>();
+
         if (player == null)
             if (debugMode) Debug.LogError("PlayerMovement not found in the scene.");
 
         if (!isInSafeArea)
-            enemySpawner = FindFirstObjectByType<EnemySpawner>();
+            enemySpawner = FindAnyObjectByType<EnemySpawner>();
 
-    }
-    void Start()
-    {
         if(betaMode)
         {
             SetEnemyPause(true);

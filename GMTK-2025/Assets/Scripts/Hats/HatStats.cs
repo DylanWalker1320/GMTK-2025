@@ -42,11 +42,11 @@ Accurate as of Dec 18, 2025
 // ===== Enums =====
 public enum Rarity
 {
-    Common,
-    Uncommon,
-    Rare,
-    Epic,
-    Legendary
+    Common = 0,
+    Uncommon = 1,
+    Rare = 2,
+    Epic = 3,
+    Legendary = 4
 }
 
 public enum StatType
@@ -167,6 +167,7 @@ public class GeneratedHat
     public Rarity rarity;
     public List<HatStat> stats;
     public HatComponents components;
+    
     public override string ToString()
     {
         string output = $"{hatName} (Rarity: {rarity})\nStats:\n";
@@ -192,6 +193,16 @@ public class GeneratedHat
         this.hatName = name;
         this.rarity = rarity;
         this.stats = stats;
+    }
+
+    public float GetHatScore() // currently unsophisticated and takes total stat value rather than weighted, still works to a degree though
+    {
+        float score = 0;
+        foreach (var stat in stats)
+        {
+            score += stat.value;
+        }
+        return score;
     }
 }
 

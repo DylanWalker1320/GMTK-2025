@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public GameObject scrollUI;
     public GameObject barAllocationUI;
     public GameObject statTrackerUI;
+    public GameObject statusMenuUI;
     public GameObject spellBookUI;
     // transition UI utilised in portal.cs
     public GameObject pauseMenu;

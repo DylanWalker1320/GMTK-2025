@@ -3102,7 +3102,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1638402479
-  m_SortingLayer: 9
+  m_SortingLayer: 12
   m_SortingOrder: 1
   m_Sprite: {fileID: -2739807658926110822, guid: 0373e935e89a1e945882a1a0f66e01b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4824,6 +4824,7 @@ MonoBehaviour:
   isHealType: 0
   isStatType: 1
   isSpellType: 0
+  tooltipOffset: {x: 0, y: 0}
 --- !u!1 &1198620248225866394
 GameObject:
   m_ObjectHideFlags: 0
@@ -7880,7 +7881,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1638402479
-  m_SortingLayer: 9
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_Sprite: {fileID: -566598446, guid: f04de046b398ba54298bd52edb16989a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10032,6 +10033,7 @@ MonoBehaviour:
   isHealType: 0
   isStatType: 0
   isSpellType: 1
+  tooltipOffset: {x: 0, y: 0}
 --- !u!1 &2272172356693522068
 GameObject:
   m_ObjectHideFlags: 0
@@ -12522,7 +12524,6 @@ RectTransform:
   - {fileID: 7099670567376308663}
   - {fileID: 8455123644283594703}
   - {fileID: 7505670254856218463}
-  - {fileID: 8230185839156589022}
   - {fileID: 8180239019288325609}
   - {fileID: 4385364714335727080}
   - {fileID: 2469184536722735228}
@@ -12531,6 +12532,7 @@ RectTransform:
   - {fileID: 7067786166479182308}
   - {fileID: 8838607447416930730}
   - {fileID: 1519568074955016266}
+  - {fileID: 8230185839156589022}
   - {fileID: 4322342093967455837}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12614,7 +12616,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44fa41fcb0476ff478df76ee6f90676e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
   upgradeUI: {fileID: 5426611615716575750}
   statShopUI: {fileID: 0}
   scrollUI: {fileID: 0}
@@ -12625,14 +12626,15 @@ MonoBehaviour:
   startMenu: {fileID: 1433582577132190180}
   settingsMenu: {fileID: 6924414449566820590}
   tutorialMenu: {fileID: 1317385549848778148}
-  animationDuration: 0.5
-  transitionUI: {fileID: 0}
   Slide1: {fileID: 4204805689127992762}
   Slide2: {fileID: 4163636214921294302}
   Slide3: {fileID: 8854956599102853528}
   Slide4: {fileID: 3471030686186587331}
   healthBar: {fileID: 0}
+  healthBarColor: {fileID: 0}
   healthBarText: {fileID: 0}
+  trailingHealthbar: {fileID: 0}
+  trailingHealthbarDelay: 0
   experienceBar: {fileID: 2236202318910716701}
   experienceBarText: {fileID: 9098018035193113535}
   soulsText: {fileID: 8242344282852262020}
@@ -12641,7 +12643,20 @@ MonoBehaviour:
   button3: {fileID: 2223822578655150519}
   button4: {fileID: 3720529127291938436}
   spellbarAllocationAnimator: {fileID: 2073389983386064020}
+  transitionUIAnimator: {fileID: 0}
+  statShopAnimator: {fileID: 0}
   upgradeUIAnimator: {fileID: 6843259737600931758}
+  select: {fileID: 0}
+  swap: {fileID: 0}
+  statTrack: {fileID: 0}
+  spellbook: {fileID: 0}
+  escape: {fileID: 0}
+  threeUpgradesFirst: {fileID: 0}
+  spellBarAllocationFirst: {fileID: 0}
+  statShopFirst: {fileID: 0}
+  hatScrollFirst: {fileID: 0}
+  pauseMenuFirst: {fileID: 0}
+  backgroundParticles: {fileID: 0}
   onShopFinish:
     m_PersistentCalls:
       m_Calls:
@@ -13706,6 +13721,7 @@ MonoBehaviour:
   isHealType: 1
   isStatType: 0
   isSpellType: 0
+  tooltipOffset: {x: 0, y: 0}
 --- !u!1 &3154518736907791814
 GameObject:
   m_ObjectHideFlags: 0
@@ -16681,6 +16697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67beae018dbae70488b8513956931d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitButton: {fileID: 0}
   rerollCost: 100
   rerollText: {fileID: 3690758154368817079}
   panels:
@@ -16702,21 +16719,6 @@ MonoBehaviour:
     costText: {fileID: 4667700110438270740}
     statDescription: {fileID: 7777207296426643198}
     boxSprite: {fileID: 6627782506908876170}
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7146313590158813708}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: GameplayMode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &3746348117814110679
 GameObject:
   m_ObjectHideFlags: 0
@@ -21224,6 +21226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: Leave the Stat Shop
+  tooltipOffset: {x: 0, y: 0}
 --- !u!1 &4860865326913484143
 GameObject:
   m_ObjectHideFlags: 0
@@ -22926,10 +22929,11 @@ MonoBehaviour:
   healAmount: 50
   healthUpgradeIncrease: 100
   speedUpgradeIncrease: 50
-  iFramesUpgradeIncrease: 1
+  xpPullRangeUpgradeIncrease: 0
+  dashCooldownUpgradeIncrease: 0
+  dashStrengthUpgradeIncrease: 0
   castSpeedUpgradeIncrease: 0.25
   castStrengthUpgradeIncrease: 0.05
-  dashStrengthUpgradeIncrease: 0
   upgradeStatType: 0
   upgradeSpriteType: 0
   displaySprite: {fileID: 764495386537449417}
@@ -26624,7 +26628,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1638402479
-  m_SortingLayer: 9
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_Sprite: {fileID: 8719759597818100740, guid: f9b205779a6dfb14da76797b770c90f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -27952,7 +27956,7 @@ SortingGroup:
   m_GameObject: {fileID: 6559095814015426614}
   m_Enabled: 1
   m_SortingLayerID: -1638402479
-  m_SortingLayer: 9
+  m_SortingLayer: 12
   m_SortingOrder: 5
   m_SortAtRoot: 0
 --- !u!1 &6571302501496434062
@@ -28349,7 +28353,7 @@ SortingGroup:
   m_GameObject: {fileID: 6624872687878649340}
   m_Enabled: 1
   m_SortingLayerID: -1638402479
-  m_SortingLayer: 9
+  m_SortingLayer: 12
   m_SortingOrder: 2
   m_SortAtRoot: 0
 --- !u!114 &5542525026999441474
@@ -33593,7 +33597,7 @@ GameObject:
   - component: {fileID: 5501223148724663066}
   - component: {fileID: 2505581197925879684}
   m_Layer: 5
-  m_Name: Spell Upgrade Menu
+  m_Name: Spell Upgrade Menu (Archived)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34340,6 +34344,7 @@ MonoBehaviour:
   - {fileID: 3483660719612695160}
   - {fileID: 1836642218487923998}
   spellImage: {fileID: 3864657378167524558}
+  swapSprite: {fileID: 0}
   spellReplacements:
   - {fileID: 6813655516327199667, guid: 4bb26d09d3a2bc842bb79b63d0cb72a9, type: 3}
   - {fileID: 8039000571881017357, guid: f09026906f6e0e142b6d90c996bbf729, type: 3}
@@ -36350,6 +36355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: Reroll for new stats to buy!
+  tooltipOffset: {x: 0, y: 0}
 --- !u!1 &8537633953759341828
 GameObject:
   m_ObjectHideFlags: 0

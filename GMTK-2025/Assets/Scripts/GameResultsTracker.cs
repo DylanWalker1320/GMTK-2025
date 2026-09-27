@@ -58,12 +58,11 @@ public class GameResultsTracker : MonoBehaviour
         {
             _instance = this;
         }
-
-        gameManager = FindAnyObjectByType<GameManager>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     // Update is called once per frame

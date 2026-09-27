@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(TrailRenderer))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour // also houses other player attirbutes (result of game jam :p)
 {
     [Header("Player Stats")]
     public int level = 1;
