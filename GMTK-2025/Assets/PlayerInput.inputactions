@@ -34,7 +34,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Spellbook",
+                    "name": "Status",
                     "type": "Button",
                     "id": "20952691-eee9-4293-9bdb-fc8fe9748f03",
                     "expectedControlType": "",
@@ -232,7 +232,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "Spellbook",
+                    "action": "Status",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -243,7 +243,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Controller",
-                    "action": "Spellbook",
+                    "action": "Status",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

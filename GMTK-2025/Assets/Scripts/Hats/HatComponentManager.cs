@@ -46,4 +46,9 @@ public class HatComponentManager : MonoBehaviour
     {
         hat.hatShadow.SetActive(false);
     }
+
+    public Sprite ReturnSprite(SpriteRenderer spriteRenderer)
+    {
+        return spriteRenderer.sprite;
+    }
 }

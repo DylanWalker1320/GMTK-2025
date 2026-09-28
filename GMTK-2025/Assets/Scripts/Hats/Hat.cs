@@ -174,4 +174,9 @@ public class Hat : MonoBehaviour
     {
         hatBelow = gameObject;
     }
+
+    public HatComponentManager GetHatComponent()
+    {
+        return spriteLayerUpdater;
+    }
 }

@@ -21,9 +21,9 @@ public class HatScrollUI : MonoBehaviour
     [SerializeField] private UnityEvent unityEvent;
     
     [Header("Prize Hat Visuals")]
-    [SerializeField] private GameObject prizeHatFront;
-    [SerializeField] private GameObject prizeHatBack;
-    [SerializeField] private GameObject prizeHatOutline;
+    [SerializeField] private Image prizeHatFront;
+    [SerializeField] private Image prizeHatBack;
+    [SerializeField] private Image prizeHatOutline;
     [SerializeField] private ParticleSystem prizeHatParticles;
     [Header("Prize UI Color Visuals")]
     private Color originalPrizeBackgroundColor;
@@ -162,11 +162,13 @@ public class HatScrollUI : MonoBehaviour
     private void ConvertHatPrizeSpriteToUI(GeneratedHat hatData)
     {
         hatObject = hatGenerator.GenerateHatWithStats(hatData);
-        prizeHatFront.GetComponent<Image>().sprite = hatObject.GetComponent<HatComponentManager>().front.GetComponent<SpriteRenderer>().sprite;
-        prizeHatFront.GetComponent<Image>().color = hatData.components.color;
-        prizeHatBack.GetComponent<Image>().sprite = hatObject.GetComponent<HatComponentManager>().back.GetComponent<SpriteRenderer>().sprite;
-        prizeHatOutline.GetComponent<Image>().sprite = hatObject.GetComponent<HatComponentManager>().outline.GetComponent<SpriteRenderer>().sprite;
-        hatObject.GetComponent<HatComponentManager>().DisableShadow();
+        HatComponentManager hatObjectVisuals = hatObject.GetComponent<HatComponentManager>();
+
+        prizeHatFront.sprite = hatObjectVisuals.ReturnSprite(hatObjectVisuals.front);
+        prizeHatFront.color = hatData.components.color;
+        prizeHatBack.sprite = hatObjectVisuals.ReturnSprite(hatObjectVisuals.back);
+        prizeHatOutline.sprite = hatObjectVisuals.ReturnSprite(hatObjectVisuals.outline);
+        hatObjectVisuals.DisableShadow();
     }
 
     private void DeterminePrizeUIColors(string rarity)

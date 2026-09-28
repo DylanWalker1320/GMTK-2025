@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private InputActionReference select;
     [SerializeField] private InputActionReference swap; // Reference to the input action for spell swapping
     [SerializeField] private InputActionReference statTrack; // Reference to the input action for enabling stat tracker
-    [SerializeField] private InputActionReference spellbook; // Reference to the input action for spellbook
+    [SerializeField] private InputActionReference status; // Reference to the input action for spellbook
     [SerializeField] private InputActionReference escape; // Reference to the input action for escape menu
     [Header("First Selected Menu Management")]
     [SerializeField] private GameObject threeUpgradesFirst;
@@ -102,7 +102,7 @@ public class UIManager : MonoBehaviour
     {
         if (!gameManager) return;
 
-        if (OnEscapePressed() && !statShopUI.activeSelf && !scrollUI.activeSelf &&  !barAllocationUI.activeSelf) // Don't allow pause in stat shop, bar allocation and hat rolling
+        if (OnEscapePressed() && !statShopUI.activeSelf && !scrollUI.activeSelf &&  !barAllocationUI.activeSelf && !statusMenuUI.activeSelf) // Don't allow pause in stat shop, bar allocation and hat rolling
         {
 
             if (currentMenu == Menu.None) // Only allow pause if in game
@@ -149,22 +149,22 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        else if (OnSpellbookPressed())
+        else if (OnStatusPressed() && !statShopUI.activeSelf && !scrollUI.activeSelf && !upgradeUI.activeSelf && !barAllocationUI.activeSelf)
         {
-            if((currentMenu == Menu.GameMenu || currentMenu == Menu.None) && scrollUI.activeSelf == false)
+            if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
             {
-                spellBookUI.SetActive(!spellBookUI.activeSelf);
+                SetActiveStatusMenuUI();
             }
         }
 
-        else if (OnSwapPressed() && statShopUI.activeSelf == false && scrollUI.activeSelf == false && upgradeUI.activeSelf == false && barAllocationUI.activeSelf == false)
+        else if (OnSwapPressed() && !statShopUI.activeSelf && !scrollUI.activeSelf && !upgradeUI.activeSelf && !barAllocationUI.activeSelf && !statusMenuUI.activeSelf)
         {
             if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
             {
                 SetActiveBarAllocUI(InteractableLoopBar.LoopBarType.SpellSwap); // Opens the spell swap UI, which reuses the bar allocation UI
             }
         }
-        else if (OnSwapPressed() && statShopUI.activeSelf == false && scrollUI.activeSelf == false && barAllocationUI.activeSelf == true && FindFirstObjectByType<InteractableLoopBar>().loopBarType == InteractableLoopBar.LoopBarType.SpellSwap)
+        else if (OnSwapPressed() && !statShopUI.activeSelf && !scrollUI.activeSelf && !statusMenuUI.activeSelf && barAllocationUI.activeSelf && FindFirstObjectByType<InteractableLoopBar>().loopBarType == InteractableLoopBar.LoopBarType.SpellSwap)
         {
             if(currentMenu == Menu.GameMenu || currentMenu == Menu.None)
             {
@@ -362,24 +362,6 @@ public class UIManager : MonoBehaviour
 
     public void HandleReturnToMainMenu()
     {
-        // Debug.Log("HandleReturnToMainMenu | Returning to Start Menu from Pause Menu");
-
-        // // Close all in-game UI
-        // pauseMenu.SetActive(false);
-        // settingsMenu.SetActive(false);
-        // tutorialMenu.SetActive(false);
-        // inventoryUI.SetActive(false);
-        // upgradeUI.SetActive(false);
-
-        // // Open the start menu
-        // startMenu.SetActive(true);
-
-        // // Update menu tracking
-        // lastMenu = Menu.PauseMenu;
-        // currentMenu = Menu.StartMenu;
-
-        // // Stop the game time
-        // Time.timeScale = 0;
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -436,6 +418,21 @@ public class UIManager : MonoBehaviour
 
                 EventSystem.current.SetSelectedGameObject(statShopFirst);
                 break;
+        }
+    }
+
+    public void SetActiveStatusMenuUI()
+    {
+        if(statusMenuUI.activeSelf == false)
+        {
+            statusMenuUI.SetActive(true);
+            statusMenuUI.GetComponent<StatusMenuUI>().OnCall();
+            Time.timeScale = 0;
+        }
+        else
+        {
+            statusMenuUI.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 
@@ -517,9 +514,9 @@ public class UIManager : MonoBehaviour
         return false;
     }
 
-    private bool OnSpellbookPressed()
+    private bool OnStatusPressed()
     {
-        if (spellbook.action.triggered)
+        if (status.action.triggered)
         {
             return true;
         }
