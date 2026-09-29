@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: a33fbb620e048a948af73e4ae83abebe
+guid: 90fa320d46d05134a9d10a4e6d3d9f0f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2022401849427975919
-    second: spike trap out_0
-  - first:
-      213: -844544854883309744
-    second: spike trap out_1
-  - first:
-      213: -3592878557299180137
-    second: spike trap out_2
-  - first:
-      213: 4069772032907767181
-    second: spike trap out_3
-  - first:
-      213: 6454788513763496118
-    second: spike trap out_4
+      213: -5030519589731879559
+    second: hole_3-3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 700
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,27 +96,40 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spike trap out_1
+      name: hole_3-3_0
       rect:
         serializedVersion: 2
-        x: 194
-        y: 205
-        width: 2533
-        height: 2527
+        x: 264
+        y: 486
+        width: 2418
+        height: 808
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 057ebc7dde29744f0800000000000000
-      internalID: -844544854883309744
+      spriteID: 97533620611003ab0800000000000000
+      internalID: -5030519589731879559
       vertices: []
       indices: 
       edges: []
@@ -137,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ca8331e715dad0340957e89c5e8750d5
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -147,11 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spike trap out_0: 2022401849427975919
-      spike trap out_1: -844544854883309744
-      spike trap out_2: -3592878557299180137
-      spike trap out_3: 4069772032907767181
-      spike trap out_4: 6454788513763496118
+      hole_3-3_0: -5030519589731879559
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

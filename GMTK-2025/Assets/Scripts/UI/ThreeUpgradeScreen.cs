@@ -8,33 +8,12 @@ using System.Collections;
 [RequireComponent(typeof(Animator))]
 public class ThreeUpgradeScreen : MonoBehaviour
 {
-    
-    public enum UpgradeStats
-    {
-        Health,
-        Speed,
-        CastSpeed,
-        CastStrength
-    }
-
-    public enum Spells
-    {
-        Fireball,
-        Waterball,
-        Lightning,
-        Dark
-    }
-    public enum Heal
-    {
-        Heal
-    }
 
     public UnityEvent<float, float> updateHealthUI;
 
     private GameManager gameManager; // Reference to the GameManager script
     private PlayerMovement player; // Reference to the PlayerMovement script
     private UIManager uiManager;
-    private float restoreHealthHandicap = 3;
 
     [SerializeField] private UnityEvent unityEvent;
 
@@ -99,7 +78,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     public void UpdateDisplays()
     {
-        upgradeTextOne.text = $"Heal {healAmount} HP";
+        upgradeTextOne.text = $"Heal {player.health / 2} HP";
 
         upgradeStatType = (StatIncreaseType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(StatIncreaseType)).Length); // Change this according to the number of stats in the enum class
         UpdateStatDisplay();
@@ -175,15 +154,7 @@ public class ThreeUpgradeScreen : MonoBehaviour
 
     public void SlotOne()
     {
-        if (player.health + healAmount <= player.maxHealth)
-        {
-            player.health += healAmount; // Heal the player by the specified amount
-        }
-        else
-        {
-            player.health = player.maxHealth;
-        }
-        healAmount += Mathf.Round(player.health / restoreHealthHandicap);
+        player.health = Mathf.Min(player.maxHealth, player.health + healAmount); // Heal the player, but not above max health
 
         FindAnyObjectByType<AudioManager>().Play("HEAL");
         updateHealthUI.Invoke(player.health, player.maxHealth);
@@ -197,11 +168,8 @@ public class ThreeUpgradeScreen : MonoBehaviour
         {
             case StatIncreaseType.Health:
                 player.maxHealth += healthUpgradeIncrease; // Upgrade health
-                player.health += healthUpgradeIncrease;
-                if(player.health > player.maxHealth)
-                {
-                    player.health = player.maxHealth;
-                }
+                player.health = Mathf.Min(player.maxHealth, player.health + healthUpgradeIncrease); // Heal the player by the same amount as the health increase
+                
                 updateHealthUI.Invoke(player.health, player.maxHealth);
                 break;
             case StatIncreaseType.Speed:

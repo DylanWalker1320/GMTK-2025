@@ -16,7 +16,7 @@ public abstract class Spell : MonoBehaviour
 
     public enum Spells
     {
-        BlackFlash,
+        BlackBlade,
         BlackHole,
         ChainLightning,
         Dark,
@@ -34,7 +34,7 @@ public abstract class Spell : MonoBehaviour
 
     protected static Dictionary<Spells, int> spellLevels = new Dictionary<Spells, int>
     {
-        { Spells.BlackFlash, 0 },
+        { Spells.BlackBlade, 0 },
         { Spells.BlackHole, 0 },
         { Spells.ChainLightning, 0 },
         { Spells.Dark, 0 },
@@ -76,6 +76,8 @@ public abstract class Spell : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0; // Ensure the mouse position is on the same plane as the spell
     }
 
     public void SetDamage(float newDamage)

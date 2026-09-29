@@ -135,4 +135,16 @@ public class DarkKnight : Boss
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position + Vector3.right * spriteOffset, attackRange);
     }
+
+    void OnDestroy()
+    {
+        // Destroy all active projectiles when the boss is destroyed
+        foreach (GameObject projectile in activeProjectiles)
+        {
+            if (projectile != null)
+            {
+                Destroy(projectile);
+            }
+        }
+    }
 }

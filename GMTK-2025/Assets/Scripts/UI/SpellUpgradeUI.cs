@@ -61,7 +61,7 @@ public class SpellUpgradeUI : MonoBehaviour
         clLevelText.text = Spell.GetSpellLevel(Spell.Spells.ChainLightning).ToString();
         ppLevelText.text = Spell.GetSpellLevel(Spell.Spells.PoisonPuddle).ToString();
         stLevelText.text = Spell.GetSpellLevel(Spell.Spells.Storm).ToString();
-        bfLevelText.text = Spell.GetSpellLevel(Spell.Spells.BlackFlash).ToString();
+        bfLevelText.text = Spell.GetSpellLevel(Spell.Spells.BlackBlade).ToString();
         bhLevelText.text = Spell.GetSpellLevel(Spell.Spells.BlackHole).ToString();
     }
 
@@ -159,10 +159,10 @@ public class SpellUpgradeUI : MonoBehaviour
         stLevelText.text = Spell.GetSpellLevel(Spell.Spells.Storm).ToString();
         
     }
-    public void UpgradeBlackFlash()
+    public void UpgradeBlackBlade()
     {
-        SubtractExperience(bigSpellCost, Spell.Spells.BlackFlash);
-        bfLevelText.text = Spell.GetSpellLevel(Spell.Spells.BlackFlash).ToString();
+        SubtractExperience(bigSpellCost, Spell.Spells.BlackBlade);
+        bfLevelText.text = Spell.GetSpellLevel(Spell.Spells.BlackBlade).ToString();
         
     }
     public void UpgradeBlackHole()

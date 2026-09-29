@@ -33,7 +33,7 @@ public class BlackFlash : Spell
 
         player = GameObject.FindGameObjectWithTag("Player");
 
-        targetPosition = Mathf.Min(Vector3.Distance(transform.position, mousePos) + transform.localScale.x / 2f, throwRange) * direction.normalized + transform.position; // Calculate the target position based on the throwRange
+        targetPosition = Vector3.Distance(transform.position, mousePos) > throwRange ? transform.position + direction.normalized * throwRange : mousePos;
         targetPosition.z = 0; // Ensure the target position is on the same plane as the spell
     }
 
@@ -109,16 +109,20 @@ public class BlackFlash : Spell
 
     public void AddUpgrade()
     {
-        int spellLevel = GetSpellLevel(Spells.BlackFlash);
+        int spellLevel = GetSpellLevel(Spells.BlackBlade);
         damage += damageUpgrade * spellLevel; // Increase damage by the upgrade value
         throwRange += throwRangeUpgrade * spellLevel; // Increase throwRange by the upgrade value
         aoeRadius += radiusUpgrade * spellLevel; // Increase aoeRadius by the upgrade value
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         // Draw a yellow sphere at the target position to visualize the throwRange
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, targetPosition);
+        Gizmos.DrawWireSphere(mousePos, aoeRadius);
+
+        // Draw a red sphere to visualize the AOE radius
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(targetPosition, aoeRadius);
     }
 }
