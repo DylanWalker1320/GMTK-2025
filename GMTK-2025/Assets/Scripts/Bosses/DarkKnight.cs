@@ -10,7 +10,7 @@ public class DarkKnight : Boss
     [SerializeField] private float attackRange;
     [SerializeField] private float dashForce;
     [SerializeField] private float spawnAttackGracePeriod = 5f; // Time after spwan before the boss can attack (Seconds)
-    [SerializeField] private GameObject projectilePrefab; 
+    [SerializeField] private GameObject projectilePrefab;
 
     private bool attackGracePeriodActive = true;
     private List<GameObject> activeProjectiles = new List<GameObject>();
@@ -138,6 +138,8 @@ public class DarkKnight : Boss
 
     void OnDestroy()
     {
+
+
         // Destroy all active projectiles when the boss is destroyed
         foreach (GameObject projectile in activeProjectiles)
         {

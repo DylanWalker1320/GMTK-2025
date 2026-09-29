@@ -18,7 +18,7 @@ public class DropManager : MonoBehaviour
         }
     }
 
-    public void ProcessDrops(EnemyDropTable table, Vector3 position)
+    public void ProcessDrops(EnemyDropTable table, Vector3 position, bool allowMultipleDrops = false)
     {
         foreach(DropEntry entry in table.drops)
         {
@@ -29,7 +29,8 @@ public class DropManager : MonoBehaviour
             if(Random.value <= chance)
             {
                 SpawnDrop(entry.dropObject, position);
-                break;
+                
+                if(!allowMultipleDrops) break;
             }
         }   
     }

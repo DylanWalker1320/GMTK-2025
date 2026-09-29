@@ -13,6 +13,7 @@ public class DroppableObject : MonoBehaviour
         CastBoost,
         SpeedBoost,
         DashBoost,
-        DropLength
+        DropLength,
+        Enchantment
     }
 }

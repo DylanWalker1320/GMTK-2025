@@ -490,6 +490,10 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
                 }
                 dropLengthMultiplier += multiplierBoost; // additive otherwise we'll have buffs lasting 5 minutes lol
                 break;
+            case DroppableObject.DropType.Enchantment:
+                // Handle enchantment logic here
+                Debug.Log("Enchantment picked up! Implement enchantment logic here.");
+                break;
         }
     }
 

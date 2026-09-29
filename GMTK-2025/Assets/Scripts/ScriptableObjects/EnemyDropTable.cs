@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyDropTable", menuName = "Scriptable Objects/EnemyDropTable")]
 public class EnemyDropTable : ScriptableObject
 {
+    public bool allowMultipleDrops;
     public List<DropEntry> drops;
 }
 

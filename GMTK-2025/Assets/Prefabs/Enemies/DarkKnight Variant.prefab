@@ -160,6 +160,7 @@ MonoBehaviour:
   healthScalar: 0.1
   damageScalar: 0.05
   speedScalar: 0.05
+  dropTable: {fileID: 11400000, guid: 20c01c82bd2000447a4390a60d2089cc, type: 2}
   stats:
     maxHealth: 0
     health: 1500

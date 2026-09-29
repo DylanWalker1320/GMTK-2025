@@ -25,6 +25,8 @@ public class Boss : Enemy
     new protected void Die()
     {
         isDead = true;
+
+        DropManager.Instance.ProcessDrops(dropTable, transform.position);
         Instantiate(dropExperienceParticles, transform.position, Quaternion.identity);
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         gameManager.EnemyKilled();
