@@ -25149,7 +25149,11 @@ MonoBehaviour:
   - {fileID: 943187053288491759, guid: 60540e312c39fbc48a5ce06451d025e9, type: 3}
   - {fileID: 5814600801704535238, guid: cb3dbc48d06017a4784dc9e46355f40c, type: 3}
   holeObstaclePrefabs:
-  - {fileID: 3341681888908762737, guid: bae4706f4f25a40458c20e086acb1d21, type: 3}
+  - {fileID: 6319223660890565504, guid: 159886e2288b6864782319b3657c351f, type: 3}
+  - {fileID: 7591693920431026814, guid: 27ba5b0663cbf0d4986d7455e3335352, type: 3}
+  - {fileID: 2360157334580505184, guid: 818edf1878fa8e34fa4afd2b953b4825, type: 3}
+  - {fileID: 2388760730561022638, guid: 1bd5ac3e892fa714da070883904b07c2, type: 3}
+  - {fileID: 9217935389660067498, guid: c05600bb2a845ef43b80d5616bd9b9ac, type: 3}
   spikeObstaclePrefabs:
   - {fileID: 5928778723929173206, guid: 50715c2952701d04188b6173deafedf2, type: 3}
   baseNumObstacles: 5
