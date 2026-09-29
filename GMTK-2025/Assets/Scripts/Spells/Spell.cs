@@ -129,7 +129,7 @@ public abstract class Spell : MonoBehaviour
         return 0; // Return 0 if the type is not found
     }
 
-    protected float CalculateDamage(float baseDamage, SpellType type1, SpellType type2)
+    public float CalculateDamage(float baseDamage, SpellType type1, SpellType type2, bool isGameplay = true)
     {
         PlayerMovement playerDamage = FindFirstObjectByType<PlayerMovement>();
         float castStrength = playerDamage.GetTrueCastStrength(); // Get the player's cast strength
@@ -142,10 +142,12 @@ public abstract class Spell : MonoBehaviour
         {
             damage *= spellModifiers[type2]; // Also multiply by the second type's modifier if it's different from the first
         }
-        
-        playerDamage.StealLife(damage);
 
-        GameResultsTracker._instance.RecordSpellDamage(spell, damage, spellSprite, damageColor);
+        if(isGameplay)
+        {
+            playerDamage.StealLife(damage);
+            GameResultsTracker._instance.RecordSpellDamage(spell, damage, spellSprite, damageColor);    
+        }
 
         return damage;
     }
