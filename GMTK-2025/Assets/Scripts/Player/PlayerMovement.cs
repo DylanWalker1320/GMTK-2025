@@ -495,7 +495,6 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
 
     IEnumerator DropEffectCountdown(DroppableObject.DropType dropType)
     {
-        Debug.Log("Starting countdown");
         float elapsed = 0f;
         float duration = baseDropEffectLength * dropLengthMultiplier; // given how DropEffectCountdown starts immediately, the duration for drop length will be max of this while other buffs can peak higher for time
         while(elapsed < duration)
@@ -504,8 +503,6 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
             // visual timers here possibly?
             yield return null;
         }
-
-        Debug.Log("Countdown finished");
 
         switch(dropType)
         {

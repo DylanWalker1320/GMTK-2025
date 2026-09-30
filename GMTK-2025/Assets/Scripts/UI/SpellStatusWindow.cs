@@ -14,7 +14,7 @@ public class SpellStatusWindow : MonoBehaviour
     [SerializeField] private TextMeshProUGUI damage;
     [SerializeField] private TextMeshProUGUI description;
 
-    void RefreshWindow() // Called via buttons
+    public void RefreshWindow()
     {
         UpdateLevels();
     }
@@ -27,12 +27,12 @@ public class SpellStatusWindow : MonoBehaviour
         }
     }
 
-    public void DisplayText(SpellStatusCell targetCell) // Called via triggers
+    public void DisplayText(SpellStatusCell targetCell) // Called via buttons
     {
         Spell spellData = targetCell.spellPrefabData;
         spellName.text = spellData.spell.ToString();
         spellLevel.text = Spell.GetSpellLevel(spellData.spell).ToString();
-        damage.text = spellData.CalculateDamage(spellData.GetDamage(), spellData.spellType1, spellData.spellType2, false).ToString();
+        damage.text = "DMG " + spellData.CalculateDamage(spellData.GetDamage(), spellData.spellType1, spellData.spellType2, false).ToString();
         description.text = targetCell.spellDescription;
 
         if(targetCell.isComboSpell)

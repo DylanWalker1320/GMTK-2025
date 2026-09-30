@@ -59,6 +59,7 @@ public class UIManager : MonoBehaviour
     [Header("First Selected Menu Management")]
     [SerializeField] private GameObject threeUpgradesFirst;
     [SerializeField] private GameObject spellBarAllocationFirst;
+    [SerializeField] private GameObject statusFirst;
     [SerializeField] private GameObject statShopFirst;
     [SerializeField] private GameObject hatScrollFirst;
     [SerializeField] private GameObject pauseMenuFirst;
@@ -190,7 +191,7 @@ public class UIManager : MonoBehaviour
     public void UpdateHealthUI(float health, float maxHealth) // referenced via unity event
     {
         healthBar.value = health / maxHealth * 100; // slider max value is 100
-        healthBarText.text = $"{health} / {maxHealth}";
+        healthBarText.text = $"{Mathf.Round(health)} / {maxHealth}";
 
         if(healthBar.value < 15)
         {
@@ -427,6 +428,7 @@ public class UIManager : MonoBehaviour
         {
             statusMenuUI.SetActive(true);
             statusMenuUI.GetComponent<StatusMenuUI>().OnCall();
+            EventSystem.current.SetSelectedGameObject(statusFirst);
             Time.timeScale = 0;
         }
         else
