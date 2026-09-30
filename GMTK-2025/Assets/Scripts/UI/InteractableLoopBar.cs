@@ -26,12 +26,14 @@ public class InteractableLoopBar : MonoBehaviour
     [SerializeField] private Sprite emptySlotSprite; // Sprite for empty inventory slots
     private Spell spellToSwapOne;
     private Spell spellToSwapTwo;
+    private EnchantmentDrop.EnchantmentType enchantmentType; // Used for enchanting mode to determine which enchantment is being applied
 
     // enums to determine whether the slots switch or replace/combine the spell
     public enum LoopBarType
     {
         SpellSwap,
-        SpellCombination
+        SpellCombination,
+        Enchantment
     }
 
     public enum SwapState
@@ -62,15 +64,22 @@ public class InteractableLoopBar : MonoBehaviour
             gameManager.betaMode = false;
         }
     }
-    public void OnCall()
+    
+    // Note: parameters are only for enchanting, and should be left defualt otherwise (they would do nothing anyways)
+    public void OnCall(EnchantmentDrop.EnchantmentType enchantType = EnchantmentDrop.EnchantmentType.Fire, Sprite enchantmentSprite = null)
     {
-        if(loopBarType == LoopBarType.SpellCombination)
+        switch (loopBarType)
         {
-            spellImage.sprite = gameManager.spellImage;
-        }
-        else
-        {
-            spellImage.sprite = swapSprite;
+            case LoopBarType.SpellCombination:
+                spellImage.sprite = gameManager.spellImage;
+                break;
+            case LoopBarType.SpellSwap:
+                spellImage.sprite = swapSprite;
+                break;
+            case LoopBarType.Enchantment:
+                spellImage.sprite = enchantmentSprite;
+                enchantmentType = enchantType;
+                break;
         }
         
         spellArray = loopbarInventory.spellArray; //pointer for actual spell array
@@ -130,41 +139,9 @@ public class InteractableLoopBar : MonoBehaviour
             }
         }
     }
-    // Button Functions
-    public void SlotOne()
-    {
-        SpellBarTypeCheck(0);
-    }
-    public void SlotTwo()
-    {
-        SpellBarTypeCheck(1);
-    }
-    public void SlotThree()
-    {
-        SpellBarTypeCheck(2);
-    }
-    public void SlotFour()
-    {
-        SpellBarTypeCheck(3);
-    }
-    public void SlotFive()
-    {
-        SpellBarTypeCheck(4);
-    }
-    public void SlotSix()
-    {
-        SpellBarTypeCheck(5);
-    }
-    public void SlotSeven()
-    {
-        SpellBarTypeCheck(6);
-    }
-    public void SlotEight()
-    {
-        SpellBarTypeCheck(7);
-    }
-
-    void SpellBarTypeCheck(int index)
+    
+    // Button click function for the spell bar slots, index is the index of the clicked slot
+    public void SpellBarSlotClick(int index)
     {
         switch (loopBarType)
         {
@@ -175,6 +152,9 @@ public class InteractableLoopBar : MonoBehaviour
             case LoopBarType.SpellCombination:
                 // Call Spell Combination Function
                 SelectSpellReplacement(index);
+                break;
+            case LoopBarType.Enchantment:
+                Debug.Log($"Enchantment slot clicked at index {index} with enchantment type {enchantmentType}");
                 break;
             default:
                 break;

@@ -40422,6 +40422,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516239149}
   m_CullTransparentMesh: 1
+--- !u!1001 &1521644459
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1701532000494756920, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
+      propertyPath: m_Name
+      value: Enchantment Drop
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593832362179828101, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.9173517
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593832362179828101, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.4356328
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593832362179828101, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593832362179828101, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593832362179828101, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593832362179828101, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593832362179828101, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593832362179828101, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593832362179828101, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593832362179828101, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d838ed2a4a515c74f98ed829fa65dda8, type: 3}
 --- !u!1 &1527335450
 GameObject:
   m_ObjectHideFlags: 0
@@ -58490,6 +58547,18 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
       objectReference: {fileID: 88640372}
+    - target: {fileID: 456860824184418378, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 456860824184418378, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpellBarSlotClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 456860824184418378, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 503792796829011242, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -59513,6 +59582,18 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
       objectReference: {fileID: 1816353789}
+    - target: {fileID: 2664282421944479607, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664282421944479607, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpellBarSlotClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664282421944479607, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2670598044492269815, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: spellCombinationsReference
       value: 
@@ -60053,6 +60134,18 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
       objectReference: {fileID: 1420549263}
+    - target: {fileID: 3598627676723810974, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598627676723810974, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpellBarSlotClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598627676723810974, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3608949582349531325, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -60153,6 +60246,18 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
       objectReference: {fileID: 72097047}
+    - target: {fileID: 3797216694987008681, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797216694987008681, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpellBarSlotClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797216694987008681, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3812338794006259102, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -61555,6 +61660,14 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
       objectReference: {fileID: 1735190197}
+    - target: {fileID: 6061135832253009660, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6061135832253009660, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpellBarSlotClick
+      objectReference: {fileID: 0}
     - target: {fileID: 6110529240379590976, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -61611,6 +61724,18 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
       objectReference: {fileID: 1076129023}
+    - target: {fileID: 6157564808324760047, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157564808324760047, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpellBarSlotClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157564808324760047, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6164710149775879658, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: spellCombinationsReference
       value: 
@@ -61979,6 +62104,18 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
       objectReference: {fileID: 2035865469}
+    - target: {fileID: 7461804726961314913, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461804726961314913, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpellBarSlotClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461804726961314913, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7505670254856218463, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 120.39978
@@ -62271,6 +62408,18 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
       objectReference: {fileID: 650045985}
+    - target: {fileID: 8432002760768475575, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432002760768475575, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpellBarSlotClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432002760768475575, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8496378912026384489, guid: 42b77df7fdfc1bc48abfa764fc14dd6d, type: 3}
       propertyPath: spellCombinationsReference
       value: 
@@ -62986,7 +63135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217752547976639399, guid: 19c8a257497eaad4aac33cf7bb7e1ec7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -63720,3 +63869,4 @@ SceneRoots:
   - {fileID: 1401621604}
   - {fileID: 1431735684}
   - {fileID: 777671947}
+  - {fileID: 1521644459}

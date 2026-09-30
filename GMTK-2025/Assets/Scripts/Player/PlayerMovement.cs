@@ -428,13 +428,13 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
 
     // Pick Up Behaviour Logic
     
-    public void PickUpDrop(DroppableObject.DropType dropType, float multiplierBoost)
+    public void PickUpDrop(DropItem.DropType dropType, float multiplierBoost)
     {
         // For performance, multipliers MUST stack and shouldn't repeat asynchronous coroutines to avoid rapid garbage instancing
         // Game design wise this is much better ^^
         switch(dropType)
         {
-            case DroppableObject.DropType.ExperienceBoost:
+            case DropItem.DropType.ExperienceBoost:
 
                 if(experienceGainMultiplier <= baseExperienceGainMultiplier)
                 {
@@ -442,7 +442,7 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
                 }
                 experienceGainMultiplier *= multiplierBoost;
                 break;
-            case DroppableObject.DropType.SoulBoost:
+            case DropItem.DropType.SoulBoost:
 
                 if(soulGainMultiplier <= baseSoulGainMultiplier)
                 {
@@ -450,7 +450,7 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
                 }
                 soulGainMultiplier *= multiplierBoost;
                 break;
-            case DroppableObject.DropType.LifeSteal:
+            case DropItem.DropType.LifeSteal:
 
                 if(lifeStealMultiplier <= baseLifeStealMultiplier)
                 {
@@ -458,7 +458,7 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
                 }
                 lifeStealMultiplier += multiplierBoost; // lifesteal is additive here
                 break;
-            case DroppableObject.DropType.CastBoost:
+            case DropItem.DropType.CastBoost:
 
                 if(castBoostMultiplier <= baseCastBoostMultiplier)
                 {
@@ -466,7 +466,7 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
                 }
                 castBoostMultiplier *= multiplierBoost;
                 break;
-            case DroppableObject.DropType.SpeedBoost:
+            case DropItem.DropType.SpeedBoost:
 
                 if(speedBoostMultiplier <= baseSpeedBoostMultiplier)
                 {
@@ -474,7 +474,7 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
                 }
                 speedBoostMultiplier *= multiplierBoost;
                 break;
-            case DroppableObject.DropType.DashBoost:
+            case DropItem.DropType.DashBoost:
             
                 if(dashBoostMultiplier <= baseDashBoostMultiplier)
                 {
@@ -482,7 +482,7 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
                 }
                 dashBoostMultiplier *= multiplierBoost;
                 break;
-            case DroppableObject.DropType.DropLength:
+            case DropItem.DropType.DropLength:
 
                 if(dropLengthMultiplier <= baseDropLengthMultiplier)
                 {
@@ -490,14 +490,15 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
                 }
                 dropLengthMultiplier += multiplierBoost; // additive otherwise we'll have buffs lasting 5 minutes lol
                 break;
-            case DroppableObject.DropType.Enchantment:
-                // Handle enchantment logic here
-                Debug.Log("Enchantment picked up! Implement enchantment logic here.");
-                break;
         }
     }
 
-    IEnumerator DropEffectCountdown(DroppableObject.DropType dropType)
+    public void PickUpEnchantment(EnchantmentDrop.EnchantmentType enchantmentType, Sprite enchantmentSprite)
+    {
+        uiManager.SetActiveEnchantmentBarUI(enchantmentType, enchantmentSprite);
+    }
+
+    IEnumerator DropEffectCountdown(DropItem.DropType dropType)
     {
         Debug.Log("Starting countdown");
         float elapsed = 0f;
@@ -513,25 +514,25 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
 
         switch(dropType)
         {
-            case DroppableObject.DropType.ExperienceBoost:
+            case DropItem.DropType.ExperienceBoost:
                 experienceGainMultiplier = baseExperienceGainMultiplier;
                 break;
-            case DroppableObject.DropType.SoulBoost:
+            case DropItem.DropType.SoulBoost:
                 soulGainMultiplier = baseSoulGainMultiplier;
                 break;
-            case DroppableObject.DropType.LifeSteal:
+            case DropItem.DropType.LifeSteal:
                 lifeStealMultiplier = baseLifeStealMultiplier;
                 break;
-            case DroppableObject.DropType.CastBoost:
+            case DropItem.DropType.CastBoost:
                 castBoostMultiplier = baseCastBoostMultiplier;
                 break;
-            case DroppableObject.DropType.SpeedBoost:
+            case DropItem.DropType.SpeedBoost:
                 speedBoostMultiplier = baseSpeedBoostMultiplier;
                 break;
-            case DroppableObject.DropType.DashBoost:
+            case DropItem.DropType.DashBoost:
                 dashBoostMultiplier = baseDashBoostMultiplier;
                 break;
-            case DroppableObject.DropType.DropLength:
+            case DropItem.DropType.DropLength:
                 dropLengthMultiplier = baseDropLengthMultiplier;
                 break;
         }

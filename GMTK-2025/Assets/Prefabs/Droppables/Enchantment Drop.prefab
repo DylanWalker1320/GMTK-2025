@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6593832362179828101}
-  - component: {fileID: 8621096311437979971}
+  - component: {fileID: -2788960257198934952}
   - component: {fileID: 7321091421015472348}
   - component: {fileID: 1761926835513286587}
   m_Layer: 0
@@ -34,7 +34,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8621096311437979971
+--- !u!114 &-2788960257198934952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,11 +43,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1701532000494756920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb6d88063cda1974cb7ec0ac41ed3837, type: 3}
+  m_Script: {fileID: 11500000, guid: f04857f5edcf61a438f36a38af487e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropType: 7
+  dropType: 0
   powerValue: 0
+  enchantmentSprites:
+  - {fileID: -1193137594065180063, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
+  - {fileID: -5081948396951197221, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
+  - {fileID: 5092564655706136840, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
+  - {fileID: 1062190294, guid: be7bfbd9fdacdb947a9801e23b47c6f0, type: 3}
+  - {fileID: 1596727671, guid: 862fe9251b91ec146bd883a667c1b798, type: 3}
+  - {fileID: -891944829, guid: c445eb770137c9643ab40c78ad04d4ed, type: 3}
+  - {fileID: 7532566107962188735, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}
+  - {fileID: 874590781, guid: be7bfbd9fdacdb947a9801e23b47c6f0, type: 3}
 --- !u!212 &7321091421015472348
 SpriteRenderer:
   m_ObjectHideFlags: 0

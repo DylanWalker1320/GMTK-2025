@@ -484,6 +484,12 @@ public class UIManager : MonoBehaviour
         StartCoroutine(EnableSpellBarAllocationUICoroutine(loopBarType));
     }
 
+    // Wrapper for enchanting mode
+    public void SetActiveEnchantmentBarUI(EnchantmentDrop.EnchantmentType enchantmentType, Sprite enchantmentSprite)
+    {
+        StartCoroutine(EnableSpellBarAllocationUICoroutine(InteractableLoopBar.LoopBarType.Enchantment, enchantmentType, enchantmentSprite));
+    }
+
     public void GameplayMode() // Invoked as Unity Event
     {
         isInUI = false;
@@ -561,7 +567,7 @@ public class UIManager : MonoBehaviour
             GameplayMode();
         }
     }
-    IEnumerator EnableSpellBarAllocationUICoroutine(InteractableLoopBar.LoopBarType loopBarType)
+    IEnumerator EnableSpellBarAllocationUICoroutine(InteractableLoopBar.LoopBarType loopBarType, EnchantmentDrop.EnchantmentType enchantmentType = EnchantmentDrop.EnchantmentType.Fire, Sprite enchantmentSprite = null)
     {
         TooltipManager._instance.HideTooltip();
         Time.timeScale = 0;
@@ -570,7 +576,7 @@ public class UIManager : MonoBehaviour
         spellbarAllocationAnimator.SetTrigger("BeginSpellAllocation");
         InteractableLoopBar loopBar = FindFirstObjectByType<InteractableLoopBar>();
         loopBar.loopBarType = loopBarType;
-        loopBar.OnCall();
+        loopBar.OnCall(enchantType: enchantmentType, enchantmentSprite: enchantmentSprite);
         yield return new WaitUntil(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitWhile(() => spellbarAllocationAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         EventSystem.current.SetSelectedGameObject(spellBarAllocationFirst);

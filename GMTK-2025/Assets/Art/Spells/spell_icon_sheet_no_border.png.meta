@@ -180,6 +180,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -272,28 +285,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spell_icon_sheet_no_border_5
-      rect:
-        serializedVersion: 2
-        x: 7517
-        y: 7589
-        width: 6
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 395ea709622ebb290800000000000000
-      internalID: -7873450868266572397
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spell_icon_sheet_no_border_6
       rect:
         serializedVersion: 2
@@ -311,94 +302,6 @@ TextureImporter:
       bones: []
       spriteID: 7c886d1ae325e8ab0800000000000000
       internalID: -5003971707005400889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spell_icon_sheet_no_border_7
-      rect:
-        serializedVersion: 2
-        x: 9685
-        y: 7589
-        width: 6
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 247669f919379b9b0800000000000000
-      internalID: -5063889236716525758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spell_icon_sheet_no_border_8
-      rect:
-        serializedVersion: 2
-        x: 4816
-        y: 7548
-        width: 8
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 29aa397ab57504de0800000000000000
-      internalID: -1350983837046035822
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spell_icon_sheet_no_border_9
-      rect:
-        serializedVersion: 2
-        x: 4833
-        y: 7511
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6e6b2103eff1c2290800000000000000
-      internalID: -7913915268608117018
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spell_icon_sheet_no_border_10
-      rect:
-        serializedVersion: 2
-        x: 4834
-        y: 7517
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c74257d445edf9250800000000000000
-      internalID: 5953721686065226876
       vertices: []
       indices: 
       edges: []
