@@ -426,6 +426,7 @@ public class UIManager : MonoBehaviour
     {
         if(statusMenuUI.activeSelf == false)
         {
+            audioManager.Play("OPENSTATUSMENU");
             statusMenuUI.SetActive(true);
             statusMenuUI.GetComponent<StatusMenuUI>().OnCall();
             EventSystem.current.SetSelectedGameObject(statusFirst);
@@ -433,6 +434,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            audioManager.Play("UICANCEL");
             statusMenuUI.SetActive(false);
             Time.timeScale = 1;
         }

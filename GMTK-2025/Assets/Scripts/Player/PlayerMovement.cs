@@ -430,6 +430,8 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
     
     public void PickUpDrop(DroppableObject.DropType dropType, float multiplierBoost)
     {
+        audioManager.Play("PICKUPDROP");
+
         // For performance, multipliers MUST stack and shouldn't repeat asynchronous coroutines to avoid rapid garbage instancing
         // Game design wise this is much better ^^
         switch(dropType)
