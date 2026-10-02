@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class SpellStatusWindow : MonoBehaviour
 {
@@ -45,5 +46,10 @@ public class SpellStatusWindow : MonoBehaviour
         {
             formulaContainer.SetActive(false);
         }
+    }
+
+    public void SetSelectedGameObject(GameObject selected) // Invoked by trigger
+    {
+        EventSystem.current.SetSelectedGameObject(selected);
     }
 }
