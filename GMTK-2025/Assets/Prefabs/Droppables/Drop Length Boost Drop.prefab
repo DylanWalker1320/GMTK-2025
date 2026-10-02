@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropType: 6
   powerValue: 2
+  dropColor: {r: 0.48492336, g: 0, b: 1, a: 1}
+  textToDisplay: x2 BUFF TIME
 --- !u!212 &513915822032241473
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropType: 2
   powerValue: 0.1
+  dropColor: {r: 0, g: 1, b: 0.46900558, a: 1}
+  textToDisplay: +10% LIFESTEAL
 --- !u!212 &3790618396094894681
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 using TMPro;
 
 public class DamageNumber : MonoBehaviour
@@ -13,6 +11,7 @@ public class DamageNumber : MonoBehaviour
     [SerializeField] private float minFontSize = 0.4f; // Minimum font size for damage numbers
     [SerializeField] private float maxFontSize = 1f; // Maximum font size for damage numbers
     
+    private GameObject player; // for tracking purposes
     private Vector3 startPosition;
     private Vector3 targetPosition;
     private float elapsedTime = 0f;
@@ -25,6 +24,8 @@ public class DamageNumber : MonoBehaviour
     
     void Update()
     {
+        CheckIfAttachedToPlayer();
+
         elapsedTime += Time.deltaTime;
         
         // Move upward
@@ -44,6 +45,14 @@ public class DamageNumber : MonoBehaviour
         if (elapsedTime >= lifetime)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void SetDamageText(string text) // Method to replace damage number with actual text
+    {
+        if (damageText != null)
+        {
+            damageText.text = text;
         }
     }
     
@@ -69,6 +78,21 @@ public class DamageNumber : MonoBehaviour
         if (damageText != null)
         {
             damageText.color = color;
+        }
+    }
+
+    public void SetParentObject(GameObject gameObject) // Will only occur on buff effect objects
+    {
+        player = gameObject;
+        startPosition = player.transform.position + Vector3.up;
+    }
+
+    private void CheckIfAttachedToPlayer() // Will only occur on buff effect objects
+    {
+        if(player != null)
+        {
+            startPosition = player.transform.position + Vector3.up;
+            targetPosition = startPosition + Vector3.up * moveDistance;
         }
     }
 } 

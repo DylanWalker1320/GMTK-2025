@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropType: 3
   powerValue: 1.5
+  dropColor: {r: 1, g: 0, b: 0.68598413, a: 1}
+  textToDisplay: x1.5 CAST STR/SPD
 --- !u!212 &3295469354843786747
 SpriteRenderer:
   m_ObjectHideFlags: 0

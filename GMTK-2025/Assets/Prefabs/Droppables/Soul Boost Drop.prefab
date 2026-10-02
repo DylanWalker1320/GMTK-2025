@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropType: 1
   powerValue: 2
+  dropColor: {r: 0.43867922, g: 1, b: 0.7570582, a: 1}
+  textToDisplay: x2 SOUL GAIN
 --- !u!212 &654215234316112725
 SpriteRenderer:
   m_ObjectHideFlags: 0

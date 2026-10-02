@@ -67665,6 +67665,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1708542404}
     - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
+      propertyPath: buffEffectPrefab
+      value: 
+      objectReference: {fileID: 5017995686289404897, guid: a478e1a44c5514749a263808de56362f, type: 3}
+    - target: {fileID: 4032264255503914168, guid: c9a3551e145f2ab4d987e782f3da74d5, type: 3}
       propertyPath: dashActionReference
       value: 
       objectReference: {fileID: -8695412193735320864, guid: 9b79efb75d7afd543a9093d06e14d7be, type: 3}
