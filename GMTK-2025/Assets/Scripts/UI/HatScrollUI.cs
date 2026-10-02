@@ -69,24 +69,16 @@ public class HatScrollUI : MonoBehaviour
             FindAnyObjectByType<UIManager>().updateStatTrackerUI();
             DisableHatPrizeUI();
         }
-
-        // Full Cycle
-        if(scrollUI.GetComponent<HatScroll>()._speed == 0 && scrollUI.GetComponent<HatScroll>()._hasScrolled == true)
-        {
-            audioManager.StopLoop("HATROLL");
-            ToggleScrollUI();
-            ToggleHatPrize(scrollUI.GetComponent<HatScroll>().GetTargetHatData());
-        }
-
-        // Click Mid-Scroll (Clunky due to polling enacted by interacting with the button press), patched with speed var band-aid solution
-        if(scrollUI.activeSelf && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1) && scrollUI.GetComponent<HatScroll>()._speed < 4) && scrollUI.GetComponent<HatScroll>().GetIsScrolling())
-        {
-            audioManager.StopLoop("HATROLL");
-            animator.SetTrigger(HatRollPrizeHash);
-            ToggleScrollUI();
-            ToggleHatPrize(scrollUI.GetComponent<HatScroll>().GetTargetHatData());
-        }
     }
+    
+    public void ScrollCompleted()
+    {
+        audioManager.StopLoop("HATROLL");
+        ToggleScrollUI();
+        ToggleHatPrize(scrollUI.GetComponent<HatScroll>().GetTargetHatData());
+        animator.SetTrigger(HatRollPrizeHash);
+    }
+
     public void ToggleScrollUI(bool newInitialization = false)
     {
         if (newInitialization)
@@ -94,10 +86,6 @@ public class HatScrollUI : MonoBehaviour
             scrollUI.GetComponent<HatScroll>().Initialize();
         }
         scrollUI.GetComponent<RectTransform>().localPosition = new Vector2(1080, 0);
-        scrollUI.GetComponent<HatScroll>()._speed = 0;
-        scrollUI.GetComponent<HatScroll>()._hasScrolled = false;
-        scrollUI.GetComponent<HatScroll>().SetIsScrolling(false);
-        hatPrizeUI.SetActive(false);
         scrollUI.SetActive(!scrollUI.activeSelf);
         scrollButton.SetActive(!scrollButton.activeSelf);
         
@@ -208,6 +196,7 @@ public class HatScrollUI : MonoBehaviour
         yield return new WaitUntil(() => GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitWhile(() => GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         DeterminePrizeUIColors("Default");
+        hatPrizeUI.SetActive(false);
         unityEvent.Invoke();
     }
 }

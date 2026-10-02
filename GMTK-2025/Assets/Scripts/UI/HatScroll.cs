@@ -1,40 +1,42 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+[RequireComponent(typeof(RectTransform))]
 public class HatScroll : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _prefab;
+    public bool debugMode;
+    [SerializeField] private GameObject _prefab;
+    [SerializeField] private RectTransform content;
+    [SerializeField] private RectTransform viewport;
+    [SerializeField] private float duration = 4.3f;
+    [SerializeField] private float settlePrizeAt = 0.9f;
+    private float easeOutFactor = 4;
     private GameObject _currentHatPrefabContainer;
-
-    public float _speed;
-    public bool _hasScrolled = false;
-    public float zeroTimerLength;
-    private float zeroTimerOnFinish;
-    private bool _isScrolling;
-    private bool _hasInteracted;
+    private bool _isFinished = false;
     private int counter;
+    private int targetCellIndex = 30; // 0 based index -> 29
     private List<HatCell> _cells = new List<HatCell>();
     private GameObject targetHatObject;
+    private HatScrollUI hatScrollUI;
     private GeneratedHat targetHatData;
     private HatGenerator hatGenerator;
-    public bool debugMode;
+    private Vector2 start;
+    private Vector2 end;
 
     public void Initialize()
     {
+        _isFinished = false;
         _currentHatPrefabContainer = _prefab;
-        zeroTimerOnFinish = zeroTimerLength;
-        _hasInteracted = false;
+        content = GetComponent<RectTransform>();
+        hatScrollUI = FindAnyObjectByType<HatScrollUI>();
     }
 
     public void Scroll()
     {
-        if (_isScrolling)
-            return;
         FindFirstObjectByType<UIManager>().scrollUI.GetComponent<Animator>().SetTrigger("HatRollRolling");
         FindFirstObjectByType<AudioManager>().Play("HATROLL");
-        _speed = Random.Range(4, 5);
-        _hasInteracted = true;
-        _isScrolling = true;
         counter = 0;
         
         if (_cells.Count == 0)
@@ -48,13 +50,27 @@ public class HatScroll : MonoBehaviour
         {
             counter++;
             cell.Setup();
-            if (counter == 29)
+            if (counter == targetCellIndex)
             {
                 targetHatObject = cell.GetHatObject();
                 targetHatData = cell.GetHatData();
                 if (debugMode) Debug.Log("Target Hat Set to Cell 29 with Rarity: " + targetHatData);
             }
         }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(content);
+        Canvas.ForceUpdateCanvases(); // Force the layout to update before calculating positions
+
+        var winningCell = _cells[targetCellIndex - 1].gameObject.GetComponent<RectTransform>();
+        // Both centers of winning cell and starting point in viewport = world space -> converted into content's local units
+        Vector3 winningCellCenter = winningCell.TransformPoint(winningCell.rect.center);
+        Vector3 viewportCenter = viewport.TransformPoint(viewport.rect.center);
+        float deltaInverseX = content.InverseTransformVector(viewportCenter - winningCellCenter).x;
+
+        // Start and End for scroll direction
+        start = content.anchoredPosition;
+        end = start + new Vector2(deltaInverseX, 0f);
+        StartCoroutine(Roll());
     }
     
     private void Start()
@@ -62,34 +78,22 @@ public class HatScroll : MonoBehaviour
         hatGenerator = FindFirstObjectByType<HatGenerator>();
     }
 
-    private void Update() // With this setup, cell x/50 will always win
+    public IEnumerator Roll()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left * 100, _speed * Time.unscaledDeltaTime * 30); // Magic number, replace 30 with a variable
-
-        if (_speed > 0)
+        for (float time = 0; time < duration; time += Time.unscaledDeltaTime)
         {
-            _speed -= Time.unscaledDeltaTime * 1.2f; // Magic Numbers, replace with variables
-        }
-        else if (_speed < 0.5f && _speed > 0)
-        {
-            _speed -= Time.unscaledDeltaTime * 3; // Magic Numbers, replace with variables
-        }
-        else if (_speed < 0 && _isScrolling)
-        {
-            _speed = 0;
-            _isScrolling = false;
-            if (debugMode) Debug.Log("Scrolling finished.");
-        }
-        else if(_speed == 0 && !_isScrolling && _hasInteracted)
-        {
-            zeroTimerOnFinish -= Time.unscaledDeltaTime;
-            if (zeroTimerOnFinish <= 0)
+            float timeOverDuration = time / duration;
+            float t = 1f - Mathf.Pow(1f - timeOverDuration, easeOutFactor); // Ease out with decaying speed
+            content.anchoredPosition = Vector2.LerpUnclamped(start, end, t);
+            if(timeOverDuration >= settlePrizeAt & !_isFinished || ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1)) && timeOverDuration > 0.05f))
             {
-                _hasScrolled = true;
-                if (debugMode) Debug.Log("Zero Timer finished, ready for UI Switch.");
+                _isFinished = true;
+                hatScrollUI.ScrollCompleted();
             }
+            yield return null;
         }
-
+        
+        content.anchoredPosition = end;
     }
 
     public GeneratedHat GetTargetHatData()
@@ -105,16 +109,6 @@ public class HatScroll : MonoBehaviour
         if (debugMode) Debug.Log("<color=#55AAFF>[HatScroll]</color> Clearing generated hats to prevent memory leak...");
         HatCell.ClearGeneratedHats();
         HatScrollUI.DestroyTargetHat();
-    }
-
-    public bool GetIsScrolling()
-    {
-        return _isScrolling;
-    }
-
-    public void SetIsScrolling(bool setter)
-    {
-        _isScrolling = setter;
     }
 
 }
