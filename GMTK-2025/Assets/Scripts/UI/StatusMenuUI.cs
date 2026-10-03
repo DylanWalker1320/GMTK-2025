@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -14,6 +15,7 @@ public class StatusMenuUI : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private Transform gridContainer;
     [SerializeField] private HatNodeUI hatNodePrefab;
+    [SerializeField] private SpellStatusWindow refreshSpellStatus;
     [Header("Text Elements")]
     [SerializeField] private TextMeshProUGUI playerStatusText;
     [SerializeField] private TextMeshProUGUI playerAttributesText;
@@ -38,14 +40,15 @@ public class StatusMenuUI : MonoBehaviour
     {
         UpdatePlayerStats();
         RefreshHatList();
+        refreshSpellStatus.RefreshWindow();
     }
 
     void UpdatePlayerStats() // Will show some stats through percentages TODO: add dash cooldown
     {
-        playerStatusText.text = "Lvl: " + playerStats.level + "\n" + "HP: " + playerStats.health + "/" + playerStats.maxHealth + "\n" + "EXP until next Lvl: " + (playerStats.nextLevelExperience - playerStats.experience);
-        playerAttributesText.text = "SPD: +" + ConvertToPercentage(playerStats.maxSpeed, baseSpeed) + "%" + "\n" + "Cast STR: +" + ConvertToPercentage(playerStats.castStrength, baseCastSpeed) + "%" 
-            + "\n" + "Cast SPD: +" + ConvertToPercentage(playerStats.castSpeed, baseCastSpeed) + "%" + "\n" + "Dash STR: +" + ConvertToPercentage(playerStats.dashStrength, baseDashStrength) + "%"
-                + "\n" + "XP Pull: +" + ConvertToPercentage(playerStats.xpParticleSystem.endRange, baseXpPullRange) + "%";
+        playerStatusText.text = "Lvl: " + playerStats.level + "\n" + "HP: " + Math.Round(playerStats.health) + "/" + playerStats.maxHealth + "\n" + "EXP until next Lvl: " + (playerStats.nextLevelExperience - playerStats.experience);
+        playerAttributesText.text = "Speed: +" + ConvertToPercentage(playerStats.maxSpeed, baseSpeed) + "%" + "\n" + "Cast Strength: +" + ConvertToPercentage(playerStats.castStrength, baseCastSpeed) + "%" 
+            + "\n" + "Cast Speed: +" + ConvertToPercentage(playerStats.castSpeed, baseCastSpeed) + "%" + "\n" + "Dash Strength: +" + ConvertToPercentage(playerStats.dashStrength, baseDashStrength) + "%"
+                + "\n" + "Dash Cooldown: " + Math.Round(playerStats.dashCooldown, 2) + " sec" + "\n" + "EXP Pull Range: +" + ConvertToPercentage(playerStats.xpParticleSystem.endRange, baseXpPullRange) + "%";
 
 
     }
@@ -89,21 +92,6 @@ public class StatusMenuUI : MonoBehaviour
             return b.hatData.GetHatScore().CompareTo(a.hatData.GetHatScore());
 
         });
-
-        // for (int i = 0; i < sortedHats.Count; i++)
-        // {
-        //     Debug.Log(
-        //         $"{i}: {sortedHats[i].hatData.hatName} | " +
-        //         $"{sortedHats[i].hatData.rarity} | "
-        //     );
-        // }
-        // for (int i = 0; i < hatNodes.Count; i++)
-        // {
-        //     Debug.Log(
-        //         $"{i}: {sortedHats[i].hatData.hatName} | " +
-        //         $"{sortedHats[i].hatData.rarity} | "
-        //     );
-        // }
     }
 
     private void GenerateNewNodes()
@@ -145,6 +133,6 @@ public class StatusMenuUI : MonoBehaviour
 
     float ConvertToPercentage(float currStat, float baseStat)
     {
-        return (currStat / baseStat - 1) * 100;
+        return (float) Math.Round((currStat - baseStat) / baseStat * 100, 2);
     }
 }

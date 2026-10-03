@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
     private float baseDropEffectLength = 5f;
 
     [Header("UI Elements")]
+    [SerializeField] private GameObject buffEffectPrefab; // Prefab for damage numbers
     [SerializeField] private GameObject damageNumberPrefab; // Prefab for damage numbers
     [SerializeField] private float damageNumberSpawnRadius = 1f; // Radius around player to spawn damage numbers
     [SerializeField] private Slider dashBar;
@@ -363,9 +364,6 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
         if (damageNumber != null)
         {
             damageNumber.SetDamageAmount(damageAmount);
-
-            // float interpolate = Mathf.Clamp01(damageAmount / maxHealth); // Adjust 100f to your max expected damage
-            // Color gradientColor = Color.Lerp(new Color(128, 0, 0), Color.red, interpolate); // marooon to red, interpolates between using t
             damageNumber.SetColor(color);
         }
     }
@@ -406,6 +404,34 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
         }
     }
 
+    public void SpawnBuffEffect(string text, Color buffColor)
+    {
+        if (buffEffectPrefab == null) return; // reusing damage number object
+
+        Vector3 spawnPosition = transform.position; // Spawn above the player
+
+        // Instantiate the setence and attach to player
+        GameObject buffEffectObj = Instantiate(buffEffectPrefab, spawnPosition, Quaternion.identity);
+        buffEffectObj.transform.SetParent(gameObject.transform);
+
+        DamageNumber buffEffectDetails = buffEffectObj.GetComponent<DamageNumber>();
+        
+        if (buffEffectDetails != null)
+        {
+            buffEffectDetails.SetParentObject(gameObject);
+            buffEffectDetails.SetDamageText(text); // Display the buff text
+            buffEffectDetails.SetColor(buffColor); // change color to buff color
+        }
+
+        // Set the sorting layer to UI to ensure it renders on top
+        Canvas canvas = buffEffectObj.GetComponent<Canvas>();
+        if (canvas != null)
+        {
+            canvas.sortingLayerName = "DamageNumber";
+        }
+
+    }
+
     // Death and UI Function
 
     void Die()
@@ -430,6 +456,8 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
     
     public void PickUpDrop(DroppableObject.DropType dropType, float multiplierBoost)
     {
+        audioManager.Play("PICKUPDROP");
+
         // For performance, multipliers MUST stack and shouldn't repeat asynchronous coroutines to avoid rapid garbage instancing
         // Game design wise this is much better ^^
         switch(dropType)
@@ -495,7 +523,6 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
 
     IEnumerator DropEffectCountdown(DroppableObject.DropType dropType)
     {
-        Debug.Log("Starting countdown");
         float elapsed = 0f;
         float duration = baseDropEffectLength * dropLengthMultiplier; // given how DropEffectCountdown starts immediately, the duration for drop length will be max of this while other buffs can peak higher for time
         while(elapsed < duration)
@@ -504,8 +531,6 @@ public class PlayerMovement : MonoBehaviour // also houses other player attirbut
             // visual timers here possibly?
             yield return null;
         }
-
-        Debug.Log("Countdown finished");
 
         switch(dropType)
         {

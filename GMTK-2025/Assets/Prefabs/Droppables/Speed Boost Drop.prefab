@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropType: 4
   powerValue: 2
+  dropColor: {r: 1, g: 0.9602025, b: 0.5518868, a: 1}
+  textToDisplay: x2 SPEED BOOST
 --- !u!212 &7321091421015472348
 SpriteRenderer:
   m_ObjectHideFlags: 0

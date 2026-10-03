@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropType: 0
   powerValue: 2
+  dropColor: {r: 0, g: 1, b: 0.73833895, a: 1}
+  textToDisplay: x2 EXP GAIN
 --- !u!212 &5677275144308776979
 SpriteRenderer:
   m_ObjectHideFlags: 0
