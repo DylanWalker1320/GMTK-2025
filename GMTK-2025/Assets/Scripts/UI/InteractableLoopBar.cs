@@ -66,7 +66,7 @@ public class InteractableLoopBar : MonoBehaviour
     }
     
     // Note: parameters are only for enchanting, and should be left defualt otherwise (they would do nothing anyways)
-    public void OnCall(EnchantmentDrop.EnchantmentType enchantType = EnchantmentDrop.EnchantmentType.Fire, Sprite enchantmentSprite = null)
+    public void OnCall(EnchantmentDrop.EnchantmentType enchantType = EnchantmentDrop.EnchantmentType.None, Sprite enchantmentSprite = null)
     {
         switch (loopBarType)
         {
@@ -79,6 +79,7 @@ public class InteractableLoopBar : MonoBehaviour
             case LoopBarType.Enchantment:
                 spellImage.sprite = enchantmentSprite;
                 enchantmentType = enchantType;
+                TooltipSpellBarAlloc.uiMode = TooltipSpellBarAlloc.UiMode.Enchantment;
                 break;
         }
         
@@ -100,6 +101,11 @@ public class InteractableLoopBar : MonoBehaviour
                 inventorySlots[i].sprite = spellArray[i].spellSprite;
             }
         }
+    }
+
+    public EnchantmentDrop.EnchantmentType GetEnchantmentType()
+    {
+        return enchantmentType;
     }
 
     private void GetTypes()
@@ -154,7 +160,7 @@ public class InteractableLoopBar : MonoBehaviour
                 SelectSpellReplacement(index);
                 break;
             case LoopBarType.Enchantment:
-                Debug.Log($"Enchantment slot clicked at index {index} with enchantment type {enchantmentType}");
+                SetEnchantment(index, enchantmentType);
                 break;
             default:
                 break;
@@ -195,6 +201,20 @@ public class InteractableLoopBar : MonoBehaviour
         else
         {
             return spellArray[index];
+        }
+    }
+
+    private void SetEnchantment(int index, EnchantmentDrop.EnchantmentType enchantmentType)
+    {
+        loopbarInventory.enchantmentArray[index] = enchantmentType;
+
+        if(gameManager.betaMode)
+        {
+            BetaLoop();
+        }
+        else
+        {
+            TransitionToGameplayMode(); 
         }
     }
 

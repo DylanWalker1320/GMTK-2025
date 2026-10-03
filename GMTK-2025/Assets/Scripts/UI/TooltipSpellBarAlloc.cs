@@ -10,6 +10,15 @@ public class TooltipSpellBarAlloc : Tooltip
     private string spellBoxMarkupText;
     private string chosenSpellMarkupText;
     private bool emptyBox;
+
+    public static UiMode uiMode = UiMode.SpellCombination;
+
+    public enum UiMode
+    {
+        SpellCombination,
+        Enchantment
+    }
+
     public override void OnMouseDown()
     {
         TooltipManager._instance.SetAndShowTooltip(message);
@@ -80,8 +89,21 @@ public class TooltipSpellBarAlloc : Tooltip
         }
     }
 
+    private void AssignEnchantMessage()
+    {
+        EnchantmentDrop.EnchantmentType enchantmentType = spellBarReference.GetEnchantmentType();
+        message = $"Enchant <color={spellBoxMarkupText}>{GetSpellBoxName()}</color> with <color={EnchantmentDrop.enchantmentMarkupColours[enchantmentType]}>{enchantmentType}</color>";
+    }
+
     private void AssignMessage()
     {
+        // If in enchantment mode, assign the enchantment message and return early
+        if (uiMode == UiMode.Enchantment)
+        {
+            AssignEnchantMessage();
+            return;
+        }
+
         // if no combination, output chosen spell text as final result
         if(emptyBox)
         {

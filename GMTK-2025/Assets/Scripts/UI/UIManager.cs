@@ -562,12 +562,12 @@ public class UIManager : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             isInUI = false;
         }
-        else if(loopBarType == InteractableLoopBar.LoopBarType.SpellCombination)
+        else if(loopBarType == InteractableLoopBar.LoopBarType.SpellCombination || loopBarType == InteractableLoopBar.LoopBarType.Enchantment)
         {
             GameplayMode();
         }
     }
-    IEnumerator EnableSpellBarAllocationUICoroutine(InteractableLoopBar.LoopBarType loopBarType, EnchantmentDrop.EnchantmentType enchantmentType = EnchantmentDrop.EnchantmentType.Fire, Sprite enchantmentSprite = null)
+    IEnumerator EnableSpellBarAllocationUICoroutine(InteractableLoopBar.LoopBarType loopBarType, EnchantmentDrop.EnchantmentType enchantmentType = EnchantmentDrop.EnchantmentType.None, Sprite enchantmentSprite = null)
     {
         TooltipManager._instance.HideTooltip();
         Time.timeScale = 0;

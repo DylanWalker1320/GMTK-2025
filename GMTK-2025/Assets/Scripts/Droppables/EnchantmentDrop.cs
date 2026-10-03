@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnchantmentDrop : DroppableObject
 {
@@ -8,19 +9,43 @@ public class EnchantmentDrop : DroppableObject
 
     public enum EnchantmentType
     {
-        Fire,
+        None, // Keep as the first option so that the default value is None when not set
+        Flame,
         Poison,
         Stun,
         Slow,
         LifeSteal,
         Blind,
         Mark,
-        Speed
     }
+
+    public static Dictionary<EnchantmentType, string> enchantmentDescriptions = new Dictionary<EnchantmentType, string>
+    {
+        { EnchantmentType.None, "None"},
+        { EnchantmentType.Flame, "Applies fire damage over time." },
+        { EnchantmentType.Poison, "Applies poison damage over time." },
+        { EnchantmentType.Stun, "Chance to stun enemies on hit." },
+        { EnchantmentType.Slow, "Slows enemies on hit." },
+        { EnchantmentType.LifeSteal, "Restores health based on damage dealt." },
+        { EnchantmentType.Blind, "Chance to blind enemies on hit." },
+        { EnchantmentType.Mark, "Marks enemies for increased damage from all sources." }
+    };
+
+    public static Dictionary<EnchantmentType, string> enchantmentMarkupColours = new Dictionary<EnchantmentType, string>
+    {
+        { EnchantmentType.None, "#FFF"},
+        { EnchantmentType.Flame, "#FF4500" },
+        { EnchantmentType.Poison, "#137813" }, 
+        { EnchantmentType.Stun, "#FFFF00" },
+        { EnchantmentType.Slow, "#376da2" }, 
+        { EnchantmentType.LifeSteal, "#24ff14" }, 
+        { EnchantmentType.Blind, "#dd2ddd" },
+        { EnchantmentType.Mark, "#e22b2b" } 
+    };
 
     void Start()
     {
-        enchantmentType = (EnchantmentType)Random.Range(0, System.Enum.GetValues(typeof(EnchantmentType)).Length);
+        enchantmentType = (EnchantmentType)Random.Range(1, System.Enum.GetValues(typeof(EnchantmentType)).Length); // Range starts from 1 to avoid None
         enchantmentSprite = GetEnchantmentSprite(enchantmentType);
 
         // Set the sprite of the enchantment drop to the specified enchantment sprite
@@ -31,7 +56,7 @@ public class EnchantmentDrop : DroppableObject
     {
         switch (type)
         {
-            case EnchantmentType.Fire:
+            case EnchantmentType.Flame:
                 return enchantmentSprites[0];
             case EnchantmentType.Poison:
                 return enchantmentSprites[1];
@@ -45,8 +70,6 @@ public class EnchantmentDrop : DroppableObject
                 return enchantmentSprites[5];
             case EnchantmentType.Mark:
                 return enchantmentSprites[6];
-            case EnchantmentType.Speed:
-                return enchantmentSprites[7];
             default:
                 return null;
         }

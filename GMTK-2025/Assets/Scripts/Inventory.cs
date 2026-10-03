@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
     private AudioManager audioManager;
     public Image[] inventorySlots = new Image[8]; // UI slots for spells
     public Spell[] spellArray = new Spell[8]; // Holds Spell Prefabs
+    public EnchantmentDrop.EnchantmentType[] enchantmentArray = new EnchantmentDrop.EnchantmentType[8]; // Holds current enchants on spells
     [SerializeField] private float maxTimeBetweenSpells;
     [SerializeField] private Sprite emptySlotSprite; // Sprite for empty inventory slots
     public Spell chosenSpell;
@@ -56,7 +57,9 @@ public class Inventory : MonoBehaviour
         }
         if (spellArray[currentSpellIndex] != null)
         {
-            Instantiate(spellArray[currentSpellIndex], player.reticle.position, Quaternion.Euler(0f, 180f, 0f));
+            Spell spell = Instantiate(spellArray[currentSpellIndex], player.reticle.position, Quaternion.Euler(0f, 180f, 0f));
+
+            Debug.Log($"Casting spell: {spell.name} at index {currentSpellIndex} with enchantment: {enchantmentArray[currentSpellIndex]}");
 
             // Play sound effect based on spell name
             if (audioManager != null)

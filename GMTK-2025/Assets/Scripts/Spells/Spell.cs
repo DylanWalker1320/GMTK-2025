@@ -151,4 +151,6 @@ public abstract class Spell : MonoBehaviour
 
         return damage;
     }
+
+    //abstract protected void ApplyEnchantment(EnchantmentDrop.EnchantmentType enchantmentType);
 }
