@@ -44,7 +44,7 @@ public class PoisonBall : Spell
         }
         else if (collisionObject.CompareTag("Obstacles") || collisionObject.CompareTag("Walls"))
         {
-            Destroy(gameObject); // Destroy the poison ball after dealing damage
+            DestroyObjectOnCollision();
         }
     }
 

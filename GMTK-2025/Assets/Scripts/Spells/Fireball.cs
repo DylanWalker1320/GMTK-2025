@@ -25,7 +25,7 @@ public class Fireball : Spell
         }
         else if (collisionObject.CompareTag("Obstacles") || collisionObject.CompareTag("Walls"))
         {
-            Destroy(gameObject);
+            DestroyObjectOnCollision();
         }
     }
 

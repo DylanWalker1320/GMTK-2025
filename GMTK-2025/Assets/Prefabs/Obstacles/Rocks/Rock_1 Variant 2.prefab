@@ -83,8 +83,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.023930669, y: -0.030398784}
-  m_Size: {x: 0.7819124, y: 1.498884}
+  m_Offset: {x: -0.0057267444, y: -0.027787821}
+  m_Size: {x: 0.7356117, y: 1.4936638}
   m_Direction: 0
 --- !u!1001 &6688460149840426715
 PrefabInstance:
@@ -120,11 +120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1588345562700510080, guid: eda578c1c7f27574ab22223d104feb14, type: 3}
       propertyPath: m_Name
-      value: Rock_1 Variant
+      value: Rock_1 Variant 2
       objectReference: {fileID: 0}
     - target: {fileID: 5532118097226740190, guid: eda578c1c7f27574ab22223d104feb14, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.7
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5532118097226740190, guid: eda578c1c7f27574ab22223d104feb14, type: 3}
       propertyPath: m_LocalScale.y

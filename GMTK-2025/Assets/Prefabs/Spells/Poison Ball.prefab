@@ -82,6 +82,7 @@ MonoBehaviour:
   spell: 9
   spellType1: 1
   spellType2: 3
+  hitParticles: {fileID: 5302599508581642603, guid: ef96be948f0ce4e67b0d779fc9754e26, type: 3}
   markupColor: '#00ff00ff'
   damageColor: {r: 0.44482026, g: 0.9622642, b: 0.013616921, a: 1}
   spellSprite: {fileID: -5081948396951197221, guid: 135947a3449cad3419cbbcc3f4ff72e5, type: 3}

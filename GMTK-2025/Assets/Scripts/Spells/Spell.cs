@@ -65,6 +65,7 @@ public abstract class Spell : MonoBehaviour
     public Spells spell;
     public SpellType spellType1;
     public SpellType spellType2;
+    public ParticleSystem hitParticles;
     public string markupColor;
     public Color damageColor;
     [SerializeField] public Sprite spellSprite; // Sprite for the spell
@@ -78,6 +79,14 @@ public abstract class Spell : MonoBehaviour
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0; // Ensure the mouse position is on the same plane as the spell
+    }
+
+    public void DestroyObjectOnCollision() // can be reused in the future for trigger on enemy collision
+    {
+        var hitEffect = hitParticles.main;
+        hitEffect.startColor = damageColor; // Set the particle system's start color to the
+        Instantiate(hitParticles, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     public void SetDamage(float newDamage)
